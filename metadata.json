@@ -1,0 +1,6 @@
+{
+  "name": "EDU-CONGO",
+  "description": "Solution complète de gestion d'établissements scolaires (Maternelle, Primaire, Collège, Lycée, Formation Pro) en République du Congo. Contacts officiels : WhatsApp +242 06 895 83 77 | Appel +242 06 169 35 98 | steph.alongo@gmail.com",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
