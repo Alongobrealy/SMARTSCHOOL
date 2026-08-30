@@ -44,7 +44,6 @@ export const CommercialFlyer: React.FC<CommercialFlyerProps> = ({
       title: '1. Frais Scolaires & Caisse FCFA',
       desc: 'Encaissement en FCFA avec reçus instantanés certifiés, paiements Mobile Money (MTN MoMo & Airtel Money Congo), relevés d’impayés et alertes SMS / WhatsApp directes.',
       icon: CreditCard,
-      color: 'bg-emerald-600',
       highlight: 'Conforme République du Congo (FCFA)',
       actionTab: 'frais'
     },
@@ -53,7 +52,6 @@ export const CommercialFlyer: React.FC<CommercialFlyerProps> = ({
       title: '2. Notes & Bulletins Automatisés',
       desc: 'Calcul automatique des moyennes pondérées par coefficients selon le barème officiel congolais (MEPPSA), classements, mentions et export imprimable.',
       icon: FileText,
-      color: 'bg-blue-600',
       highlight: 'Barème Officiel 0 à 20',
       actionTab: 'notes'
     },
@@ -62,7 +60,6 @@ export const CommercialFlyer: React.FC<CommercialFlyerProps> = ({
       title: '3. Présence & Appel en Direct',
       desc: 'Pointage rapide en classe (Présent, Absent justifié/non-justifié, Retard) avec notification immédiate des tuteurs par WhatsApp ou SMS.',
       icon: UserCheck,
-      color: 'bg-indigo-600',
       highlight: 'Alerte Parents Instantanée',
       actionTab: 'presence'
     },
@@ -71,7 +68,6 @@ export const CommercialFlyer: React.FC<CommercialFlyerProps> = ({
       title: '4. Comptabilité & Trésorerie',
       desc: 'Livre journal des recettes et dépenses, gestion de la caisse centrale, bilans financiers mensuels/annuels et conformité administrative.',
       icon: Calculator,
-      color: 'bg-amber-600',
       highlight: 'Clôture & Bilan Annuel',
       actionTab: 'comptabilite'
     },
@@ -80,7 +76,6 @@ export const CommercialFlyer: React.FC<CommercialFlyerProps> = ({
       title: '5. Personnel & Ressources Humaines',
       desc: 'Fiches détaillées des enseignants et agents administratifs, suivi des vacations, badges d’accès plastifiés avec QR Code et bulletins de rémunération.',
       icon: Briefcase,
-      color: 'bg-purple-600',
       highlight: 'Badges & Paie CNSS',
       actionTab: 'rh'
     },
@@ -89,7 +84,6 @@ export const CommercialFlyer: React.FC<CommercialFlyerProps> = ({
       title: '6. Cycles, Niveaux & Classes',
       desc: 'Configuration sur mesure : Maternelle, Primaire, Collège, Lycée et Formation Professionnelle. Gestion des divisions, salles et plannings.',
       icon: Calendar,
-      color: 'bg-rose-600',
       highlight: 'Maternelle, Primaire, Collège, Lycée, Pro',
       actionTab: 'classes'
     },
@@ -98,49 +92,20 @@ export const CommercialFlyer: React.FC<CommercialFlyerProps> = ({
       title: '7. Portail Web & Proclamations',
       desc: 'Site officiel sécurisé pour l’établissement avec tableau d’affichage public, communiqués de la direction et publication des résultats.',
       icon: Globe,
-      color: 'bg-cyan-600',
-      highlight: 'Vitrine Web Intégrée',
+      highlight: 'Communication 100% Intégrée',
       actionTab: 'public'
-    },
-    {
-      id: 'dashboard',
-      title: '8. Tableau de Bord Décisionnel',
-      desc: 'Graphiques analytiques en temps réel : taux de réussite par classe, état d’encaissement global, effectifs et indicateurs de performance clés.',
-      icon: PieChart,
-      color: 'bg-teal-600',
-      highlight: 'Supervision Globale',
-      actionTab: 'dashboard'
-    },
+    }
   ];
 
-  const subscriptionPlans = [
-    {
-      id: 'mensuel',
-      title: 'Mensuel (Sans engagement)',
-      duration: '1 Mois',
-      price: '25 000',
-      unit: 'FCFA/mois',
-      subtext: 'Facturation mensuelle sans engagement',
-      billing: '25 000 FCFA / mois',
-      discountBadge: null,
-      popular: false,
-      desc: 'Idéal pour tester toutes les fonctionnalités sur une période courte sans engagement à long terme.',
-      features: [
-        'Tous les modules débloqués sans restriction',
-        'Multi-utilisateurs (Direction, Secrétariat, Caisse)',
-        'Cartes scolaires & Badges d\'accès illimités',
-        'Mises à jour gratuites incluses',
-        'Support technique WhatsApp & Appel',
-      ]
-    },
+  const plans = [
     {
       id: 'trimestriel',
-      title: 'Trimestriel (1er Trimestre)',
+      title: 'Trimestriel (3 Mois)',
       duration: '3 Mois',
       price: '22 500',
       unit: 'FCFA/mois',
       subtext: '67 500 FCFA / trimestre (-10%)',
-      billing: 'Facturé 67 500 FCFA tous les 3 mois (au lieu de 75 000 FCFA)',
+      billing: 'Facturé 67 500 FCFA par trimestre (au lieu de 75 000 FCFA)',
       discountBadge: '-10% de Réduction',
       popular: false,
       desc: 'Parfaitement calqué sur le calendrier trimestriel des écoles congolaises.',
@@ -191,24 +156,20 @@ export const CommercialFlyer: React.FC<CommercialFlyerProps> = ({
   ];
 
   return (
-    <div className="min-h-screen bg-[#F1F5F9] dark:bg-[#0B1120] text-slate-800 dark:text-slate-100 flex flex-col selection:bg-indigo-600 selection:text-white transition-colors duration-200">
+    <div className="min-h-screen bg-[#F0F2F5] text-[#050505] flex flex-col selection:bg-[#1877F2] selection:text-white">
       
-      {/* Top Bar Announcement & Official Navigation Header - RESPONSIVE & BIEN ALIGNÉ */}
-      <header className="sticky top-0 z-50 bg-indigo-950/95 dark:bg-[#070D19]/95 backdrop-blur-md text-white px-4 sm:px-6 lg:px-8 py-3 text-xs font-medium border-b border-indigo-900/80 dark:border-slate-800 shadow-md transition-colors duration-200">
+      {/* Top Bar Navigation Header */}
+      <header className="sticky top-0 z-50 bg-white border-b border-[#E4E6EB] px-4 sm:px-6 lg:px-8 py-3 text-xs font-medium shadow-sm">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-3 lg:gap-6 text-center lg:text-left">
           
           {/* Logo & Platform Name */}
           <div className="flex items-center justify-center gap-3">
-            <div className="w-8 h-8 bg-gradient-to-br from-indigo-500 to-indigo-700 rounded-xl flex items-center justify-center font-black text-white text-sm shadow-md shrink-0 border border-indigo-400/30">
+            <div className="w-8 h-8 bg-[#1877F2] rounded-lg flex items-center justify-center font-black text-white text-sm shrink-0">
               EC
             </div>
             <div className="flex items-center gap-2">
-              <span className="flex h-2.5 w-2.5 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-              </span>
-              <span className="font-extrabold tracking-tight text-base sm:text-lg text-white">EDU-CONGO</span>
-              <span className="text-indigo-200 dark:text-slate-300 text-xs hidden sm:inline">
+              <span className="font-extrabold tracking-tight text-base sm:text-lg text-[#050505]">EDU-CONGO</span>
+              <span className="text-[#65676B] text-xs hidden sm:inline">
                 • Système de Gestion Scolaire (Congo-Brazzaville)
               </span>
             </div>
@@ -220,49 +181,38 @@ export const CommercialFlyer: React.FC<CommercialFlyerProps> = ({
               href="https://wa.me/242068958377" 
               target="_blank" 
               rel="noreferrer"
-              className="flex items-center justify-center gap-1.5 text-emerald-300 hover:text-white font-bold bg-emerald-950/50 hover:bg-emerald-900/60 border border-emerald-700/60 px-3 py-1.5 rounded-full text-xs transition-all"
-              title="Assistance WhatsApp 24/7"
+              className="flex items-center justify-center gap-1.5 text-[#65676B] hover:text-[#1877F2] font-bold bg-[#F0F2F5] hover:bg-[#E7F3FF] px-3 py-1.5 rounded-lg text-xs transition-colors"
             >
-              <MessageCircle className="w-3.5 h-3.5 fill-current" />
+              <MessageCircle className="w-3.5 h-3.5" />
               <span>WhatsApp : +242 06 895 83 77</span>
             </a>
-
             <a 
               href="tel:+242061693598" 
-              className="flex items-center justify-center gap-1.5 text-indigo-200 hover:text-white bg-indigo-900/50 hover:bg-indigo-800/60 border border-indigo-700/50 px-3 py-1.5 rounded-full text-xs transition-all"
-              title="Appel Téléphonique Direct"
+              className="flex items-center justify-center gap-1.5 text-[#65676B] hover:text-[#1877F2] bg-[#F0F2F5] hover:bg-[#E7F3FF] px-3 py-1.5 rounded-lg text-xs transition-colors"
             >
-              <Phone className="w-3.5 h-3.5 text-amber-400" />
+              <Phone className="w-3.5 h-3.5" />
               <span>Appel : +242 06 169 35 98</span>
             </a>
-
-            <ThemeToggle variant="pill" showLabel={false} />
-
+            
             {/* PWA Install Button */}
             <PwaInstallPrompt compact={true} />
-
+            
             {/* Network Status Pill */}
             <NetworkStatusBanner variant="pill" />
-
-            {/* Bouton Inscription dans la barre supérieure */}
+            
+            {/* Boutons d'action */}
             <button
-              id="btn-topbar-open-signup"
               onClick={onOpenQuote}
-              className="flex items-center justify-center gap-1.5 text-white bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 px-4 py-1.5 rounded-xl border border-emerald-400/50 transition-all cursor-pointer shadow-md font-bold text-xs hover:scale-105 active:scale-95"
-              title="Inscrire mon établissement (Essai 14 jours gratuit ou Formule officielle)"
+              className="flex items-center justify-center gap-1.5 text-[#050505] bg-[#F0F2F5] hover:bg-[#E4E6EB] px-4 py-1.5 rounded-lg transition-colors font-bold text-xs"
             >
-              <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+              <Sparkles className="w-3.5 h-3.5 text-[#1877F2]" />
               <span>Inscription</span>
             </button>
-
-            {/* Bouton Connexion Sécurisée */}
             <button
-              id="btn-topbar-open-login"
               onClick={onOpenLogin}
-              className="flex items-center justify-center gap-1.5 text-white bg-indigo-600 hover:bg-indigo-500 px-4 py-1.5 rounded-xl border border-indigo-400/40 transition-all cursor-pointer shadow-md font-bold text-xs hover:scale-105 active:scale-95"
-              title="Accéder à l'espace de connexion authentifié"
+              className="flex items-center justify-center gap-1.5 text-white bg-[#1877F2] hover:bg-[#166FE5] px-4 py-1.5 rounded-lg transition-colors font-bold text-xs shadow-sm"
             >
-              <Lock className="w-3.5 h-3.5 text-amber-300" />
+              <Lock className="w-3.5 h-3.5" />
               <span>Espace Connexion</span>
             </button>
           </div>
@@ -275,114 +225,96 @@ export const CommercialFlyer: React.FC<CommercialFlyerProps> = ({
       {/* Main Visual Poster Container */}
       <div className="max-w-6xl w-full mx-auto p-4 sm:p-6 lg:p-8 flex-1 flex flex-col gap-10">
         
-        {/* HERO SECTION - PARFAITEMENT CENTRÉ ET RESPONSIVE */}
-        <div className="relative rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 p-6 sm:p-10 lg:p-12 shadow-sm overflow-hidden transition-colors duration-200 text-center">
-          
-          {/* Ambient Glows */}
-          <div className="absolute -top-24 -left-24 w-96 h-96 bg-indigo-100/60 dark:bg-indigo-950/30 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute top-1/2 -right-24 w-96 h-96 bg-blue-100/60 dark:bg-blue-950/30 rounded-full blur-3xl pointer-events-none" />
-
-          {/* Header & Main Catchphrase */}
+        {/* HERO SECTION */}
+        <div className="relative rounded-lg bg-white border border-[#E4E6EB] p-6 sm:p-10 lg:p-12 shadow-sm text-center py-16 sm:py-20">
           <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center text-center gap-5">
             
             {/* Badges Centrés */}
             <div className="flex flex-wrap items-center justify-center gap-2">
-              <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300 font-bold text-xs">
-                <ShieldCheck className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
+              <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-lg bg-[#E7F3FF] border border-[#1877F2]/20 text-[#1877F2] font-bold text-xs">
+                <ShieldCheck className="w-3.5 h-3.5" />
                 Conforme Normes MEPPSA (République du Congo)
               </span>
-
-              <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300 font-bold text-xs">
-                <Sparkles className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+              <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-lg bg-[#E7F3FF] border border-[#1877F2]/20 text-[#1877F2] font-bold text-xs">
+                <Sparkles className="w-3.5 h-3.5" />
                 Maternelle • Primaire • Collège • Lycée • Formation Professionnelle
               </span>
             </div>
 
-            {/* Titre & Slogan */}
-            <div className="w-full space-y-2">
-              <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-900 dark:text-white leading-tight text-balance">
-                LOGICIEL DE GESTION SCOLAIRE INTÉGRÉ
-              </h1>
-              <p className="text-base sm:text-xl font-extrabold text-indigo-600 dark:text-indigo-400 text-balance">
-                EDU-CONGO : Le standard d’excellence numérique pour les établissements scolaires
-              </p>
-            </div>
-
-            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl mx-auto text-balance">
-              Une plateforme moderne et sécurisée, livrée prête à être configurée par les administrateurs de chaque établissement scolaire. 
-              Gérez en toute sérénité les <strong className="text-slate-900 dark:text-white">Inscriptions & Cartes scolaires plastifiées</strong>, 
-              les <strong className="text-slate-900 dark:text-white">Frais de scolarité en FCFA (MTN MoMo & Airtel Money)</strong>, 
-              les <strong className="text-slate-900 dark:text-white">Bulletins officiels & Certificats</strong>, 
-              et les <strong className="text-slate-900 dark:text-white">Badges d'accès du personnel</strong>.
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#050505] tracking-tight leading-[1.15]">
+              Gérez votre établissement scolaire de manière centralisée et sécurisée.
+            </h1>
+            
+            <p className="text-sm sm:text-base text-[#65676B] font-medium max-w-2xl mx-auto leading-relaxed">
+              EDU-CONGO est la plateforme logicielle complète conçue pour digitaliser le système éducatif au Congo. Inscriptions, caisse en FCFA, notes, bulletins et communication instantanée avec les parents.
             </p>
 
-            {/* CTA Buttons in Hero */}
-            <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full sm:w-auto mt-4">
+              <button
+                onClick={() => onLaunchDemo('direction')}
+                className="w-full sm:w-auto bg-[#1877F2] hover:bg-[#166FE5] text-white font-bold px-6 py-3 rounded-lg flex items-center justify-center gap-2 shadow-sm transition-colors text-sm"
+              >
+                <Building2 className="w-4 h-4" />
+                <span>Tester la plateforme (Démo Directeur)</span>
+              </button>
               <button
                 onClick={onOpenQuote}
-                className="px-6 py-3 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-extrabold text-sm rounded-xl shadow-md hover:scale-105 active:scale-95 transition-all flex items-center gap-2 cursor-pointer"
+                className="w-full sm:w-auto bg-[#F0F2F5] hover:bg-[#E4E6EB] text-[#050505] font-bold px-6 py-3 rounded-lg flex items-center justify-center gap-2 border border-[#E4E6EB] transition-colors text-sm"
               >
-                <Sparkles className="w-4 h-4 text-amber-300" />
-                <span>Inscrire mon Établissement (14 Jours d'Essai Gratuit)</span>
-              </button>
-
-              <button
-                onClick={onOpenLogin}
-                className="px-6 py-3 bg-slate-900 dark:bg-slate-800 hover:bg-slate-800 dark:hover:bg-slate-700 text-white font-bold text-sm rounded-xl shadow-sm hover:scale-105 active:scale-95 transition-all flex items-center gap-2 border border-slate-700 cursor-pointer"
-              >
-                <Lock className="w-4 h-4 text-indigo-400" />
-                <span>Se Connecter à mon Espace</span>
+                <MessageCircle className="w-4 h-4 text-[#1877F2]" />
+                <span>Demander un devis WhatsApp</span>
               </button>
             </div>
+            
+            <p className="text-[11px] text-[#65676B] font-bold mt-2">
+              ✓ 100% Fonctionnel hors-ligne (sans connexion internet active)
+            </p>
           </div>
         </div>
 
-        {/* 8 MODULES SHOWCASE */}
-        <div className="flex flex-col gap-6">
-          <div className="text-center max-w-2xl mx-auto space-y-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 block">Architecture Complète</span>
-            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
-              LES 8 MODULES INTÉGRÉS DANS EDU-CONGO
+        {/* 7 FEATURES GRID */}
+        <div className="py-16">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl font-black text-[#050505]">
+              Les 7 modules essentiels inclus
             </h2>
-            <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
-              Conçus spécialement pour répondre aux exigences pédagogiques et financières en République du Congo
+            <p className="text-sm text-[#65676B] mt-2 max-w-xl mx-auto">
+              Tout ce dont vous avez besoin pour moderniser la gestion de votre complexe scolaire, sans frais cachés.
             </p>
           </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {features.map((feat) => {
               const Icon = feat.icon;
               return (
-                <div
+                <div 
                   key={feat.id}
-                  onClick={onOpenLogin}
-                  className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-indigo-400 dark:hover:border-indigo-500 p-5 rounded-2xl shadow-sm hover:shadow-md transition-all cursor-pointer flex flex-col justify-between gap-4 group text-left"
+                  className="bg-white rounded-lg p-5 border border-[#E4E6EB] shadow-sm flex flex-col gap-3 group"
                 >
-                  <div className="flex flex-col gap-3">
-                    <div className="flex items-center justify-between">
-                      <div className={`w-10 h-10 rounded-xl ${feat.color} flex items-center justify-center text-white shadow-sm`}>
-                        <Icon className="w-5 h-5" />
-                      </div>
-                      <span className="text-[10px] font-bold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/60 px-2 py-0.5 rounded-md border border-indigo-100 dark:border-indigo-800/60">
-                        {feat.highlight}
-                      </span>
+                  <div className="flex items-start justify-between">
+                    <div className="w-10 h-10 rounded-full bg-[#E7F3FF] flex items-center justify-center shrink-0">
+                      <Icon className="w-5 h-5 text-[#1877F2]" />
                     </div>
-
-                    <h3 className="font-bold text-slate-900 dark:text-white text-sm group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-[#050505] text-sm group-hover:text-[#1877F2] transition-colors">
                       {feat.title}
                     </h3>
-
-                    <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                    <p className="text-xs text-[#65676B] mt-1.5 leading-relaxed">
                       {feat.desc}
                     </p>
                   </div>
-
-                  <div className="pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold text-indigo-600 dark:text-indigo-400">
-                    <span className="flex items-center gap-1">
-                      <Lock className="w-3 h-3 text-slate-400" />
-                      Connexion requise
+                  <div className="mt-auto pt-4 flex items-center justify-between">
+                    <span className="text-[10px] font-bold text-[#1877F2] bg-[#E7F3FF] px-2 py-0.5 rounded-lg">
+                      {feat.highlight}
                     </span>
-                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                    <button
+                      onClick={() => onLaunchDemo('direction', feat.actionTab)}
+                      className="text-[#65676B] hover:text-[#1877F2] transition-colors"
+                      title="Ouvrir ce module"
+                    >
+                      <ArrowRight className="w-4 h-4" />
+                    </button>
                   </div>
                 </div>
               );
@@ -390,85 +322,86 @@ export const CommercialFlyer: React.FC<CommercialFlyerProps> = ({
           </div>
         </div>
 
-        {/* TESTIMONIALS SOCIAL PROOF CAROUSEL */}
-        <TestimonialsCarousel />
+        {/* TESTIMONIALS CAROUSEL */}
+        <div className="py-16">
+          <TestimonialsCarousel />
+        </div>
 
-        {/* SUBSCRIPTION PLANS SECTION */}
-        <div className="flex flex-col gap-6">
-          <div className="text-center max-w-2xl mx-auto space-y-2">
-            <span className="text-xs font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">Tarification Transparente en FCFA</span>
-            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
-              FORMULES D'ABONNEMENT EDU-CONGO
+        {/* ABONNEMENTS */}
+        <div className="py-16">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl font-black text-[#050505]">
+              Des tarifs adaptés à votre rythme scolaire
             </h2>
-            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-              Choisissez votre formule. Le lien officiel de confirmation arrive directement sur le WhatsApp d'EDU-CONGO (+242 06 895 83 77) pour une mise en service rapide.
+            <p className="text-sm text-[#65676B] mt-2 max-w-xl mx-auto">
+              Optez pour la formule qui correspond au calendrier de votre établissement. Les abonnements annuels offrent le meilleur rapport qualité-prix.
             </p>
           </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {subscriptionPlans.map((plan) => (
-              <div
+          
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+            {plans.map((plan) => (
+              <div 
                 key={plan.id}
-                className={`relative rounded-3xl p-5 flex flex-col justify-between gap-5 transition-all text-center sm:text-left ${
-                  plan.popular
-                    ? 'bg-gradient-to-b from-indigo-900 via-indigo-950 to-slate-900 text-white shadow-xl ring-2 ring-indigo-500 scale-[1.01]'
-                    : 'bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 text-slate-800 dark:text-slate-200 shadow-sm'
+                className={`relative bg-white rounded-lg p-6 flex flex-col gap-5 border transition-all ${
+                  plan.popular 
+                    ? 'border-[#1877F2] shadow-sm scale-100 lg:scale-105 z-10' 
+                    : 'border-[#E4E6EB] shadow-sm'
                 }`}
               >
                 {plan.discountBadge && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-emerald-500 text-white text-[10px] font-black px-3 py-1 rounded-full shadow-md whitespace-nowrap">
+                  <span className={`absolute -top-3 left-1/2 -translate-x-1/2 text-white text-[10px] font-black px-3 py-1 rounded-lg shadow-sm whitespace-nowrap ${
+                    plan.popular ? 'bg-[#1877F2]' : 'bg-[#65676B]'
+                  }`}>
                     {plan.discountBadge}
                   </span>
                 )}
-
+                
                 <div className="flex flex-col gap-3">
                   <div>
-                    <h3 className={`font-bold text-base ${plan.popular ? 'text-white' : 'text-slate-900 dark:text-white'}`}>
+                    <h3 className="font-bold text-base text-[#050505]">
                       {plan.title}
                     </h3>
-                    <p className={`text-xs mt-1 leading-relaxed ${plan.popular ? 'text-indigo-200' : 'text-slate-500 dark:text-slate-400'}`}>
+                    <p className="text-xs mt-1 leading-relaxed text-[#65676B]">
                       {plan.desc}
                     </p>
                   </div>
-
-                  <div className="border-y py-3 my-1 border-slate-100/20 dark:border-slate-800">
+                  
+                  <div className="border-y py-3 my-1 border-[#E4E6EB]">
                     <div className="flex items-baseline justify-center sm:justify-start gap-1">
-                      <span className={`text-2xl font-black ${plan.popular ? 'text-white' : 'text-slate-900 dark:text-white'}`}>
+                      <span className="text-2xl font-black text-[#050505]">
                         {plan.price}
                       </span>
-                      <span className={`text-xs font-bold ${plan.popular ? 'text-indigo-200' : 'text-slate-600 dark:text-slate-400'}`}>
+                      <span className="text-xs font-bold text-[#65676B]">
                         {plan.unit}
                       </span>
                     </div>
-                    <span className={`text-[11px] block mt-0.5 ${plan.popular ? 'text-indigo-300' : 'text-slate-500 dark:text-slate-400'}`}>
+                    <span className="text-[11px] block mt-0.5 text-[#65676B]">
                       {plan.billing}
                     </span>
                   </div>
-
+                  
                   <div className="space-y-2 text-left">
-                    <span className={`text-[10px] font-extrabold uppercase tracking-wider block ${
-                      plan.popular ? 'text-indigo-300' : 'text-slate-400'
-                    }`}>
+                    <span className="text-[10px] font-extrabold uppercase tracking-wider block text-[#65676B]">
                       Inclus :
                     </span>
                     {plan.features.map((feat, idx) => (
                       <div key={idx} className="flex items-start gap-2 text-xs">
-                        <CheckCircle2 className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${plan.popular ? 'text-emerald-400' : 'text-emerald-600 dark:text-emerald-400'}`} />
-                        <span className={plan.popular ? 'text-slate-200' : 'text-slate-700 dark:text-slate-300'}>{feat}</span>
+                        <CheckCircle2 className="w-3.5 h-3.5 shrink-0 mt-0.5 text-[#1877F2]" />
+                        <span className="text-[#050505]">{feat}</span>
                       </div>
                     ))}
                   </div>
                 </div>
-
+                
                 <button
                   onClick={onOpenQuote}
-                  className={`w-full py-2.5 px-4 rounded-xl text-xs font-extrabold flex items-center justify-center gap-2 shadow-sm transition-all cursor-pointer ${
+                  className={`w-full py-2.5 px-4 rounded-lg text-xs font-bold flex items-center justify-center gap-2 transition-colors cursor-pointer ${
                     plan.popular
-                      ? 'bg-emerald-500 hover:bg-emerald-600 text-white shadow-emerald-900/40'
-                      : 'bg-indigo-50 dark:bg-indigo-950/60 hover:bg-indigo-100 dark:hover:bg-indigo-900/80 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800'
+                      ? 'bg-[#1877F2] hover:bg-[#166FE5] text-white shadow-sm'
+                      : 'bg-[#F0F2F5] hover:bg-[#E4E6EB] text-[#050505] border border-[#E4E6EB]'
                   }`}
                 >
-                  <MessageCircle className="w-3.5 h-3.5 fill-current" />
+                  <MessageCircle className="w-3.5 h-3.5" />
                   <span>Choisir cette Formule</span>
                 </button>
               </div>
@@ -476,90 +409,80 @@ export const CommercialFlyer: React.FC<CommercialFlyerProps> = ({
           </div>
         </div>
 
-        {/* OFFICIAL CONTACT & GUARANTEES - CENTRÉ SUR MOBILE */}
-        <div className="rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 p-5 sm:p-8 flex flex-col md:flex-row items-center text-center md:text-left justify-center md:justify-between gap-6 shadow-sm transition-colors duration-200">
+        {/* OFFICIAL CONTACT & GUARANTEES */}
+        <div className="rounded-lg bg-[#1877F2] p-5 sm:p-8 flex flex-col md:flex-row items-center text-center md:text-left justify-center md:justify-between gap-6 shadow-sm mb-10">
           <div className="flex flex-col sm:flex-row items-center gap-4">
-            <div className="w-14 h-14 rounded-2xl bg-indigo-600 text-white flex items-center justify-center font-black text-2xl shrink-0 shadow-md">
+            <div className="w-14 h-14 rounded-lg bg-white text-[#1877F2] flex items-center justify-center font-black text-2xl shrink-0 shadow-sm">
               EC
             </div>
             <div>
-              <h3 className="font-extrabold text-slate-900 dark:text-white text-base sm:text-lg">
-                ÉQUIPE COMMERCIALE & SUPPORT TECHNIQUE EDU-CONGO
+              <h3 className="font-extrabold text-white text-base sm:text-lg">
+                ÉQUIPE COMMERCIALE & SUPPORT TECHNIQUE
               </h3>
-              <p className="text-xs text-slate-600 dark:text-slate-300 mt-0.5">
+              <p className="text-xs text-[#E7F3FF] mt-0.5">
                 Service client réactif basé en République du Congo (Brazzaville & Pointe-Noire).
               </p>
             </div>
           </div>
-
           <div className="flex flex-wrap items-center justify-center gap-3 w-full md:w-auto">
-            <a
-              href="https://wa.me/242068958377"
-              target="_blank"
+            <a 
+              href="https://wa.me/242068958377" 
+              target="_blank" 
               rel="noreferrer"
-              className="w-full sm:w-auto px-4 py-2.5 bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-bold rounded-xl flex items-center justify-center gap-2 shadow-sm transition-all"
+              className="w-full sm:w-auto px-4 py-2.5 bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-bold rounded-lg flex items-center justify-center gap-2 shadow-sm transition-colors"
             >
               <MessageCircle className="w-4 h-4 fill-current" />
               WhatsApp : +242 06 895 83 77
             </a>
-
-            <a
-              href="tel:+242061693598"
-              className="w-full sm:w-auto px-4 py-2.5 bg-slate-900 dark:bg-slate-800 hover:bg-slate-800 dark:hover:bg-slate-700 text-white text-xs font-bold rounded-xl flex items-center justify-center gap-2 shadow-sm transition-all border border-transparent dark:border-slate-700"
+            <a 
+              href="tel:+242061693598" 
+              className="w-full sm:w-auto px-4 py-2.5 bg-[#166FE5] hover:bg-[#0c59c2] text-white text-xs font-bold rounded-lg flex items-center justify-center gap-2 transition-colors border border-[#E7F3FF]/30"
             >
               <Phone className="w-4 h-4" />
               Appel : +242 06 169 35 98
             </a>
-
-            <a
-              href="mailto:steph.alongo@gmail.com"
-              className="w-full sm:w-auto px-4 py-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-bold rounded-xl flex items-center justify-center gap-2 border border-slate-300 dark:border-slate-700 transition-all"
-            >
-              <Mail className="w-4 h-4" />
-              steph.alongo@gmail.com
-            </a>
           </div>
         </div>
-
       </div>
 
       {/* STICKY BOTTOM BAR */}
-      <div className="sticky bottom-0 z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-lg border-t border-slate-200 dark:border-slate-800 px-4 py-3 shadow-lg transition-colors duration-200">
+      <div className="sticky bottom-0 z-40 bg-white border-t border-[#E4E6EB] px-4 py-3 shadow-sm">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+          
           <div className="flex items-center justify-center sm:justify-start gap-3">
-            <div className="w-10 h-10 rounded-full bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 flex items-center justify-center shrink-0 hidden sm:flex">
-              <MessageCircle className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+            <div className="w-10 h-10 rounded-full bg-[#E7F3FF] flex items-center justify-center shrink-0 hidden sm:flex">
+              <MessageCircle className="w-5 h-5 text-[#1877F2]" />
             </div>
             <div>
-              <p className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white">
+              <p className="text-xs sm:text-sm font-bold text-[#050505]">
                 Prêt à digitaliser votre établissement avec EDU-CONGO ?
               </p>
-              <p className="text-[11px] text-slate-500 dark:text-slate-400 hidden sm:block">
+              <p className="text-[11px] text-[#65676B] hidden sm:block">
                 Demandez votre plan d'abonnement et recevez votre lien de confirmation WhatsApp direct.
               </p>
             </div>
           </div>
-
+          
           <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5 w-full sm:w-auto">
             <button
               onClick={() => (onOpenLogin ? onOpenLogin() : onLaunchDemo('direction'))}
-              className="w-full sm:w-auto bg-slate-900 dark:bg-slate-800 hover:bg-slate-800 dark:hover:bg-slate-700 text-white font-bold px-4 py-2.5 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-1.5 transition-all cursor-pointer border border-transparent dark:border-slate-700"
+              className="w-full sm:w-auto bg-[#F0F2F5] hover:bg-[#E4E6EB] text-[#050505] font-bold px-4 py-2.5 rounded-lg text-xs sm:text-sm flex items-center justify-center gap-1.5 transition-colors border border-[#E4E6EB]"
             >
-              <Building2 className="w-4 h-4 text-indigo-400" />
-              Espace Connexion & Paramétrage
+              <Building2 className="w-4 h-4 text-[#1877F2]" />
+              Espace Connexion
             </button>
-
             <button
               onClick={onOpenQuote}
-              className="w-full sm:w-auto bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold px-5 py-2.5 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-md hover:scale-105 active:scale-95 cursor-pointer"
+              className="w-full sm:w-auto bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold px-5 py-2.5 rounded-lg text-xs sm:text-sm flex items-center justify-center gap-2 transition-colors shadow-sm"
             >
               <MessageCircle className="w-5 h-5 fill-current" />
               <span>Souscrire sur WhatsApp (+242 06 895 83 77)</span>
             </button>
           </div>
+          
         </div>
       </div>
-
+      
     </div>
   );
 };
