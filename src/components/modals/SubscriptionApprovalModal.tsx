@@ -54,6 +54,7 @@ export const SubscriptionApprovalModal: React.FC<SubscriptionApprovalModalProps>
   const [copiedCredentialsMessage, setCopiedCredentialsMessage] = useState<boolean>(false);
   const [credentialsWhatsAppUrl, setCredentialsWhatsAppUrl] = useState<string>('');
   const [credentialsWhatsAppMessage, setCredentialsWhatsAppMessage] = useState<string>('');
+  const [adminPin, setAdminPin] = useState<string>('');
 
   const currentActiveData = approvedState || request;
   const subdomainLink = currentActiveData.subdomainUrl || `https://${currentActiveData.subdomain || 'mon-ecole'}.educongo.ai.studio`;
@@ -443,14 +444,24 @@ WhatsApp EDU-CONGO : +242 06 895 83 77 | Email : steph.alongo@gmail.com`;
             </button>
 
             {currentActiveData.status !== 'validee' ? (
-              <button
-                onClick={handleConfirmActivation}
-                disabled={isProcessing}
-                className="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl shadow-md flex items-center gap-2 transition-all hover:scale-105 active:scale-95 cursor-pointer disabled:opacity-50 text-xs"
-              >
-                <CheckCircle2 className="w-4 h-4" />
-                {isProcessing ? 'Validation en cours...' : 'Valider et Envoyer les Accès sur WhatsApp'}
-              </button>
+              <div className="flex items-center gap-2 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl p-1 shadow-sm">
+                <input
+                  type="password"
+                  placeholder="PIN Admin"
+                  value={adminPin}
+                  onChange={(e) => setAdminPin(e.target.value)}
+                  className="w-28 bg-transparent text-slate-900 dark:text-white px-2 py-1 text-xs focus:outline-none text-center font-mono tracking-widest"
+                  maxLength={4}
+                />
+                <button
+                  onClick={handleConfirmActivation}
+                  disabled={isProcessing || adminPin !== '8377'}
+                  className="px-4 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg shadow-sm flex items-center gap-2 transition-all cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed text-xs"
+                >
+                  <CheckCircle2 className="w-4 h-4" />
+                  {isProcessing ? 'Validation...' : 'Valider'}
+                </button>
+              </div>
             ) : (
               <>
                 <button

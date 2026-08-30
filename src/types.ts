@@ -19,6 +19,7 @@ export interface SchoolConfig {
   address: string;
   postalBox: string;
   anneeScolaire: string; // e.g. "2026 - 2027"
+  subjects?: string[];
   logoUrl?: string;
   activeCycles: {
     maternelle: boolean;

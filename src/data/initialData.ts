@@ -34,6 +34,7 @@ export const DEFAULT_SCHOOL_CONFIG: SchoolConfig = {
   address: 'Avenue de la Paix, Immeuble Scolaire',
   postalBox: 'B.P. 1428 Brazzaville',
   anneeScolaire: '2026 - 2027',
+  subjects: ['Mathématiques', 'Sciences Physiques', 'Français', 'Histoire-Géographie', 'SVT', 'Philosophie', 'Anglais', 'Éducation Physique', 'Informatique'],
   activeCycles: {
     maternelle: true,
     primaire: true,

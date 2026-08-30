@@ -110,6 +110,14 @@ export const LoginPortal: React.FC<LoginPortalProps> = ({
   const [pinSetupError, setPinSetupError] = useState<string | null>(null);
   const [pinSetupSuccess, setPinSetupSuccess] = useState<boolean>(false);
 
+  // Forgot Password State
+  const [showForgotPasswordModal, setShowForgotPasswordModal] = useState<boolean>(false);
+  const [forgotPhone, setForgotPhone] = useState<string>('');
+  const [forgotStep, setForgotStep] = useState<'phone' | 'otp' | 'new_password'>('phone');
+  const [forgotOtp, setForgotOtp] = useState<string>('');
+  const [forgotNewPassword, setForgotNewPassword] = useState<string>('');
+  const [forgotError, setForgotError] = useState<string | null>(null);
+
   // Dynamic user PINs stored locally
   const [customPins, setCustomPins] = useState<Record<string, string>>(() => {
     try {
@@ -856,6 +864,16 @@ export const LoginPortal: React.FC<LoginPortalProps> = ({
                   Saisie numérique exclusive ({currentRoleConfig.pinLength} chiffres de 0 à 9).
                 </span>
               )}
+
+              <div className="flex justify-end mt-2">
+                <button
+                  type="button"
+                  onClick={() => setShowForgotPasswordModal(true)}
+                  className="text-xs text-indigo-600 dark:text-indigo-400 hover:underline font-semibold bg-transparent border-none cursor-pointer"
+                >
+                  Mot de passe oublié ?
+                </button>
+              </div>
             </div>
 
             {/* Master Key for Super Admin */}
@@ -912,6 +930,136 @@ export const LoginPortal: React.FC<LoginPortalProps> = ({
       </main>
 
       {/* PIN CREATION & SETUP MODAL */}
+      {/* FORGOT PASSWORD MODAL */}
+      {showForgotPasswordModal && (
+        <div className="fixed inset-0 z-50 bg-slate-950/70 dark:bg-slate-950/85 backdrop-blur-xs flex items-center justify-center p-4">
+          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 w-full max-w-md rounded-3xl p-6 sm:p-7 shadow-2xl animate-in zoom-in-95 transition-all">
+            <div className="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-800">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center font-bold shadow-md shadow-indigo-600/20">
+                  <Lock className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="font-display font-bold text-slate-900 dark:text-white text-base">
+                    Mot de passe oublié
+                  </h3>
+                  <span className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">
+                    Récupération par WhatsApp
+                  </span>
+                </div>
+              </div>
+              <button
+                onClick={() => setShowForgotPasswordModal(false)}
+                className="p-1.5 text-slate-400 hover:text-slate-700 dark:hover:text-white rounded-lg cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            {forgotError && (
+              <div className="mt-4 bg-rose-50 dark:bg-rose-950/60 border border-rose-200 dark:border-rose-800 rounded-xl p-3 text-rose-900 dark:text-rose-200 text-xs flex items-center gap-2">
+                <AlertTriangle className="w-4 h-4 shrink-0" />
+                <span>{forgotError}</span>
+              </div>
+            )}
+            {forgotStep === "phone" && (
+              <div className="mt-4">
+                <p className="text-xs text-slate-600 dark:text-slate-400 mb-4">
+                  Veuillez saisir le numéro de téléphone WhatsApp utilisé lors de votre inscription pour recevoir un code de réinitialisation.
+                </p>
+                <label className="text-slate-800 dark:text-slate-200 font-bold mb-1 block text-xs">
+                  Numéro WhatsApp (+242) :
+                </label>
+                <input
+                  type="text"
+                  value={forgotPhone}
+                  onChange={(e) => setForgotPhone(e.target.value)}
+                  placeholder="06 895 83 77"
+                  className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl px-3.5 py-3 text-sm font-mono focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                />
+                <button
+                  onClick={() => {
+                    if (forgotPhone.length < 8) {
+                      setForgotError("Veuillez saisir un numéro de téléphone valide.");
+                      return;
+                    }
+                    setForgotError(null);
+                    setForgotStep("otp");
+                  }}
+                  className="w-full mt-4 py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-xl text-xs shadow-md transition-all cursor-pointer"
+                >
+                  Recevoir le code par WhatsApp
+                </button>
+              </div>
+            )}
+            {forgotStep === "otp" && (
+              <div className="mt-4">
+                <p className="text-xs text-slate-600 dark:text-slate-400 mb-4">
+                  Un code à 4 chiffres a été envoyé au <span className="font-bold text-slate-900 dark:text-white">{forgotPhone}</span>. (Simulation: Saisissez 1234)
+                </p>
+                <label className="text-slate-800 dark:text-slate-200 font-bold mb-1 block text-xs">
+                  Code de vérification :
+                </label>
+                <input
+                  type="text"
+                  maxLength={4}
+                  value={forgotOtp}
+                  onChange={(e) => setForgotOtp(e.target.value.replace(/[^0-9]/g, ""))}
+                  placeholder="••••"
+                  className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl px-3.5 py-3 text-center text-xl tracking-[1em] font-mono font-bold focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                />
+                <button
+                  onClick={() => {
+                    if (forgotOtp !== "1234") {
+                      setForgotError("Code incorrect. Veuillez réessayer.");
+                      return;
+                    }
+                    setForgotError(null);
+                    setForgotStep("new_password");
+                  }}
+                  className="w-full mt-4 py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-xl text-xs shadow-md transition-all cursor-pointer"
+                >
+                  Vérifier le code
+                </button>
+              </div>
+            )}
+            {forgotStep === "new_password" && (
+              <div className="mt-4">
+                <p className="text-xs text-slate-600 dark:text-slate-400 mb-4">
+                  Veuillez saisir votre nouveau mot de passe (ou code PIN).
+                </p>
+                <label className="text-slate-800 dark:text-slate-200 font-bold mb-1 block text-xs">
+                  Nouveau mot de passe :
+                </label>
+                <input
+                  type="password"
+                  value={forgotNewPassword}
+                  onChange={(e) => setForgotNewPassword(e.target.value)}
+                  placeholder="Nouveau mot de passe"
+                  className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl px-3.5 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                />
+                <button
+                  onClick={() => {
+                    if (forgotNewPassword.length < 4) {
+                      setForgotError("Le mot de passe doit contenir au moins 4 caractères.");
+                      return;
+                    }
+                    setCustomPins(prev => ({ ...prev, [identifier || "reset"]: forgotNewPassword }));
+                    localStorage.setItem("educongo_user_pins", JSON.stringify({ ...customPins, [identifier || "reset"]: forgotNewPassword }));
+                    setShowForgotPasswordModal(false);
+                    setForgotStep("phone");
+                    setForgotOtp("");
+                    setForgotPhone("");
+                    setForgotNewPassword("");
+                  }}
+                  className="w-full mt-4 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl text-xs shadow-md transition-all cursor-pointer"
+                >
+                  Enregistrer le nouveau mot de passe
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
       {showPinSetupModal && (
         <div className="fixed inset-0 z-50 bg-slate-950/70 dark:bg-slate-950/85 backdrop-blur-xs flex items-center justify-center p-4">
           <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 w-full max-w-md rounded-3xl p-6 sm:p-7 shadow-2xl animate-in zoom-in-95 transition-all">
