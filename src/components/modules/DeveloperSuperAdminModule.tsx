@@ -59,7 +59,7 @@ import {
 import { 
   generateActivationCode, 
   SUBSCRIPTION_PLANS, 
-  ActivationCodeDetails 
+  GeneratedActivationCode 
 } from '../../utils/activationCode';
 import confetti from 'canvas-confetti';
 
@@ -114,8 +114,8 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
   // Activation Code Generator State
   const [codeSchoolId, setCodeSchoolId] = useState<string>(tenants[0]?.id || '');
   const [codePlanId, setCodePlanId] = useState<'mensuel' | 'trimestriel' | 'semestriel' | 'annuel'>('annuel');
-  const [recentlyGeneratedCode, setRecentlyGeneratedCode] = useState<ActivationCodeDetails | null>(null);
-  const [generatedCodesHistory, setGeneratedCodesHistory] = useState<ActivationCodeDetails[]>(() => {
+  const [recentlyGeneratedCode, setRecentlyGeneratedCode] = useState<GeneratedActivationCode | null>(null);
+  const [generatedCodesHistory, setGeneratedCodesHistory] = useState<GeneratedActivationCode[]>(() => {
     try {
       const saved = localStorage.getItem('edu_congo_activation_codes_v1');
       return saved ? JSON.parse(saved) : [];
@@ -1631,7 +1631,7 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
                           {plan.durationMonths} {plan.durationMonths === 1 ? 'Mois' : 'Mois'}
                         </span>
                         <span className="font-black text-xs text-amber-700 dark:text-amber-300">
-                          {plan.totalAmount.toLocaleString()} FCFA
+                          {plan.totalAmountFCFA.toLocaleString()} FCFA
                         </span>
                       </button>
                     );
@@ -1684,7 +1684,7 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
                       {recentlyGeneratedCode.code}
                     </div>
                     <span className="text-[10px] text-slate-400 block">
-                      Montant réglé : <strong>{recentlyGeneratedCode.amountFCFA.toLocaleString()} FCFA</strong> • Échéance calculée : <strong>{recentlyGeneratedCode.calculatedNewExpirationDate}</strong>
+                      Montant réglé : <strong>{recentlyGeneratedCode.amountFCFA.toLocaleString()} FCFA</strong> • Échéance calculée : <strong>{recentlyGeneratedCode.expiresAtCalculated}</strong>
                     </span>
                   </div>
 
@@ -1716,7 +1716,7 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
                         `Bonjour Monsieur le Directeur de *${recentlyGeneratedCode.schoolName}*,\n\n` +
                         `Votre abonnement EDU-CONGO a été validé avec succès pour la formule *${recentlyGeneratedCode.planName} (${recentlyGeneratedCode.durationMonths} Mois)*.\n\n` +
                         `🔑 *Votre Code d'Activation Unique :*\n\`${recentlyGeneratedCode.code}\`\n\n` +
-                        `📅 *Nouvelle Échéance :* ${recentlyGeneratedCode.calculatedNewExpirationDate}\n` +
+                        `📅 *Nouvelle Échéance :* ${recentlyGeneratedCode.expiresAtCalculated}\n` +
                         `💰 *Montant :* ${recentlyGeneratedCode.amountFCFA.toLocaleString()} FCFA\n\n` +
                         `👉 Insérez ce code dans le bouton "Mettre à niveau / Activer" de votre tableau de bord pour lever toute suspension et débloquer vos accès.`
                       );

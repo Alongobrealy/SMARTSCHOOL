@@ -32,6 +32,7 @@ import {
   Terminal,
   Key,
   Lock,
+  Unlock,
   Sliders
 } from 'lucide-react';
 import { 
@@ -70,6 +71,11 @@ import { DashboardAnalyticsCharts } from './dashboard/DashboardAnalyticsCharts';
 import { MonthlyPaymentAnalyticsCharts } from './dashboard/MonthlyPaymentAnalyticsCharts';
 import { OverdueFeesAlertWidget } from './dashboard/OverdueFeesAlertWidget';
 import { ThemeToggle } from './ThemeToggle';
+
+import { calculateLicenseStatus } from '../utils/licenseManager';
+import { LicenseWarningBanner } from './dashboard/LicenseWarningBanner';
+import { AccessGuard } from './AccessGuard';
+import { FeeRevenueChart } from './dashboard/FeeRevenueChart';
 
 interface DashboardLayoutProps {
   currentRole: UserRole;
@@ -219,6 +225,19 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({
     if (onTabChange) {
       onTabChange(tab);
     }
+  };
+
+  const licenseInfo = calculateLicenseStatus(activeTenant);
+
+  // Intercept write operations if suspended
+  const withSuspensionCheck = <T extends (...args: any[]) => any>(fn: T, actionName: string): T => {
+    return ((...args: Parameters<T>) => {
+      if (licenseInfo.isSuspended && currentRole !== 'superadmin') {
+        alert(`ACCÈS RESTREINT (LICENCE SUSPENDUE)\n\nL'établissement a dépassé sa date limite d'abonnement (y compris la période de grâce de 7 jours).\n\nL'action "${actionName}" est temporairement bloquée en écriture.\n\nVeuillez régulariser votre abonnement pour débloquer toutes les fonctionnalités.`);
+        return;
+      }
+      return fn(...args);
+    }) as T;
   };
 
   // Scoped multi-tenant data calculation
@@ -583,9 +602,20 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({
         {/* Main Content Area */}
         <main className="flex-1 flex flex-col min-w-0">
           
-          {/* TAB 1: OVERVIEW DASHBOARD */}
-          {activeTab === 'dashboard' && (
-            <div className="flex flex-col gap-6">
+          <div className="p-4 sm:p-6 lg:p-8 pb-0 pt-4 sm:pt-6 lg:pt-8 w-full max-w-7xl mx-auto">
+            <LicenseWarningBanner licenseInfo={licenseInfo} />
+          </div>
+
+          <div className="flex-1 p-4 sm:p-6 lg:p-8 w-full max-w-7xl mx-auto">
+          <AccessGuard
+            activeTenant={activeTenant}
+            licenseInfo={licenseInfo}
+            currentRole={currentRole}
+            onOpenApprovalModal={onOpenApprovalModal}
+          >
+            {/* TAB 1: OVERVIEW DASHBOARD */}
+            {activeTab === 'dashboard' && (
+              <div className="flex flex-col gap-6">
               
               {/* Welcome Banner */}
               <div className="relative rounded-2xl bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 border border-slate-800 p-6 sm:p-7 shadow-sm text-white overflow-hidden">
@@ -804,6 +834,8 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({
                   />
 
                   {/* MONTHLY SCHOOL FEES ANALYTICS CHART (RECHARTS) */}
+                  <FeeRevenueChart payments={scopedPayments} />
+                  
                   <MonthlyPaymentAnalyticsCharts
                     payments={scopedPayments}
                     students={scopedStudents}
@@ -911,11 +943,11 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({
               classesConfig={classesConfig}
               rolePermissions={rolePermissions}
               currentRole={currentRole}
-              onUpdateSchoolConfig={onUpdateSchoolConfig}
-              onAddClass={onAddClass}
-              onUpdateClass={onUpdateClass}
-              onDeleteClass={onDeleteClass}
-              onUpdateRolePermissions={onUpdateRolePermissions}
+              onUpdateSchoolConfig={withSuspensionCheck(onUpdateSchoolConfig, "Mise à jour de la configuration")}
+              onAddClass={withSuspensionCheck(onAddClass, "Ajout d'une classe")}
+              onUpdateClass={withSuspensionCheck(onUpdateClass, "Modification d'une classe")}
+              onDeleteClass={withSuspensionCheck(onDeleteClass, "Suppression d'une classe")}
+              onUpdateRolePermissions={withSuspensionCheck(onUpdateRolePermissions, "Mise à jour des permissions")}
             />
           )}
 
@@ -927,9 +959,9 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({
               classesConfig={classesConfig}
               grades={scopedGrades}
               currentRole={currentRole}
-              onAddStudent={onAddStudent}
-              onUpdateStudent={onUpdateStudent}
-              onDeleteStudent={onDeleteStudent}
+              onAddStudent={withSuspensionCheck(onAddStudent, "Inscription d'un élève")}
+              onUpdateStudent={withSuspensionCheck(onUpdateStudent, "Modification d'un élève")}
+              onDeleteStudent={withSuspensionCheck(onDeleteStudent, "Suppression d'un élève")}
             />
           )}
 
@@ -938,7 +970,7 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({
             <AttendanceModule
               students={scopedStudents}
               attendanceList={scopedAttendance}
-              onUpdateAttendance={onUpdateAttendance}
+              onUpdateAttendance={withSuspensionCheck(onUpdateAttendance, "Validation du registre de présence")}
             />
           )}
 
@@ -947,8 +979,8 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({
             <GradesModule
               students={scopedStudents}
               grades={scopedGrades}
-              onAddGrade={(g) => onAddGrade({ ...g, schoolId: activeSchoolId })}
-              onUpdateGrade={(g) => onUpdateGrade({ ...g, schoolId: activeSchoolId })}
+              onAddGrade={withSuspensionCheck((g) => onAddGrade({ ...g, schoolId: activeSchoolId }), "Saisie de note")}
+              onUpdateGrade={withSuspensionCheck((g) => onUpdateGrade({ ...g, schoolId: activeSchoolId }), "Modification de note")}
             />
           )}
 
@@ -957,7 +989,7 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({
             <FeesModule
               students={scopedStudents}
               payments={scopedPayments}
-              onAddPayment={(p) => onAddPayment({ ...p, schoolId: activeSchoolId })}
+              onAddPayment={withSuspensionCheck((p) => onAddPayment({ ...p, schoolId: activeSchoolId }), "Encaissement de frais scolaires")}
             />
           )}
 
@@ -967,7 +999,7 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({
               students={scopedStudents}
               payments={scopedPayments}
               expenses={scopedExpenses}
-              onAddExpense={(e) => onAddExpense({ ...e, schoolId: activeSchoolId })}
+              onAddExpense={withSuspensionCheck((e) => onAddExpense({ ...e, schoolId: activeSchoolId }), "Saisie d'une dépense")}
             />
           )}
 
@@ -978,12 +1010,12 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({
               staff={scopedStaff}
               schoolConfig={schoolConfig}
               currentRole={currentRole}
-              onAddTeacher={onAddTeacher}
-              onUpdateTeacher={onUpdateTeacher}
-              onDeleteTeacher={onDeleteTeacher}
-              onAddStaff={onAddStaff}
-              onUpdateStaff={onUpdateStaff}
-              onDeleteStaff={onDeleteStaff}
+              onAddTeacher={withSuspensionCheck(onAddTeacher, "Ajout d'un enseignant")}
+              onUpdateTeacher={withSuspensionCheck(onUpdateTeacher, "Modification d'un enseignant")}
+              onDeleteTeacher={withSuspensionCheck(onDeleteTeacher, "Suppression d'un enseignant")}
+              onAddStaff={withSuspensionCheck(onAddStaff, "Ajout de personnel")}
+              onUpdateStaff={withSuspensionCheck(onUpdateStaff, "Modification de personnel")}
+              onDeleteStaff={withSuspensionCheck(onDeleteStaff, "Suppression de personnel")}
             />
           )}
 
@@ -991,7 +1023,7 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({
           {activeTab === 'classes' && (
             <ClassesModule
               schedules={scopedSchedules}
-              onAddSchedule={(s) => onAddSchedule({ ...s, schoolId: activeSchoolId })}
+              onAddSchedule={withSuspensionCheck((s) => onAddSchedule({ ...s, schoolId: activeSchoolId }), "Ajout au planning")}
             />
           )}
 
@@ -1001,7 +1033,7 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({
               announcements={scopedAnnouncements}
               students={scopedStudents}
               grades={scopedGrades}
-              onAddAnnouncement={(a) => onAddAnnouncement({ ...a, schoolId: activeSchoolId })}
+              onAddAnnouncement={withSuspensionCheck((a) => onAddAnnouncement({ ...a, schoolId: activeSchoolId }), "Publication d'annonce")}
             />
           )}
 
@@ -1035,7 +1067,9 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({
               }}
             />
           )}
+          </AccessGuard>
 
+          </div>
         </main>
       </div>
 

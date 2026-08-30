@@ -18,7 +18,8 @@ import {
   AuthSession,
   SchoolConfig,
   ClassLevelConfig,
-  RolePermission
+  RolePermission,
+  SubscriptionBillingEngine
 } from './types';
 import { 
   DEFAULT_SCHOOL_CONFIG,
@@ -44,6 +45,7 @@ import { LoginPortal } from './components/auth/LoginPortal';
 import { QuoteEstimatorModal } from './components/modules/QuoteEstimatorModal';
 import { SubscriptionApprovalModal } from './components/modals/SubscriptionApprovalModal';
 import { SchoolSubscriptionUpgradeModal } from './components/modals/SchoolSubscriptionUpgradeModal';
+import { generateActivationCode } from './utils/activationCode';
 import confetti from 'canvas-confetti';
 
 const SESSION_STORAGE_KEY = 'edu_congo_session_v3';
@@ -314,9 +316,31 @@ export default function App() {
         const paramCommune = params.get('commune') || 'Centre-Ville';
         const paramPlan = params.get('plan') || params.get('planTitle') || params.get('selectedPlan') || 'Essai Gratuit 14 Jours';
         const paramPlanId = (params.get('planId') || 'essai_14j') as any;
-        const paramMonths = parseInt(params.get('months') || params.get('durationMonths') || '12', 10);
-        const paramDiscount = parseInt(params.get('discount') || params.get('discountPercentage') || '0', 10);
-        const paramAmount = parseInt(params.get('amount') || params.get('cost') || params.get('totalCost') || params.get('totalAmount') || '0', 10);
+        const isTrialReq = paramPlanId === 'essai_14j' || paramPlan.toLowerCase().includes('essai') || params.get('isTrial') === 'true';
+        
+        let calculatedMonths = isTrialReq ? 0 : 12;
+        let calculatedDiscount = isTrialReq ? 100 : 0;
+        let calculatedTotalCost = isTrialReq ? 0 : 350000;
+        let calculatedMonthly = isTrialReq ? 0 : 350000 / 12;
+
+        if (!isTrialReq && ['mensuel', 'trimestriel', 'semestriel', 'annuel'].includes(paramPlanId)) {
+          const billing = SubscriptionBillingEngine.calculateCost(paramPlanId as 'mensuel' | 'trimestriel' | 'semestriel' | 'annuel');
+          calculatedMonths = SubscriptionBillingEngine.tiers[paramPlanId as 'mensuel' | 'trimestriel' | 'semestriel' | 'annuel'].months;
+          calculatedDiscount = SubscriptionBillingEngine.tiers[paramPlanId as 'mensuel' | 'trimestriel' | 'semestriel' | 'annuel'].discountPercentage;
+          calculatedTotalCost = billing.totalCostFCFA;
+          calculatedMonthly = billing.effectiveMonthlyRateFCFA;
+        } else {
+          // Fallback to URL params if not matching standard tiers
+          const paramMonths = parseInt(params.get('months') || params.get('durationMonths') || '12', 10);
+          const paramDiscount = parseInt(params.get('discount') || params.get('discountPercentage') || '0', 10);
+          const paramAmount = parseInt(params.get('amount') || params.get('cost') || params.get('totalCost') || params.get('totalAmount') || '0', 10);
+          
+          calculatedMonths = isNaN(paramMonths) ? calculatedMonths : paramMonths;
+          calculatedDiscount = isNaN(paramDiscount) ? calculatedDiscount : paramDiscount;
+          calculatedTotalCost = isNaN(paramAmount) ? calculatedTotalCost : paramAmount;
+          calculatedMonthly = calculatedTotalCost / Math.max(1, calculatedMonths);
+        }
+
         const paramStudents = parseInt(params.get('students') || params.get('studentCount') || '500', 10);
         const paramContact = params.get('contact') || params.get('director') || params.get('contactName') || params.get('directorName') || 'Directeur Général';
         const paramPhone = params.get('phone') || params.get('directorPhone') || params.get('contactPhone') || '+242 06 895 83 77';
@@ -325,7 +349,6 @@ export default function App() {
         const paramOptions = params.get('options') ? params.get('options')!.split(';') : ['Formation gratuite sur site', 'Support 24/7 dédié', 'Passerelles MoMo & Airtel'];
         const paramCode = params.get('code') || params.get('schoolCode') || '';
         const paramPass = params.get('pass') || params.get('tempPassword') || '';
-        const isTrialReq = paramPlanId === 'essai_14j' || paramPlan.toLowerCase().includes('essai') || params.get('isTrial') === 'true';
 
         const incomingReq: SubscriptionRequest = {
           id: reqId,
@@ -343,11 +366,11 @@ export default function App() {
           planTitle: decodeURIComponent(paramPlan),
           selectedPlan: decodeURIComponent(paramPlan),
           isTrial: isTrialReq,
-          durationMonths: isTrialReq ? 0 : (isNaN(paramMonths) ? 12 : paramMonths),
-          discountPercentage: isTrialReq ? 100 : (isNaN(paramDiscount) ? 0 : paramDiscount),
-          totalAmountFCFA: isTrialReq ? 0 : (isNaN(paramAmount) ? 350000 : paramAmount),
-          totalCostFCFA: isTrialReq ? 0 : (isNaN(paramAmount) ? 350000 : paramAmount),
-          effectiveMonthlyRateFCFA: isTrialReq ? 0 : Math.round((isNaN(paramAmount) ? 350000 : paramAmount) / Math.max(1, isNaN(paramMonths) ? 12 : paramMonths)),
+          durationMonths: calculatedMonths,
+          discountPercentage: calculatedDiscount,
+          totalAmountFCFA: calculatedTotalCost,
+          totalCostFCFA: calculatedTotalCost,
+          effectiveMonthlyRateFCFA: Math.round(calculatedMonthly),
           contactName: decodeURIComponent(paramContact),
           contactPhone: decodeURIComponent(paramPhone),
           contactEmail: decodeURIComponent(paramEmail),
@@ -588,6 +611,19 @@ export default function App() {
       monthlyFeeFCFA: isTrial ? 0 : (finalApprovedReq.effectiveMonthlyRateFCFA || 35000),
       createdAt: finalApprovedReq.createdAt || new Date().toLocaleDateString('fr-FR')
     };
+
+    const planKey = Object.keys(SubscriptionBillingEngine.tiers).find(key => 
+      key === finalApprovedReq.planId || 
+      finalApprovedReq.planTitle?.toLowerCase().includes(key) ||
+      finalApprovedReq.selectedPlan?.toLowerCase().includes(key)
+    ) as 'mensuel' | 'trimestriel' | 'semestriel' | 'annuel' | undefined;
+    
+    if (planKey) {
+      newTenant.activationCode = generateActivationCode(
+        { id: newTenant.id, code: newTenant.code, name: newTenant.name },
+        planKey
+      ).code;
+    }
 
     setTenants(prev => {
       const filtered = prev.filter(t => t.name.toLowerCase() !== newTenant.name.toLowerCase() && t.code !== newTenant.code);

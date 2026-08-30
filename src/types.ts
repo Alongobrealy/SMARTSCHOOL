@@ -256,18 +256,40 @@ export interface TenantSchool {
   tempPassword?: string;
   studentCount: number;
   teacherCount: number;
-  plan: 'Essai 14 Jours' | 'Starter' | 'Pro' | 'Entreprise' | 'Mensuel' | 'Trimestriel' | 'Annuel';
+  plan: 'Essai 14 Jours' | 'Starter' | 'Pro' | 'Entreprise' | 'Mensuel' | 'Trimestriel' | 'Semestriel' | 'Annuel';
   isTrial?: boolean;
   trialStartDate?: string;
   trialExpiresAt?: string;
   status: 'actif' | 'suspendu' | 'en_attente';
   licenseExpiresAt: string;
+  activationCode?: string;
   masterKey: string;
   databaseSizeMb: number;
   momoGatewayConnected: boolean;
   monthlyFeeFCFA: number;
   createdAt: string;
 }
+
+export const SubscriptionBillingEngine = {
+  baseMonthlyRateFCFA: 25000,
+  tiers: {
+    mensuel: { months: 1, discountPercentage: 0 },
+    trimestriel: { months: 3, discountPercentage: 10 },
+    semestriel: { months: 6, discountPercentage: 15 },
+    annuel: { months: 12, discountPercentage: 25 }
+  },
+  calculateCost(planId: 'mensuel' | 'trimestriel' | 'semestriel' | 'annuel'): { totalCostFCFA: number; discountFCFA: number; effectiveMonthlyRateFCFA: number } {
+    const tier = this.tiers[planId];
+    if (!tier) return { totalCostFCFA: 0, discountFCFA: 0, effectiveMonthlyRateFCFA: 0 };
+    
+    const grossCost = this.baseMonthlyRateFCFA * tier.months;
+    const discountFCFA = grossCost * (tier.discountPercentage / 100);
+    const totalCostFCFA = grossCost - discountFCFA;
+    const effectiveMonthlyRateFCFA = totalCostFCFA / tier.months;
+
+    return { totalCostFCFA, discountFCFA, effectiveMonthlyRateFCFA };
+  }
+};
 
 export interface SystemLogEntry {
   id: string;
