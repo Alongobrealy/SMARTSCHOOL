@@ -83,6 +83,62 @@ export const SchoolSettingsModule: React.FC<SchoolSettingsModuleProps> = ({
 
   const isAdmin = currentRole === 'direction' || currentRole === 'administration' || currentRole === 'superadmin';
 
+  // Subjects Management State
+  const [newSubjectInput, setNewSubjectInput] = useState('');
+  const [subjectSearch, setSubjectSearch] = useState('');
+  const [subjectError, setSubjectError] = useState<string | null>(null);
+  const [subjectSuccess, setSubjectSuccess] = useState<string | null>(null);
+
+  const handleAddSubject = (e?: React.FormEvent) => {
+    if (e && typeof e.preventDefault === 'function') {
+      e.preventDefault();
+    }
+    const val = newSubjectInput.trim();
+    if (!val) {
+      setSubjectError('Veuillez saisir le nom de la matière.');
+      return;
+    }
+    const currentSubjects = formData.subjects || schoolConfig.subjects || [];
+    if (currentSubjects.some(s => s.toLowerCase() === val.toLowerCase())) {
+      setSubjectError(`La matière "${val}" existe déjà dans le programme.`);
+      return;
+    }
+
+    const updatedSubjects = [...currentSubjects, val];
+    const updatedConfig = { ...schoolConfig, ...formData, subjects: updatedSubjects };
+    setFormData(updatedConfig);
+    onUpdateSchoolConfig(updatedConfig);
+    setNewSubjectInput('');
+    setSubjectError(null);
+    setSubjectSuccess(`Matière "${val}" ajoutée avec succès !`);
+    setTimeout(() => setSubjectSuccess(null), 3000);
+  };
+
+  const handleDeleteSubject = (subjectToDelete: string) => {
+    if (window.confirm(`Êtes-vous sûr de vouloir supprimer la matière "${subjectToDelete}" ?`)) {
+      const currentSubjects = formData.subjects || schoolConfig.subjects || [];
+      const updatedSubjects = currentSubjects.filter(s => s !== subjectToDelete);
+      const updatedConfig = { ...schoolConfig, ...formData, subjects: updatedSubjects };
+      setFormData(updatedConfig);
+      onUpdateSchoolConfig(updatedConfig);
+      setSubjectSuccess(`Matière "${subjectToDelete}" supprimée.`);
+      setTimeout(() => setSubjectSuccess(null), 3000);
+    }
+  };
+
+  const handleAddStandardPreset = (presetName: string) => {
+    const currentSubjects = formData.subjects || schoolConfig.subjects || [];
+    if (currentSubjects.some(s => s.toLowerCase() === presetName.toLowerCase())) {
+      return;
+    }
+    const updatedSubjects = [...currentSubjects, presetName];
+    const updatedConfig = { ...schoolConfig, ...formData, subjects: updatedSubjects };
+    setFormData(updatedConfig);
+    onUpdateSchoolConfig(updatedConfig);
+    setSubjectSuccess(`"${presetName}" ajouté au programme.`);
+    setTimeout(() => setSubjectSuccess(null), 2500);
+  };
+
   const handleSaveGeneral = (e: React.FormEvent) => {
     e.preventDefault();
     onUpdateSchoolConfig(formData);
@@ -824,92 +880,181 @@ export const SchoolSettingsModule: React.FC<SchoolSettingsModuleProps> = ({
 
       {/* TAB 4: RÔLES & PERMISSIONS */}
       
-      {/* ONGLE MATIÈRES */}
+      {/* TAB MATIÈRES & COURS */}
       {activeTab === 'subjects' && (
         <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 dark:border-slate-800 pb-4">
             <div>
-              <h3 className="text-sm font-bold text-slate-900 dark:text-white">
-                Matières d'études
-              </h3>
+              <div className="flex items-center gap-2">
+                <BookOpen className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+                <h3 className="text-base font-bold text-slate-900 dark:text-white">
+                  Matières & Disciplines d'Études
+                </h3>
+                <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800">
+                  {(schoolConfig.subjects || []).length} matière(s)
+                </span>
+              </div>
               <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                Gérez la liste officielle des matières enseignées au sein de l'établissement.
+                Gérez le programme officiel des matières enseignées dans l'établissement pour les cours, notes, bulletins et emplois du temps.
               </p>
             </div>
-            {currentRole === 'superadmin' || currentRole === 'direction' ? (
-              <div className="flex items-center gap-2">
+
+            {isAdmin && (
+              <form onSubmit={handleAddSubject} className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
                 <input 
                   type="text" 
-                  id="newSubjectInput" 
-                  placeholder="Nouvelle matière..." 
-                  className="bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-xs text-slate-900 dark:text-white"
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter') {
-                      e.preventDefault();
-                      const target = e.target;
-                      const val = target.value.trim();
-                      if (val) {
-                        const newSubjects = [...(schoolConfig.subjects || []), val];
-                        onUpdateSchoolConfig({ ...schoolConfig, subjects: newSubjects });
-                        target.value = '';
-                      }
-                    }
+                  value={newSubjectInput}
+                  onChange={(e) => {
+                    setNewSubjectInput(e.target.value);
+                    if (subjectError) setSubjectError(null);
                   }}
+                  placeholder="Ex: Mathématiques, Sciences Physiques..." 
+                  className="bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl px-3.5 py-2 text-xs text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 min-w-[240px]"
                 />
                 <button
-                  onClick={() => {
-                    const target = document.getElementById('newSubjectInput') as HTMLInputElement;
-                    const val = target?.value.trim();
-                    if (val) {
-                      const newSubjects = [...(schoolConfig.subjects || []), val];
-                      onUpdateSchoolConfig({ ...schoolConfig, subjects: newSubjects });
-                      if(target) target.value = '';
-                    }
-                  }}
-                  className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-lg flex items-center gap-2 text-xs shadow-sm transition-all"
+                  type="submit"
+                  className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 active:scale-95 text-white font-bold rounded-xl flex items-center justify-center gap-2 text-xs shadow-md shadow-indigo-600/20 transition-all cursor-pointer"
                 >
-                  <Plus className="w-3.5 h-3.5" />
-                  Ajouter
+                  <Plus className="w-4 h-4" />
+                  <span>Ajouter la matière</span>
                 </button>
+              </form>
+            )}
+          </div>
+
+          {/* Feedback messages */}
+          {subjectError && (
+            <div className="bg-rose-50 dark:bg-rose-950/50 border border-rose-200 dark:border-rose-800/60 rounded-xl p-3 text-rose-900 dark:text-rose-200 text-xs flex items-center gap-2">
+              <AlertCircle className="w-4 h-4 text-rose-600 dark:text-rose-400 shrink-0" />
+              <span>{subjectError}</span>
+            </div>
+          )}
+          {subjectSuccess && (
+            <div className="bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800/60 rounded-xl p-3 text-emerald-900 dark:text-emerald-200 text-xs flex items-center gap-2">
+              <Check className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+              <span>{subjectSuccess}</span>
+            </div>
+          )}
+
+          {/* Quick presets for common Congolese curriculum */}
+          {isAdmin && (
+            <div className="bg-slate-50 dark:bg-slate-800/40 p-4 rounded-xl border border-slate-200 dark:border-slate-700/60">
+              <span className="text-[11px] font-bold text-slate-700 dark:text-slate-300 block mb-2">
+                Suggestions de matières courantes au Congo (+ Ajouter en 1 clic) :
+              </span>
+              <div className="flex flex-wrap gap-1.5">
+                {[
+                  'Mathématiques',
+                  'Sciences Physiques',
+                  'Français',
+                  'Histoire-Géographie',
+                  'Sciences de la Vie et de la Terre (SVT)',
+                  'Philosophie',
+                  'Anglais',
+                  'Éducation Physique et Sportive (EPS)',
+                  'Éducation Civique et Morale (ECM)',
+                  'Informatique & Numérique',
+                  'Économie Générale',
+                  'Comptabilité & Gestion',
+                  'Espagnol',
+                  'Allemand',
+                  'Arabe'
+                ].map((preset) => {
+                  const alreadyExists = (schoolConfig.subjects || []).some(s => s.toLowerCase() === preset.toLowerCase());
+                  return (
+                    <button
+                      key={preset}
+                      type="button"
+                      disabled={alreadyExists}
+                      onClick={() => handleAddStandardPreset(preset)}
+                      className={`text-[11px] px-2.5 py-1 rounded-lg font-medium transition-all ${
+                        alreadyExists 
+                          ? 'bg-slate-200/70 dark:bg-slate-800 text-slate-400 dark:text-slate-500 cursor-default'
+                          : 'bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:border-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 hover:shadow-xs cursor-pointer'
+                      }`}
+                    >
+                      {alreadyExists ? `✓ ${preset}` : `+ ${preset}`}
+                    </button>
+                  );
+                })}
               </div>
-            ) : null}
+            </div>
+          )}
+
+          {/* Filter / Search */}
+          <div className="flex items-center justify-between gap-4">
+            <input 
+              type="text" 
+              value={subjectSearch}
+              onChange={(e) => setSubjectSearch(e.target.value)}
+              placeholder="Filtrer les matières..."
+              className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-1.5 text-xs text-slate-900 dark:text-white w-full max-w-xs focus:outline-none focus:ring-1 focus:ring-indigo-500"
+            />
           </div>
           
-          <div className="bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden">
+          {/* Subjects Table */}
+          <div className="bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden shadow-xs">
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr className="bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 text-xs font-bold text-slate-900 dark:text-white">
-                  <th className="p-3.5">Nom de la matière</th>
+                  <th className="p-3.5">#</th>
+                  <th className="p-3.5">Intitulé de la matière</th>
+                  <th className="p-3.5 hidden sm:table-cell">Discipline</th>
                   <th className="p-3.5 text-right">Actions</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-200 dark:divide-slate-700 text-xs">
-                {(schoolConfig.subjects || []).map((subject, idx) => (
-                  <tr key={idx} className="hover:bg-slate-100/50 dark:hover:bg-slate-800/50 transition-colors">
-                    <td className="p-3.5 text-slate-700 dark:text-slate-300 font-medium">
-                      {subject}
-                    </td>
-                    <td className="p-3.5 text-right">
-                      {(currentRole === 'superadmin' || currentRole === 'direction') && (
-                        <button
-                          onClick={() => {
-                            if (window.confirm("Supprimer cette matière ?")) {
-                              const newSubjects = (schoolConfig.subjects || []).filter(s => s !== subject);
-                              onUpdateSchoolConfig({ ...schoolConfig, subjects: newSubjects });
-                            }
-                          }}
-                          className="p-1.5 text-slate-400 hover:bg-rose-100 dark:hover:bg-rose-900/30 hover:text-rose-600 dark:hover:text-rose-400 rounded-lg transition-colors cursor-pointer"
-                          title="Supprimer"
-                        >
-                          <Trash2 className="w-4 h-4" />
-                        </button>
-                      )}
-                    </td>
-                  </tr>
-                ))}
+                {(schoolConfig.subjects || [])
+                  .filter(s => s.toLowerCase().includes(subjectSearch.toLowerCase()))
+                  .map((subject, idx) => (
+                    <tr key={idx} className="hover:bg-slate-100/50 dark:hover:bg-slate-800/50 transition-colors">
+                      <td className="p-3.5 text-slate-400 font-mono w-12">
+                        {idx + 1}
+                      </td>
+                      <td className="p-3.5 text-slate-900 dark:text-slate-100 font-semibold">
+                        {subject}
+                      </td>
+                      <td className="p-3.5 text-slate-500 dark:text-slate-400 hidden sm:table-cell">
+                        {subject.toLowerCase().includes('math') || subject.toLowerCase().includes('physique') || subject.toLowerCase().includes('svt') || subject.toLowerCase().includes('info') ? (
+                          <span className="px-2 py-0.5 rounded-md bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 font-medium text-[10px]">
+                            Scientifique / Tech
+                          </span>
+                        ) : subject.toLowerCase().includes('français') || subject.toLowerCase().includes('anglais') || subject.toLowerCase().includes('espagnol') || subject.toLowerCase().includes('philo') || subject.toLowerCase().includes('histoire') ? (
+                          <span className="px-2 py-0.5 rounded-md bg-amber-50 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 font-medium text-[10px]">
+                            Littéraire / Humaines
+                          </span>
+                        ) : (
+                          <span className="px-2 py-0.5 rounded-md bg-purple-50 dark:bg-purple-950/60 text-purple-700 dark:text-purple-300 font-medium text-[10px]">
+                            Générale / Transversale
+                          </span>
+                        )}
+                      </td>
+                      <td className="p-3.5 text-right">
+                        {isAdmin && (
+                          <button
+                            type="button"
+                            onClick={() => handleDeleteSubject(subject)}
+                            className="p-1.5 text-slate-400 hover:bg-rose-100 dark:hover:bg-rose-900/30 hover:text-rose-600 dark:hover:text-rose-400 rounded-lg transition-colors cursor-pointer"
+                            title="Supprimer la matière"
+                          >
+                            <Trash2 className="w-4 h-4" />
+                          </button>
+                        )}
+                      </td>
+                    </tr>
+                  ))}
                 {!(schoolConfig.subjects || []).length && (
                   <tr>
-                    <td colSpan={2} className="p-6 text-center text-slate-500 text-xs">Aucune matière configurée.</td>
+                    <td colSpan={4} className="p-8 text-center text-slate-500 text-xs">
+                      Aucune matière configurée pour l'instant. Utilisez le formulaire ci-dessus pour en ajouter.
+                    </td>
+                  </tr>
+                )}
+                {(schoolConfig.subjects || []).length > 0 && !(schoolConfig.subjects || []).filter(s => s.toLowerCase().includes(subjectSearch.toLowerCase())).length && (
+                  <tr>
+                    <td colSpan={4} className="p-6 text-center text-slate-500 text-xs">
+                      Aucune matière ne correspond à votre recherche "{subjectSearch}".
+                    </td>
                   </tr>
                 )}
               </tbody>

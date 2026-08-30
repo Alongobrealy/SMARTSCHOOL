@@ -1,0 +1,65 @@
+{
+  "name": "EDU-CONGO - Digitalisation Scolaire & Universitaire",
+  "short_name": "EDU-CONGO",
+  "description": "Système de gestion scolaire et universitaire offline-first en République du Congo. Fonctionne sans connexion internet avec base locale sécurisée IndexedDB.",
+  "start_url": "/",
+  "id": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0B1120",
+  "theme_color": "#4F46E5",
+  "lang": "fr-CG",
+  "dir": "ltr",
+  "categories": ["education", "productivity", "finance", "utilities"],
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-maskable.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Paiements Scolaires",
+      "short_name": "Paiements",
+      "description": "Encaisser les frais scolaires et MTN/Airtel Money hors-ligne",
+      "url": "/#payments",
+      "icons": [{ "src": "/icon.svg", "sizes": "any" }]
+    },
+    {
+      "name": "Effectif Élèves",
+      "short_name": "Élèves",
+      "description": "Consulter et inscrire des élèves",
+      "url": "/#students",
+      "icons": [{ "src": "/icon.svg", "sizes": "any" }]
+    },
+    {
+      "name": "Présences & Appels",
+      "short_name": "Présences",
+      "description": "Faire l'appel de classe en mode hors-ligne",
+      "url": "/#attendance",
+      "icons": [{ "src": "/icon.svg", "sizes": "any" }]
+    }
+  ],
+  "prefer_related_applications": false
+}

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" fill="#0F172A"/>
+  <!-- Centered safe zone content for maskable icon -->
+  <g transform="translate(56, 56) scale(0.78)">
+    <path d="M120 70 Q 256 40 392 70" stroke="#10B981" stroke-width="10" stroke-linecap="round" fill="none"/>
+    <path d="M140 88 Q 256 60 372 88" stroke="#FBBF24" stroke-width="10" stroke-linecap="round" fill="none"/>
+    <path d="M160 106 Q 256 80 352 106" stroke="#F43F5E" stroke-width="10" stroke-linecap="round" fill="none"/>
+    <path d="M256 140 L390 200 L256 260 L122 200 Z" fill="#4F46E5" stroke="#C7D2FE" stroke-width="6" stroke-linejoin="round"/>
+    <path d="M140 260 C 180 250, 240 265, 256 280 C 272 265, 332 250, 372 260 L 372 380 C 332 370, 272 385, 256 400 C 240 385, 180 370, 140 380 Z" fill="#FFFFFF"/>
+    <line x1="256" y1="280" x2="256" y2="400" stroke="#4F46E5" stroke-width="6" stroke-linecap="round"/>
+  </g>
+</svg>

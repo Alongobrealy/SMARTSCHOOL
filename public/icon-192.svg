@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192">
+  <defs>
+    <linearGradient id="bgGrad192" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#312E81"/>
+    </linearGradient>
+    <linearGradient id="indigoGrad192" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#818CF8"/>
+      <stop offset="100%" stop-color="#4F46E5"/>
+    </linearGradient>
+  </defs>
+  <rect width="192" height="192" rx="42" fill="url(#bgGrad192)"/>
+  <path d="M40 28 Q 96 16 152 28" stroke="#10B981" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <path d="M48 35 Q 96 24 144 35" stroke="#FBBF24" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <path d="M56 42 Q 96 32 136 42" stroke="#F43F5E" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <path d="M96 55 L150 80 L96 105 L42 80 Z" fill="url(#indigoGrad192)" stroke="#C7D2FE" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M50 105 C 68 100, 90 108, 96 114 C 102 108, 124 100, 142 105 L 142 152 C 124 147, 102 155, 96 160 C 90 155, 68 147, 50 152 Z" fill="#FFFFFF"/>
+  <line x1="96" y1="114" x2="96" y2="160" stroke="#4F46E5" stroke-width="3" stroke-linecap="round"/>
+</svg>

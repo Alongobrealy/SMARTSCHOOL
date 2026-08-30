@@ -46,6 +46,8 @@ import { QuoteEstimatorModal } from './components/modules/QuoteEstimatorModal';
 import { SubscriptionApprovalModal } from './components/modals/SubscriptionApprovalModal';
 import { SchoolSubscriptionUpgradeModal } from './components/modals/SchoolSubscriptionUpgradeModal';
 import { generateActivationCode } from './utils/activationCode';
+import { seedOfflineDatabase, db } from './db/pwaDatabase';
+import { syncEngine } from './services/syncEngine';
 import confetti from 'canvas-confetti';
 
 const SESSION_STORAGE_KEY = 'edu_congo_session_v3';
@@ -735,10 +737,33 @@ export default function App() {
     });
   };
 
+  // Seed and synchronize IndexedDB for complete offline functionality
+  useEffect(() => {
+    seedOfflineDatabase({
+      students,
+      teachers,
+      staff,
+      classes: classesConfig,
+      payments,
+      expenses,
+      grades,
+      attendance: attendanceList,
+      schedules,
+      announcements,
+      schoolConfig
+    });
+  }, []);
+
   // Administrative Configuration Handlers
   const handleUpdateSchoolConfig = (newConfig: SchoolConfig) => {
     setSchoolConfig(newConfig);
     setSchoolName(newConfig.name);
+    syncEngine.queueAction({
+      actionType: 'UPDATE_SCHOOL_CONFIG',
+      payload: newConfig,
+      description: `Configuration officielle : ${newConfig.name}`,
+      idempotencyKey: `CONF_${newConfig.schoolId || 'default'}_${Date.now()}`
+    });
     handleAddLog({
       id: `CONFIG-${Date.now()}`,
       timestamp: new Date().toLocaleTimeString('fr-FR'),
@@ -752,10 +777,22 @@ export default function App() {
 
   const handleAddClass = (newClass: ClassLevelConfig) => {
     setClassesConfig(prev => [...prev, newClass]);
+    syncEngine.queueAction({
+      actionType: 'ADD_CLASS',
+      payload: newClass,
+      description: `Création de classe : ${newClass.name} (${newClass.cycle})`,
+      idempotencyKey: `CLASS_${newClass.id}`
+    });
   };
 
   const handleUpdateClass = (updatedClass: ClassLevelConfig) => {
     setClassesConfig(prev => prev.map(c => c.id === updatedClass.id ? updatedClass : c));
+    syncEngine.queueAction({
+      actionType: 'UPDATE_CLASS',
+      payload: updatedClass,
+      description: `Mise à jour classe : ${updatedClass.name}`,
+      idempotencyKey: `CLASS_UPD_${updatedClass.id}_${Date.now()}`
+    });
   };
 
   const handleDeleteClass = (classId: string) => {
@@ -769,14 +806,32 @@ export default function App() {
   // Student Handlers
   const handleAddStudent = (newStudent: Student) => {
     setStudents(prev => [newStudent, ...prev]);
+    syncEngine.queueAction({
+      actionType: 'CREATE_STUDENT',
+      payload: newStudent,
+      description: `Inscription élève : ${newStudent.nom} ${newStudent.prenom} (${newStudent.classe})`,
+      idempotencyKey: `STUDENT_NEW_${newStudent.matricule || newStudent.id}`
+    });
   };
 
   const handleUpdateStudent = (updatedStudent: Student) => {
     setStudents(prev => prev.map(s => s.id === updatedStudent.id ? updatedStudent : s));
+    syncEngine.queueAction({
+      actionType: 'UPDATE_STUDENT',
+      payload: updatedStudent,
+      description: `Mise à jour élève : ${updatedStudent.nom} ${updatedStudent.prenom}`,
+      idempotencyKey: `STUDENT_UPD_${updatedStudent.id}_${Date.now()}`
+    });
   };
 
   const handleDeleteStudent = (studentId: string) => {
     setStudents(prev => prev.filter(s => s.id !== studentId));
+    syncEngine.queueAction({
+      actionType: 'DELETE_STUDENT',
+      payload: { id: studentId },
+      description: `Suppression élève ID ${studentId}`,
+      idempotencyKey: `STUDENT_DEL_${studentId}`
+    });
   };
 
   // HR Staff Handlers
@@ -808,14 +863,35 @@ export default function App() {
   // Academic & Financial Handlers
   const handleUpdateAttendance = (newRecords: AttendanceRecord[]) => {
     setAttendanceList(newRecords);
+    // Queue offline sync for each attendance entry
+    newRecords.forEach((record) => {
+      syncEngine.queueAction({
+        actionType: 'MARK_ATTENDANCE',
+        payload: record,
+        description: `Présence/Appel : ${record.studentName} (${record.statut})`,
+        idempotencyKey: `ATT_${record.id || record.studentId + '_' + record.date}`
+      });
+    });
   };
 
   const handleAddGrade = (newGrade: GradeEntry) => {
     setGrades(prev => [newGrade, ...prev]);
+    syncEngine.queueAction({
+      actionType: 'ADD_GRADE',
+      payload: newGrade,
+      description: `Note saisie : ${newGrade.matiere} (${newGrade.noteDevoir}/20) pour ${newGrade.studentName}`,
+      idempotencyKey: `GRADE_${newGrade.id || newGrade.studentId + '_' + newGrade.matiere + '_' + newGrade.semestre}`
+    });
   };
 
   const handleUpdateGrade = (updatedGrade: GradeEntry) => {
     setGrades(prev => prev.map(g => g.id === updatedGrade.id ? updatedGrade : g));
+    syncEngine.queueAction({
+      actionType: 'ADD_GRADE',
+      payload: updatedGrade,
+      description: `Note modifiée : ${updatedGrade.matiere} pour ${updatedGrade.studentName}`,
+      idempotencyKey: `GRADE_UPD_${updatedGrade.id}_${Date.now()}`
+    });
   };
 
   const handleAddPayment = (newPayment: FeePayment) => {
@@ -827,10 +903,23 @@ export default function App() {
       }
       return s;
     }));
+
+    syncEngine.queueAction({
+      actionType: 'ADD_PAYMENT',
+      payload: newPayment,
+      description: `Paiement ${newPayment.montant.toLocaleString('fr-FR')} FCFA (${newPayment.motif}) pour ${newPayment.studentName}`,
+      idempotencyKey: `PAY_${newPayment.numeroRecu || newPayment.id}_${newPayment.montant}`
+    });
   };
 
   const handleAddExpense = (newExpense: ExpenseItem) => {
     setExpenses(prev => [newExpense, ...prev]);
+    syncEngine.queueAction({
+      actionType: 'ADD_EXPENSE',
+      payload: newExpense,
+      description: `Dépense : ${newExpense.titre} (${newExpense.montant.toLocaleString('fr-FR')} FCFA)`,
+      idempotencyKey: `EXP_${newExpense.id}`
+    });
   };
 
   const handleAddAnnouncement = (newAnnouncement: Announcement) => {

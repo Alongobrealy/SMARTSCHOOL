@@ -76,6 +76,8 @@ import { calculateLicenseStatus } from '../utils/licenseManager';
 import { LicenseWarningBanner } from './dashboard/LicenseWarningBanner';
 import { AccessGuard } from './AccessGuard';
 import { FeeRevenueChart } from './dashboard/FeeRevenueChart';
+import { NetworkStatusBanner } from './pwa/NetworkStatusBanner';
+import { PwaInstallPrompt } from './pwa/PwaInstallPrompt';
 
 interface DashboardLayoutProps {
   currentRole: UserRole;
@@ -435,6 +437,12 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({
               </a>
             </div>
 
+            {/* PWA Install Button (if eligible) */}
+            <PwaInstallPrompt compact={true} />
+
+            {/* PWA Offline / Online Network Status Pill */}
+            <NetworkStatusBanner variant="pill" />
+
             {/* Developer Super Admin Shortcut */}
             <button
               id="btn-dev-mode-header"
@@ -483,6 +491,9 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({
 
         </div>
       </header>
+
+      {/* Global Offline Network Status Banner */}
+      <NetworkStatusBanner variant="banner" />
 
       {/* DEVELOPER CONTROL MODE BANNER WITH RETURN BUTTON */}
       {isDevUnlocked && currentRole !== 'superadmin' && (
@@ -767,6 +778,9 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({
               ) : (
                 /* Administration / Direction / Comptabilité Dashboard */
                 <>
+                  {/* PWA Offline Installation Banner */}
+                  <PwaInstallPrompt />
+
                   {/* KPI Cards Grid */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                     

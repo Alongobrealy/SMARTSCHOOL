@@ -22,6 +22,8 @@ import {
 import { UserRole } from '../types';
 import { ThemeToggle } from './ThemeToggle';
 import { TestimonialsCarousel } from './TestimonialsCarousel';
+import { NetworkStatusBanner } from './pwa/NetworkStatusBanner';
+import { PwaInstallPrompt } from './pwa/PwaInstallPrompt';
 
 interface CommercialFlyerProps {
   onLaunchDemo: (role: UserRole, targetTab?: string) => void;
@@ -236,6 +238,12 @@ export const CommercialFlyer: React.FC<CommercialFlyerProps> = ({
 
             <ThemeToggle variant="pill" showLabel={false} />
 
+            {/* PWA Install Button */}
+            <PwaInstallPrompt compact={true} />
+
+            {/* Network Status Pill */}
+            <NetworkStatusBanner variant="pill" />
+
             {/* Bouton Inscription dans la barre supérieure */}
             <button
               id="btn-topbar-open-signup"
@@ -260,6 +268,9 @@ export const CommercialFlyer: React.FC<CommercialFlyerProps> = ({
           </div>
         </div>
       </header>
+
+      {/* Global Offline Network Status Banner */}
+      <NetworkStatusBanner variant="banner" />
 
       {/* Main Visual Poster Container */}
       <div className="max-w-6xl w-full mx-auto p-4 sm:p-6 lg:p-8 flex-1 flex flex-col gap-10">
