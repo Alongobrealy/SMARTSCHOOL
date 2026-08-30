@@ -49,6 +49,8 @@ import { generateActivationCode } from './utils/activationCode';
 import { seedOfflineDatabase, db } from './db/pwaDatabase';
 import { syncEngine } from './services/syncEngine';
 import confetti from 'canvas-confetti';
+import { useAppData } from './hooks/useAppData';
+import { useLegacyState } from './hooks/useLegacyState';
 
 const SESSION_STORAGE_KEY = 'edu_congo_session_v3';
 const SCHOOL_CONFIG_STORAGE_KEY = 'edu_congo_school_config_v3';
@@ -119,15 +121,16 @@ export default function App() {
   const [featureFlags, setFeatureFlags] = useState<SystemFeatureFlag[]>(INITIAL_FEATURE_FLAGS);
 
   // In-memory interactive multi-tenant dataset (virgin by default)
-  const [students, setStudents] = useState<Student[]>(INITIAL_STUDENTS);
-  const [teachers, setTeachers] = useState<Teacher[]>(INITIAL_TEACHERS);
-  const [staff, setStaff] = useState<StaffMember[]>(INITIAL_STAFF);
-  const [attendanceList, setAttendanceList] = useState<AttendanceRecord[]>(INITIAL_ATTENDANCE);
-  const [grades, setGrades] = useState<GradeEntry[]>(INITIAL_GRADES);
-  const [payments, setPayments] = useState<FeePayment[]>(INITIAL_PAYMENTS);
-  const [expenses, setExpenses] = useState<ExpenseItem[]>(INITIAL_EXPENSES);
-  const [announcements, setAnnouncements] = useState<Announcement[]>(INITIAL_ANNOUNCEMENTS);
-  const [schedules, setSchedules] = useState<CourseSchedule[]>(INITIAL_SCHEDULES);
+  const appData = useAppData(schoolId);
+  const [students, setStudents] = useLegacyState<Student>(appData.students);
+  const [teachers, setTeachers] = useLegacyState<Teacher>(appData.teachers);
+  const [staff, setStaff] = useLegacyState<StaffMember>(appData.staff);
+  const [attendanceList, setAttendanceList] = useLegacyState<AttendanceRecord>(appData.attendanceList);
+  const [grades, setGrades] = useLegacyState<GradeEntry>(appData.grades);
+  const [payments, setPayments] = useLegacyState<FeePayment>(appData.payments);
+  const [expenses, setExpenses] = useLegacyState<ExpenseItem>(appData.expenses);
+  const [announcements, setAnnouncements] = useLegacyState<Announcement>(appData.announcements);
+  const [schedules, setSchedules] = useLegacyState<CourseSchedule>(appData.schedules);
 
   // Subscriptions management with Persistence
   const [subscriptionRequests, setSubscriptionRequests] = useState<SubscriptionRequest[]>(() => {
