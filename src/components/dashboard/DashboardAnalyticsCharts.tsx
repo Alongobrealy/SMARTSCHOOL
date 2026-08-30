@@ -198,32 +198,32 @@ export const DashboardAnalyticsCharts: React.FC<DashboardAnalyticsChartsProps> =
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
       
       {/* 1. VISUALISATION : TAUX DE RÉUSSITE PAR CLASSE */}
-      <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-200/80 dark:border-slate-800 p-5 sm:p-6 flex flex-col justify-between gap-4 transition-colors duration-200">
+      <div className="bg-white  rounded-lg shadow-sm border border-[#E4E6EB]  p-5 sm:p-6 flex flex-col justify-between gap-4 transition-colors duration-200">
         
         {/* Header with Title and Mode Toggle */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-800 pb-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#E4E6EB]  pb-4">
           <div>
             <div className="flex items-center gap-2">
-              <span className="p-2 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 border border-indigo-100 dark:border-indigo-800/60">
+              <span className="p-2 rounded-xl bg-[#E7F3FF]  text-[#1877F2]  border border-[#E4E6EB] ">
                 <GraduationCap className="w-5 h-5" />
               </span>
               <div>
-                <h3 className="font-bold text-slate-900 dark:text-white text-base">Taux de Réussite par Classe (Brazzaville)</h3>
-                <p className="text-xs text-slate-500 dark:text-slate-400">Performance académique & validation des moyennes (≥ 10/20)</p>
+                <h3 className="font-bold text-[#050505]  text-base">Taux de Réussite par Classe (Brazzaville)</h3>
+                <p className="text-xs text-[#65676B] ">Performance académique & validation des moyennes (≥ 10/20)</p>
               </div>
             </div>
           </div>
 
           <div className="flex items-center gap-2 self-end sm:self-auto">
             {/* Chart toggle */}
-            <div className="flex items-center bg-slate-100 dark:bg-slate-800 p-1 rounded-xl border border-slate-200 dark:border-slate-700 text-xs">
+            <div className="flex items-center bg-[#F0F2F5]  p-1 rounded-xl border border-[#E4E6EB]  text-xs">
               <button
                 type="button"
                 onClick={() => setSuccessChartType('bar')}
                 className={`flex items-center gap-1 px-2.5 py-1 rounded-lg font-semibold transition-all cursor-pointer ${
                   successChartType === 'bar'
-                    ? 'bg-white dark:bg-slate-700 text-indigo-700 dark:text-indigo-300 shadow-xs'
-                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                    ? 'bg-white  text-[#1877F2]  shadow-xs'
+                    : 'text-[#65676B]  hover:text-[#050505]'
                 }`}
                 title="Affichage en barres"
               >
@@ -235,8 +235,8 @@ export const DashboardAnalyticsCharts: React.FC<DashboardAnalyticsChartsProps> =
                 onClick={() => setSuccessChartType('donut')}
                 className={`flex items-center gap-1 px-2.5 py-1 rounded-lg font-semibold transition-all cursor-pointer ${
                   successChartType === 'donut'
-                    ? 'bg-white dark:bg-slate-700 text-indigo-700 dark:text-indigo-300 shadow-xs'
-                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                    ? 'bg-white  text-[#1877F2]  shadow-xs'
+                    : 'text-[#65676B]  hover:text-[#050505]'
                 }`}
                 title="Affichage circulaire"
               >
@@ -249,20 +249,20 @@ export const DashboardAnalyticsCharts: React.FC<DashboardAnalyticsChartsProps> =
 
         {/* Highlight KPI Pills */}
         <div className="grid grid-cols-3 gap-3">
-          <div className="bg-slate-50 dark:bg-slate-800/60 rounded-xl p-3 border border-slate-100 dark:border-slate-800">
-            <span className="text-[11px] font-semibold text-slate-500 dark:text-slate-400 block uppercase">Moyenne Globale</span>
-            <span className="text-xl font-bold text-indigo-600 dark:text-indigo-400">{globalSuccessRate}%</span>
-            <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-medium block">Taux d'admissibilité</span>
+          <div className="bg-[#F0F2F5]  rounded-xl p-3 border border-[#E4E6EB] ">
+            <span className="text-[11px] font-semibold text-[#65676B]  block uppercase">Moyenne Globale</span>
+            <span className="text-xl font-bold text-[#1877F2] ">{globalSuccessRate}%</span>
+            <span className="text-[10px] text-[#1877F2]  font-medium block">Taux d'admissibilité</span>
           </div>
-          <div className="bg-slate-50 dark:bg-slate-800/60 rounded-xl p-3 border border-slate-100 dark:border-slate-800">
-            <span className="text-[11px] font-semibold text-slate-500 dark:text-slate-400 block uppercase">Classes Suivies</span>
-            <span className="text-xl font-bold text-slate-800 dark:text-slate-200">{classSuccessData.length}</span>
-            <span className="text-[10px] text-slate-500 dark:text-slate-400 font-medium block">Sections actives</span>
+          <div className="bg-[#F0F2F5]  rounded-xl p-3 border border-[#E4E6EB] ">
+            <span className="text-[11px] font-semibold text-[#65676B]  block uppercase">Classes Suivies</span>
+            <span className="text-xl font-bold text-[#050505] ">{classSuccessData.length}</span>
+            <span className="text-[10px] text-[#65676B]  font-medium block">Sections actives</span>
           </div>
-          <div className="bg-slate-50 dark:bg-slate-800/60 rounded-xl p-3 border border-slate-100 dark:border-slate-800">
-            <span className="text-[11px] font-semibold text-slate-500 dark:text-slate-400 block uppercase">Objectif MEPPSA</span>
-            <span className="text-xl font-bold text-emerald-600 dark:text-emerald-400">85%</span>
-            <span className="text-[10px] text-slate-500 dark:text-slate-400 font-medium block">Seuil d'excellence</span>
+          <div className="bg-[#F0F2F5]  rounded-xl p-3 border border-[#E4E6EB] ">
+            <span className="text-[11px] font-semibold text-[#65676B]  block uppercase">Objectif MEPPSA</span>
+            <span className="text-xl font-bold text-[#1877F2] ">85%</span>
+            <span className="text-[10px] text-[#65676B]  font-medium block">Seuil d'excellence</span>
           </div>
         </div>
 
@@ -293,16 +293,16 @@ export const DashboardAnalyticsCharts: React.FC<DashboardAnalyticsChartsProps> =
                     if (active && payload && payload.length) {
                       const data = payload[0].payload;
                       return (
-                        <div className="bg-slate-900 text-white p-3 rounded-xl shadow-lg border border-slate-800 text-xs">
-                          <p className="font-bold text-sm text-indigo-300">{data.classe}</p>
+                        <div className="bg-white text-white p-3 rounded-xl shadow-lg border border-[#E4E6EB] text-xs">
+                          <p className="font-bold text-sm text-[#1877F2]">{data.classe}</p>
                           <div className="mt-1.5 flex flex-col gap-1">
-                            <p className="text-slate-200">
-                              Taux de réussite : <span className="font-bold text-emerald-400">{data.tauxReussite}%</span>
+                            <p className="text-[#65676B]">
+                              Taux de réussite : <span className="font-bold text-[#1877F2]">{data.tauxReussite}%</span>
                             </p>
-                            <p className="text-slate-300">
+                            <p className="text-[#65676B]">
                               Moyenne de classe : <span className="font-semibold text-white">{data.moyenneClasse} / 20</span>
                             </p>
-                            <p className="text-slate-400 text-[11px]">
+                            <p className="text-[#65676B] text-[11px]">
                               Effectif : {data.admis} admis / {data.totalEleves} élèves
                             </p>
                           </div>
@@ -359,7 +359,7 @@ export const DashboardAnalyticsCharts: React.FC<DashboardAnalyticsChartsProps> =
                   verticalAlign="bottom" 
                   height={36} 
                   iconType="circle"
-                  formatter={(value) => <span className="text-xs text-slate-600 dark:text-slate-400 font-medium">{value}</span>}
+                  formatter={(value) => <span className="text-xs text-[#65676B]  font-medium">{value}</span>}
                 />
               </RechartsPie>
             </ResponsiveContainer>
@@ -367,12 +367,12 @@ export const DashboardAnalyticsCharts: React.FC<DashboardAnalyticsChartsProps> =
         </div>
 
         {/* Footer info note */}
-        <div className="pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400">
-          <span className="flex items-center gap-1 text-emerald-700 dark:text-emerald-400 font-medium">
-            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+        <div className="pt-3 border-t border-[#E4E6EB]  flex items-center justify-between text-[11px] text-[#65676B] ">
+          <span className="flex items-center gap-1 text-[#1877F2]  font-medium">
+            <CheckCircle2 className="w-3.5 h-3.5 text-[#1877F2] " />
             Bulletins calculés automatiquement (Brazzaville)
           </span>
-          <span className="font-semibold text-indigo-600 dark:text-indigo-400">
+          <span className="font-semibold text-[#1877F2] ">
             Année Académique 2026-2027
           </span>
         </div>
@@ -380,32 +380,32 @@ export const DashboardAnalyticsCharts: React.FC<DashboardAnalyticsChartsProps> =
       </div>
 
       {/* 2. VISUALISATION : ÉVOLUTION DES PAIEMENTS MENSUELS */}
-      <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-200/80 dark:border-slate-800 p-5 sm:p-6 flex flex-col justify-between gap-4 transition-colors duration-200">
+      <div className="bg-white  rounded-lg shadow-sm border border-[#E4E6EB]  p-5 sm:p-6 flex flex-col justify-between gap-4 transition-colors duration-200">
         
         {/* Header with Title and Mode Toggle */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-800 pb-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#E4E6EB]  pb-4">
           <div>
             <div className="flex items-center gap-2">
-              <span className="p-2 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-800/60">
+              <span className="p-2 rounded-xl bg-[#E7F3FF]  text-[#1877F2]  border border-[#E4E6EB] ">
                 <CreditCard className="w-5 h-5" />
               </span>
               <div>
-                <h3 className="font-bold text-slate-900 dark:text-white text-base">Évolution des Paiements d'Écolage (FCFA)</h3>
-                <p className="text-xs text-slate-500 dark:text-slate-400">Flux d'encaissement mensuel & canaux de paiement Congo</p>
+                <h3 className="font-bold text-[#050505]  text-base">Évolution des Paiements d'Écolage (FCFA)</h3>
+                <p className="text-xs text-[#65676B] ">Flux d'encaissement mensuel & canaux de paiement Congo</p>
               </div>
             </div>
           </div>
 
           <div className="flex items-center gap-2 self-end sm:self-auto">
             {/* Chart toggle */}
-            <div className="flex items-center bg-slate-100 dark:bg-slate-800 p-1 rounded-xl border border-slate-200 dark:border-slate-700 text-xs">
+            <div className="flex items-center bg-[#F0F2F5]  p-1 rounded-xl border border-[#E4E6EB]  text-xs">
               <button
                 type="button"
                 onClick={() => setPaymentsChartType('bar')}
                 className={`flex items-center gap-1 px-2.5 py-1 rounded-lg font-semibold transition-all cursor-pointer ${
                   paymentsChartType === 'bar'
-                    ? 'bg-white dark:bg-slate-700 text-emerald-700 dark:text-emerald-300 shadow-xs'
-                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                    ? 'bg-white  text-[#1877F2]  shadow-xs'
+                    : 'text-[#65676B]  hover:text-[#050505]'
                 }`}
                 title="Affichage en barres"
               >
@@ -417,8 +417,8 @@ export const DashboardAnalyticsCharts: React.FC<DashboardAnalyticsChartsProps> =
                 onClick={() => setPaymentsChartType('donut')}
                 className={`flex items-center gap-1 px-2.5 py-1 rounded-lg font-semibold transition-all cursor-pointer ${
                   paymentsChartType === 'donut'
-                    ? 'bg-white dark:bg-slate-700 text-emerald-700 dark:text-emerald-300 shadow-xs'
-                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                    ? 'bg-white  text-[#1877F2]  shadow-xs'
+                    : 'text-[#65676B]  hover:text-[#050505]'
                 }`}
                 title="Répartition par mode de paiement"
               >
@@ -431,20 +431,20 @@ export const DashboardAnalyticsCharts: React.FC<DashboardAnalyticsChartsProps> =
 
         {/* Highlight KPI Pills */}
         <div className="grid grid-cols-3 gap-3">
-          <div className="bg-slate-50 dark:bg-slate-800/60 rounded-xl p-3 border border-slate-100 dark:border-slate-800">
-            <span className="text-[11px] font-semibold text-slate-500 dark:text-slate-400 block uppercase">Ce Mois (Août)</span>
-            <span className="text-xl font-bold text-emerald-600 dark:text-emerald-400">+{totalCollectedSum.toLocaleString()} FCFA</span>
-            <span className="text-[10px] text-slate-500 dark:text-slate-400 font-medium block">Total encaissé</span>
+          <div className="bg-[#F0F2F5]  rounded-xl p-3 border border-[#E4E6EB] ">
+            <span className="text-[11px] font-semibold text-[#65676B]  block uppercase">Ce Mois (Août)</span>
+            <span className="text-xl font-bold text-[#1877F2] ">+{totalCollectedSum.toLocaleString()} FCFA</span>
+            <span className="text-[10px] text-[#65676B]  font-medium block">Total encaissé</span>
           </div>
-          <div className="bg-slate-50 dark:bg-slate-800/60 rounded-xl p-3 border border-slate-100 dark:border-slate-800">
-            <span className="text-[11px] font-semibold text-slate-500 dark:text-slate-400 block uppercase">Total Transactions</span>
-            <span className="text-xl font-bold text-slate-800 dark:text-slate-200">{payments.length} Reçus</span>
-            <span className="text-[10px] text-indigo-600 dark:text-indigo-400 font-medium block">100% Authentifiés</span>
+          <div className="bg-[#F0F2F5]  rounded-xl p-3 border border-[#E4E6EB] ">
+            <span className="text-[11px] font-semibold text-[#65676B]  block uppercase">Total Transactions</span>
+            <span className="text-xl font-bold text-[#050505] ">{payments.length} Reçus</span>
+            <span className="text-[10px] text-[#1877F2]  font-medium block">100% Authentifiés</span>
           </div>
-          <div className="bg-slate-50 dark:bg-slate-800/60 rounded-xl p-3 border border-slate-100 dark:border-slate-800">
-            <span className="text-[11px] font-semibold text-slate-500 dark:text-slate-400 block uppercase">Canal Principal</span>
-            <span className="text-xl font-bold text-indigo-600 dark:text-indigo-400">MTN MoMo</span>
-            <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-medium block">65% des règlements</span>
+          <div className="bg-[#F0F2F5]  rounded-xl p-3 border border-[#E4E6EB] ">
+            <span className="text-[11px] font-semibold text-[#65676B]  block uppercase">Canal Principal</span>
+            <span className="text-xl font-bold text-[#1877F2] ">MTN MoMo</span>
+            <span className="text-[10px] text-[#1877F2]  font-medium block">65% des règlements</span>
           </div>
         </div>
 
@@ -475,16 +475,16 @@ export const DashboardAnalyticsCharts: React.FC<DashboardAnalyticsChartsProps> =
                     if (active && payload && payload.length) {
                       const data = payload[0].payload;
                       return (
-                        <div className="bg-slate-900 text-white p-3 rounded-xl shadow-lg border border-slate-800 text-xs">
-                          <p className="font-bold text-sm text-emerald-400">{data.nomComplet}</p>
+                        <div className="bg-white text-white p-3 rounded-xl shadow-lg border border-[#E4E6EB] text-xs">
+                          <p className="font-bold text-sm text-[#1877F2]">{data.nomComplet}</p>
                           <div className="mt-1.5 flex flex-col gap-1">
-                            <p className="text-slate-200">
+                            <p className="text-[#65676B]">
                               Encaissé : <span className="font-bold text-white">{data.encaisse.toLocaleString()} FCFA</span>
                             </p>
-                            <p className="text-slate-300">
-                              Prévisionnel : <span className="font-semibold text-slate-400">{data.objectif.toLocaleString()} FCFA</span>
+                            <p className="text-[#65676B]">
+                              Prévisionnel : <span className="font-semibold text-[#65676B]">{data.objectif.toLocaleString()} FCFA</span>
                             </p>
-                            <p className="text-emerald-400 text-[11px] font-semibold">
+                            <p className="text-[#1877F2] text-[11px] font-semibold">
                               Taux de recouvrement : {data.tauxRecouvrement}%
                             </p>
                           </div>
@@ -533,7 +533,7 @@ export const DashboardAnalyticsCharts: React.FC<DashboardAnalyticsChartsProps> =
                   verticalAlign="bottom" 
                   height={36} 
                   iconType="circle"
-                  formatter={(value) => <span className="text-xs text-slate-600 dark:text-slate-400 font-medium">{value}</span>}
+                  formatter={(value) => <span className="text-xs text-[#65676B]  font-medium">{value}</span>}
                 />
               </RechartsPie>
             </ResponsiveContainer>
@@ -541,12 +541,12 @@ export const DashboardAnalyticsCharts: React.FC<DashboardAnalyticsChartsProps> =
         </div>
 
         {/* Footer info note */}
-        <div className="pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400">
-          <span className="flex items-center gap-1 text-slate-600 dark:text-slate-400 font-medium">
-            <TrendingUp className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+        <div className="pt-3 border-t border-[#E4E6EB]  flex items-center justify-between text-[11px] text-[#65676B] ">
+          <span className="flex items-center gap-1 text-[#65676B]  font-medium">
+            <TrendingUp className="w-3.5 h-3.5 text-[#1877F2] " />
             Traçabilité caisse & Mobile Money (MTN / Airtel) certifiée
           </span>
-          <span className="font-semibold text-emerald-700 dark:text-emerald-400">
+          <span className="font-semibold text-[#1877F2] ">
             Export Bilan Comptable dispo
           </span>
         </div>

@@ -214,29 +214,29 @@ export const MonthlyPaymentAnalyticsCharts: React.FC<MonthlyPaymentAnalyticsChar
   };
 
   return (
-    <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm p-5 sm:p-6 flex flex-col gap-6 transition-colors duration-200">
+    <div className="bg-white  rounded-lg border border-[#E4E6EB]  shadow-sm p-5 sm:p-6 flex flex-col gap-6 transition-colors duration-200">
       
       {/* 1. Header & Navigation Controls */}
-      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-slate-100 dark:border-slate-800 pb-5">
+      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-[#E4E6EB]  pb-5">
         <div>
-          <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-bold text-xs uppercase tracking-wider">
-            <span className="p-1 rounded-md bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60">
+          <div className="flex items-center gap-2 text-[#1877F2]  font-bold text-xs uppercase tracking-wider">
+            <span className="p-1 rounded-md bg-[#E7F3FF]  border border-[#E4E6EB] ">
               <TrendingUp className="w-4 h-4" />
             </span>
             <span>Tableau de Bord Financier & Statistiques Recharts</span>
           </div>
-          <h3 className="text-xl font-bold text-slate-900 dark:text-white mt-1">{title}</h3>
-          <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">{subtitle}</p>
+          <h3 className="text-xl font-bold text-[#050505]  mt-1">{title}</h3>
+          <p className="text-xs text-[#65676B]  mt-0.5">{subtitle}</p>
         </div>
 
         {/* View Selection Tabs */}
-        <div className="flex flex-wrap items-center gap-1.5 bg-slate-100 dark:bg-slate-800 p-1.5 rounded-xl border border-slate-200 dark:border-slate-700 text-xs">
+        <div className="flex flex-wrap items-center gap-1.5 bg-[#F0F2F5]  p-1.5 rounded-xl border border-[#E4E6EB]  text-xs">
           <button
             onClick={() => setActiveView('evolution')}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-bold transition-all cursor-pointer ${
               activeView === 'evolution'
-                ? 'bg-emerald-600 text-white shadow-xs'
-                : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
+                ? 'bg-[#1877F2] text-white shadow-xs'
+                : 'text-[#65676B]  hover:text-[#050505]'
             }`}
           >
             <Activity className="w-3.5 h-3.5" />
@@ -247,8 +247,8 @@ export const MonthlyPaymentAnalyticsCharts: React.FC<MonthlyPaymentAnalyticsChar
             onClick={() => setActiveView('cumulative')}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-bold transition-all cursor-pointer ${
               activeView === 'cumulative'
-                ? 'bg-emerald-600 text-white shadow-xs'
-                : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
+                ? 'bg-[#1877F2] text-white shadow-xs'
+                : 'text-[#65676B]  hover:text-[#050505]'
             }`}
           >
             <Layers className="w-3.5 h-3.5" />
@@ -259,8 +259,8 @@ export const MonthlyPaymentAnalyticsCharts: React.FC<MonthlyPaymentAnalyticsChar
             onClick={() => setActiveView('channels')}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-bold transition-all cursor-pointer ${
               activeView === 'channels'
-                ? 'bg-emerald-600 text-white shadow-xs'
-                : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
+                ? 'bg-[#1877F2] text-white shadow-xs'
+                : 'text-[#65676B]  hover:text-[#050505]'
             }`}
           >
             <PieIcon className="w-3.5 h-3.5" />
@@ -271,8 +271,8 @@ export const MonthlyPaymentAnalyticsCharts: React.FC<MonthlyPaymentAnalyticsChar
             onClick={() => setActiveView('classes')}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-bold transition-all cursor-pointer ${
               activeView === 'classes'
-                ? 'bg-emerald-600 text-white shadow-xs'
-                : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
+                ? 'bg-[#1877F2] text-white shadow-xs'
+                : 'text-[#65676B]  hover:text-[#050505]'
             }`}
           >
             <BarChart3 className="w-3.5 h-3.5" />
@@ -284,8 +284,8 @@ export const MonthlyPaymentAnalyticsCharts: React.FC<MonthlyPaymentAnalyticsChar
               onClick={() => setActiveView('cashflow')}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-bold transition-all cursor-pointer ${
                 activeView === 'cashflow'
-                  ? 'bg-emerald-600 text-white shadow-xs'
-                  : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
+                  ? 'bg-[#1877F2] text-white shadow-xs'
+                  : 'text-[#65676B]  hover:text-[#050505]'
               }`}
             >
               <DollarSign className="w-3.5 h-3.5" />
@@ -297,55 +297,55 @@ export const MonthlyPaymentAnalyticsCharts: React.FC<MonthlyPaymentAnalyticsChar
 
       {/* 2. Top Summary KPI Cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-        <div className="bg-slate-50 dark:bg-slate-800/60 p-4 rounded-xl border border-slate-200/70 dark:border-slate-700/60">
+        <div className="bg-[#F0F2F5]  p-4 rounded-xl border border-[#E4E6EB] ">
           <div className="flex items-center justify-between">
-            <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase">Recettes Encaissées</span>
-            <ArrowDownLeft className="w-4 h-4 text-emerald-500" />
+            <span className="text-[11px] font-bold text-[#65676B]  uppercase">Recettes Encaissées</span>
+            <ArrowDownLeft className="w-4 h-4 text-[#1877F2]" />
           </div>
-          <p className="text-xl sm:text-2xl font-bold text-emerald-600 dark:text-emerald-400 mt-1">
+          <p className="text-xl sm:text-2xl font-bold text-[#1877F2]  mt-1">
             {totalAnnualCollected.toLocaleString()} FCFA
           </p>
-          <span className="text-[10px] text-emerald-700 dark:text-emerald-400 font-semibold flex items-center gap-1 mt-0.5">
+          <span className="text-[10px] text-[#1877F2]  font-semibold flex items-center gap-1 mt-0.5">
             <CheckCircle2 className="w-3 h-3" />
             {globalAnnualRate}% du budget prévisionnel
           </span>
         </div>
 
-        <div className="bg-slate-50 dark:bg-slate-800/60 p-4 rounded-xl border border-slate-200/70 dark:border-slate-700/60">
+        <div className="bg-[#F0F2F5]  p-4 rounded-xl border border-[#E4E6EB] ">
           <div className="flex items-center justify-between">
-            <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase">Budget Annuel Prévu</span>
-            <Calendar className="w-4 h-4 text-indigo-500" />
+            <span className="text-[11px] font-bold text-[#65676B]  uppercase">Budget Annuel Prévu</span>
+            <Calendar className="w-4 h-4 text-[#1877F2]" />
           </div>
-          <p className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mt-1">
+          <p className="text-xl sm:text-2xl font-bold text-[#050505]  mt-1">
             {totalAnnualTarget.toLocaleString()} FCFA
           </p>
-          <span className="text-[10px] text-slate-500 dark:text-slate-400 font-medium mt-0.5">
+          <span className="text-[10px] text-[#65676B]  font-medium mt-0.5">
             12 mois de scolarité (Brazzaville)
           </span>
         </div>
 
-        <div className="bg-slate-50 dark:bg-slate-800/60 p-4 rounded-xl border border-slate-200/70 dark:border-slate-700/60">
+        <div className="bg-[#F0F2F5]  p-4 rounded-xl border border-[#E4E6EB] ">
           <div className="flex items-center justify-between">
-            <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase">Dépenses Cumulées</span>
+            <span className="text-[11px] font-bold text-[#65676B]  uppercase">Dépenses Cumulées</span>
             <ArrowUpRight className="w-4 h-4 text-rose-500" />
           </div>
-          <p className="text-xl sm:text-2xl font-bold text-rose-600 dark:text-rose-400 mt-1">
+          <p className="text-xl sm:text-2xl font-bold text-rose-600  mt-1">
             {totalAnnualExpenses.toLocaleString()} FCFA
           </p>
-          <span className="text-[10px] text-rose-700 dark:text-rose-400 font-semibold mt-0.5">
+          <span className="text-[10px] text-rose-700  font-semibold mt-0.5">
             Salaires, fournitures, maintenance
           </span>
         </div>
 
-        <div className="bg-slate-50 dark:bg-slate-800/60 p-4 rounded-xl border border-slate-200/70 dark:border-slate-700/60">
+        <div className="bg-[#F0F2F5]  p-4 rounded-xl border border-[#E4E6EB] ">
           <div className="flex items-center justify-between">
-            <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase">Solde Net Trésorerie</span>
+            <span className="text-[11px] font-bold text-[#65676B]  uppercase">Solde Net Trésorerie</span>
             <Sparkles className="w-4 h-4 text-amber-500" />
           </div>
-          <p className="text-xl sm:text-2xl font-bold text-indigo-600 dark:text-indigo-400 mt-1">
+          <p className="text-xl sm:text-2xl font-bold text-[#1877F2]  mt-1">
             +{netGlobalLiquidity.toLocaleString()} FCFA
           </p>
-          <span className="text-[10px] text-indigo-700 dark:text-indigo-400 font-bold mt-0.5">
+          <span className="text-[10px] text-[#1877F2]  font-bold mt-0.5">
             Marge de liquidité saine
           </span>
         </div>
@@ -358,11 +358,11 @@ export const MonthlyPaymentAnalyticsCharts: React.FC<MonthlyPaymentAnalyticsChar
             <>
               {/* Channel filter */}
               <div className="flex items-center gap-1.5">
-                <span className="text-slate-500 dark:text-slate-400 font-medium">Canal :</span>
+                <span className="text-[#65676B]  font-medium">Canal :</span>
                 <select
                   value={filterChannel}
                   onChange={(e) => setFilterChannel(e.target.value)}
-                  className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 rounded-lg px-2.5 py-1 text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500 font-medium cursor-pointer"
+                  className="bg-[#F0F2F5]  border border-[#E4E6EB]  text-[#050505]  rounded-lg px-2.5 py-1 text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500 font-medium cursor-pointer"
                 >
                   <option value="all">Tous les canaux de paiement</option>
                   <option value="MTN Mobile Money">MTN Mobile Money (+242)</option>
@@ -373,14 +373,14 @@ export const MonthlyPaymentAnalyticsCharts: React.FC<MonthlyPaymentAnalyticsChar
               </div>
 
               {/* Chart type toggle */}
-              <div className="flex items-center bg-slate-100 dark:bg-slate-800 p-0.5 rounded-lg border border-slate-200 dark:border-slate-700">
+              <div className="flex items-center bg-[#F0F2F5]  p-0.5 rounded-lg border border-[#E4E6EB] ">
                 <button
                   type="button"
                   onClick={() => setChartType('area')}
                   className={`px-2 py-1 rounded-md text-xs font-semibold cursor-pointer transition-all ${
                     chartType === 'area'
-                      ? 'bg-white dark:bg-slate-700 text-emerald-700 dark:text-emerald-300 shadow-2xs'
-                      : 'text-slate-600 dark:text-slate-400'
+                      ? 'bg-white  text-[#1877F2]  shadow-2xs'
+                      : 'text-[#65676B] '
                   }`}
                 >
                   Aires
@@ -390,8 +390,8 @@ export const MonthlyPaymentAnalyticsCharts: React.FC<MonthlyPaymentAnalyticsChar
                   onClick={() => setChartType('bar')}
                   className={`px-2 py-1 rounded-md text-xs font-semibold cursor-pointer transition-all ${
                     chartType === 'bar'
-                      ? 'bg-white dark:bg-slate-700 text-emerald-700 dark:text-emerald-300 shadow-2xs'
-                      : 'text-slate-600 dark:text-slate-400'
+                      ? 'bg-white  text-[#1877F2]  shadow-2xs'
+                      : 'text-[#65676B] '
                   }`}
                 >
                   Barres
@@ -399,12 +399,12 @@ export const MonthlyPaymentAnalyticsCharts: React.FC<MonthlyPaymentAnalyticsChar
               </div>
 
               {/* Target Line toggle */}
-              <label className="flex items-center gap-1.5 text-slate-600 dark:text-slate-300 cursor-pointer select-none">
+              <label className="flex items-center gap-1.5 text-[#65676B]  cursor-pointer select-none">
                 <input
                   type="checkbox"
                   checked={showTargetLine}
                   onChange={(e) => setShowTargetLine(e.target.checked)}
-                  className="rounded border-slate-300 text-emerald-600 focus:ring-emerald-500 cursor-pointer"
+                  className="rounded border-[#E4E6EB] text-[#1877F2] focus:ring-emerald-500 cursor-pointer"
                 />
                 <span>Ligne Objectif Prévu</span>
               </label>
@@ -412,8 +412,8 @@ export const MonthlyPaymentAnalyticsCharts: React.FC<MonthlyPaymentAnalyticsChar
           )}
         </div>
 
-        <div className="text-[11px] text-slate-500 dark:text-slate-400 flex items-center gap-1.5 self-end sm:self-auto">
-          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <div className="text-[11px] text-[#65676B]  flex items-center gap-1.5 self-end sm:self-auto">
+          <span className="w-2 h-2 rounded-lg bg-[#1877F2] animate-pulse"></span>
           <span>Devise : <strong>Franc CFA (XAF)</strong> • Synchronisé Caisse Centrale</span>
         </div>
       </div>
@@ -457,28 +457,28 @@ export const MonthlyPaymentAnalyticsCharts: React.FC<MonthlyPaymentAnalyticsChar
                     if (active && payload && payload.length) {
                       const data = payload[0].payload;
                       return (
-                        <div className="bg-slate-900 text-white p-3.5 rounded-xl shadow-xl border border-slate-700 text-xs flex flex-col gap-1.5 min-w-[220px]">
-                          <div className="flex items-center justify-between border-b border-slate-700 pb-1.5">
-                            <span className="font-bold text-sm text-emerald-400">{data.nomComplet}</span>
-                            <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-950 text-emerald-300 border border-emerald-800">
+                        <div className="bg-white text-white p-3.5 rounded-xl shadow-xl border border-[#E4E6EB] text-xs flex flex-col gap-1.5 min-w-[220px]">
+                          <div className="flex items-center justify-between border-b border-[#E4E6EB] pb-1.5">
+                            <span className="font-bold text-sm text-[#1877F2]">{data.nomComplet}</span>
+                            <span className="px-2 py-0.5 rounded-lg text-[10px] font-bold bg-emerald-950 text-[#1877F2] border border-[#E4E6EB]">
                               {data.tauxRecouvrement}% Recouvré
                             </span>
                           </div>
-                          <div className="flex justify-between items-center text-slate-200">
+                          <div className="flex justify-between items-center text-[#65676B]">
                             <span className="flex items-center gap-1.5">
-                              <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+                              <span className="w-2 h-2 rounded-lg bg-[#1877F2]"></span>
                               Encaissé :
                             </span>
                             <span className="font-bold text-white font-mono">{data.encaisse.toLocaleString()} FCFA</span>
                           </div>
-                          <div className="flex justify-between items-center text-slate-300">
+                          <div className="flex justify-between items-center text-[#65676B]">
                             <span className="flex items-center gap-1.5">
-                              <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
+                              <span className="w-2 h-2 rounded-lg bg-[#1877F2]"></span>
                               Objectif Prévu :
                             </span>
-                            <span className="font-semibold text-slate-300 font-mono">{data.objectif.toLocaleString()} FCFA</span>
+                            <span className="font-semibold text-[#65676B] font-mono">{data.objectif.toLocaleString()} FCFA</span>
                           </div>
-                          <div className="flex justify-between items-center text-amber-400 pt-1 border-t border-slate-800">
+                          <div className="flex justify-between items-center text-amber-400 pt-1 border-t border-[#E4E6EB]">
                             <span>Reste à percevoir :</span>
                             <span className="font-bold font-mono">{data.resteARecouvrer.toLocaleString()} FCFA</span>
                           </div>
@@ -492,7 +492,7 @@ export const MonthlyPaymentAnalyticsCharts: React.FC<MonthlyPaymentAnalyticsChar
                   verticalAlign="top" 
                   height={36} 
                   iconType="circle"
-                  formatter={(value) => <span className="text-xs text-slate-600 dark:text-slate-300 font-medium">{value}</span>}
+                  formatter={(value) => <span className="text-xs text-[#65676B]  font-medium">{value}</span>}
                 />
                 <Area 
                   type="monotone" 
@@ -548,7 +548,7 @@ export const MonthlyPaymentAnalyticsCharts: React.FC<MonthlyPaymentAnalyticsChar
                   verticalAlign="top" 
                   height={36} 
                   iconType="rect"
-                  formatter={(value) => <span className="text-xs text-slate-600 dark:text-slate-300 font-medium">{value}</span>}
+                  formatter={(value) => <span className="text-xs text-[#65676B]  font-medium">{value}</span>}
                 />
                 <Bar 
                   dataKey="encaisse" 
@@ -599,15 +599,15 @@ export const MonthlyPaymentAnalyticsCharts: React.FC<MonthlyPaymentAnalyticsChar
                   if (active && payload && payload.length) {
                     const data = payload[0].payload;
                     return (
-                      <div className="bg-slate-900 text-white p-3.5 rounded-xl shadow-xl border border-slate-700 text-xs flex flex-col gap-1 min-w-[240px]">
-                        <p className="font-bold text-sm text-emerald-400">{data.nomComplet}</p>
-                        <p className="text-slate-200">
+                      <div className="bg-white text-white p-3.5 rounded-xl shadow-xl border border-[#E4E6EB] text-xs flex flex-col gap-1 min-w-[240px]">
+                        <p className="font-bold text-sm text-[#1877F2]">{data.nomComplet}</p>
+                        <p className="text-[#65676B]">
                           Cumul Encaissé : <span className="font-bold text-white font-mono">{data.cumuleEncaisses.toLocaleString()} FCFA</span>
                         </p>
-                        <p className="text-slate-300">
-                          Objectif Annuel Visé : <span className="font-semibold text-slate-300 font-mono">{data.cumuleObjectif.toLocaleString()} FCFA</span>
+                        <p className="text-[#65676B]">
+                          Objectif Annuel Visé : <span className="font-semibold text-[#65676B] font-mono">{data.cumuleObjectif.toLocaleString()} FCFA</span>
                         </p>
-                        <p className="text-indigo-300 text-[11px] font-bold mt-1">
+                        <p className="text-[#1877F2] text-[11px] font-bold mt-1">
                           Progression Globale : {Math.round((data.cumuleEncaisses / totalAnnualTarget) * 100)}% de l'année
                         </p>
                       </div>
@@ -672,26 +672,26 @@ export const MonthlyPaymentAnalyticsCharts: React.FC<MonthlyPaymentAnalyticsChar
 
             {/* Detailed Channel Breakdown Cards */}
             <div className="flex flex-col gap-2.5">
-              <h4 className="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
+              <h4 className="text-xs font-bold text-[#050505]  uppercase tracking-wider">
                 Répartition des encaissements par canal (+242)
               </h4>
               {channelData.map((chan) => (
                 <div 
                   key={chan.name}
-                  className="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/70 dark:border-slate-700/60 text-xs"
+                  className="flex items-center justify-between p-3 rounded-xl bg-[#F0F2F5]  border border-[#E4E6EB]  text-xs"
                 >
                   <div className="flex items-center gap-2.5">
                     <span 
-                      className="w-3 h-3 rounded-full shrink-0" 
+                      className="w-3 h-3 rounded-lg shrink-0" 
                       style={{ backgroundColor: chan.color }}
                     />
                     <div>
-                      <p className="font-bold text-slate-900 dark:text-white">{chan.name}</p>
-                      <p className="text-[10px] text-slate-500 dark:text-slate-400">{chan.percentage}% du total encaissé</p>
+                      <p className="font-bold text-[#050505] ">{chan.name}</p>
+                      <p className="text-[10px] text-[#65676B] ">{chan.percentage}% du total encaissé</p>
                     </div>
                   </div>
                   <div className="text-right">
-                    <span className="font-mono font-bold text-slate-900 dark:text-white text-sm">
+                    <span className="font-mono font-bold text-[#050505]  text-sm">
                       {chan.value.toLocaleString()} FCFA
                     </span>
                   </div>
@@ -729,18 +729,18 @@ export const MonthlyPaymentAnalyticsCharts: React.FC<MonthlyPaymentAnalyticsChar
                   if (active && payload && payload.length) {
                     const data = payload[0].payload;
                     return (
-                      <div className="bg-slate-900 text-white p-3 rounded-xl shadow-lg border border-slate-700 text-xs flex flex-col gap-1 min-w-[200px]">
-                        <p className="font-bold text-sm text-emerald-400">{data.classe}</p>
-                        <p className="text-slate-200">
-                          Payé : <span className="font-bold text-emerald-300 font-mono">{data.totalPaye.toLocaleString()} FCFA</span>
+                      <div className="bg-white text-white p-3 rounded-xl shadow-lg border border-[#E4E6EB] text-xs flex flex-col gap-1 min-w-[200px]">
+                        <p className="font-bold text-sm text-[#1877F2]">{data.classe}</p>
+                        <p className="text-[#65676B]">
+                          Payé : <span className="font-bold text-[#1877F2] font-mono">{data.totalPaye.toLocaleString()} FCFA</span>
                         </p>
-                        <p className="text-slate-300">
-                          Total Exigible : <span className="font-semibold text-slate-300 font-mono">{data.totalAttendu.toLocaleString()} FCFA</span>
+                        <p className="text-[#65676B]">
+                          Total Exigible : <span className="font-semibold text-[#65676B] font-mono">{data.totalAttendu.toLocaleString()} FCFA</span>
                         </p>
                         <p className="text-amber-300">
                           Reste : <span className="font-bold font-mono">{data.reste.toLocaleString()} FCFA</span>
                         </p>
-                        <p className="text-indigo-300 text-[11px] font-bold mt-1">
+                        <p className="text-[#1877F2] text-[11px] font-bold mt-1">
                           Taux de Recouvrement : {data.taux}% ({data.aJour}/{data.eleves} élèves soldés)
                         </p>
                       </div>
@@ -794,9 +794,9 @@ export const MonthlyPaymentAnalyticsCharts: React.FC<MonthlyPaymentAnalyticsChar
                   if (active && payload && payload.length) {
                     const data = payload[0].payload;
                     return (
-                      <div className="bg-slate-900 text-white p-3.5 rounded-xl shadow-xl border border-slate-700 text-xs flex flex-col gap-1.5 min-w-[220px]">
-                        <p className="font-bold text-sm text-emerald-400">{data.nomComplet}</p>
-                        <div className="flex justify-between items-center text-emerald-400">
+                      <div className="bg-white text-white p-3.5 rounded-xl shadow-xl border border-[#E4E6EB] text-xs flex flex-col gap-1.5 min-w-[220px]">
+                        <p className="font-bold text-sm text-[#1877F2]">{data.nomComplet}</p>
+                        <div className="flex justify-between items-center text-[#1877F2]">
                           <span>Recettes d'Écolage :</span>
                           <span className="font-bold font-mono">+{data.encaisse.toLocaleString()} FCFA</span>
                         </div>
@@ -804,7 +804,7 @@ export const MonthlyPaymentAnalyticsCharts: React.FC<MonthlyPaymentAnalyticsChar
                           <span>Dépenses & Salaires :</span>
                           <span className="font-bold font-mono">-{data.depense.toLocaleString()} FCFA</span>
                         </div>
-                        <div className="flex justify-between items-center text-indigo-300 pt-1 border-t border-slate-800 font-bold">
+                        <div className="flex justify-between items-center text-[#1877F2] pt-1 border-t border-[#E4E6EB] font-bold">
                           <span>Solde Net du Mois :</span>
                           <span className="font-mono">+{data.soldeNet.toLocaleString()} FCFA</span>
                         </div>
@@ -844,9 +844,9 @@ export const MonthlyPaymentAnalyticsCharts: React.FC<MonthlyPaymentAnalyticsChar
       </div>
 
       {/* 5. Footer Insights & Action Strip */}
-      <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-slate-500 dark:text-slate-400">
+      <div className="pt-4 border-t border-[#E4E6EB]  flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-[#65676B] ">
         <div className="flex items-center gap-2">
-          <span className="p-1 rounded-md bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400">
+          <span className="p-1 rounded-md bg-[#E7F3FF]  text-[#1877F2] ">
             <Sparkles className="w-3.5 h-3.5" />
           </span>
           <span>
@@ -865,7 +865,7 @@ export const MonthlyPaymentAnalyticsCharts: React.FC<MonthlyPaymentAnalyticsChar
               downloadAnchor.click();
               downloadAnchor.remove();
             }}
-            className="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-lg font-bold text-xs flex items-center gap-1.5 transition-colors cursor-pointer"
+            className="px-3 py-1.5 bg-[#F0F2F5]  hover:bg-[#F0F2F5] text-[#050505]  rounded-lg font-bold text-xs flex items-center gap-1.5 transition-colors cursor-pointer"
           >
             <Download className="w-3.5 h-3.5" />
             Exporter Données (JSON)

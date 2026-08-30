@@ -167,21 +167,21 @@ export const OverdueFeesAlertWidget: React.FC<OverdueFeesAlertWidgetProps> = ({
 
   if (overdueStudents.length === 0) {
     return (
-      <div className="bg-emerald-50/80 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/80 rounded-2xl p-5 shadow-xs flex items-center justify-between transition-colors">
+      <div className="bg-[#E7F3FF]/80  border border-[#E4E6EB]  rounded-lg p-5 shadow-xs flex items-center justify-between transition-colors">
         <div className="flex items-center gap-3.5">
-          <div className="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-900/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
+          <div className="w-10 h-10 rounded-xl bg-[#E7F3FF]  text-[#1877F2]  flex items-center justify-center shrink-0">
             <CheckCircle2 className="w-6 h-6" />
           </div>
           <div>
-            <h3 className="font-bold text-emerald-900 dark:text-emerald-200 text-sm">
+            <h3 className="font-bold text-[#1877F2]  text-sm">
               Tous les frais scolaires sont à jour !
             </h3>
-            <p className="text-xs text-emerald-700 dark:text-emerald-300">
+            <p className="text-xs text-[#1877F2] ">
               Aucun élève n'est actuellement en retard de paiement sur l'ensemble de l'établissement.
             </p>
           </div>
         </div>
-        <span className="text-xs font-mono font-bold bg-emerald-100 dark:bg-emerald-900 text-emerald-800 dark:text-emerald-200 px-3 py-1 rounded-full">
+        <span className="text-xs font-mono font-bold bg-[#E7F3FF]  text-[#1877F2]  px-3 py-1 rounded-lg">
           100% Recouvert
         </span>
       </div>
@@ -189,12 +189,12 @@ export const OverdueFeesAlertWidget: React.FC<OverdueFeesAlertWidgetProps> = ({
   }
 
   return (
-    <div className="bg-white dark:bg-slate-900 border-2 border-rose-500/40 dark:border-rose-600/40 rounded-2xl shadow-md overflow-hidden transition-all duration-200">
+    <div className="bg-white  border-2 border-rose-500/40  rounded-lg shadow-md overflow-hidden transition-all duration-200">
       
       {/* Alert Header Banner */}
-      <div className="bg-gradient-to-r from-rose-50 via-white to-amber-50 dark:from-rose-950/60 dark:via-slate-900 dark:to-amber-950/40 px-5 sm:px-6 py-4 border-b border-rose-200/80 dark:border-rose-900/60 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+      <div className="bg-[#1877F2]    px-5 sm:px-6 py-4 border-b border-rose-200/80  flex flex-col lg:flex-row lg:items-center justify-between gap-4">
         <div className="flex items-center gap-3.5">
-          <div className="w-11 h-11 rounded-2xl bg-rose-600 text-white flex items-center justify-center shadow-md shadow-rose-600/30 shrink-0 animate-pulse">
+          <div className="w-11 h-11 rounded-lg bg-rose-600 text-white flex items-center justify-center shadow-md shadow-rose-600/30 shrink-0 animate-pulse">
             <ShieldAlert className="w-6 h-6" />
           </div>
           <div>
@@ -202,12 +202,12 @@ export const OverdueFeesAlertWidget: React.FC<OverdueFeesAlertWidgetProps> = ({
               <span className="text-[11px] font-extrabold uppercase tracking-wider bg-rose-600 text-white px-2 py-0.5 rounded-md shadow-2xs">
                 Alerte Caisse & Recouvrement
               </span>
-              <span className="text-xs font-bold text-rose-700 dark:text-rose-300">
+              <span className="text-xs font-bold text-rose-700 ">
                 {overdueStudents.length} Élève{overdueStudents.length > 1 ? 's' : ''} en Retard de Règlement ({overduePercentage}% de l'effectif)
               </span>
             </div>
-            <h3 className="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white mt-0.5">
-              Impayés en Souffrance : <span className="text-rose-600 dark:text-rose-400 font-mono">{totalOverdueAmount.toLocaleString()} FCFA</span>
+            <h3 className="text-base sm:text-lg font-extrabold text-[#050505]  mt-0.5">
+              Impayés en Souffrance : <span className="text-rose-600  font-mono">{totalOverdueAmount.toLocaleString()} FCFA</span>
             </h3>
           </div>
         </div>
@@ -228,7 +228,7 @@ export const OverdueFeesAlertWidget: React.FC<OverdueFeesAlertWidgetProps> = ({
 
           <button
             onClick={() => setIsExpanded(!isExpanded)}
-            className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors cursor-pointer"
+            className="p-2 rounded-xl bg-[#F0F2F5]  text-[#050505]  hover:bg-[#F0F2F5] transition-colors cursor-pointer"
             title={isExpanded ? 'Réduire la vue détaillée' : 'Déplier la vue détaillée'}
           >
             {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
@@ -237,7 +237,7 @@ export const OverdueFeesAlertWidget: React.FC<OverdueFeesAlertWidgetProps> = ({
       </div>
 
       {bulkSentSuccess && (
-        <div className="bg-emerald-600 text-white text-xs font-semibold px-6 py-2.5 flex items-center justify-between animate-in fade-in duration-300">
+        <div className="bg-[#1877F2] text-white text-xs font-semibold px-6 py-2.5 flex items-center justify-between animate-in fade-in duration-300">
           <div className="flex items-center gap-2">
             <CheckCircle2 className="w-4 h-4" />
             <span>Campagne de relance WhatsApp & SMS envoyée avec succès aux {overdueStudents.length} parents d'élèves !</span>
@@ -252,23 +252,23 @@ export const OverdueFeesAlertWidget: React.FC<OverdueFeesAlertWidgetProps> = ({
       )}
 
       {/* KPI Severity Counters */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-slate-100 dark:divide-slate-800 border-b border-slate-100 dark:border-slate-800 text-xs">
+      <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-slate-100  border-b border-[#E4E6EB]  text-xs">
         
         {/* Critical Arrears */}
         <div 
           onClick={() => setFilterSeverity(filterSeverity === 'critical' ? 'all' : 'critical')}
           className={`p-4 flex items-center justify-between cursor-pointer transition-colors ${
-            filterSeverity === 'critical' ? 'bg-rose-50/70 dark:bg-rose-950/40' : 'hover:bg-slate-50 dark:hover:bg-slate-800/40'
+            filterSeverity === 'critical' ? 'bg-rose-50/70 ' : 'hover:bg-[#F0F2F5]'
           }`}
         >
           <div className="flex items-center gap-3">
-            <div className="w-3 h-3 rounded-full bg-rose-500 animate-ping"></div>
+            <div className="w-3 h-3 rounded-lg bg-rose-500 animate-ping"></div>
             <div>
-              <span className="font-bold text-slate-900 dark:text-white block">Retards Critiques (≥ 50k FCFA)</span>
-              <span className="text-[11px] text-rose-600 dark:text-rose-400 font-semibold">Priorité 1 de relance</span>
+              <span className="font-bold text-[#050505]  block">Retards Critiques (≥ 50k FCFA)</span>
+              <span className="text-[11px] text-rose-600  font-semibold">Priorité 1 de relance</span>
             </div>
           </div>
-          <span className="text-base font-extrabold text-rose-600 dark:text-rose-400 font-mono bg-rose-100 dark:bg-rose-900/60 px-2.5 py-0.5 rounded-lg">
+          <span className="text-base font-extrabold text-rose-600  font-mono bg-rose-100  px-2.5 py-0.5 rounded-lg">
             {criticalCount}
           </span>
         </div>
@@ -277,31 +277,31 @@ export const OverdueFeesAlertWidget: React.FC<OverdueFeesAlertWidgetProps> = ({
         <div 
           onClick={() => setFilterSeverity(filterSeverity === 'moderate' ? 'all' : 'moderate')}
           className={`p-4 flex items-center justify-between cursor-pointer transition-colors ${
-            filterSeverity === 'moderate' ? 'bg-amber-50/70 dark:bg-amber-950/40' : 'hover:bg-slate-50 dark:hover:bg-slate-800/40'
+            filterSeverity === 'moderate' ? 'bg-amber-50/70 ' : 'hover:bg-[#F0F2F5]'
           }`}
         >
           <div className="flex items-center gap-3">
-            <div className="w-3 h-3 rounded-full bg-amber-500"></div>
+            <div className="w-3 h-3 rounded-lg bg-amber-500"></div>
             <div>
-              <span className="font-bold text-slate-900 dark:text-white block">Soldes Partiels (&lt; 50k FCFA)</span>
-              <span className="text-[11px] text-amber-600 dark:text-amber-400 font-semibold">Relance de routine</span>
+              <span className="font-bold text-[#050505]  block">Soldes Partiels (&lt; 50k FCFA)</span>
+              <span className="text-[11px] text-amber-600  font-semibold">Relance de routine</span>
             </div>
           </div>
-          <span className="text-base font-extrabold text-amber-600 dark:text-amber-400 font-mono bg-amber-100 dark:bg-amber-900/60 px-2.5 py-0.5 rounded-lg">
+          <span className="text-base font-extrabold text-amber-600  font-mono bg-amber-100  px-2.5 py-0.5 rounded-lg">
             {moderateCount}
           </span>
         </div>
 
         {/* Total students up to date */}
-        <div className="p-4 flex items-center justify-between bg-slate-50/50 dark:bg-slate-800/20">
+        <div className="p-4 flex items-center justify-between bg-[#F0F2F5]/50 ">
           <div className="flex items-center gap-3">
-            <div className="w-3 h-3 rounded-full bg-emerald-500"></div>
+            <div className="w-3 h-3 rounded-lg bg-[#1877F2]"></div>
             <div>
-              <span className="font-bold text-slate-900 dark:text-white block">Élèves Totalement à Jour</span>
-              <span className="text-[11px] text-emerald-600 dark:text-emerald-400 font-semibold">Situation saine</span>
+              <span className="font-bold text-[#050505]  block">Élèves Totalement à Jour</span>
+              <span className="text-[11px] text-[#1877F2]  font-semibold">Situation saine</span>
             </div>
           </div>
-          <span className="text-base font-extrabold text-emerald-600 dark:text-emerald-400 font-mono bg-emerald-100 dark:bg-emerald-900/60 px-2.5 py-0.5 rounded-lg">
+          <span className="text-base font-extrabold text-[#1877F2]  font-mono bg-[#E7F3FF]  px-2.5 py-0.5 rounded-lg">
             {totalStudentsCount - overdueStudents.length}
           </span>
         </div>
@@ -316,20 +316,20 @@ export const OverdueFeesAlertWidget: React.FC<OverdueFeesAlertWidgetProps> = ({
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 text-xs">
             <div className="flex items-center gap-2 flex-wrap">
               <div className="relative flex-1 sm:w-64">
-                <Search className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-2.5" />
+                <Search className="w-3.5 h-3.5 text-[#65676B] absolute left-3 top-2.5" />
                 <input
                   type="text"
                   placeholder="Rechercher élève, parent, matricule..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 rounded-xl pl-8 pr-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-rose-500"
+                  className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  text-[#050505]  rounded-xl pl-8 pr-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-rose-500"
                 />
               </div>
 
               <select
                 value={selectedClass}
                 onChange={(e) => setSelectedClass(e.target.value)}
-                className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 rounded-xl px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-rose-500 cursor-pointer"
+                className="bg-[#F0F2F5]  border border-[#E4E6EB]  text-[#050505]  rounded-xl px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-rose-500 cursor-pointer"
               >
                 <option value="all">Toutes les Classes</option>
                 {classes.map((c) => (
@@ -338,17 +338,17 @@ export const OverdueFeesAlertWidget: React.FC<OverdueFeesAlertWidgetProps> = ({
               </select>
             </div>
 
-            <div className="text-slate-500 dark:text-slate-400 text-xs font-semibold text-right">
+            <div className="text-[#65676B]  text-xs font-semibold text-right">
               Affichage : {filteredOverdue.length} sur {overdueStudents.length} retardataires
             </div>
           </div>
 
           {/* Student Arrears Table */}
-          <div className="border border-slate-200/80 dark:border-slate-800 rounded-xl overflow-hidden shadow-2xs">
+          <div className="border border-[#E4E6EB]  rounded-xl overflow-hidden shadow-2xs">
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs border-collapse">
                 <thead>
-                  <tr className="bg-slate-100/90 dark:bg-slate-800/90 text-slate-700 dark:text-slate-300 font-bold border-b border-slate-200 dark:border-slate-700">
+                  <tr className="bg-[#F0F2F5]/90  text-[#050505]  font-bold border-b border-[#E4E6EB] ">
                     <th className="py-3 px-4">Élève & Classe</th>
                     <th className="py-3 px-4">Contact Parent (+242)</th>
                     <th className="py-3 px-4 text-right">Frais Scolarité</th>
@@ -358,7 +358,7 @@ export const OverdueFeesAlertWidget: React.FC<OverdueFeesAlertWidgetProps> = ({
                     <th className="py-3 px-4 text-center">Actions de Relance</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+                <tbody className="divide-y divide-slate-100 ">
                   {filteredOverdue.map((st) => {
                     const isRelanceSent = relanceSentMap[st.id];
                     return (
@@ -366,22 +366,22 @@ export const OverdueFeesAlertWidget: React.FC<OverdueFeesAlertWidgetProps> = ({
                         key={st.id} 
                         className={`transition-colors ${
                           st.isCritical 
-                            ? 'hover:bg-rose-50/50 dark:hover:bg-rose-950/20 bg-rose-50/20 dark:bg-rose-950/10' 
-                            : 'hover:bg-slate-50 dark:hover:bg-slate-800/40'
+                            ? 'hover:bg-rose-50/50/20 bg-rose-50/20 ' 
+                            : 'hover:bg-[#F0F2F5]'
                         }`}
                       >
                         <td className="py-3 px-4">
                           <div className="flex items-center gap-2.5">
-                            <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs shrink-0 ${
-                              st.isCritical ? 'bg-rose-100 dark:bg-rose-900/60 text-rose-700 dark:text-rose-300' : 'bg-amber-100 dark:bg-amber-900/60 text-amber-700 dark:text-amber-300'
+                            <div className={`w-8 h-8 rounded-lg flex items-center justify-center font-bold text-xs shrink-0 ${
+                              st.isCritical ? 'bg-rose-100  text-rose-700 ' : 'bg-amber-100  text-amber-700 '
                             }`}>
                               {st.prenom.charAt(0)}{st.nom.charAt(0)}
                             </div>
                             <div>
-                              <span className="font-bold text-slate-900 dark:text-white block">
+                              <span className="font-bold text-[#050505]  block">
                                 {st.nom} {st.prenom}
                               </span>
-                              <span className="text-[11px] text-slate-500 dark:text-slate-400 font-mono">
+                              <span className="text-[11px] text-[#65676B]  font-mono">
                                 {st.classe} • {st.matricule}
                               </span>
                             </div>
@@ -389,34 +389,34 @@ export const OverdueFeesAlertWidget: React.FC<OverdueFeesAlertWidgetProps> = ({
                         </td>
 
                         <td className="py-3 px-4">
-                          <span className="font-semibold text-slate-800 dark:text-slate-200 block">{st.nomParent}</span>
-                          <span className="text-[11px] text-indigo-600 dark:text-indigo-400 font-mono flex items-center gap-1">
+                          <span className="font-semibold text-[#050505]  block">{st.nomParent}</span>
+                          <span className="text-[11px] text-[#1877F2]  font-mono flex items-center gap-1">
                             <Phone className="w-3 h-3" /> {st.telephoneParent}
                           </span>
                         </td>
 
-                        <td className="py-3 px-4 text-right font-mono font-medium text-slate-700 dark:text-slate-300">
+                        <td className="py-3 px-4 text-right font-mono font-medium text-[#050505] ">
                           {st.fraisTotal.toLocaleString()} FCFA
                         </td>
 
-                        <td className="py-3 px-4 text-right font-mono font-bold text-emerald-600 dark:text-emerald-400">
+                        <td className="py-3 px-4 text-right font-mono font-bold text-[#1877F2] ">
                           {st.fraisPayes.toLocaleString()} FCFA
-                          <span className="block text-[10px] text-slate-400 font-normal">({st.pourcentagePaye}%)</span>
+                          <span className="block text-[10px] text-[#65676B] font-normal">({st.pourcentagePaye}%)</span>
                         </td>
 
-                        <td className="py-3 px-4 text-right font-mono font-extrabold text-rose-600 dark:text-rose-400 text-sm">
+                        <td className="py-3 px-4 text-right font-mono font-extrabold text-rose-600  text-sm">
                           -{st.resteAPayer.toLocaleString()} FCFA
                         </td>
 
                         <td className="py-3 px-4 text-center">
                           {st.isCritical ? (
-                            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-extrabold bg-rose-100 dark:bg-rose-900/60 text-rose-700 dark:text-rose-300 border border-rose-300 dark:border-rose-800">
-                              <span className="w-1.5 h-1.5 rounded-full bg-rose-500"></span>
+                            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-[10px] font-extrabold bg-rose-100  text-rose-700  border border-rose-300 ">
+                              <span className="w-1.5 h-1.5 rounded-lg bg-rose-500"></span>
                               Critique
                             </span>
                           ) : (
-                            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold bg-amber-100 dark:bg-amber-900/60 text-amber-700 dark:text-amber-300 border border-amber-300 dark:border-amber-800">
-                              <span className="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-[10px] font-bold bg-amber-100  text-amber-700  border border-amber-300 ">
+                              <span className="w-1.5 h-1.5 rounded-lg bg-amber-500"></span>
                               Partiel
                             </span>
                           )}
@@ -430,7 +430,7 @@ export const OverdueFeesAlertWidget: React.FC<OverdueFeesAlertWidgetProps> = ({
                               target="_blank"
                               rel="noreferrer"
                               onClick={() => handleTriggerRelance(st.id)}
-                              className="p-1.5 bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-950/60 dark:hover:bg-emerald-900 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800 rounded-lg transition-colors cursor-pointer"
+                              className="p-1.5 bg-[#E7F3FF] hover:bg-[#E7F3FF][#1877F2] text-[#1877F2]  border border-[#E4E6EB]  rounded-lg transition-colors cursor-pointer"
                               title="Relancer immédiatement le parent sur WhatsApp avec le montant pré-rempli"
                             >
                               <MessageSquare className="w-3.5 h-3.5" />
@@ -442,7 +442,7 @@ export const OverdueFeesAlertWidget: React.FC<OverdueFeesAlertWidgetProps> = ({
                               className={`p-1.5 rounded-lg border text-xs transition-colors cursor-pointer ${
                                 isRelanceSent
                                   ? 'bg-blue-600 text-white border-blue-600'
-                                  : 'bg-slate-50 hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700'
+                                  : 'bg-[#F0F2F5] hover:bg-[#F0F2F5] text-[#050505]  border-[#E4E6EB] '
                               }`}
                               title={isRelanceSent ? 'Alerte SMS déjà envoyée' : 'Envoyer un SMS de relance certifié'}
                             >
@@ -453,7 +453,7 @@ export const OverdueFeesAlertWidget: React.FC<OverdueFeesAlertWidgetProps> = ({
                             {onOpenPaymentModal && (
                               <button
                                 onClick={() => onOpenPaymentModal(st)}
-                                className="px-2.5 py-1 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-[11px] font-bold shadow-2xs transition-colors cursor-pointer flex items-center gap-1"
+                                className="px-2.5 py-1 bg-[#1877F2] hover:bg-[#1877F2] text-white rounded-lg text-[11px] font-bold shadow-2xs transition-colors cursor-pointer flex items-center gap-1"
                                 title="Encaisser un versement pour cet élève"
                               >
                                 <Receipt className="w-3 h-3" />
@@ -471,14 +471,14 @@ export const OverdueFeesAlertWidget: React.FC<OverdueFeesAlertWidgetProps> = ({
           </div>
 
           {/* Bottom Summary Notice */}
-          <div className="bg-slate-50 dark:bg-slate-800/50 p-3.5 rounded-xl border border-slate-200/60 dark:border-slate-700/60 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-slate-600 dark:text-slate-400">
+          <div className="bg-[#F0F2F5]  p-3.5 rounded-xl border border-[#E4E6EB]  flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-[#65676B] ">
             <div className="flex items-center gap-2">
               <Sparkles className="w-4 h-4 text-amber-500 shrink-0" />
               <span>
                 Les relances WhatsApp intègrent automatiquement le matricule, le nom de l'élève, la classe et les instructions de paiement MTN Mobile Money / Airtel Money Congo (+242).
               </span>
             </div>
-            <span className="font-mono font-bold text-slate-800 dark:text-slate-200 shrink-0">
+            <span className="font-mono font-bold text-[#050505]  shrink-0">
               Total à encaisser : {totalOverdueAmount.toLocaleString()} FCFA
             </span>
           </div>

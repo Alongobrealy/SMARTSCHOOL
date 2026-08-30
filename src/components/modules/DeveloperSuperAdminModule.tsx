@@ -500,25 +500,25 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
     <div className="space-y-6">
       
       {/* Super Admin Top Control Banner */}
-      <div className="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-950 text-white rounded-3xl p-6 sm:p-7 border border-indigo-500/30 shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <div className="bg-[#1877F2] text-white rounded-lg p-6 sm:p-7 border border-[#E4E6EB] shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div className="flex items-center gap-4">
-          <div className="w-14 h-14 rounded-2xl bg-indigo-600/30 border-2 border-indigo-400 flex items-center justify-center font-black text-white text-2xl shadow-lg shadow-indigo-500/20">
-            <Terminal className="w-7 h-7 text-indigo-400" />
+          <div className="w-14 h-14 rounded-lg bg-[#1877F2] border-2 border-[#E4E6EB] flex items-center justify-center font-black text-white text-2xl shadow-lg shadow-sm">
+            <Terminal className="w-7 h-7 text-[#1877F2]" />
           </div>
           <div>
             <div className="flex flex-wrap items-center gap-2">
-              <span className="bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full flex items-center gap-1.5 animate-pulse">
-                <Radio className="w-3 h-3 text-emerald-400" />
+              <span className="bg-[#1877F2] text-[#1877F2] border border-[#E4E6EB] text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-lg flex items-center gap-1.5 animate-pulse">
+                <Radio className="w-3 h-3 text-[#1877F2]" />
                 SUPER ADMIN CONNECTÉ • ACCÈS ROOT
               </span>
-              <span className="text-slate-400 font-mono text-[11px]">
-                Latence : <strong className="text-emerald-400">{liveLatency}ms</strong>
+              <span className="text-[#65676B] font-mono text-[11px]">
+                Latence : <strong className="text-[#1877F2]">{liveLatency}ms</strong>
               </span>
             </div>
             <h1 className="text-xl sm:text-2xl font-black text-white tracking-tight mt-1">
               Console Centrale & Administration Globale EDU-CONGO
             </h1>
-            <p className="text-xs text-indigo-200/80 font-medium mt-0.5">
+            <p className="text-xs text-[#1877F2]/80 font-medium mt-0.5">
               Supervision Multi-Établissements • Passerelles MoMo/Airtel (+242) • Télémétrie & Outils DevOps
             </p>
           </div>
@@ -528,10 +528,10 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
         <div className="flex flex-wrap items-center gap-2.5 w-full md:w-auto justify-end">
           <button
             onClick={handleDownloadBackup}
-            className="px-3.5 py-2 bg-indigo-600/40 hover:bg-indigo-600 border border-indigo-400/40 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer shadow-xs"
+            className="px-3.5 py-2 bg-[#1877F2] hover:bg-[#1877F2] border border-[#E4E6EB] text-white rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer shadow-xs"
             title="Télécharger une sauvegarde complète JSON"
           >
-            <Download className="w-3.5 h-3.5 text-indigo-300" />
+            <Download className="w-3.5 h-3.5 text-[#1877F2]" />
             <span>Sauvegarde JSON</span>
           </button>
 
@@ -564,17 +564,17 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id as any)}
-              className={`px-4 py-2.5 rounded-2xl text-xs font-bold flex items-center gap-2 transition-all shrink-0 cursor-pointer ${
+              className={`px-4 py-2.5 rounded-lg text-xs font-bold flex items-center gap-2 transition-all shrink-0 cursor-pointer ${
                 isActive
-                  ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/20 scale-102'
-                  : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700/80 border border-slate-200 dark:border-slate-700'
+                  ? 'bg-[#1877F2] text-white shadow-md shadow-sm scale-102'
+                  : 'bg-white  text-[#65676B]  hover:bg-[#F0F2F5]/80 border border-[#E4E6EB] '
               }`}
             >
-              <Icon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-indigo-600 dark:text-indigo-400'}`} />
+              <Icon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-[#1877F2] '}`} />
               <span>{tab.label}</span>
               {tab.count !== null && (
-                <span className={`text-[10px] px-2 py-0.5 rounded-full font-extrabold ${
-                  isActive ? 'bg-white/20 text-white' : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300'
+                <span className={`text-[10px] px-2 py-0.5 rounded-lg font-extrabold ${
+                  isActive ? 'bg-white/20 text-white' : 'bg-[#F0F2F5]  text-[#65676B] '
                 }`}>
                   {tab.count}
                 </span>
@@ -591,57 +591,57 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
           {/* 4 Metric Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             
-            <div className="bg-white dark:bg-slate-800 p-5 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-xs flex items-center gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200 dark:border-indigo-800 flex items-center justify-center text-indigo-600 dark:text-indigo-400">
+            <div className="bg-white  p-5 rounded-lg border border-[#E4E6EB]  shadow-xs flex items-center gap-4">
+              <div className="w-12 h-12 rounded-lg bg-[#E7F3FF]  border border-[#E4E6EB]  flex items-center justify-center text-[#1877F2] ">
                 <School className="w-6 h-6" />
               </div>
               <div>
-                <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
+                <span className="text-[11px] font-bold text-[#65676B]  uppercase tracking-wider block">
                   Écoles Connectées
                 </span>
-                <span className="text-2xl font-black text-slate-900 dark:text-white">
-                  {tenants.length} <span className="text-xs text-emerald-600 font-semibold">(100% actives)</span>
+                <span className="text-2xl font-black text-[#050505] ">
+                  {tenants.length} <span className="text-xs text-[#1877F2] font-semibold">(100% actives)</span>
                 </span>
               </div>
             </div>
 
-            <div className="bg-white dark:bg-slate-800 p-5 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-xs flex items-center gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+            <div className="bg-white  p-5 rounded-lg border border-[#E4E6EB]  shadow-xs flex items-center gap-4">
+              <div className="w-12 h-12 rounded-lg bg-[#E7F3FF]  border border-[#E4E6EB]  flex items-center justify-center text-[#1877F2] ">
                 <Users className="w-6 h-6" />
               </div>
               <div>
-                <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
+                <span className="text-[11px] font-bold text-[#65676B]  uppercase tracking-wider block">
                   Élèves sous Licence
                 </span>
-                <span className="text-2xl font-black text-slate-900 dark:text-white">
+                <span className="text-2xl font-black text-[#050505] ">
                   ~{totalNetworkStudents.toLocaleString()}
                 </span>
               </div>
             </div>
 
-            <div className="bg-white dark:bg-slate-800 p-5 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-xs flex items-center gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-amber-50 dark:bg-amber-950/60 border border-amber-200 dark:border-amber-800 flex items-center justify-center text-amber-600 dark:text-amber-400">
+            <div className="bg-white  p-5 rounded-lg border border-[#E4E6EB]  shadow-xs flex items-center gap-4">
+              <div className="w-12 h-12 rounded-lg bg-amber-50  border border-amber-200  flex items-center justify-center text-amber-600 ">
                 <CreditCard className="w-6 h-6" />
               </div>
               <div>
-                <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
+                <span className="text-[11px] font-bold text-[#65676B]  uppercase tracking-wider block">
                   Revenu Récurrent (MRR)
                 </span>
-                <span className="text-xl font-black text-slate-900 dark:text-white">
+                <span className="text-xl font-black text-[#050505] ">
                   {totalNetworkMonthlyFCFA.toLocaleString()} <span className="text-xs font-normal">FCFA</span>
                 </span>
               </div>
             </div>
 
-            <div className="bg-white dark:bg-slate-800 p-5 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-xs flex items-center gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800 flex items-center justify-center text-blue-600 dark:text-blue-400">
+            <div className="bg-white  p-5 rounded-lg border border-[#E4E6EB]  shadow-xs flex items-center gap-4">
+              <div className="w-12 h-12 rounded-lg bg-blue-50  border border-blue-200  flex items-center justify-center text-blue-600 ">
                 <Server className="w-6 h-6" />
               </div>
               <div>
-                <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
+                <span className="text-[11px] font-bold text-[#65676B]  uppercase tracking-wider block">
                   Disponibilité Cluster
                 </span>
-                <span className="text-2xl font-black text-slate-900 dark:text-white">
+                <span className="text-2xl font-black text-[#050505] ">
                   99.98%
                 </span>
               </div>
@@ -653,46 +653,46 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             
             {/* Left 2 cols: Regional Distribution */}
-            <div className="lg:col-span-2 bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-xs space-y-4">
+            <div className="lg:col-span-2 bg-white  p-6 rounded-lg border border-[#E4E6EB]  shadow-xs space-y-4">
               <div className="flex items-center justify-between">
                 <div>
-                  <h3 className="font-bold text-slate-900 dark:text-white text-base">
+                  <h3 className="font-bold text-[#050505]  text-base">
                     Déploiement Territorial en République du Congo
                   </h3>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                  <p className="text-xs text-[#65676B] ">
                     Répartition géographique des instances et serveurs scolaires
                   </p>
                 </div>
-                <span className="bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-300 font-mono text-xs px-3 py-1 rounded-full font-bold border border-indigo-200 dark:border-indigo-800">
+                <span className="bg-[#E7F3FF]  text-[#1877F2]  font-mono text-xs px-3 py-1 rounded-lg font-bold border border-[#E4E6EB] ">
                   Zone CEMAC • Congo (242)
                 </span>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
                 {tenants.length === 0 ? (
-                  <div className="sm:col-span-3 p-6 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-dashed border-slate-300 dark:border-slate-700 text-center space-y-2">
-                    <School className="w-8 h-8 mx-auto text-slate-400" />
-                    <p className="text-sm font-bold text-slate-700 dark:text-slate-300">Aucun établissement dans le réseau</p>
-                    <p className="text-xs text-slate-500 dark:text-slate-400">Le réseau est vierge. Utilisez l'onglet « Parc Établissements » pour provisionner une nouvelle école.</p>
+                  <div className="sm:col-span-3 p-6 rounded-lg bg-[#F0F2F5]  border border-dashed border-[#E4E6EB]  text-center space-y-2">
+                    <School className="w-8 h-8 mx-auto text-[#65676B]" />
+                    <p className="text-sm font-bold text-[#050505] ">Aucun établissement dans le réseau</p>
+                    <p className="text-xs text-[#65676B] ">Le réseau est vierge. Utilisez l'onglet « Parc Établissements » pour provisionner une nouvelle école.</p>
                   </div>
                 ) : (
                   ['Brazzaville', 'Pointe-Noire', 'Dolisie'].map(city => {
                     const cityTenants = tenants.filter(t => t.city.toLowerCase().includes(city.toLowerCase()));
                     const cityStudents = cityTenants.reduce((acc, t) => acc + t.studentCount, 0);
                     return (
-                      <div key={city} className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700/80 flex flex-col justify-between gap-3">
+                      <div key={city} className="p-4 rounded-lg bg-[#F0F2F5]  border border-[#E4E6EB]  flex flex-col justify-between gap-3">
                         <div>
                           <div className="flex items-center justify-between">
-                            <span className="font-bold text-slate-900 dark:text-white text-sm">📍 {city}</span>
-                            <span className="bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 text-[10px] font-bold px-2 py-0.5 rounded-full">
+                            <span className="font-bold text-[#050505]  text-sm">📍 {city}</span>
+                            <span className="bg-[#E7F3FF]  text-[#1877F2]  text-[10px] font-bold px-2 py-0.5 rounded-lg">
                               {cityTenants.length} {cityTenants.length > 1 ? 'Écoles' : 'École'}
                             </span>
                           </div>
-                          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                          <p className="text-xs text-[#65676B]  mt-1">
                             {cityTenants.length > 0 ? cityTenants.map(t => t.name).join(', ') : 'Aucune école active'}
                           </p>
                         </div>
-                        <div className="text-xs font-mono text-slate-700 dark:text-slate-300">
+                        <div className="text-xs font-mono text-[#050505] ">
                           Effectif : <strong>{cityStudents.toLocaleString()} élèves</strong>
                         </div>
                       </div>
@@ -702,12 +702,12 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
               </div>
 
               {/* Developer contact direct */}
-              <div className="bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-200 dark:border-indigo-800/80 p-4 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-indigo-950 dark:text-indigo-200">
+              <div className="bg-[#E7F3FF]  border border-[#E4E6EB]  p-4 rounded-lg flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-[#1877F2] ">
                 <div className="flex items-center gap-2.5">
-                  <ShieldCheck className="w-5 h-5 text-indigo-600 dark:text-indigo-400 shrink-0" />
+                  <ShieldCheck className="w-5 h-5 text-[#1877F2]  shrink-0" />
                   <div>
                     <span className="font-bold block">Support & Maintenance Développeur : Stéphane Alongo</span>
-                    <span className="text-indigo-700 dark:text-indigo-300 text-[11px]">Brazzaville, République du Congo • steph.alongo@gmail.com</span>
+                    <span className="text-[#1877F2]  text-[11px]">Brazzaville, République du Congo • steph.alongo@gmail.com</span>
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
@@ -724,55 +724,55 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
             </div>
 
             {/* Right col: Live Cluster & Telemetry */}
-            <div className="bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-xs space-y-4">
-              <h3 className="font-bold text-slate-900 dark:text-white text-base flex items-center gap-2">
-                <Cpu className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+            <div className="bg-white  p-6 rounded-lg border border-[#E4E6EB]  shadow-xs space-y-4">
+              <h3 className="font-bold text-[#050505]  text-base flex items-center gap-2">
+                <Cpu className="w-4 h-4 text-[#1877F2] " />
                 Télémétrie Système en Direct
               </h3>
 
               <div className="space-y-3 text-xs">
                 <div>
-                  <div className="flex justify-between text-slate-600 dark:text-slate-300 font-medium mb-1">
+                  <div className="flex justify-between text-[#65676B]  font-medium mb-1">
                     <span>CPU Container (Cloud Run)</span>
-                    <span className="font-mono font-bold text-emerald-600">14.2%</span>
+                    <span className="font-mono font-bold text-[#1877F2]">14.2%</span>
                   </div>
-                  <div className="w-full h-2 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
-                    <div className="h-full bg-emerald-500 rounded-full" style={{ width: '14.2%' }} />
+                  <div className="w-full h-2 bg-[#F0F2F5]  rounded-lg overflow-hidden">
+                    <div className="h-full bg-[#1877F2] rounded-lg" style={{ width: '14.2%' }} />
                   </div>
                 </div>
 
                 <div>
-                  <div className="flex justify-between text-slate-600 dark:text-slate-300 font-medium mb-1">
+                  <div className="flex justify-between text-[#65676B]  font-medium mb-1">
                     <span>Mémoire RAM Allouée (512MB / 2GB)</span>
-                    <span className="font-mono font-bold text-indigo-600">25.6%</span>
+                    <span className="font-mono font-bold text-[#1877F2]">25.6%</span>
                   </div>
-                  <div className="w-full h-2 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
-                    <div className="h-full bg-indigo-500 rounded-full" style={{ width: '25.6%' }} />
+                  <div className="w-full h-2 bg-[#F0F2F5]  rounded-lg overflow-hidden">
+                    <div className="h-full bg-[#1877F2] rounded-lg" style={{ width: '25.6%' }} />
                   </div>
                 </div>
 
                 <div>
-                  <div className="flex justify-between text-slate-600 dark:text-slate-300 font-medium mb-1">
+                  <div className="flex justify-between text-[#65676B]  font-medium mb-1">
                     <span>Passerelles MoMo & SMS (+242)</span>
-                    <span className="font-mono font-bold text-emerald-600">100% OK</span>
+                    <span className="font-mono font-bold text-[#1877F2]">100% OK</span>
                   </div>
-                  <div className="w-full h-2 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
-                    <div className="h-full bg-emerald-500 rounded-full" style={{ width: '100%' }} />
+                  <div className="w-full h-2 bg-[#F0F2F5]  rounded-lg overflow-hidden">
+                    <div className="h-full bg-[#1877F2] rounded-lg" style={{ width: '100%' }} />
                   </div>
                 </div>
 
-                <div className="pt-2 border-t border-slate-100 dark:border-slate-700/80 flex flex-col gap-1.5 text-[11px] text-slate-500 dark:text-slate-400 font-mono">
+                <div className="pt-2 border-t border-[#E4E6EB]  flex flex-col gap-1.5 text-[11px] text-[#65676B]  font-mono">
                   <div className="flex justify-between">
                     <span>Runtime :</span>
-                    <span className="text-slate-800 dark:text-slate-200">Node.js 20 ESM (Cloud Run)</span>
+                    <span className="text-[#050505] ">Node.js 20 ESM (Cloud Run)</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Port Ingress :</span>
-                    <span className="text-slate-800 dark:text-slate-200">3000 (HTTPS Proxy Active)</span>
+                    <span className="text-[#050505] ">3000 (HTTPS Proxy Active)</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Chiffrement :</span>
-                    <span className="text-slate-800 dark:text-slate-200">TLS 1.3 / AES-256 GCM</span>
+                    <span className="text-[#050505] ">TLS 1.3 / AES-256 GCM</span>
                   </div>
                 </div>
               </div>
@@ -793,20 +793,20 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
             
             <div className="flex flex-wrap items-center gap-2.5 flex-1">
               <div className="relative flex-1 min-w-[200px] max-w-md">
-                <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                <Search className="w-4 h-4 text-[#65676B] absolute left-3 top-1/2 -translate-y-1/2" />
                 <input
                   type="text"
                   placeholder="Rechercher par nom, code ou responsable..."
                   value={tenantSearch}
                   onChange={(e) => setTenantSearch(e.target.value)}
-                  className="w-full pl-9 pr-4 py-2 text-xs bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/20 text-slate-900 dark:text-white"
+                  className="w-full pl-9 pr-4 py-2 text-xs bg-white  border border-[#E4E6EB]  rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/20 text-[#050505] "
                 />
               </div>
 
               <select
                 value={tenantCityFilter}
                 onChange={(e) => setTenantCityFilter(e.target.value)}
-                className="px-3 py-2 text-xs bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-700 dark:text-slate-300 outline-none"
+                className="px-3 py-2 text-xs bg-white  border border-[#E4E6EB]  rounded-xl text-[#050505]  outline-none"
               >
                 <option value="all">Toutes les villes (Congo)</option>
                 <option value="Brazzaville">Brazzaville</option>
@@ -819,7 +819,7 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
               <select
                 value={tenantStatusFilter}
                 onChange={(e) => setTenantStatusFilter(e.target.value)}
-                className="px-3 py-2 text-xs bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-700 dark:text-slate-300 outline-none font-semibold"
+                className="px-3 py-2 text-xs bg-white  border border-[#E4E6EB]  rounded-xl text-[#050505]  outline-none font-semibold"
               >
                 <option value="all">Tous les statuts ({tenants.length})</option>
                 <option value="actif">🟢 Actifs ({tenants.filter(t => t.status === 'actif').length})</option>
@@ -830,7 +830,7 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
 
             <button
               onClick={() => setShowNewTenantModal(true)}
-              className="px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow-sm transition-all cursor-pointer hover:scale-105 active:scale-95 shrink-0"
+              className="px-4 py-2.5 bg-[#1877F2] hover:bg-[#1877F2] text-white rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow-sm transition-all cursor-pointer hover:scale-105 active:scale-95 shrink-0"
             >
               <Plus className="w-4 h-4" />
               <span>Ajouter un Établissement</span>
@@ -839,11 +839,11 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
           </div>
 
           {/* Tenants Table */}
-          <div className="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-xs overflow-hidden">
+          <div className="bg-white  rounded-lg border border-[#E4E6EB]  shadow-xs overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs border-collapse">
                 <thead>
-                  <tr className="bg-slate-50 dark:bg-slate-900/80 text-slate-600 dark:text-slate-400 font-bold border-b border-slate-200 dark:border-slate-700">
+                  <tr className="bg-[#F0F2F5]  text-[#65676B]  font-bold border-b border-[#E4E6EB] ">
                     <th className="p-4">Code & Établissement</th>
                     <th className="p-4">Type & Ville</th>
                     <th className="p-4 text-center">Effectif</th>
@@ -853,40 +853,40 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
                     <th className="p-4 text-right">Actions Développeur & Gestion</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-100 dark:divide-slate-700/60">
+                <tbody className="divide-y divide-slate-100 ">
                   {filteredTenants.length > 0 ? (
                     filteredTenants.map((t) => (
                       <tr key={t.id} className={`transition-colors ${
                         t.status === 'suspendu'
-                          ? 'bg-rose-50/40 dark:bg-rose-950/20'
+                          ? 'bg-rose-50/40 '
                           : t.status === 'en_attente'
-                          ? 'bg-amber-50/40 dark:bg-amber-950/20'
-                          : 'hover:bg-slate-50/80 dark:hover:bg-slate-700/50'
+                          ? 'bg-amber-50/40 '
+                          : 'hover:bg-[#F0F2F5]/80/50'
                       }`}>
                         <td className="p-4">
                           <div className="flex items-center gap-3">
                             <div className={`w-10 h-10 rounded-xl border flex items-center justify-center font-bold text-xs shrink-0 ${
                               t.status === 'suspendu'
-                                ? 'bg-rose-100 dark:bg-rose-950 border-rose-300 dark:border-rose-800 text-rose-700 dark:text-rose-400'
+                                ? 'bg-rose-100  border-rose-300  text-rose-700 '
                                 : t.status === 'en_attente'
-                                ? 'bg-amber-100 dark:bg-amber-950 border-amber-300 dark:border-amber-800 text-amber-700 dark:text-amber-400'
-                                : 'bg-indigo-50 dark:bg-indigo-950/70 border-indigo-200 dark:border-indigo-800 text-indigo-700 dark:text-indigo-400'
+                                ? 'bg-amber-100  border-amber-300  text-amber-700 '
+                                : 'bg-[#E7F3FF]  border-[#E4E6EB]  text-[#1877F2] '
                             }`}>
                               {t.code.slice(0, 3)}
                             </div>
                             <div>
                               <div className="flex items-center gap-2">
-                                <span className="font-bold text-slate-900 dark:text-white text-sm block">
+                                <span className="font-bold text-[#050505]  text-sm block">
                                   {t.name}
                                 </span>
                                 {t.status === 'suspendu' && (
-                                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-rose-100 dark:bg-rose-950 text-rose-700 dark:text-rose-300 border border-rose-300 dark:border-rose-800">
+                                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-lg bg-rose-100  text-rose-700  border border-rose-300 ">
                                     Accès Bloqué
                                   </span>
                                 )}
                               </div>
-                              <div className="flex items-center gap-2 text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
-                                <span className="font-mono font-semibold text-indigo-600 dark:text-indigo-400">{t.code}</span>
+                              <div className="flex items-center gap-2 text-[11px] text-[#65676B]  mt-0.5">
+                                <span className="font-mono font-semibold text-[#1877F2] ">{t.code}</span>
                                 <span>•</span>
                                 <span>{t.contactName} ({t.contactPhone})</span>
                               </div>
@@ -894,32 +894,32 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
                           </div>
                         </td>
 
-                        <td className="p-4 text-slate-700 dark:text-slate-300">
+                        <td className="p-4 text-[#050505] ">
                           <span className="font-semibold block">{t.city}</span>
-                          <span className="text-[11px] text-slate-500 dark:text-slate-400 capitalize">{t.type}</span>
+                          <span className="text-[11px] text-[#65676B]  capitalize">{t.type}</span>
                         </td>
 
                         <td className="p-4 text-center">
-                          <span className="font-bold text-slate-900 dark:text-white block">{t.studentCount} élèves</span>
-                          <span className="text-[10px] text-slate-500 dark:text-slate-400">{t.teacherCount} profs</span>
+                          <span className="font-bold text-[#050505]  block">{t.studentCount} élèves</span>
+                          <span className="text-[10px] text-[#65676B] ">{t.teacherCount} profs</span>
                         </td>
 
                         <td className="p-4 text-center">
                           {t.isTrial || t.plan === 'Essai 14 Jours' ? (
                             <div className="flex flex-col items-center">
-                              <span className="bg-amber-100 dark:bg-amber-950/80 text-amber-800 dark:text-amber-300 font-extrabold px-2.5 py-1 rounded-full text-[11px] border border-amber-300 dark:border-amber-700 flex items-center gap-1">
+                              <span className="bg-amber-100  text-amber-800  font-extrabold px-2.5 py-1 rounded-lg text-[11px] border border-amber-300  flex items-center gap-1">
                                 <span>🎁 Essai 14 Jours</span>
                               </span>
-                              <span className="text-[10px] text-amber-700 dark:text-amber-400 mt-0.5 font-semibold">
+                              <span className="text-[10px] text-amber-700  mt-0.5 font-semibold">
                                 Accès Illimité (0 FCFA)
                               </span>
                             </div>
                           ) : (
                             <>
-                              <span className="bg-indigo-50 dark:bg-indigo-950/70 text-indigo-700 dark:text-indigo-300 font-bold px-2.5 py-1 rounded-full text-[11px] border border-indigo-200 dark:border-indigo-800">
+                              <span className="bg-[#E7F3FF]  text-[#1877F2]  font-bold px-2.5 py-1 rounded-lg text-[11px] border border-[#E4E6EB] ">
                                 {t.plan}
                               </span>
-                              <span className="block text-[10px] text-slate-500 dark:text-slate-400 mt-1 font-mono">
+                              <span className="block text-[10px] text-[#65676B]  mt-1 font-mono">
                                 {t.monthlyFeeFCFA.toLocaleString()} FCFA/m
                               </span>
                             </>
@@ -928,28 +928,28 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
 
                         <td className="p-4 text-center">
                           {t.momoGatewayConnected ? (
-                            <span className="inline-flex items-center gap-1 text-[11px] text-emerald-600 dark:text-emerald-400 font-bold">
+                            <span className="inline-flex items-center gap-1 text-[11px] text-[#1877F2]  font-bold">
                               <CheckCircle2 className="w-3.5 h-3.5" />
                               Actif
                             </span>
                           ) : (
-                            <span className="inline-flex items-center gap-1 text-[11px] text-amber-600 dark:text-amber-400 font-semibold">
+                            <span className="inline-flex items-center gap-1 text-[11px] text-amber-600  font-semibold">
                               En attente
                             </span>
                           )}
                         </td>
 
                         <td className="p-4 text-center">
-                          <span className={`text-[10px] font-extrabold px-2.5 py-1 rounded-full inline-flex items-center gap-1.5 ${
+                          <span className={`text-[10px] font-extrabold px-2.5 py-1 rounded-lg inline-flex items-center gap-1.5 ${
                             t.status === 'actif'
-                              ? 'bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800'
+                              ? 'bg-[#E7F3FF]  text-[#1877F2]  border border-[#E4E6EB] '
                               : t.status === 'suspendu'
-                              ? 'bg-rose-100 dark:bg-rose-950 text-rose-700 dark:text-rose-300 border border-rose-300 dark:border-rose-800'
-                              : 'bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-300 border border-amber-300 dark:border-amber-800'
+                              ? 'bg-rose-100  text-rose-700  border border-rose-300 '
+                              : 'bg-amber-100  text-amber-700  border border-amber-300 '
                           }`}>
-                            {t.status === 'actif' && <CheckCircle2 className="w-3 h-3 text-emerald-600 dark:text-emerald-400" />}
-                            {t.status === 'suspendu' && <Ban className="w-3 h-3 text-rose-600 dark:text-rose-400" />}
-                            {t.status === 'en_attente' && <PauseCircle className="w-3 h-3 text-amber-600 dark:text-amber-400" />}
+                            {t.status === 'actif' && <CheckCircle2 className="w-3 h-3 text-[#1877F2] " />}
+                            {t.status === 'suspendu' && <Ban className="w-3 h-3 text-rose-600 " />}
+                            {t.status === 'en_attente' && <PauseCircle className="w-3 h-3 text-amber-600 " />}
                             {t.status === 'actif' ? 'ACTIF' : t.status === 'suspendu' ? 'SUSPENDU' : 'DÉSACTIVÉ'}
                           </span>
                         </td>
@@ -959,7 +959,7 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
                             {/* Impersonate / Take Control */}
                             <button
                               onClick={() => onImpersonateSchool(t.name)}
-                              className="px-2.5 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-bold text-xs flex items-center gap-1 shadow-2xs transition-all cursor-pointer hover:scale-105"
+                              className="px-2.5 py-1.5 bg-[#1877F2] hover:bg-[#1877F2] text-white rounded-xl font-bold text-xs flex items-center gap-1 shadow-2xs transition-all cursor-pointer hover:scale-105"
                               title="Prendre le contrôle de cet établissement"
                             >
                               <ExternalLink className="w-3.5 h-3.5" />
@@ -971,29 +971,29 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
                               <>
                                 <button
                                   onClick={() => handleSetTenantStatus(t, 'suspendu')}
-                                  className="px-2 py-1.5 bg-rose-50 hover:bg-rose-100 dark:bg-rose-950/60 dark:hover:bg-rose-900/60 text-rose-700 dark:text-rose-300 border border-rose-200 dark:border-rose-800/80 rounded-xl font-bold text-[11px] flex items-center gap-1 transition-colors cursor-pointer"
+                                  className="px-2 py-1.5 bg-rose-50 hover:bg-rose-100/60 text-rose-700  border border-rose-200  rounded-xl font-bold text-[11px] flex items-center gap-1 transition-colors cursor-pointer"
                                   title="Suspendre cet établissement (bloque les accès)"
                                 >
-                                  <Ban className="w-3 h-3 text-rose-600 dark:text-rose-400" />
+                                  <Ban className="w-3 h-3 text-rose-600 " />
                                   <span className="hidden xl:inline">Suspendre</span>
                                 </button>
 
                                 <button
                                   onClick={() => handleSetTenantStatus(t, 'en_attente')}
-                                  className="px-2 py-1.5 bg-amber-50 hover:bg-amber-100 dark:bg-amber-950/60 dark:hover:bg-amber-900/60 text-amber-700 dark:text-amber-300 border border-amber-200 dark:border-amber-800/80 rounded-xl font-bold text-[11px] flex items-center gap-1 transition-colors cursor-pointer"
+                                  className="px-2 py-1.5 bg-amber-50 hover:bg-amber-100/60 text-amber-700  border border-amber-200  rounded-xl font-bold text-[11px] flex items-center gap-1 transition-colors cursor-pointer"
                                   title="Désactiver cet établissement"
                                 >
-                                  <PowerOff className="w-3 h-3 text-amber-600 dark:text-amber-400" />
+                                  <PowerOff className="w-3 h-3 text-amber-600 " />
                                   <span className="hidden xl:inline">Désactiver</span>
                                 </button>
                               </>
                             ) : (
                               <button
                                 onClick={() => handleSetTenantStatus(t, 'actif')}
-                                className="px-2 py-1.5 bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-950/60 dark:hover:bg-emerald-900/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/80 rounded-xl font-bold text-[11px] flex items-center gap-1 transition-colors cursor-pointer"
+                                className="px-2 py-1.5 bg-[#E7F3FF] hover:bg-[#E7F3FF][#1877F2] text-[#1877F2]  border border-[#E4E6EB]  rounded-xl font-bold text-[11px] flex items-center gap-1 transition-colors cursor-pointer"
                                 title="Réactiver l'accès pour cet établissement"
                               >
-                                <PlayCircle className="w-3 h-3 text-emerald-600 dark:text-emerald-400" />
+                                <PlayCircle className="w-3 h-3 text-[#1877F2] " />
                                 <span>Activer</span>
                               </button>
                             )}
@@ -1001,21 +1001,21 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
                             {/* Quick Generate Activation Code */}
                             <button
                               onClick={() => handleQuickGenerateCodeForTenant(t)}
-                              className="px-2 py-1.5 bg-amber-50 hover:bg-amber-100 dark:bg-amber-950/60 dark:hover:bg-amber-900/60 text-amber-800 dark:text-amber-300 border border-amber-300 dark:border-amber-700/80 rounded-xl font-bold text-[11px] flex items-center gap-1 transition-colors cursor-pointer"
+                              className="px-2 py-1.5 bg-amber-50 hover:bg-amber-100/60 text-amber-800  border border-amber-300  rounded-xl font-bold text-[11px] flex items-center gap-1 transition-colors cursor-pointer"
                               title="Générer un code d'activation pour cette école"
                             >
-                              <Key className="w-3 h-3 text-amber-600 dark:text-amber-400" />
+                              <Key className="w-3 h-3 text-amber-600 " />
                               <span className="hidden xl:inline">Code</span>
                             </button>
 
                             {/* Master Key Copy */}
                             <button
                               onClick={() => handleCopy(t.masterKey, `key-${t.id}`)}
-                              className="p-1.5 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 rounded-lg transition-colors cursor-pointer"
+                              className="p-1.5 bg-[#F0F2F5]  hover:bg-[#F0F2F5] text-[#050505]  rounded-lg transition-colors cursor-pointer"
                               title="Copier la clé maître de l'école"
                             >
                               {copiedText === `key-${t.id}` ? (
-                                <Check className="w-3.5 h-3.5 text-emerald-600" />
+                                <Check className="w-3.5 h-3.5 text-[#1877F2]" />
                               ) : (
                                 <Key className="w-3.5 h-3.5" />
                               )}
@@ -1027,7 +1027,7 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
                                 setTenantToDelete(t);
                                 setDeleteConfirmationInput('');
                               }}
-                              className="p-1.5 bg-rose-50 hover:bg-rose-100 dark:bg-rose-950/60 dark:hover:bg-rose-900/60 text-rose-600 dark:text-rose-400 border border-rose-200 dark:border-rose-800/60 rounded-lg transition-colors cursor-pointer"
+                              className="p-1.5 bg-rose-50 hover:bg-rose-100/60 text-rose-600  border border-rose-200  rounded-lg transition-colors cursor-pointer"
                               title="Supprimer définitivement cet établissement"
                             >
                               <Trash2 className="w-3.5 h-3.5" />
@@ -1038,7 +1038,7 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
                     ))
                   ) : (
                     <tr>
-                      <td colSpan={7} className="p-8 text-center text-slate-500 dark:text-slate-400 italic">
+                      <td colSpan={7} className="p-8 text-center text-[#65676B]  italic">
                         Aucun établissement ne correspond aux critères de recherche.
                       </td>
                     </tr>
@@ -1054,20 +1054,20 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
       {/* TAB 2.5: SUBSCRIPTION REQUESTS & VALIDATIONS */}
       {activeTab === 'requests' && (
         <div className="space-y-5 animate-in fade-in duration-200">
-          <div className="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-xs p-6">
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-700 pb-4 mb-4">
+          <div className="bg-white  rounded-lg border border-[#E4E6EB]  shadow-xs p-6">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-[#E4E6EB]  pb-4 mb-4">
               <div>
-                <h3 className="font-extrabold text-slate-900 dark:text-white text-base flex items-center gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+                <h3 className="font-extrabold text-[#050505]  text-base flex items-center gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-[#1877F2] " />
                   Demandes d'Abonnement & Inscriptions Établissements
                 </h3>
-                <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                <p className="text-xs text-[#65676B]  mt-0.5">
                   Gestion centralisée des souscriptions (Essai 14 jours, Mensuel, Trimestriel, Annuel) et validation officielle.
                 </p>
               </div>
 
               <div className="flex items-center gap-2 text-xs font-mono">
-                <span className="px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-950/70 text-indigo-700 dark:text-indigo-300 font-bold border border-indigo-200 dark:border-indigo-800">
+                <span className="px-3 py-1 rounded-lg bg-[#E7F3FF]  text-[#1877F2]  font-bold border border-[#E4E6EB] ">
                   {subscriptionRequests.length} Demande{subscriptionRequests.length > 1 ? 's' : ''} au registre
                 </span>
               </div>
@@ -1077,7 +1077,7 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs border-collapse">
                   <thead>
-                    <tr className="bg-slate-50 dark:bg-slate-900/80 text-slate-600 dark:text-slate-400 font-bold border-b border-slate-200 dark:border-slate-700">
+                    <tr className="bg-[#F0F2F5]  text-[#65676B]  font-bold border-b border-[#E4E6EB] ">
                       <th className="p-3.5">Établissement & Ville</th>
                       <th className="p-3.5">Responsable & Contact</th>
                       <th className="p-3.5 text-center">Formule Choisie</th>
@@ -1086,29 +1086,29 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
                       <th className="p-3.5 text-right">Actions</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-slate-100 dark:divide-slate-700/60">
+                  <tbody className="divide-y divide-slate-100 ">
                     {subscriptionRequests.map((req) => {
                       const isTrial = req.isTrial || req.planId === 'essai_14j';
                       const isApproved = req.status === 'validee';
 
                       return (
-                        <tr key={req.id} className="hover:bg-slate-50/80 dark:hover:bg-slate-700/50 transition-colors">
+                        <tr key={req.id} className="hover:bg-[#F0F2F5]/80/50 transition-colors">
                           <td className="p-3.5">
-                            <div className="font-bold text-slate-900 dark:text-white text-sm">
+                            <div className="font-bold text-[#050505]  text-sm">
                               {req.schoolName}
                             </div>
-                            <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
-                              {req.city} ({req.department || 'Congo'}) • <span className="font-mono text-indigo-600 dark:text-indigo-400">{req.subdomain || 'mon-ecole'}.educongo.cg</span>
+                            <div className="text-[11px] text-[#65676B]  mt-0.5">
+                              {req.city} ({req.department || 'Congo'}) • <span className="font-mono text-[#1877F2] ">{req.subdomain || 'mon-ecole'}.educongo.cg</span>
                             </div>
                           </td>
 
-                          <td className="p-3.5 text-slate-700 dark:text-slate-300">
+                          <td className="p-3.5 text-[#050505] ">
                             <div className="font-semibold">{req.contactName || req.directorName || 'Administrateur'}</div>
                             <a
                               href={`https://wa.me/${(req.contactPhone || req.directorPhone || '').replace(/[^0-9]/g, '')}`}
                               target="_blank"
                               rel="noreferrer"
-                              className="text-[11px] text-emerald-600 dark:text-emerald-400 font-mono font-bold flex items-center gap-1 hover:underline mt-0.5"
+                              className="text-[11px] text-[#1877F2]  font-mono font-bold flex items-center gap-1 hover:underline mt-0.5"
                             >
                               <MessageCircle className="w-3 h-3" />
                               {req.contactPhone || req.directorPhone || '+242 06 895 83 77'}
@@ -1117,22 +1117,22 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
 
                           <td className="p-3.5 text-center">
                             {isTrial ? (
-                              <span className="bg-amber-100 dark:bg-amber-950/80 text-amber-800 dark:text-amber-300 font-extrabold px-2.5 py-1 rounded-full text-[11px] border border-amber-300 dark:border-amber-700">
+                              <span className="bg-amber-100  text-amber-800  font-extrabold px-2.5 py-1 rounded-lg text-[11px] border border-amber-300 ">
                                 🎁 Essai 14 Jours
                               </span>
                             ) : (
-                              <span className="bg-indigo-100 dark:bg-indigo-950/80 text-indigo-800 dark:text-indigo-300 font-bold px-2.5 py-1 rounded-full text-[11px] border border-indigo-200 dark:border-indigo-800">
+                              <span className="bg-[#E7F3FF]  text-[#1877F2]  font-bold px-2.5 py-1 rounded-lg text-[11px] border border-[#E4E6EB] ">
                                 {req.planTitle || req.selectedPlan || 'Annuel'}
                               </span>
                             )}
-                            <span className="block text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">
+                            <span className="block text-[10px] text-[#65676B]  mt-0.5">
                               {isTrial ? 'Accès 100% Illimité' : `${req.durationMonths || 12} mois`}
                             </span>
                           </td>
 
-                          <td className="p-3.5 text-center font-mono font-bold text-slate-900 dark:text-white">
+                          <td className="p-3.5 text-center font-mono font-bold text-[#050505] ">
                             {isTrial ? (
-                              <span className="text-emerald-600 dark:text-emerald-400">0 FCFA</span>
+                              <span className="text-[#1877F2] ">0 FCFA</span>
                             ) : (
                               `${(req.totalAmountFCFA || req.totalCostFCFA || 0).toLocaleString()} FCFA`
                             )}
@@ -1140,12 +1140,12 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
 
                           <td className="p-3.5 text-center">
                             {isApproved ? (
-                              <span className="bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300 font-extrabold px-2.5 py-1 rounded-full text-[10px] border border-emerald-300 dark:border-emerald-800 inline-flex items-center gap-1">
+                              <span className="bg-[#E7F3FF]  text-[#1877F2]  font-extrabold px-2.5 py-1 rounded-lg text-[10px] border border-[#E4E6EB]  inline-flex items-center gap-1">
                                 <CheckCircle2 className="w-3 h-3" />
                                 Validée & Active
                               </span>
                             ) : (
-                              <span className="bg-amber-100 dark:bg-amber-950/80 text-amber-800 dark:text-amber-300 font-extrabold px-2.5 py-1 rounded-full text-[10px] border border-amber-300 dark:border-amber-700 animate-pulse">
+                              <span className="bg-amber-100  text-amber-800  font-extrabold px-2.5 py-1 rounded-lg text-[10px] border border-amber-300  animate-pulse">
                                 En attente
                               </span>
                             )}
@@ -1156,14 +1156,14 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
                               {onOpenApprovalModal && (
                                 <button
                                   onClick={() => onOpenApprovalModal(req)}
-                                  className="px-3 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-[11px] font-bold shadow-xs transition-all cursor-pointer"
+                                  className="px-3 py-1.5 bg-[#1877F2] hover:bg-[#1877F2] text-white rounded-xl text-[11px] font-bold shadow-xs transition-all cursor-pointer"
                                 >
                                   {isApproved ? 'Voir Agrément' : 'Valider & Activer'}
                                 </button>
                               )}
                               <button
                                 onClick={() => onImpersonateSchool(req.schoolName)}
-                                className="px-2.5 py-1.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 rounded-xl text-[11px] font-bold transition-all cursor-pointer"
+                                className="px-2.5 py-1.5 bg-[#F0F2F5] hover:bg-[#F0F2F5] text-[#050505]  rounded-xl text-[11px] font-bold transition-all cursor-pointer"
                                 title="Ouvrir l'espace de cet établissement"
                               >
                                 Ouvrir
@@ -1177,7 +1177,7 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
                 </table>
               </div>
             ) : (
-              <div className="p-8 text-center bg-slate-50 dark:bg-slate-900/40 rounded-2xl border border-slate-200/80 dark:border-slate-800 text-slate-500 dark:text-slate-400">
+              <div className="p-8 text-center bg-[#F0F2F5]  rounded-lg border border-[#E4E6EB]  text-[#65676B] ">
                 <p className="font-semibold text-sm">Aucune demande d'inscription reçue pour le moment.</p>
                 <p className="text-xs mt-1">
                   Les établissements qui s'inscrivent via la vitrine officielle apparaîtront automatiquement ici avec leur période d'essai de 14 jours ou leur formule d'abonnement.
@@ -1195,40 +1195,40 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
             {gateways.map((gw) => (
               <div 
                 key={gw.id}
-                className="bg-white dark:bg-slate-800 p-5 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-xs flex flex-col justify-between gap-4"
+                className="bg-white  p-5 rounded-lg border border-[#E4E6EB]  shadow-xs flex flex-col justify-between gap-4"
               >
                 <div>
                   <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-widest">
+                    <span className="text-[10px] font-mono font-bold text-[#65676B] uppercase tracking-widest">
                       {gw.provider}
                     </span>
-                    <span className="bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 text-[10px] font-extrabold px-2 py-0.5 rounded-full flex items-center gap-1">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                    <span className="bg-[#E7F3FF]  text-[#1877F2]  text-[10px] font-extrabold px-2 py-0.5 rounded-lg flex items-center gap-1">
+                      <span className="w-1.5 h-1.5 rounded-lg bg-[#1877F2] animate-pulse" />
                       {gw.status.toUpperCase()}
                     </span>
                   </div>
 
-                  <h4 className="font-extrabold text-slate-900 dark:text-white text-sm mt-1">
+                  <h4 className="font-extrabold text-[#050505]  text-sm mt-1">
                     {gw.name}
                   </h4>
 
-                  <p className="text-[11px] font-mono text-slate-500 dark:text-slate-400 truncate mt-1 bg-slate-50 dark:bg-slate-900 p-1.5 rounded-lg border border-slate-100 dark:border-slate-800">
+                  <p className="text-[11px] font-mono text-[#65676B]  truncate mt-1 bg-[#F0F2F5]  p-1.5 rounded-lg border border-[#E4E6EB] ">
                     {gw.endpoint}
                   </p>
                 </div>
 
-                <div className="grid grid-cols-3 gap-2 pt-2 border-t border-slate-100 dark:border-slate-700 text-center text-xs">
-                  <div className="p-2 rounded-xl bg-slate-50 dark:bg-slate-900/60">
-                    <span className="text-[10px] text-slate-400 block">Latence</span>
-                    <span className="font-bold text-emerald-600 dark:text-emerald-400">{gw.latencyMs} ms</span>
+                <div className="grid grid-cols-3 gap-2 pt-2 border-t border-[#E4E6EB]  text-center text-xs">
+                  <div className="p-2 rounded-xl bg-[#F0F2F5] ">
+                    <span className="text-[10px] text-[#65676B] block">Latence</span>
+                    <span className="font-bold text-[#1877F2] ">{gw.latencyMs} ms</span>
                   </div>
-                  <div className="p-2 rounded-xl bg-slate-50 dark:bg-slate-900/60">
-                    <span className="text-[10px] text-slate-400 block">Uptime</span>
-                    <span className="font-bold text-slate-800 dark:text-slate-200">{gw.uptimePercentage}%</span>
+                  <div className="p-2 rounded-xl bg-[#F0F2F5] ">
+                    <span className="text-[10px] text-[#65676B] block">Uptime</span>
+                    <span className="font-bold text-[#050505] ">{gw.uptimePercentage}%</span>
                   </div>
-                  <div className="p-2 rounded-xl bg-slate-50 dark:bg-slate-900/60">
-                    <span className="text-[10px] text-slate-400 block">Requêtes/j</span>
-                    <span className="font-bold text-indigo-600 dark:text-indigo-400">{gw.todayRequests.toLocaleString()}</span>
+                  <div className="p-2 rounded-xl bg-[#F0F2F5] ">
+                    <span className="text-[10px] text-[#65676B] block">Requêtes/j</span>
+                    <span className="font-bold text-[#1877F2] ">{gw.todayRequests.toLocaleString()}</span>
                   </div>
                 </div>
 
@@ -1237,14 +1237,14 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
           </div>
 
           {/* Interactive MoMo Webhook Simulator */}
-          <div className="bg-gradient-to-br from-indigo-950 via-slate-900 to-indigo-900 text-white rounded-3xl p-6 sm:p-7 border border-indigo-500/40 shadow-xl space-y-5">
+          <div className="bg-[#1877F2] text-white rounded-lg p-6 sm:p-7 border border-[#E4E6EB] shadow-xl space-y-5">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-2xl bg-indigo-600 border border-indigo-400 flex items-center justify-center font-bold text-white shadow-md">
+                <div className="w-10 h-10 rounded-lg bg-[#1877F2] border border-[#E4E6EB] flex items-center justify-center font-bold text-white shadow-md">
                   <CreditCard className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-[10px] font-mono font-bold text-indigo-400 uppercase tracking-widest block">
+                  <span className="text-[10px] font-mono font-bold text-[#1877F2] uppercase tracking-widest block">
                     TESTEUR DE PASSERELLE EN DIRECT
                   </span>
                   <h3 className="text-base font-extrabold text-white">
@@ -1252,22 +1252,22 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
                   </h3>
                 </div>
               </div>
-              <span className="bg-emerald-500 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">
+              <span className="bg-[#1877F2] text-white text-[10px] font-bold px-2.5 py-1 rounded-lg uppercase tracking-wider">
                 Environnement Sandbox / Live
               </span>
             </div>
 
-            <p className="text-xs text-indigo-200/80 leading-relaxed">
+            <p className="text-xs text-[#1877F2]/80 leading-relaxed">
               Testez la réception en temps réel d'un paiement effectué par un parent au Congo via <strong>MTN MoMo (*105#)</strong> ou <strong>Airtel Money (*128#)</strong>. Le système génère instantanément l'accusé de réception, la mise à jour comptable et le reçu officiel.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-4 gap-3 bg-slate-900/60 p-4 rounded-2xl border border-indigo-500/20 text-xs">
+            <div className="grid grid-cols-1 sm:grid-cols-4 gap-3 bg-white p-4 rounded-lg border border-[#E4E6EB] text-xs">
               <div>
-                <label className="text-[11px] font-bold text-indigo-300 block mb-1">Opérateur :</label>
+                <label className="text-[11px] font-bold text-[#1877F2] block mb-1">Opérateur :</label>
                 <select
                   value={simulatorProvider}
                   onChange={(e) => setSimulatorProvider(e.target.value as any)}
-                  className="w-full bg-slate-800 border border-indigo-500/40 rounded-xl p-2.5 text-white outline-none"
+                  className="w-full bg-white border border-[#E4E6EB] rounded-xl p-2.5 text-white outline-none"
                 >
                   <option value="MTN Mobile Money">MTN Mobile Money Congo (*105#)</option>
                   <option value="Airtel Money">Airtel Money Congo (*128#)</option>
@@ -1275,32 +1275,32 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
               </div>
 
               <div>
-                <label className="text-[11px] font-bold text-indigo-300 block mb-1">Montant (FCFA) :</label>
+                <label className="text-[11px] font-bold text-[#1877F2] block mb-1">Montant (FCFA) :</label>
                 <input
                   type="number"
                   step="5000"
                   value={simulatorAmount}
                   onChange={(e) => setSimulatorAmount(Number(e.target.value))}
-                  className="w-full bg-slate-800 border border-indigo-500/40 rounded-xl p-2.5 text-white font-mono outline-none"
+                  className="w-full bg-white border border-[#E4E6EB] rounded-xl p-2.5 text-white font-mono outline-none"
                 />
               </div>
 
               <div>
-                <label className="text-[11px] font-bold text-indigo-300 block mb-1">Téléphone Parent (+242) :</label>
+                <label className="text-[11px] font-bold text-[#1877F2] block mb-1">Téléphone Parent (+242) :</label>
                 <input
                   type="text"
                   value={simulatorPhone}
                   onChange={(e) => setSimulatorPhone(e.target.value)}
-                  className="w-full bg-slate-800 border border-indigo-500/40 rounded-xl p-2.5 text-white font-mono outline-none"
+                  className="w-full bg-white border border-[#E4E6EB] rounded-xl p-2.5 text-white font-mono outline-none"
                 />
               </div>
 
               <div>
-                <label className="text-[11px] font-bold text-indigo-300 block mb-1">Établissement Cible :</label>
+                <label className="text-[11px] font-bold text-[#1877F2] block mb-1">Établissement Cible :</label>
                 <select
                   value={simulatorSchool}
                   onChange={(e) => setSimulatorSchool(e.target.value)}
-                  className="w-full bg-slate-800 border border-indigo-500/40 rounded-xl p-2.5 text-white outline-none"
+                  className="w-full bg-white border border-[#E4E6EB] rounded-xl p-2.5 text-white outline-none"
                 >
                   {tenants.map(t => (
                     <option key={t.id} value={t.name}>{t.name}</option>
@@ -1310,15 +1310,15 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
             </div>
 
             <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
-              <div className="text-xs text-indigo-300 flex items-center gap-2">
-                <Radio className="w-4 h-4 text-emerald-400 animate-pulse" />
+              <div className="text-xs text-[#1877F2] flex items-center gap-2">
+                <Radio className="w-4 h-4 text-[#1877F2] animate-pulse" />
                 <span>Prêt à émettre le webhook vers l'API de validation</span>
               </div>
 
               <button
                 onClick={handleRunMoMoSimulation}
                 disabled={isSimulating}
-                className="w-full sm:w-auto px-6 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold rounded-xl shadow-lg flex items-center justify-center gap-2 transition-all hover:scale-105 cursor-pointer disabled:opacity-50 text-xs"
+                className="w-full sm:w-auto px-6 py-3 bg-[#1877F2] hover:bg-[#1877F2] text-white font-extrabold rounded-xl shadow-lg flex items-center justify-center gap-2 transition-all hover:scale-105 cursor-pointer disabled:opacity-50 text-xs"
               >
                 {isSimulating ? (
                   <RefreshCw className="w-4 h-4 animate-spin" />
@@ -1330,8 +1330,8 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
             </div>
 
             {simulatorSuccessMsg && (
-              <div className="bg-emerald-950/70 border border-emerald-500/50 p-4 rounded-2xl text-xs text-emerald-200 flex items-start gap-3 animate-in fade-in">
-                <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+              <div className="bg-emerald-950/70 border border-[#E4E6EB] p-4 rounded-lg text-xs text-[#1877F2] flex items-start gap-3 animate-in fade-in">
+                <CheckCircle2 className="w-5 h-5 text-[#1877F2] shrink-0 mt-0.5" />
                 <div>
                   <span className="font-bold block">Confirmation Transaction Télécom Validée :</span>
                   <span>{simulatorSuccessMsg}</span>
@@ -1348,18 +1348,18 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
       {activeTab === 'logs' && (
         <div className="space-y-4 animate-in fade-in duration-200">
           
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-xs">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-white  p-4 rounded-lg border border-[#E4E6EB]  shadow-xs">
             <div className="flex items-center gap-2">
-              <Filter className="w-4 h-4 text-slate-400" />
-              <span className="text-xs font-bold text-slate-700 dark:text-slate-300">Niveau de Log :</span>
+              <Filter className="w-4 h-4 text-[#65676B]" />
+              <span className="text-xs font-bold text-[#050505] ">Niveau de Log :</span>
               {['all', 'security', 'audit', 'info', 'warning'].map((lvl) => (
                 <button
                   key={lvl}
                   onClick={() => setLogLevelFilter(lvl)}
                   className={`px-2.5 py-1 rounded-lg text-xs font-bold capitalize transition-colors cursor-pointer ${
                     logLevelFilter === lvl
-                      ? 'bg-indigo-600 text-white'
-                      : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200'
+                      ? 'bg-[#1877F2] text-white'
+                      : 'bg-[#F0F2F5]  text-[#65676B]  hover:bg-[#F0F2F5]'
                   }`}
                 >
                   {lvl === 'all' ? 'Tous' : lvl}
@@ -1369,7 +1369,7 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
 
             <button
               onClick={onClearLogs}
-              className="px-3 py-1.5 bg-rose-50 dark:bg-rose-950/50 hover:bg-rose-100 text-rose-700 dark:text-rose-300 rounded-xl text-xs font-semibold flex items-center gap-1 transition-colors cursor-pointer border border-rose-200 dark:border-rose-800"
+              className="px-3 py-1.5 bg-rose-50  hover:bg-rose-100 text-rose-700  rounded-xl text-xs font-semibold flex items-center gap-1 transition-colors cursor-pointer border border-rose-200 "
             >
               <Trash2 className="w-3.5 h-3.5" />
               <span>Purger l'Historique</span>
@@ -1377,43 +1377,43 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
           </div>
 
           {/* Logs List */}
-          <div className="bg-slate-900 text-slate-100 rounded-3xl p-5 border border-slate-800 shadow-xl space-y-2.5 font-mono text-xs max-h-[600px] overflow-y-auto">
+          <div className="bg-white text-[#65676B] rounded-lg p-5 border border-[#E4E6EB] shadow-xl space-y-2.5 font-mono text-xs max-h-[600px] overflow-y-auto">
             {filteredLogs.length > 0 ? (
               filteredLogs.map((log) => (
                 <div 
                   key={log.id}
-                  className="p-3 rounded-xl bg-slate-800/80 border border-slate-700/60 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 hover:bg-slate-800 transition-colors"
+                  className="p-3 rounded-xl bg-white border border-[#E4E6EB] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 hover:bg-white transition-colors"
                 >
                   <div className="flex items-start gap-2.5 flex-1">
                     <span className={`text-[10px] font-extrabold px-2 py-0.5 rounded-md uppercase shrink-0 mt-0.5 ${
                       log.level === 'security' ? 'bg-purple-950 text-purple-300 border border-purple-800' :
-                      log.level === 'audit' ? 'bg-indigo-950 text-indigo-300 border border-indigo-800' :
+                      log.level === 'audit' ? 'bg-indigo-950 text-[#1877F2] border border-[#E4E6EB]' :
                       log.level === 'warning' ? 'bg-amber-950 text-amber-300 border border-amber-800' :
-                      'bg-emerald-950 text-emerald-300 border border-emerald-800'
+                      'bg-emerald-950 text-[#1877F2] border border-[#E4E6EB]'
                     }`}>
                       {log.source}
                     </span>
 
                     <div>
-                      <p className="text-slate-200 leading-relaxed font-sans text-xs">
+                      <p className="text-[#65676B] leading-relaxed font-sans text-xs">
                         {log.message}
                       </p>
                       {log.details && (
-                        <p className="text-[11px] text-slate-400 mt-0.5 font-mono">
+                        <p className="text-[11px] text-[#65676B] mt-0.5 font-mono">
                           ↪ {log.details}
                         </p>
                       )}
                     </div>
                   </div>
 
-                  <div className="text-right shrink-0 text-[11px] text-slate-400 flex sm:flex-col items-center sm:items-end justify-between w-full sm:w-auto gap-1">
-                    <span className="text-slate-300 font-bold">{log.timestamp}</span>
-                    <span className="text-indigo-400 font-mono text-[10px]">{log.ip}</span>
+                  <div className="text-right shrink-0 text-[11px] text-[#65676B] flex sm:flex-col items-center sm:items-end justify-between w-full sm:w-auto gap-1">
+                    <span className="text-[#65676B] font-bold">{log.timestamp}</span>
+                    <span className="text-[#1877F2] font-mono text-[10px]">{log.ip}</span>
                   </div>
                 </div>
               ))
             ) : (
-              <div className="p-8 text-center text-slate-500 italic">
+              <div className="p-8 text-center text-[#65676B] italic">
                 Aucun log dans cette catégorie.
               </div>
             )}
@@ -1426,7 +1426,7 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
       {activeTab === 'terminal' && (
         <div className="space-y-4 animate-in fade-in duration-200">
           
-          <div className="bg-slate-950 text-emerald-400 rounded-3xl p-6 border border-slate-800 shadow-2xl font-mono text-xs space-y-4 min-h-[420px] flex flex-col justify-between">
+          <div className="bg-black/50 text-[#1877F2] rounded-lg p-6 border border-[#E4E6EB] shadow-2xl font-mono text-xs space-y-4 min-h-[420px] flex flex-col justify-between">
             
             {/* Terminal Output */}
             <div className="space-y-1 overflow-y-auto max-h-[350px]">
@@ -1434,8 +1434,8 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
                 <div 
                   key={idx} 
                   className={
-                    item.type === 'input' ? 'text-indigo-300 font-bold' :
-                    item.type === 'error' ? 'text-rose-400' : 'text-emerald-400/90'
+                    item.type === 'input' ? 'text-[#1877F2] font-bold' :
+                    item.type === 'error' ? 'text-rose-400' : 'text-[#1877F2]/90'
                   }
                 >
                   {item.text}
@@ -1444,8 +1444,8 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
             </div>
 
             {/* Terminal Input Bar */}
-            <form onSubmit={handleTerminalSubmit} className="flex items-center gap-2 border-t border-slate-800 pt-3">
-              <span className="text-indigo-400 font-bold font-mono">root@edu-congo:~#</span>
+            <form onSubmit={handleTerminalSubmit} className="flex items-center gap-2 border-t border-[#E4E6EB] pt-3">
+              <span className="text-[#1877F2] font-bold font-mono">root@edu-congo:~#</span>
               <input
                 type="text"
                 value={terminalInput}
@@ -1456,7 +1456,7 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
               />
               <button
                 type="submit"
-                className="px-3 py-1 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-xs font-bold transition-all cursor-pointer"
+                className="px-3 py-1 bg-[#1877F2] hover:bg-[#1877F2] text-white rounded-lg text-xs font-bold transition-all cursor-pointer"
               >
                 Exécuter
               </button>
@@ -1466,14 +1466,14 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
 
           {/* Quick Command Buttons */}
           <div className="flex flex-wrap items-center gap-2 text-xs">
-            <span className="text-slate-500 dark:text-slate-400 font-bold">Raccourcis CLI :</span>
+            <span className="text-[#65676B]  font-bold">Raccourcis CLI :</span>
             {['status', 'ping momo', 'stats', 'tenants', 'backup', 'whoami'].map((cmd) => (
               <button
                 key={cmd}
                 onClick={() => {
                   setTerminalInput(cmd);
                 }}
-                className="px-3 py-1 bg-white dark:bg-slate-800 hover:bg-indigo-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 rounded-xl font-mono text-[11px] transition-colors cursor-pointer"
+                className="px-3 py-1 bg-white  hover:bg-[#E7F3FF] text-[#050505]  border border-[#E4E6EB]  rounded-xl font-mono text-[11px] transition-colors cursor-pointer"
               >
                 {cmd}
               </button>
@@ -1487,8 +1487,8 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
       {activeTab === 'flags' && (
         <div className="space-y-4 animate-in fade-in duration-200">
           
-          <div className="bg-indigo-50 dark:bg-indigo-950/40 p-4 rounded-2xl border border-indigo-200 dark:border-indigo-800/80 text-xs text-indigo-950 dark:text-indigo-200">
-            <Sparkles className="w-4 h-4 text-indigo-600 inline mr-1.5" />
+          <div className="bg-[#E7F3FF]  p-4 rounded-lg border border-[#E4E6EB]  text-xs text-[#1877F2] ">
+            <Sparkles className="w-4 h-4 text-[#1877F2] inline mr-1.5" />
             <span>
               Les <strong>Feature Flags</strong> permettent au Super Admin d'activer ou désactiver des fonctionnalités critiques instantanément sur l'ensemble des établissements du Congo sans redéployer le serveur.
             </span>
@@ -1498,38 +1498,38 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
             {featureFlags.map((flag) => (
               <div
                 key={flag.id}
-                className="bg-white dark:bg-slate-800 p-5 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-xs flex items-start justify-between gap-4"
+                className="bg-white  p-5 rounded-lg border border-[#E4E6EB]  shadow-xs flex items-start justify-between gap-4"
               >
                 <div className="space-y-1">
                   <div className="flex items-center gap-2">
-                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 uppercase font-mono">
+                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-[#F0F2F5]  text-[#65676B]  uppercase font-mono">
                       {flag.category}
                     </span>
-                    <span className="font-mono text-[11px] text-indigo-600 dark:text-indigo-400 font-semibold">
+                    <span className="font-mono text-[11px] text-[#1877F2]  font-semibold">
                       {flag.key}
                     </span>
                   </div>
 
-                  <h4 className="font-bold text-slate-900 dark:text-white text-sm">
+                  <h4 className="font-bold text-[#050505]  text-sm">
                     {flag.label}
                   </h4>
 
-                  <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                  <p className="text-xs text-[#65676B]  leading-relaxed">
                     {flag.description}
                   </p>
                 </div>
 
                 <button
                   onClick={() => onToggleFeatureFlag(flag.id)}
-                  className={`p-1 rounded-2xl transition-all cursor-pointer shrink-0 ${
-                    flag.enabled ? 'text-indigo-600' : 'text-slate-400'
+                  className={`p-1 rounded-lg transition-all cursor-pointer shrink-0 ${
+                    flag.enabled ? 'text-[#1877F2]' : 'text-[#65676B]'
                   }`}
                   title={flag.enabled ? 'Désactiver' : 'Activer'}
                 >
                   {flag.enabled ? (
-                    <ToggleRight className="w-10 h-10 fill-indigo-600 text-indigo-600" />
+                    <ToggleRight className="w-10 h-10 fill-indigo-600 text-[#1877F2]" />
                   ) : (
-                    <ToggleLeft className="w-10 h-10 text-slate-400" />
+                    <ToggleLeft className="w-10 h-10 text-[#65676B]" />
                   )}
                 </button>
               </div>
@@ -1544,49 +1544,49 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
         <div className="space-y-6 animate-in fade-in duration-200">
           
           {/* Header Banner */}
-          <div className="bg-gradient-to-r from-amber-950 via-slate-900 to-indigo-950 p-6 rounded-3xl text-white border border-amber-800/40 shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div className="bg-[#1877F2] p-6 rounded-lg text-white border border-amber-800/40 shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div className="space-y-1 max-w-2xl">
               <div className="flex items-center gap-2">
-                <span className="px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 text-[10px] font-black uppercase tracking-wider">
+                <span className="px-2.5 py-0.5 rounded-lg bg-amber-500/20 text-amber-300 border border-amber-500/30 text-[10px] font-black uppercase tracking-wider">
                   Sécurité Cryptographique
                 </span>
-                <span className="text-slate-400 text-xs font-mono">Module Super-Admin</span>
+                <span className="text-[#65676B] text-xs font-mono">Module Super-Admin</span>
               </div>
               <h3 className="text-lg sm:text-xl font-black text-white tracking-tight">
                 Générateur Officiel de Codes d'Activation Établissement
               </h3>
-              <p className="text-xs text-slate-300 leading-relaxed">
+              <p className="text-xs text-[#65676B] leading-relaxed">
                 Générez des clés d'activation uniques et infalsifiables pour les règlements en espèces ou mandats administratifs. Chaque code généré n'est valable <strong>que pour l'établissement sélectionné</strong> et lève immédiatement le statut suspendu.
               </p>
             </div>
 
-            <div className="bg-white/10 backdrop-blur-xs p-3.5 rounded-2xl border border-white/15 text-center shrink-0">
+            <div className="bg-white/10 backdrop-blur-xs p-3.5 rounded-lg border border-white/15 text-center shrink-0">
               <span className="text-[10px] text-amber-200 font-bold block uppercase tracking-wider">Tarification Officielle</span>
               <span className="text-xl font-black text-white font-mono">25 000 FCFA</span>
-              <span className="text-[10px] text-slate-300 block">Base mensuelle sans engagement</span>
+              <span className="text-[10px] text-[#65676B] block">Base mensuelle sans engagement</span>
             </div>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
             
             {/* Left Col: Code Generation Form */}
-            <div className="lg:col-span-6 bg-white dark:bg-slate-850 p-6 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-5">
-              <div className="flex items-center gap-2 pb-3 border-b border-slate-100 dark:border-slate-800">
+            <div className="lg:col-span-6 bg-white  p-6 rounded-lg border border-[#E4E6EB]  shadow-sm space-y-5">
+              <div className="flex items-center gap-2 pb-3 border-b border-[#E4E6EB] ">
                 <Key className="w-5 h-5 text-amber-500" />
-                <h4 className="font-black text-slate-900 dark:text-white text-sm">
+                <h4 className="font-black text-[#050505]  text-sm">
                   1. Paramétrer la Clé d'Activation
                 </h4>
               </div>
 
               {/* School Select */}
               <div className="space-y-1.5">
-                <label className="block text-xs font-black uppercase tracking-wider text-slate-700 dark:text-slate-300">
+                <label className="block text-xs font-black uppercase tracking-wider text-[#050505] ">
                   Établissement Bénéficiaire Unique
                 </label>
                 <select
                   value={codeSchoolId}
                   onChange={(e) => setCodeSchoolId(e.target.value)}
-                  className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-2xl text-xs font-bold text-slate-900 dark:text-white outline-hidden focus:ring-2 focus:ring-amber-500"
+                  className="w-full px-4 py-3 bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-lg text-xs font-bold text-[#050505]  outline-hidden focus:ring-2 focus:ring-amber-500"
                 >
                   {tenants.map((t) => (
                     <option key={t.id} value={t.id}>
@@ -1594,14 +1594,14 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
                     </option>
                   ))}
                 </select>
-                <span className="text-[10px] text-slate-400 block">
+                <span className="text-[10px] text-[#65676B] block">
                   Le code généré sera chiffré avec l'identifiant et le code de cet établissement.
                 </span>
               </div>
 
               {/* Plan Choice Grid */}
               <div className="space-y-2">
-                <label className="block text-xs font-black uppercase tracking-wider text-slate-700 dark:text-slate-300">
+                <label className="block text-xs font-black uppercase tracking-wider text-[#050505] ">
                   Formule d'Abonnement à Activer
                 </label>
                 <div className="grid grid-cols-2 gap-2.5">
@@ -1613,24 +1613,24 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
                         key={pKey}
                         type="button"
                         onClick={() => setCodePlanId(pKey)}
-                        className={`p-3 rounded-2xl border text-left transition-all cursor-pointer ${
+                        className={`p-3 rounded-lg border text-left transition-all cursor-pointer ${
                           isSelected
-                            ? 'border-amber-500 bg-amber-50/80 dark:bg-amber-950/60 ring-2 ring-amber-500/30'
-                            : 'border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/60 hover:border-slate-300'
+                            ? 'border-amber-500 bg-amber-50/80  ring-2 ring-amber-500/30'
+                            : 'border-[#E4E6EB]  bg-[#F0F2F5]  hover:border-[#E4E6EB]'
                         }`}
                       >
                         <div className="flex justify-between items-start">
-                          <span className="font-black text-slate-900 dark:text-white text-xs">{plan.name}</span>
+                          <span className="font-black text-[#050505]  text-xs">{plan.name}</span>
                           {plan.discountPercent > 0 && (
-                            <span className="text-[9px] font-extrabold px-1.5 py-0.5 rounded-md bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800">
+                            <span className="text-[9px] font-extrabold px-1.5 py-0.5 rounded-md bg-[#E7F3FF]  text-[#1877F2]  border border-[#E4E6EB] ">
                               -{plan.discountPercent}%
                             </span>
                           )}
                         </div>
-                        <span className="text-[10px] text-slate-500 dark:text-slate-400 block mb-1">
+                        <span className="text-[10px] text-[#65676B]  block mb-1">
                           {plan.durationMonths} {plan.durationMonths === 1 ? 'Mois' : 'Mois'}
                         </span>
-                        <span className="font-black text-xs text-amber-700 dark:text-amber-300">
+                        <span className="font-black text-xs text-amber-700 ">
                           {plan.totalAmountFCFA.toLocaleString()} FCFA
                         </span>
                       </button>
@@ -1643,7 +1643,7 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
               <button
                 type="button"
                 onClick={() => handleGenerateActivationCode()}
-                className="w-full py-3.5 bg-gradient-to-r from-amber-500 via-amber-600 to-amber-700 hover:from-amber-600 hover:to-amber-800 text-slate-950 font-black text-xs rounded-2xl shadow-lg shadow-amber-500/20 flex items-center justify-center gap-2 cursor-pointer transition-all hover:scale-101 active:scale-99"
+                className="w-full py-3.5 bg-[#1877F2] hover:from-amber-600 hover:to-amber-800 text-slate-950 font-black text-xs rounded-lg shadow-lg shadow-amber-500/20 flex items-center justify-center gap-2 cursor-pointer transition-all hover:scale-101 active:scale-99"
               >
                 <Key className="w-4 h-4 fill-current" />
                 <span>Générer le Code d'Activation Unique</span>
@@ -1653,22 +1653,22 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
             {/* Right Col: Voucher / Generated Code Display */}
             <div className="lg:col-span-6 flex flex-col">
               {recentlyGeneratedCode ? (
-                <div className="bg-gradient-to-b from-slate-900 to-indigo-950 text-white p-6 rounded-3xl border border-indigo-800/60 shadow-xl flex flex-col justify-between h-full space-y-4 animate-in zoom-in-95 duration-200">
+                <div className="bg-[#1877F2] text-white p-6 rounded-lg border border-[#E4E6EB] shadow-xl flex flex-col justify-between h-full space-y-4 animate-in zoom-in-95 duration-200">
                   <div className="flex items-start justify-between">
                     <div>
-                      <span className="bg-amber-400 text-slate-950 text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                      <span className="bg-amber-400 text-slate-950 text-[10px] font-black px-2.5 py-0.5 rounded-lg uppercase tracking-wider">
                         Bon d'Activation Officiel
                       </span>
                       <h4 className="text-base font-black text-white mt-1.5">
                         {recentlyGeneratedCode.schoolName}
                       </h4>
-                      <span className="text-xs text-slate-400 font-mono">
+                      <span className="text-xs text-[#65676B] font-mono">
                         Code École: {recentlyGeneratedCode.schoolCode}
                       </span>
                     </div>
 
                     <div className="text-right">
-                      <span className="text-[10px] text-slate-400 block uppercase">Formule</span>
+                      <span className="text-[10px] text-[#65676B] block uppercase">Formule</span>
                       <span className="text-sm font-black text-amber-400">
                         {recentlyGeneratedCode.planName} ({recentlyGeneratedCode.durationMonths} Mois)
                       </span>
@@ -1676,14 +1676,14 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
                   </div>
 
                   {/* Prominent Code Box */}
-                  <div className="bg-black/40 border-2 border-dashed border-amber-400/60 rounded-2xl p-4 text-center space-y-2">
-                    <span className="text-[10px] uppercase font-bold text-slate-400 tracking-wider block">
+                  <div className="bg-black/40 border-2 border-dashed border-amber-400/60 rounded-lg p-4 text-center space-y-2">
+                    <span className="text-[10px] uppercase font-bold text-[#65676B] tracking-wider block">
                       Code d'Activation à Fournir à l'Établissement :
                     </span>
                     <div className="font-mono text-xl sm:text-2xl font-black text-amber-300 tracking-widest selection:bg-amber-400 selection:text-black">
                       {recentlyGeneratedCode.code}
                     </div>
-                    <span className="text-[10px] text-slate-400 block">
+                    <span className="text-[10px] text-[#65676B] block">
                       Montant réglé : <strong>{recentlyGeneratedCode.amountFCFA.toLocaleString()} FCFA</strong> • Échéance calculée : <strong>{recentlyGeneratedCode.expiresAtCalculated}</strong>
                     </span>
                   </div>
@@ -1697,7 +1697,7 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
                     >
                       {copiedText === 'rec-code' ? (
                         <>
-                          <Check className="w-4 h-4 text-emerald-400" />
+                          <Check className="w-4 h-4 text-[#1877F2]" />
                           <span>Code Copié !</span>
                         </>
                       ) : (
@@ -1727,7 +1727,7 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
                           href={whatsappUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 rounded-xl text-xs font-bold text-white flex items-center justify-center gap-2 transition-all shadow-md shadow-emerald-600/30"
+                          className="px-4 py-2.5 bg-[#1877F2] hover:bg-[#1877F2] rounded-xl text-xs font-bold text-white flex items-center justify-center gap-2 transition-all shadow-md shadow-emerald-600/30"
                         >
                           <MessageCircle className="w-4 h-4" />
                           <span>Transmettre sur WhatsApp</span>
@@ -1738,8 +1738,8 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
 
                 </div>
               ) : (
-                <div className="bg-slate-50 dark:bg-slate-800/40 rounded-3xl border-2 border-dashed border-slate-200 dark:border-slate-700 p-8 flex flex-col items-center justify-center text-center h-full text-slate-400 space-y-3">
-                  <Key className="w-12 h-12 text-slate-300 dark:text-slate-600" />
+                <div className="bg-[#F0F2F5]  rounded-lg border-2 border-dashed border-[#E4E6EB]  p-8 flex flex-col items-center justify-center text-center h-full text-[#65676B] space-y-3">
+                  <Key className="w-12 h-12 text-[#65676B] " />
                   <p className="text-xs max-w-xs">
                     Sélectionnez un établissement et une formule puis cliquez sur <strong>"Générer le Code"</strong> pour éditer un coupon officiel.
                   </p>
@@ -1750,30 +1750,30 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
           </div>
 
           {/* History Ledger of Generated Codes */}
-          <div className="bg-white dark:bg-slate-850 p-6 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+          <div className="bg-white  p-6 rounded-lg border border-[#E4E6EB]  shadow-sm space-y-4">
             <div className="flex items-center justify-between">
               <div>
-                <h4 className="font-black text-slate-900 dark:text-white text-sm">
+                <h4 className="font-black text-[#050505]  text-sm">
                   Registre des Codes d'Activation Émis
                 </h4>
-                <span className="text-xs text-slate-400">
+                <span className="text-xs text-[#65676B]">
                   Historique cryptographique des coupons générés sur ce cluster
                 </span>
               </div>
-              <span className="text-xs font-mono font-bold px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+              <span className="text-xs font-mono font-bold px-2.5 py-1 rounded-lg bg-[#F0F2F5]  text-[#65676B] ">
                 {generatedCodesHistory.length} code(s) émis
               </span>
             </div>
 
             {generatedCodesHistory.length === 0 ? (
-              <div className="p-8 text-center text-slate-400 text-xs italic">
+              <div className="p-8 text-center text-[#65676B] text-xs italic">
                 Aucun code d'activation n'a encore été généré sur cette session.
               </div>
             ) : (
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs border-collapse">
                   <thead>
-                    <tr className="border-b border-slate-200 dark:border-slate-700 text-slate-400 text-[11px] uppercase font-bold">
+                    <tr className="border-b border-[#E4E6EB]  text-[#65676B] text-[11px] uppercase font-bold">
                       <th className="p-3">Établissement</th>
                       <th className="p-3">Formule & Durée</th>
                       <th className="p-3">Montant</th>
@@ -1782,39 +1782,39 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
                       <th className="p-3 text-right">Actions</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+                  <tbody className="divide-y divide-slate-100 ">
                     {generatedCodesHistory.map((item, idx) => (
-                      <tr key={idx} className="hover:bg-slate-50 dark:hover:bg-slate-800/50">
-                        <td className="p-3 font-bold text-slate-800 dark:text-slate-200">
+                      <tr key={idx} className="hover:bg-[#F0F2F5]">
+                        <td className="p-3 font-bold text-[#050505] ">
                           {item.schoolName}
-                          <span className="text-[10px] text-slate-400 block font-mono font-normal">
+                          <span className="text-[10px] text-[#65676B] block font-mono font-normal">
                             Code: {item.schoolCode}
                           </span>
                         </td>
                         <td className="p-3">
-                          <span className="font-bold text-indigo-600 dark:text-indigo-400">{item.planName}</span>
-                          <span className="text-[10px] text-slate-400 block">{item.durationMonths} Mois</span>
+                          <span className="font-bold text-[#1877F2] ">{item.planName}</span>
+                          <span className="text-[10px] text-[#65676B] block">{item.durationMonths} Mois</span>
                         </td>
-                        <td className="p-3 font-mono font-bold text-slate-700 dark:text-slate-300">
+                        <td className="p-3 font-mono font-bold text-[#050505] ">
                           {item.amountFCFA.toLocaleString()} FCFA
                         </td>
                         <td className="p-3">
-                          <span className="font-mono font-black text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/60 px-2 py-1 rounded-lg border border-amber-200 dark:border-amber-800">
+                          <span className="font-mono font-black text-amber-600  bg-amber-50  px-2 py-1 rounded-lg border border-amber-200 ">
                             {item.code}
                           </span>
                         </td>
-                        <td className="p-3 text-slate-400 text-[11px]">
+                        <td className="p-3 text-[#65676B] text-[11px]">
                           {item.generatedAt}
                         </td>
                         <td className="p-3 text-right">
                           <button
                             type="button"
                             onClick={() => handleCopy(item.code, `hist-${idx}`)}
-                            className="px-2.5 py-1.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-lg text-[11px] font-bold inline-flex items-center gap-1 transition-colors cursor-pointer"
+                            className="px-2.5 py-1.5 bg-[#F0F2F5] hover:bg-[#F0F2F5] text-[#050505]  rounded-lg text-[11px] font-bold inline-flex items-center gap-1 transition-colors cursor-pointer"
                           >
                             {copiedText === `hist-${idx}` ? (
                               <>
-                                <Check className="w-3 h-3 text-emerald-600" />
+                                <Check className="w-3 h-3 text-[#1877F2]" />
                                 <span>Copié</span>
                               </>
                             ) : (
@@ -1839,17 +1839,17 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
 
       {/* NEW TENANT MODAL */}
       {showNewTenantModal && (
-        <div className="fixed inset-0 z-50 bg-slate-950/75 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto">
-          <div className="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 w-full max-w-lg rounded-3xl border border-slate-200 dark:border-slate-800 shadow-2xl overflow-hidden flex flex-col my-6 animate-in fade-in zoom-in-95">
+        <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto">
+          <div className="bg-white  text-[#050505]  w-full max-w-lg rounded-lg border border-[#E4E6EB]  shadow-2xl overflow-hidden flex flex-col my-6 animate-in fade-in zoom-in-95">
             
-            <div className="bg-gradient-to-r from-indigo-950 to-slate-900 text-white px-6 py-4 flex items-center justify-between border-b border-indigo-800">
+            <div className="bg-[#1877F2] text-white px-6 py-4 flex items-center justify-between border-b border-[#E4E6EB]">
               <div className="flex items-center gap-2">
-                <School className="w-5 h-5 text-indigo-400" />
+                <School className="w-5 h-5 text-[#1877F2]" />
                 <h3 className="font-bold text-base">Provisionner un Établissement (Congo)</h3>
               </div>
               <button
                 onClick={() => setShowNewTenantModal(false)}
-                className="p-1 rounded-lg text-slate-400 hover:text-white cursor-pointer"
+                className="p-1 rounded-lg text-[#65676B] hover:text-white cursor-pointer"
               >
                 ✕
               </button>
@@ -1857,24 +1857,24 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
 
             <form onSubmit={handleCreateTenant} className="p-6 space-y-4 text-xs">
               <div>
-                <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Nom de l'Établissement * :</label>
+                <label className="font-bold text-[#050505]  block mb-1">Nom de l'Établissement * :</label>
                 <input
                   type="text"
                   required
                   placeholder="ex: Complexe Scolaire Saint-Michel Brazzaville"
                   value={newTenantData.name}
                   onChange={(e) => setNewTenantData({ ...newTenantData, name: e.target.value })}
-                  className="w-full p-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl outline-none"
+                  className="w-full p-2.5 bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl outline-none"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Type d'Institution :</label>
+                  <label className="font-bold text-[#050505]  block mb-1">Type d'Institution :</label>
                   <select
                     value={newTenantData.type}
                     onChange={(e) => setNewTenantData({ ...newTenantData, type: e.target.value as any })}
-                    className="w-full p-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl outline-none"
+                    className="w-full p-2.5 bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl outline-none"
                   >
                     <option value="complexe">Complexe Scolaire (Maternelle/Primaire/Collège/Lycée)</option>
                     <option value="secondaire">Lycée / Collège</option>
@@ -1884,11 +1884,11 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
                 </div>
 
                 <div>
-                  <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Ville (Congo) :</label>
+                  <label className="font-bold text-[#050505]  block mb-1">Ville (Congo) :</label>
                   <select
                     value={newTenantData.city}
                     onChange={(e) => setNewTenantData({ ...newTenantData, city: e.target.value })}
-                    className="w-full p-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl outline-none"
+                    className="w-full p-2.5 bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl outline-none"
                   >
                     <option value="Brazzaville">Brazzaville</option>
                     <option value="Pointe-Noire">Pointe-Noire</option>
@@ -1901,34 +1901,34 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Contact Promoteur / Directeur :</label>
+                  <label className="font-bold text-[#050505]  block mb-1">Contact Promoteur / Directeur :</label>
                   <input
                     type="text"
                     placeholder="M. Le Directeur"
                     value={newTenantData.contactName}
                     onChange={(e) => setNewTenantData({ ...newTenantData, contactName: e.target.value })}
-                    className="w-full p-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl outline-none"
+                    className="w-full p-2.5 bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Téléphone (+242) :</label>
+                  <label className="font-bold text-[#050505]  block mb-1">Téléphone (+242) :</label>
                   <input
                     type="text"
                     value={newTenantData.contactPhone}
                     onChange={(e) => setNewTenantData({ ...newTenantData, contactPhone: e.target.value })}
-                    className="w-full p-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl outline-none font-mono"
+                    className="w-full p-2.5 bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl outline-none font-mono"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Formule / Forfait :</label>
+                  <label className="font-bold text-[#050505]  block mb-1">Formule / Forfait :</label>
                   <select
                     value={newTenantData.plan}
                     onChange={(e) => setNewTenantData({ ...newTenantData, plan: e.target.value as any })}
-                    className="w-full p-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl outline-none"
+                    className="w-full p-2.5 bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl outline-none"
                   >
                     <option value="Starter">Mensuel (Sans engagement)</option>
                     <option value="Pro">Trimestriel / Semestriel</option>
@@ -1937,27 +1937,27 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
                 </div>
 
                 <div>
-                  <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Effectif Élèves :</label>
+                  <label className="font-bold text-[#050505]  block mb-1">Effectif Élèves :</label>
                   <input
                     type="number"
                     value={newTenantData.studentCount}
                     onChange={(e) => setNewTenantData({ ...newTenantData, studentCount: Number(e.target.value) })}
-                    className="w-full p-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl outline-none font-mono"
+                    className="w-full p-2.5 bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl outline-none font-mono"
                   />
                 </div>
               </div>
 
-              <div className="pt-3 border-t border-slate-200 dark:border-slate-800 flex justify-end gap-2">
+              <div className="pt-3 border-t border-[#E4E6EB]  flex justify-end gap-2">
                 <button
                   type="button"
                   onClick={() => setShowNewTenantModal(false)}
-                  className="px-4 py-2 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-xl font-semibold cursor-pointer"
+                  className="px-4 py-2 bg-[#F0F2F5]  text-[#050505]  rounded-xl font-semibold cursor-pointer"
                 >
                   Annuler
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-bold cursor-pointer"
+                  className="px-4 py-2 bg-[#1877F2] hover:bg-[#1877F2] text-white rounded-xl font-bold cursor-pointer"
                 >
                   Provisionner l'Établissement
                 </button>
@@ -1971,41 +1971,41 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
 
       {/* Delete Tenant Confirmation Modal */}
       {tenantToDelete && (
-        <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white dark:bg-slate-900 border border-rose-300 dark:border-rose-800 rounded-3xl max-w-md w-full p-6 shadow-2xl space-y-4 animate-in zoom-in-95 duration-200">
-            <div className="w-12 h-12 rounded-2xl bg-rose-100 dark:bg-rose-950 border border-rose-300 dark:border-rose-800 flex items-center justify-center text-rose-600 dark:text-rose-400 mx-auto">
+        <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-center justify-center p-4">
+          <div className="bg-white  border border-rose-300  rounded-lg max-w-md w-full p-6 shadow-2xl space-y-4 animate-in zoom-in-95 duration-200">
+            <div className="w-12 h-12 rounded-lg bg-rose-100  border border-rose-300  flex items-center justify-center text-rose-600  mx-auto">
               <ShieldAlert className="w-6 h-6" />
             </div>
 
             <div className="text-center space-y-1">
-              <h3 className="font-extrabold text-slate-900 dark:text-white text-lg">
+              <h3 className="font-extrabold text-[#050505]  text-lg">
                 Supprimer Définitivement l'Établissement ?
               </h3>
-              <p className="text-xs text-rose-600 dark:text-rose-400 font-semibold">
+              <p className="text-xs text-rose-600  font-semibold">
                 Attention : Cette action est irréversible et détruira toutes les données associées.
               </p>
             </div>
 
-            <div className="bg-slate-50 dark:bg-slate-800/80 rounded-2xl p-4 border border-slate-200 dark:border-slate-700 text-xs space-y-2">
+            <div className="bg-[#F0F2F5]  rounded-lg p-4 border border-[#E4E6EB]  text-xs space-y-2">
               <div className="flex justify-between">
-                <span className="text-slate-500 dark:text-slate-400">Établissement :</span>
-                <span className="font-bold text-slate-900 dark:text-white">{tenantToDelete.name}</span>
+                <span className="text-[#65676B] ">Établissement :</span>
+                <span className="font-bold text-[#050505] ">{tenantToDelete.name}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-500 dark:text-slate-400">Code Système :</span>
-                <span className="font-mono font-bold text-indigo-600 dark:text-indigo-400">{tenantToDelete.code}</span>
+                <span className="text-[#65676B] ">Code Système :</span>
+                <span className="font-mono font-bold text-[#1877F2] ">{tenantToDelete.code}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-500 dark:text-slate-400">Ville / Contact :</span>
-                <span className="font-medium text-slate-700 dark:text-slate-300">{tenantToDelete.city} • {tenantToDelete.contactPhone}</span>
+                <span className="text-[#65676B] ">Ville / Contact :</span>
+                <span className="font-medium text-[#050505] ">{tenantToDelete.city} • {tenantToDelete.contactPhone}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-500 dark:text-slate-400">Effectif & Données :</span>
-                <span className="font-medium text-slate-700 dark:text-slate-300">{tenantToDelete.studentCount} élèves / {tenantToDelete.teacherCount} profs</span>
+                <span className="text-[#65676B] ">Effectif & Données :</span>
+                <span className="font-medium text-[#050505] ">{tenantToDelete.studentCount} élèves / {tenantToDelete.teacherCount} profs</span>
               </div>
             </div>
 
-            <div className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed bg-rose-50/50 dark:bg-rose-950/30 p-3 rounded-xl border border-rose-200 dark:border-rose-900/60">
+            <div className="text-xs text-[#65676B]  leading-relaxed bg-rose-50/50  p-3 rounded-xl border border-rose-200 ">
               La suppression de cet établissement effacera son compte, ses accès, son registre d'élèves, ses bulletins de notes, son historique financier et révoquera sa clé maître <strong>{tenantToDelete.masterKey}</strong>.
             </div>
 
@@ -2016,7 +2016,7 @@ export const DeveloperSuperAdminModule: React.FC<DeveloperSuperAdminModuleProps>
                   setTenantToDelete(null);
                   setDeleteConfirmationInput('');
                 }}
-                className="px-4 py-2.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-xl text-xs font-bold transition-colors cursor-pointer"
+                className="px-4 py-2.5 bg-[#F0F2F5] hover:bg-[#F0F2F5] text-[#050505]  rounded-xl text-xs font-bold transition-colors cursor-pointer"
               >
                 Annuler
               </button>

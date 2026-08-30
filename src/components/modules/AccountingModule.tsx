@@ -91,13 +91,13 @@ export const AccountingModule: React.FC<AccountingModuleProps> = ({
     <div className="flex flex-col gap-6">
       
       {/* Header */}
-      <div className="flex flex-col md:flex-row items-center justify-between gap-4 bg-white dark:bg-slate-900 p-4 sm:p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm transition-colors duration-200 text-center md:text-left">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-4 bg-white  p-4 sm:p-6 rounded-lg border border-[#E4E6EB]  shadow-sm transition-colors duration-200 text-center md:text-left">
         <div>
-          <div className="flex items-center justify-center md:justify-start gap-2 text-indigo-600 dark:text-indigo-400 font-bold text-xs uppercase tracking-wider">
+          <div className="flex items-center justify-center md:justify-start gap-2 text-[#1877F2]  font-bold text-xs uppercase tracking-wider">
             <Calculator className="w-4 h-4" /> Module Comptabilité Générale & Trésorerie (FCFA)
           </div>
-          <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mt-1">États Financiers & Grand Livre de Trésorerie</h2>
-          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+          <h2 className="text-xl sm:text-2xl font-bold text-[#050505]  mt-1">États Financiers & Grand Livre de Trésorerie</h2>
+          <p className="text-xs text-[#65676B]  mt-1">
             Suivi des recettes d'écolage, charges d'exploitation, salaires du personnel et solde de trésorerie en temps réel (Brazzaville).
           </p>
         </div>
@@ -115,50 +115,50 @@ export const AccountingModule: React.FC<AccountingModuleProps> = ({
 
       {/* KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div className="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 p-5 rounded-2xl shadow-sm flex flex-col justify-between transition-colors duration-200">
+        <div className="bg-white  border border-[#E4E6EB]  p-5 rounded-lg shadow-sm flex flex-col justify-between transition-colors duration-200">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">Total Recettes Encaissées</span>
-            <div className="w-8 h-8 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-800/60 flex items-center justify-center">
+            <span className="text-xs font-bold text-[#1877F2]  uppercase tracking-wider">Total Recettes Encaissées</span>
+            <div className="w-8 h-8 rounded-lg bg-[#E7F3FF]  text-[#1877F2]  border border-[#E4E6EB]  flex items-center justify-center">
               <ArrowDownLeft className="w-4 h-4" />
             </div>
           </div>
-          <p className="text-2xl sm:text-3xl font-bold text-emerald-600 dark:text-emerald-400 mt-3">+{totalRevenues.toLocaleString()} FCFA</p>
-          <span className="text-[11px] text-slate-500 dark:text-slate-400 mt-1">{payments.length} encaissements validés</span>
+          <p className="text-2xl sm:text-3xl font-bold text-[#1877F2]  mt-3">+{totalRevenues.toLocaleString()} FCFA</p>
+          <span className="text-[11px] text-[#65676B]  mt-1">{payments.length} encaissements validés</span>
         </div>
 
-        <div className="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 p-5 rounded-2xl shadow-sm flex flex-col justify-between transition-colors duration-200">
+        <div className="bg-white  border border-[#E4E6EB]  p-5 rounded-lg shadow-sm flex flex-col justify-between transition-colors duration-200">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold text-rose-600 dark:text-rose-400 uppercase tracking-wider">Total Dépenses Engagées</span>
-            <div className="w-8 h-8 rounded-lg bg-rose-50 dark:bg-rose-950/60 text-rose-600 dark:text-rose-400 border border-rose-100 dark:border-rose-800/60 flex items-center justify-center">
+            <span className="text-xs font-bold text-rose-600  uppercase tracking-wider">Total Dépenses Engagées</span>
+            <div className="w-8 h-8 rounded-lg bg-rose-50  text-rose-600  border border-rose-100  flex items-center justify-center">
               <ArrowUpRight className="w-4 h-4" />
             </div>
           </div>
-          <p className="text-2xl sm:text-3xl font-bold text-rose-600 dark:text-rose-400 mt-3">-{totalExpenses.toLocaleString()} FCFA</p>
-          <span className="text-[11px] text-slate-500 dark:text-slate-400 mt-1">{expenses.length} dépenses enregistrées</span>
+          <p className="text-2xl sm:text-3xl font-bold text-rose-600  mt-3">-{totalExpenses.toLocaleString()} FCFA</p>
+          <span className="text-[11px] text-[#65676B]  mt-1">{expenses.length} dépenses enregistrées</span>
         </div>
 
-        <div className={`p-5 rounded-2xl border shadow-sm flex flex-col justify-between transition-colors duration-200 ${
+        <div className={`p-5 rounded-lg border shadow-sm flex flex-col justify-between transition-colors duration-200 ${
           netSolde >= 0 
-            ? 'bg-indigo-50/70 dark:bg-indigo-950/40 border-indigo-200 dark:border-indigo-800/60' 
-            : 'bg-rose-50/70 dark:bg-rose-950/40 border-rose-200 dark:border-rose-800/60'
+            ? 'bg-[#E7F3FF]/70  border-[#E4E6EB] ' 
+            : 'bg-rose-50/70  border-rose-200 '
         }`}>
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold text-indigo-900 dark:text-indigo-200 uppercase tracking-wider">Solde Net Disponible</span>
-            <ShieldCheck className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+            <span className="text-xs font-bold text-[#1877F2]  uppercase tracking-wider">Solde Net Disponible</span>
+            <ShieldCheck className="w-5 h-5 text-[#1877F2] " />
           </div>
-          <p className="text-2xl sm:text-3xl font-bold text-indigo-950 dark:text-white mt-3">{netSolde.toLocaleString()} FCFA</p>
-          <span className="text-[11px] text-indigo-700 dark:text-indigo-300 font-medium mt-1">Disponibilité Caisse & Comptes Bancaires</span>
+          <p className="text-2xl sm:text-3xl font-bold text-[#1877F2]  mt-3">{netSolde.toLocaleString()} FCFA</p>
+          <span className="text-[11px] text-[#1877F2]  font-medium mt-1">Disponibilité Caisse & Comptes Bancaires</span>
         </div>
       </div>
 
       {/* Mode Tabs */}
-      <div className="flex items-center gap-2 bg-white dark:bg-slate-900 p-2 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm text-xs transition-colors duration-200">
+      <div className="flex items-center gap-2 bg-white  p-2 rounded-lg border border-[#E4E6EB]  shadow-sm text-xs transition-colors duration-200">
         <button
           onClick={() => setActiveTab('analytics')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl font-bold transition-all cursor-pointer ${
             activeTab === 'analytics'
-              ? 'bg-indigo-600 text-white shadow-xs'
-              : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
+              ? 'bg-[#1877F2] text-white shadow-xs'
+              : 'text-[#65676B]  hover:bg-[#F0F2F5]'
           }`}
         >
           <TrendingUp className="w-4 h-4" />
@@ -168,8 +168,8 @@ export const AccountingModule: React.FC<AccountingModuleProps> = ({
           onClick={() => setActiveTab('journal')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl font-bold transition-all cursor-pointer ${
             activeTab === 'journal'
-              ? 'bg-indigo-600 text-white shadow-xs'
-              : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
+              ? 'bg-[#1877F2] text-white shadow-xs'
+              : 'text-[#65676B]  hover:bg-[#F0F2F5]'
           }`}
         >
           <FileSpreadsheet className="w-4 h-4" />
@@ -190,16 +190,16 @@ export const AccountingModule: React.FC<AccountingModuleProps> = ({
           />
 
           {/* Additional Expense Breakdown Chart */}
-          <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm p-5 sm:p-6 transition-colors duration-200">
-            <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-4 mb-4">
+          <div className="bg-white  rounded-lg border border-[#E4E6EB]  shadow-sm p-5 sm:p-6 transition-colors duration-200">
+            <div className="flex items-center justify-between border-b border-[#E4E6EB]  pb-4 mb-4">
               <div>
-                <h3 className="font-bold text-slate-900 dark:text-white text-base flex items-center gap-2">
+                <h3 className="font-bold text-[#050505]  text-base flex items-center gap-2">
                   <PieIcon className="w-4 h-4 text-rose-500" />
                   Répartition des Charges & Dépenses par Poste (FCFA)
                 </h3>
-                <p className="text-xs text-slate-500 dark:text-slate-400">Ventilation analytique des sorties de caisse</p>
+                <p className="text-xs text-[#65676B] ">Ventilation analytique des sorties de caisse</p>
               </div>
-              <span className="text-xs font-bold text-rose-600 dark:text-rose-400 font-mono">
+              <span className="text-xs font-bold text-rose-600  font-mono">
                 Total: -{totalExpenses.toLocaleString()} FCFA
               </span>
             </div>
@@ -234,7 +234,7 @@ export const AccountingModule: React.FC<AccountingModuleProps> = ({
                     <Legend 
                       verticalAlign="bottom" 
                       height={36} 
-                      formatter={(value) => <span className="text-xs text-slate-600 dark:text-slate-400 font-medium">{value}</span>}
+                      formatter={(value) => <span className="text-xs text-[#65676B]  font-medium">{value}</span>}
                     />
                   </RechartsPie>
                 </ResponsiveContainer>
@@ -244,13 +244,13 @@ export const AccountingModule: React.FC<AccountingModuleProps> = ({
                 {expenseCategoryData.map((cat) => (
                   <div 
                     key={cat.name}
-                    className="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/70 dark:border-slate-700/60 text-xs"
+                    className="flex items-center justify-between p-3 rounded-xl bg-[#F0F2F5]  border border-[#E4E6EB]  text-xs"
                   >
                     <div className="flex items-center gap-2">
-                      <span className="w-3 h-3 rounded-full shrink-0" style={{ backgroundColor: cat.color }} />
-                      <span className="font-bold text-slate-800 dark:text-slate-200">{cat.name}</span>
+                      <span className="w-3 h-3 rounded-lg shrink-0" style={{ backgroundColor: cat.color }} />
+                      <span className="font-bold text-[#050505] ">{cat.name}</span>
                     </div>
-                    <span className="font-mono font-bold text-slate-900 dark:text-white">
+                    <span className="font-mono font-bold text-[#050505] ">
                       {cat.value.toLocaleString()} FCFA
                     </span>
                   </div>
@@ -266,25 +266,25 @@ export const AccountingModule: React.FC<AccountingModuleProps> = ({
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           
           {/* Recettes récentes */}
-          <div className="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-2xl shadow-sm overflow-hidden transition-colors duration-200">
-            <div className="px-6 py-4 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
-              <h3 className="font-bold text-slate-800 dark:text-white text-sm flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+          <div className="bg-white  border border-[#E4E6EB]  rounded-lg shadow-sm overflow-hidden transition-colors duration-200">
+            <div className="px-6 py-4 border-b border-[#E4E6EB]  flex items-center justify-between">
+              <h3 className="font-bold text-[#050505]  text-sm flex items-center gap-2">
+                <span className="w-2 h-2 rounded-lg bg-[#1877F2]"></span>
                 Recettes Récentes d'Écolage (Entrées)
               </h3>
-              <span className="text-xs text-emerald-600 dark:text-emerald-400 font-bold">+{totalRevenues.toLocaleString()} FCFA</span>
+              <span className="text-xs text-[#1877F2]  font-bold">+{totalRevenues.toLocaleString()} FCFA</span>
             </div>
 
-            <div className="divide-y divide-slate-100 dark:divide-slate-800">
+            <div className="divide-y divide-slate-100 ">
               {payments.slice(0, 5).map((p) => (
-                <div key={p.id} className="p-4 sm:px-6 flex items-center justify-between text-xs hover:bg-slate-50/70 dark:hover:bg-slate-800/50 transition-colors">
+                <div key={p.id} className="p-4 sm:px-6 flex items-center justify-between text-xs hover:bg-[#F0F2F5]/70 transition-colors">
                   <div>
-                    <p className="font-bold text-slate-900 dark:text-white">{p.studentName}</p>
-                    <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">{p.motif} • {p.datePaiement}</p>
+                    <p className="font-bold text-[#050505] ">{p.studentName}</p>
+                    <p className="text-[11px] text-[#65676B]  mt-0.5">{p.motif} • {p.datePaiement}</p>
                   </div>
                   <div className="text-right">
-                    <span className="font-mono font-bold text-emerald-600 dark:text-emerald-400 text-sm">+{p.montant.toLocaleString()} FCFA</span>
-                    <p className="text-[10px] text-slate-400 dark:text-slate-500 font-medium">{p.modePaiement}</p>
+                    <span className="font-mono font-bold text-[#1877F2]  text-sm">+{p.montant.toLocaleString()} FCFA</span>
+                    <p className="text-[10px] text-[#65676B]  font-medium">{p.modePaiement}</p>
                   </div>
                 </div>
               ))}
@@ -292,25 +292,25 @@ export const AccountingModule: React.FC<AccountingModuleProps> = ({
           </div>
 
           {/* Dépenses récentes */}
-          <div className="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-2xl shadow-sm overflow-hidden transition-colors duration-200">
-            <div className="px-6 py-4 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
-              <h3 className="font-bold text-slate-800 dark:text-white text-sm flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-rose-500"></span>
+          <div className="bg-white  border border-[#E4E6EB]  rounded-lg shadow-sm overflow-hidden transition-colors duration-200">
+            <div className="px-6 py-4 border-b border-[#E4E6EB]  flex items-center justify-between">
+              <h3 className="font-bold text-[#050505]  text-sm flex items-center gap-2">
+                <span className="w-2 h-2 rounded-lg bg-rose-500"></span>
                 Dépenses & Charges (Sorties)
               </h3>
-              <span className="text-xs text-rose-600 dark:text-rose-400 font-bold">-{totalExpenses.toLocaleString()} FCFA</span>
+              <span className="text-xs text-rose-600  font-bold">-{totalExpenses.toLocaleString()} FCFA</span>
             </div>
 
-            <div className="divide-y divide-slate-100 dark:divide-slate-800">
+            <div className="divide-y divide-slate-100 ">
               {expenses.map((e) => (
-                <div key={e.id} className="p-4 sm:px-6 flex items-center justify-between text-xs hover:bg-slate-50/70 dark:hover:bg-slate-800/50 transition-colors">
+                <div key={e.id} className="p-4 sm:px-6 flex items-center justify-between text-xs hover:bg-[#F0F2F5]/70 transition-colors">
                   <div>
-                    <p className="font-bold text-slate-900 dark:text-white">{e.titre}</p>
-                    <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">{e.categorie} • {e.beneficiaire}</p>
+                    <p className="font-bold text-[#050505] ">{e.titre}</p>
+                    <p className="text-[11px] text-[#65676B]  mt-0.5">{e.categorie} • {e.beneficiaire}</p>
                   </div>
                   <div className="text-right">
-                    <span className="font-mono font-bold text-rose-600 dark:text-rose-400 text-sm">-{e.montant.toLocaleString()} FCFA</span>
-                    <p className="text-[10px] text-slate-400 dark:text-slate-500 font-medium">{e.date}</p>
+                    <span className="font-mono font-bold text-rose-600  text-sm">-{e.montant.toLocaleString()} FCFA</span>
+                    <p className="text-[10px] text-[#65676B]  font-medium">{e.date}</p>
                   </div>
                 </div>
               ))}
@@ -322,33 +322,33 @@ export const AccountingModule: React.FC<AccountingModuleProps> = ({
 
       {/* Add Expense Modal */}
       {showAddExpenseModal && (
-        <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 w-full max-w-md rounded-2xl border border-slate-200 dark:border-slate-800 shadow-2xl p-6 flex flex-col gap-4">
-            <h3 className="font-bold text-base text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-3 flex items-center gap-2">
-              <Plus className="w-4 h-4 text-rose-600 dark:text-rose-400" />
+        <div className="fixed inset-0 z-50 bg-white backdrop-blur-xs flex items-center justify-center p-4">
+          <div className="bg-white  text-[#050505]  w-full max-w-md rounded-lg border border-[#E4E6EB]  shadow-2xl p-6 flex flex-col gap-4">
+            <h3 className="font-bold text-base text-[#050505]  border-b border-[#E4E6EB]  pb-3 flex items-center gap-2">
+              <Plus className="w-4 h-4 text-rose-600 " />
               Enregistrement d'une Dépense
             </h3>
 
             <form onSubmit={handleSaveExpense} className="flex flex-col gap-3.5 text-xs">
               <div>
-                <label className="text-slate-700 dark:text-slate-300 font-semibold mb-1 block">Libellé de la dépense :</label>
+                <label className="text-[#050505]  font-semibold mb-1 block">Libellé de la dépense :</label>
                 <input
                   type="text"
                   value={expenseTitle}
                   onChange={(e) => setExpenseTitle(e.target.value)}
                   placeholder="Ex: Achat fournitures de bureau & rames à Moungali"
-                  className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  text-[#050505]  rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                   required
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="text-slate-700 dark:text-slate-300 font-semibold mb-1 block">Catégorie :</label>
+                  <label className="text-[#050505]  font-semibold mb-1 block">Catégorie :</label>
                   <select
                     value={expenseCategory}
                     onChange={(e) => setExpenseCategory(e.target.value as any)}
-                    className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer"
+                    className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  text-[#050505]  rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer"
                   >
                     <option value="Salaires">Salaires & Vacations</option>
                     <option value="Maintenance">Maintenance & Travaux</option>
@@ -360,36 +360,36 @@ export const AccountingModule: React.FC<AccountingModuleProps> = ({
                 </div>
 
                 <div>
-                  <label className="text-slate-700 dark:text-slate-300 font-semibold mb-1 block">Montant (FCFA) :</label>
+                  <label className="text-[#050505]  font-semibold mb-1 block">Montant (FCFA) :</label>
                   <input
                     type="number"
                     min="500"
                     step="500"
                     value={expenseAmount}
                     onChange={(e) => setExpenseAmount(e.target.value)}
-                    className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-rose-600 dark:text-rose-400 rounded-xl px-3 py-2 font-bold focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  text-rose-600  rounded-xl px-3 py-2 font-bold focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     required
                   />
                 </div>
               </div>
 
               <div>
-                <label className="text-slate-700 dark:text-slate-300 font-semibold mb-1 block">Bénéficiaire / Prestataire :</label>
+                <label className="text-[#050505]  font-semibold mb-1 block">Bénéficiaire / Prestataire :</label>
                 <input
                   type="text"
                   value={expenseBeneficiary}
                   onChange={(e) => setExpenseBeneficiary(e.target.value)}
                   placeholder="Ex: Librairie des Plateaux, E2C Brazzaville, Station Total..."
-                  className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  text-[#050505]  rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                   required
                 />
               </div>
 
-              <div className="flex justify-end gap-2 pt-3 border-t border-slate-100 dark:border-slate-800">
+              <div className="flex justify-end gap-2 pt-3 border-t border-[#E4E6EB] ">
                 <button
                   type="button"
                   onClick={() => setShowAddExpenseModal(false)}
-                  className="px-4 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-xl font-semibold cursor-pointer"
+                  className="px-4 py-2 bg-[#F0F2F5]  hover:bg-[#F0F2F5] text-[#050505]  rounded-xl font-semibold cursor-pointer"
                 >
                   Annuler
                 </button>

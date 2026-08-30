@@ -325,6 +325,7 @@ class SyncEngineService {
     switch (item.actionType) {
       case 'CREATE_STUDENT':
       case 'UPDATE_STUDENT':
+      case 'DELETE_STUDENT':
         tableName = 'students';
         break;
       case 'ADD_PAYMENT':

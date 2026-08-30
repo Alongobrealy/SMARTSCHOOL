@@ -59,9 +59,9 @@ export const FeeRevenueChart: React.FC<FeeRevenueChartProps> = ({ payments }) =>
   const CustomTooltip = ({ active, payload, label }: any) => {
     if (active && payload && payload.length) {
       return (
-        <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-3 rounded-xl shadow-lg">
-          <p className="text-slate-500 dark:text-slate-400 font-bold mb-1">{label}</p>
-          <p className="text-emerald-600 dark:text-emerald-400 font-black">
+        <div className="bg-white  border border-[#E4E6EB]  p-3 rounded-xl shadow-lg">
+          <p className="text-[#65676B]  font-bold mb-1">{label}</p>
+          <p className="text-[#1877F2]  font-black">
             {payload[0].value.toLocaleString()} FCFA
           </p>
         </div>
@@ -71,10 +71,10 @@ export const FeeRevenueChart: React.FC<FeeRevenueChartProps> = ({ payments }) =>
   };
 
   return (
-    <div className="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 p-5 rounded-2xl shadow-sm transition-colors duration-200 flex flex-col w-full h-[400px]">
+    <div className="bg-white  border border-[#E4E6EB]  p-5 rounded-lg shadow-sm transition-colors duration-200 flex flex-col w-full h-[400px]">
       <div className="mb-4">
-        <h3 className="text-lg font-black text-slate-900 dark:text-white">Évolution des Encaissements</h3>
-        <p className="text-xs text-slate-500 dark:text-slate-400">Paiements validés par mois (Année Académique)</p>
+        <h3 className="text-lg font-black text-[#050505] ">Évolution des Encaissements</h3>
+        <p className="text-xs text-[#65676B] ">Paiements validés par mois (Année Académique)</p>
       </div>
       
       <div className="flex-1 w-full h-full min-h-[300px]">

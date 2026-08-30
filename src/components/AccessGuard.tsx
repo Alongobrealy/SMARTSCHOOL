@@ -22,24 +22,24 @@ export const AccessGuard: React.FC<AccessGuardProps> = ({
   if (licenseInfo.isSuspended && currentRole !== 'superadmin') {
     return (
       <div className="flex-1 p-4 sm:p-6 lg:p-8 w-full max-w-7xl mx-auto flex items-center justify-center min-h-[50vh]">
-        <div className="bg-white dark:bg-slate-900 border border-rose-200 dark:border-rose-900/50 rounded-3xl p-8 md:p-12 text-center shadow-xl max-w-2xl mx-auto mt-10 space-y-6">
-          <div className="w-20 h-20 bg-rose-100 dark:bg-rose-900/30 rounded-full flex items-center justify-center mx-auto mb-2">
-            <Lock className="w-10 h-10 text-rose-600 dark:text-rose-400" />
+        <div className="bg-white  border border-rose-200  rounded-lg p-8 md:p-12 text-center shadow-xl max-w-2xl mx-auto mt-10 space-y-6">
+          <div className="w-20 h-20 bg-rose-100  rounded-lg flex items-center justify-center mx-auto mb-2">
+            <Lock className="w-10 h-10 text-rose-600 " />
           </div>
-          <h2 className="text-2xl md:text-3xl font-black text-slate-900 dark:text-white">
+          <h2 className="text-2xl md:text-3xl font-black text-[#050505] ">
             Accès Restreint
           </h2>
-          <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">
-            La licence d'utilisation de votre établissement <strong>{activeTenant.name}</strong> a expiré depuis le <strong className="text-slate-900 dark:text-white">{licenseInfo.expirationDateString}</strong>.<br/><br/>
+          <p className="text-[#65676B]  leading-relaxed text-sm">
+            La licence d'utilisation de votre établissement <strong>{activeTenant.name}</strong> a expiré depuis le <strong className="text-[#050505] ">{licenseInfo.expirationDateString}</strong>.<br/><br/>
             La période de grâce étant dépassée, l'accès aux modules opérationnels est totalement suspendu.
           </p>
           
-          <div className="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-6 text-left border border-slate-100 dark:border-slate-800">
-            <h4 className="font-bold text-slate-900 dark:text-white text-sm mb-2 flex items-center gap-2">
+          <div className="bg-[#F0F2F5]  rounded-lg p-6 text-left border border-[#E4E6EB] ">
+            <h4 className="font-bold text-[#050505]  text-sm mb-2 flex items-center gap-2">
               <CreditCard className="w-4 h-4 text-amber-500" />
               Comment rétablir l'accès ?
             </h4>
-            <ul className="text-xs text-slate-600 dark:text-slate-400 space-y-2 list-disc pl-4">
+            <ul className="text-xs text-[#65676B]  space-y-2 list-disc pl-4">
               <li>Veuillez renouveler votre abonnement EDU-CONGO pour lever cette restriction.</li>
               <li>Si vous disposez déjà d'un Code d'Activation fourni par l'administration centrale, vous pouvez le saisir ci-dessous.</li>
             </ul>
@@ -48,7 +48,7 @@ export const AccessGuard: React.FC<AccessGuardProps> = ({
           <div className="pt-4 flex flex-col sm:flex-row gap-3 justify-center">
             <button
               onClick={onOpenApprovalModal}
-              className="px-6 py-3.5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-black rounded-xl text-sm transition-all shadow-md flex items-center justify-center gap-2"
+              className="px-6 py-3.5 bg-[#1877F2] hover:from-amber-600 hover:to-amber-700 text-slate-950 font-black rounded-xl text-sm transition-all shadow-md flex items-center justify-center gap-2"
             >
               <Unlock className="w-4 h-4" />
               Accéder au portail de paiement et renouveler

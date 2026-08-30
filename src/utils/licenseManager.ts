@@ -34,7 +34,7 @@ export function calculateLicenseStatus(tenant?: TenantSchool | null): LicenseSta
       warningTitle: '',
       warningMessage: '',
       badgeLabel: 'Actif',
-      badgeColorClass: 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300'
+      badgeColorClass: 'bg-[#E7F3FF] text-[#1877F2]  '
     };
   }
 
@@ -52,7 +52,7 @@ export function calculateLicenseStatus(tenant?: TenantSchool | null): LicenseSta
       warningTitle: '⛔ Établissement Suspendu — Mode Lecture Seule Actif',
       warningMessage: 'Cet établissement a été suspendu par l\'administration technique. Tous les modules sont en lecture seule. Pour débloquer immédiatement vos accès, effectuez le paiement de votre abonnement ou saisissez un code d\'activation.',
       badgeLabel: 'Suspendu (Lecture Seule)',
-      badgeColorClass: 'bg-rose-100 text-rose-800 dark:bg-rose-950 dark:text-rose-300'
+      badgeColorClass: 'bg-rose-100 text-rose-800  '
     };
   }
 
@@ -69,7 +69,7 @@ export function calculateLicenseStatus(tenant?: TenantSchool | null): LicenseSta
       warningTitle: '⏳ Établissement en Attente d\'Activation',
       warningMessage: 'Votre instance est en attente d\'activation de licence. Veuillez régler votre abonnement ou saisir un code pour démarrer.',
       badgeLabel: 'En Attente',
-      badgeColorClass: 'bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300'
+      badgeColorClass: 'bg-amber-100 text-amber-800  '
     };
   }
 
@@ -90,7 +90,7 @@ export function calculateLicenseStatus(tenant?: TenantSchool | null): LicenseSta
       warningTitle: '',
       warningMessage: '',
       badgeLabel: 'Actif',
-      badgeColorClass: 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300'
+      badgeColorClass: 'bg-[#E7F3FF] text-[#1877F2]  '
     };
   }
 
@@ -125,7 +125,7 @@ export function calculateLicenseStatus(tenant?: TenantSchool | null): LicenseSta
         warningTitle: `⚠️ Période de Grâce Active : ${graceDaysRemaining} jour${graceDaysRemaining > 1 ? 's' : ''} restant${graceDaysRemaining > 1 ? 's' : ''}`,
         warningMessage: `Votre ${isTrial ? 'période d\'essai' : 'licence officielle'} a expiré le ${formattedDate}. Une semaine de grâce vous est accordée pour finaliser le réabonnement sans interruption. Passé ce délai, les modules passeront en lecture seule.`,
         badgeLabel: `Grâce (${graceDaysRemaining}j restants)`,
-        badgeColorClass: 'bg-amber-100 text-amber-900 dark:bg-amber-950 dark:text-amber-300'
+        badgeColorClass: 'bg-amber-100 text-amber-900  '
       };
     } else {
       // Sub-case: GRACE PERIOD EXPIRED -> SUSPENDED IN READ-ONLY
@@ -141,7 +141,7 @@ export function calculateLicenseStatus(tenant?: TenantSchool | null): LicenseSta
         warningTitle: '⛔ Licence Expirée — Établissement Bloqué en Lecture Seule',
         warningMessage: `Votre licence a expiré le ${formattedDate} et le délai de grâce d'une semaine est désormais forclos. L'accès à tous les formulaires d'écriture, d'inscription et de modification est suspendu. Activez votre abonnement pour débloquer immédiatement.`,
         badgeLabel: 'Expiré (Suspendu)',
-        badgeColorClass: 'bg-rose-100 text-rose-800 dark:bg-rose-950 dark:text-rose-300'
+        badgeColorClass: 'bg-rose-100 text-rose-800  '
       };
     }
   }
@@ -162,8 +162,8 @@ export function calculateLicenseStatus(tenant?: TenantSchool | null): LicenseSta
       warningMessage: `La licence EDU-CONGO de votre établissement expire dans ${daysRemaining} jour${daysRemaining > 1 ? 's' : ''}. Anticipez le renouvellement pour éviter tout blocage ou passage en période de grâce.`,
       badgeLabel: `Expire dans ${daysRemaining}j`,
       badgeColorClass: isVeryUrgent 
-        ? 'bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300'
-        : 'bg-blue-100 text-blue-800 dark:bg-blue-950 dark:text-blue-300'
+        ? 'bg-amber-100 text-amber-800  '
+        : 'bg-blue-100 text-blue-800  '
     };
   }
 
@@ -180,6 +180,6 @@ export function calculateLicenseStatus(tenant?: TenantSchool | null): LicenseSta
     warningTitle: '',
     warningMessage: '',
     badgeLabel: `Actif (${daysRemaining}j)`,
-    badgeColorClass: 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300'
+    badgeColorClass: 'bg-[#E7F3FF] text-[#1877F2]  '
   };
 }

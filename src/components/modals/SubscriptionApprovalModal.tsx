@@ -179,23 +179,23 @@ WhatsApp EDU-CONGO : +242 06 895 83 77 | Email : steph.alongo@gmail.com`;
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
-      <div className="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 w-full max-w-3xl rounded-3xl border border-slate-200 dark:border-slate-800 shadow-2xl overflow-hidden flex flex-col my-4 sm:my-6 animate-in fade-in zoom-in-95 duration-200 transition-colors">
+    <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
+      <div className="bg-white  text-[#050505]  w-full max-w-3xl rounded-lg border border-[#E4E6EB]  shadow-2xl overflow-hidden flex flex-col my-4 sm:my-6 animate-in fade-in zoom-in-95 duration-200 transition-colors">
         
         {/* Top Header */}
-        <div className="bg-gradient-to-r from-indigo-950 via-slate-900 to-indigo-900 text-white px-6 py-5 flex items-center justify-between border-b border-indigo-800/60">
+        <div className="bg-[#1877F2] text-white px-6 py-5 flex items-center justify-between border-b border-[#E4E6EB]">
           <div className="flex items-center gap-3">
-            <div className="w-11 h-11 rounded-2xl bg-indigo-600 border border-indigo-400 flex items-center justify-center font-black text-white text-lg shadow-md shrink-0">
+            <div className="w-11 h-11 rounded-lg bg-[#1877F2] border border-[#E4E6EB] flex items-center justify-center font-black text-white text-lg shadow-md shrink-0">
               EC
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="text-xs font-bold text-indigo-300 uppercase tracking-widest">
+                <span className="text-xs font-bold text-[#1877F2] uppercase tracking-widest">
                   EDU-CONGO • Validation d'Inscription
                 </span>
-                <span className={`text-[10px] font-extrabold px-2 py-0.5 rounded-full ${
+                <span className={`text-[10px] font-extrabold px-2 py-0.5 rounded-lg ${
                   currentActiveData.status === 'validee'
-                    ? 'bg-emerald-500 text-white'
+                    ? 'bg-[#1877F2] text-white'
                     : 'bg-amber-400 text-slate-950 animate-pulse'
                 }`}>
                   {currentActiveData.status === 'validee' ? 'ACTIVÉ & CERTIFIÉ' : 'EN ATTENTE DE VALIDATION'}
@@ -209,7 +209,7 @@ WhatsApp EDU-CONGO : +242 06 895 83 77 | Email : steph.alongo@gmail.com`;
 
           <button
             onClick={onClose}
-            className="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+            className="p-2 rounded-xl text-[#65676B] hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -220,25 +220,25 @@ WhatsApp EDU-CONGO : +242 06 895 83 77 | Email : steph.alongo@gmail.com`;
           
           {/* Status Alert Banner */}
           {currentActiveData.status === 'validee' ? (
-            <div className="bg-emerald-50 dark:bg-emerald-950/40 border-2 border-emerald-300 dark:border-emerald-800 rounded-2xl p-4 flex items-start gap-3 text-emerald-900 dark:text-emerald-200 shadow-xs">
-              <CheckCircle2 className="w-6 h-6 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+            <div className="bg-[#E7F3FF]  border-2 border-[#E4E6EB]  rounded-lg p-4 flex items-start gap-3 text-[#1877F2]  shadow-xs">
+              <CheckCircle2 className="w-6 h-6 text-[#1877F2]  shrink-0 mt-0.5" />
               <div className="flex-1">
-                <h4 className="font-extrabold text-sm text-emerald-950 dark:text-emerald-100">
+                <h4 className="font-extrabold text-sm text-[#1877F2] ">
                   INSCRIPTION VALIDÉE & ACCÈS TRANSMIS SUR LE WHATSAPP DE L'ÉCOLE !
                 </h4>
-                <p className="text-xs text-emerald-800 dark:text-emerald-300 mt-0.5">
+                <p className="text-xs text-[#1877F2]  mt-0.5">
                   L'établissement <strong>{currentActiveData.schoolName}</strong> a été activé. Les identifiants uniques, mot de passe provisoire et lien du sous-domaine sont opérationnels.
                 </p>
               </div>
             </div>
           ) : (
-            <div className="bg-amber-50 dark:bg-amber-950/40 border-2 border-amber-300 dark:border-amber-800 rounded-2xl p-4 flex items-start gap-3 text-amber-900 dark:text-amber-200 shadow-xs">
-              <AlertTriangle className="w-6 h-6 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
+            <div className="bg-amber-50  border-2 border-amber-300  rounded-lg p-4 flex items-start gap-3 text-amber-900  shadow-xs">
+              <AlertTriangle className="w-6 h-6 text-amber-600  shrink-0 mt-0.5" />
               <div>
-                <h4 className="font-extrabold text-sm text-amber-950 dark:text-amber-100">
+                <h4 className="font-extrabold text-sm text-amber-950 ">
                   DEMANDE REÇUE DU WHATSAPP DE L'ÉTABLISSEMENT
                 </h4>
-                <p className="text-xs text-amber-800 dark:text-amber-300 mt-0.5">
+                <p className="text-xs text-amber-800  mt-0.5">
                   Cliquez sur <strong>« Valider et Envoyer les Accès sur WhatsApp »</strong> pour générer le code unique, le mot de passe provisoire et envoyer la notification directe au responsable.
                 </p>
               </div>
@@ -246,20 +246,20 @@ WhatsApp EDU-CONGO : +242 06 895 83 77 | Email : steph.alongo@gmail.com`;
           )}
 
           {/* Identification & Credentials Card */}
-          <div className="bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 flex flex-col gap-4">
-            <span className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
-              <Key className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+          <div className="bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-lg p-5 flex flex-col gap-4">
+            <span className="text-xs font-bold text-[#050505]  uppercase tracking-wider flex items-center gap-2">
+              <Key className="w-4 h-4 text-[#1877F2] " />
               Identifiants & Données d'Activation Générés
             </span>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
               {/* Code Unique Établissement */}
-              <div className="bg-white dark:bg-slate-900 p-3 rounded-xl border border-slate-200 dark:border-slate-700">
-                <span className="text-[10px] text-slate-500 dark:text-slate-400 block font-semibold">
+              <div className="bg-white  p-3 rounded-xl border border-[#E4E6EB] ">
+                <span className="text-[10px] text-[#65676B]  block font-semibold">
                   Code Établissement Unique :
                 </span>
                 <div className="flex items-center justify-between mt-1">
-                  <strong className="font-mono text-sm text-indigo-600 dark:text-indigo-400">
+                  <strong className="font-mono text-sm text-[#1877F2] ">
                     {currentActiveData.schoolCode || 'EC-BZV-2026-4921'}
                   </strong>
                   <button
@@ -269,20 +269,20 @@ WhatsApp EDU-CONGO : +242 06 895 83 77 | Email : steph.alongo@gmail.com`;
                       setCopiedCode(true);
                       setTimeout(() => setCopiedCode(false), 2000);
                     }}
-                    className="text-slate-400 hover:text-indigo-600 cursor-pointer"
+                    className="text-[#65676B] hover:text-[#1877F2] cursor-pointer"
                   >
-                    {copiedCode ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
+                    {copiedCode ? <Check className="w-3.5 h-3.5 text-[#1877F2]" /> : <Copy className="w-3.5 h-3.5" />}
                   </button>
                 </div>
               </div>
 
               {/* Mot de Passe Provisoire */}
-              <div className="bg-white dark:bg-slate-900 p-3 rounded-xl border border-slate-200 dark:border-slate-700">
-                <span className="text-[10px] text-slate-500 dark:text-slate-400 block font-semibold">
+              <div className="bg-white  p-3 rounded-xl border border-[#E4E6EB] ">
+                <span className="text-[10px] text-[#65676B]  block font-semibold">
                   Mot de Passe Provisoire :
                 </span>
                 <div className="flex items-center justify-between mt-1">
-                  <strong className="font-mono text-xs text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/60 px-1.5 py-0.5 rounded">
+                  <strong className="font-mono text-xs text-rose-600  bg-rose-50  px-1.5 py-0.5 rounded">
                     {currentActiveData.tempPassword || 'Congo@2026#XP8821'}
                   </strong>
                   <button
@@ -292,19 +292,19 @@ WhatsApp EDU-CONGO : +242 06 895 83 77 | Email : steph.alongo@gmail.com`;
                       setCopiedPass(true);
                       setTimeout(() => setCopiedPass(false), 2000);
                     }}
-                    className="text-slate-400 hover:text-rose-600 cursor-pointer"
+                    className="text-[#65676B] hover:text-rose-600 cursor-pointer"
                   >
-                    {copiedPass ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
+                    {copiedPass ? <Check className="w-3.5 h-3.5 text-[#1877F2]" /> : <Copy className="w-3.5 h-3.5" />}
                   </button>
                 </div>
               </div>
 
               {/* Sous-domaine */}
-              <div className="bg-white dark:bg-slate-900 p-3 rounded-xl border border-slate-200 dark:border-slate-700 sm:col-span-2 md:col-span-1">
-                <span className="text-[10px] text-slate-500 dark:text-slate-400 block font-semibold">
+              <div className="bg-white  p-3 rounded-xl border border-[#E4E6EB]  sm:col-span-2 md:col-span-1">
+                <span className="text-[10px] text-[#65676B]  block font-semibold">
                   Sous-Domaine Dédié :
                 </span>
-                <strong className="font-mono text-xs text-emerald-600 dark:text-emerald-400 block mt-1 truncate">
+                <strong className="font-mono text-xs text-[#1877F2]  block mt-1 truncate">
                   {subdomainLink}
                 </strong>
               </div>
@@ -312,72 +312,72 @@ WhatsApp EDU-CONGO : +242 06 895 83 77 | Email : steph.alongo@gmail.com`;
           </div>
 
           {/* School Details Grid */}
-          <div className="bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-800 rounded-2xl p-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-lg p-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <span className="text-slate-500 dark:text-slate-400 font-semibold uppercase text-[10px] tracking-wider block">
+              <span className="text-[#65676B]  font-semibold uppercase text-[10px] tracking-wider block">
                 Établissement Scolaire / Centre de Formation :
               </span>
-              <p className="font-bold text-slate-900 dark:text-white text-sm sm:text-base mt-0.5 flex items-center gap-1.5">
-                <School className="w-4 h-4 text-indigo-600 dark:text-indigo-400 shrink-0" />
+              <p className="font-bold text-[#050505]  text-sm sm:text-base mt-0.5 flex items-center gap-1.5">
+                <School className="w-4 h-4 text-[#1877F2]  shrink-0" />
                 {currentActiveData.schoolName || 'Nouvel Établissement'}
               </p>
-              <span className="text-slate-600 dark:text-slate-300 text-xs mt-1 block">
+              <span className="text-[#65676B]  text-xs mt-1 block">
                 📍 {currentActiveData.city || 'Brazzaville'} ({currentActiveData.commune || 'Centre'}) • Département de {currentActiveData.department || 'Brazzaville'}
               </span>
             </div>
 
             <div>
-              <span className="text-slate-500 dark:text-slate-400 font-semibold uppercase text-[10px] tracking-wider block">
+              <span className="text-[#65676B]  font-semibold uppercase text-[10px] tracking-wider block">
                 Administrateur / Responsable Inscrit :
               </span>
-              <p className="font-bold text-slate-900 dark:text-white text-sm mt-0.5">
+              <p className="font-bold text-[#050505]  text-sm mt-0.5">
                 {currentActiveData.contactName || 'Administrateur Scolaire'} ({currentActiveData.contactFunction || 'Directeur Général'})
               </p>
-              <div className="mt-1 flex flex-col gap-0.5 text-slate-600 dark:text-slate-300 text-xs">
+              <div className="mt-1 flex flex-col gap-0.5 text-[#65676B]  text-xs">
                 <span className="flex items-center gap-1 font-mono">
-                  <Phone className="w-3 h-3 text-emerald-600 dark:text-emerald-400" /> WhatsApp : {currentActiveData.contactPhone || '+242 06 895 83 77'}
+                  <Phone className="w-3 h-3 text-[#1877F2] " /> WhatsApp : {currentActiveData.contactPhone || '+242 06 895 83 77'}
                 </span>
                 <span className="flex items-center gap-1">
-                  <Mail className="w-3 h-3 text-indigo-600 dark:text-indigo-400" /> {currentActiveData.contactEmail || 'steph.alongo@gmail.com'}
+                  <Mail className="w-3 h-3 text-[#1877F2] " /> {currentActiveData.contactEmail || 'steph.alongo@gmail.com'}
                 </span>
               </div>
             </div>
           </div>
 
           {/* Subscription Financial Breakdown */}
-          <div className="border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden">
-            <div className="bg-indigo-900 dark:bg-indigo-950 text-white p-3.5 flex items-center justify-between font-bold border-b border-indigo-800 dark:border-indigo-900">
+          <div className="border border-[#E4E6EB]  rounded-lg overflow-hidden">
+            <div className="bg-[#1877F2]  text-white p-3.5 flex items-center justify-between font-bold border-b border-[#E4E6EB] ">
               <span className="flex items-center gap-2">
-                <CreditCard className="w-4 h-4 text-emerald-400" />
+                <CreditCard className="w-4 h-4 text-[#1877F2]" />
                 Détails du Forfait d'Abonnement
               </span>
-              <span className="bg-indigo-700 dark:bg-indigo-900 text-indigo-100 px-2.5 py-0.5 rounded-full text-[11px]">
+              <span className="bg-[#1877F2]  text-[#1877F2] px-2.5 py-0.5 rounded-lg text-[11px]">
                 {currentActiveData.planTitle || currentActiveData.selectedPlan || 'Annuel'} ({currentActiveData.durationMonths || 12} mois)
               </span>
             </div>
 
-            <div className="p-4 bg-white dark:bg-slate-900 divide-y divide-slate-100 dark:divide-slate-800 flex flex-col gap-2.5">
-              <div className="flex justify-between py-1 text-slate-700 dark:text-slate-300">
+            <div className="p-4 bg-white  divide-y divide-slate-100  flex flex-col gap-2.5">
+              <div className="flex justify-between py-1 text-[#050505] ">
                 <span>Effectif couvert :</span>
-                <span className="font-bold text-slate-900 dark:text-white">~{currentActiveData.studentCount || 500} Élèves / Étudiants</span>
+                <span className="font-bold text-[#050505] ">~{currentActiveData.studentCount || 500} Élèves / Étudiants</span>
               </div>
-              <div className="flex justify-between py-1 text-slate-700 dark:text-slate-300">
+              <div className="flex justify-between py-1 text-[#050505] ">
                 <span>Options incluses :</span>
-                <span className="font-semibold text-indigo-600 dark:text-indigo-400">
+                <span className="font-semibold text-[#1877F2] ">
                   {currentActiveData.options && currentActiveData.options.length > 0
                     ? currentActiveData.options.join(' • ')
                     : 'Formation gratuite sur site • Support 24/7 dédié • Passerelles MoMo/Airtel'}
                 </span>
               </div>
               {(currentActiveData.discountPercentage || 0) > 0 && (
-                <div className="flex justify-between py-1 text-emerald-600 dark:text-emerald-400 font-semibold">
+                <div className="flex justify-between py-1 text-[#1877F2]  font-semibold">
                   <span>Remise accordée :</span>
                   <span>-{currentActiveData.discountPercentage}% sur l'engagement</span>
                 </div>
               )}
-              <div className="flex justify-between pt-2 text-base font-extrabold text-slate-900 dark:text-white">
+              <div className="flex justify-between pt-2 text-base font-extrabold text-[#050505] ">
                 <span>MONTANT TOTAL FACTURÉ :</span>
-                <span className="text-emerald-600 dark:text-emerald-400 text-lg">
+                <span className="text-[#1877F2]  text-lg">
                   {(currentActiveData.totalAmountFCFA || currentActiveData.totalCostFCFA || 0).toLocaleString()} FCFA
                 </span>
               </div>
@@ -385,24 +385,24 @@ WhatsApp EDU-CONGO : +242 06 895 83 77 | Email : steph.alongo@gmail.com`;
           </div>
 
           {/* Official Certificate Preview (Printable) */}
-          <div className="border-2 border-dashed border-indigo-200 dark:border-indigo-800/80 bg-indigo-50/40 dark:bg-indigo-950/30 rounded-2xl p-5 flex flex-col gap-3">
-            <div className="flex items-center justify-between border-b border-indigo-100 dark:border-indigo-800/60 pb-2">
+          <div className="border-2 border-dashed border-[#E4E6EB]  bg-[#E7F3FF]/40  rounded-lg p-5 flex flex-col gap-3">
+            <div className="flex items-center justify-between border-b border-[#E4E6EB]  pb-2">
               <div className="flex items-center gap-2">
-                <Award className="w-5 h-5 text-indigo-700 dark:text-indigo-400" />
-                <span className="font-bold text-indigo-950 dark:text-indigo-200 text-xs uppercase tracking-wider">
+                <Award className="w-5 h-5 text-[#1877F2] " />
+                <span className="font-bold text-[#1877F2]  text-xs uppercase tracking-wider">
                   Attestation d'Agrément Officiel EDU-CONGO
                 </span>
               </div>
-              <span className="text-[10px] text-indigo-600 dark:text-indigo-400 font-mono font-semibold">
+              <span className="text-[10px] text-[#1877F2]  font-mono font-semibold">
                 Réf : {currentActiveData.id}
               </span>
             </div>
 
-            <div className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
-              La direction générale d'<strong>EDU-CONGO</strong> certifie que l'établissement <strong className="text-slate-900 dark:text-white">{currentActiveData.schoolName}</strong> (Sous-domaine : <span className="font-mono text-indigo-600">{subdomainLink}</span>) est officiellement validé et activé avec tous ses modules intégrés.
+            <div className="text-xs text-[#050505]  leading-relaxed">
+              La direction générale d'<strong>EDU-CONGO</strong> certifie que l'établissement <strong className="text-[#050505] ">{currentActiveData.schoolName}</strong> (Sous-domaine : <span className="font-mono text-[#1877F2]">{subdomainLink}</span>) est officiellement validé et activé avec tous ses modules intégrés.
             </div>
 
-            <div className="flex items-center justify-between pt-2 text-[11px] text-slate-500 dark:text-slate-400">
+            <div className="flex items-center justify-between pt-2 text-[11px] text-[#65676B] ">
               <span>Date d'Agrément : <strong>{currentActiveData.approvedAt || 'En cours de validation'}</strong></span>
               <span>N° Agrément : <strong>{currentActiveData.agrementNumber || 'AGR-EDU-CG-2026-8941'}</strong></span>
             </div>
@@ -410,17 +410,17 @@ WhatsApp EDU-CONGO : +242 06 895 83 77 | Email : steph.alongo@gmail.com`;
 
           {/* Quick Copy Credentials Toolbar */}
           {currentActiveData.status === 'validee' && (
-            <div className="bg-emerald-50/80 dark:bg-emerald-950/40 border border-emerald-300 dark:border-emerald-700 rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between gap-3">
-              <div className="flex items-center gap-2 text-xs text-emerald-900 dark:text-emerald-200">
-                <CheckCircle2 className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0" />
+            <div className="bg-[#E7F3FF]/80  border border-[#E4E6EB]  rounded-lg p-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+              <div className="flex items-center gap-2 text-xs text-[#1877F2] ">
+                <CheckCircle2 className="w-5 h-5 text-[#1877F2]  shrink-0" />
                 <span>Références d'accès prêtes pour WhatsApp ({currentActiveData.contactPhone || currentActiveData.directorPhone})</span>
               </div>
               <button
                 type="button"
                 onClick={handleCopyCredentialsMessage}
-                className="w-full sm:w-auto px-4 py-2 bg-white dark:bg-slate-800 border border-emerald-300 dark:border-emerald-700 hover:bg-emerald-100 dark:hover:bg-slate-700 text-emerald-900 dark:text-emerald-200 font-bold rounded-xl flex items-center justify-center gap-1.5 text-xs transition-colors cursor-pointer"
+                className="w-full sm:w-auto px-4 py-2 bg-white  border border-[#E4E6EB]  hover:bg-[#E7F3FF] text-[#1877F2]  font-bold rounded-xl flex items-center justify-center gap-1.5 text-xs transition-colors cursor-pointer"
               >
-                {copiedCredentialsMessage ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5 text-emerald-600" />}
+                {copiedCredentialsMessage ? <Check className="w-3.5 h-3.5 text-[#1877F2]" /> : <Copy className="w-3.5 h-3.5 text-[#1877F2]" />}
                 <span>{copiedCredentialsMessage ? 'Accès Copiés !' : 'Copier les Accès & Message WhatsApp'}</span>
               </button>
             </div>
@@ -429,34 +429,34 @@ WhatsApp EDU-CONGO : +242 06 895 83 77 | Email : steph.alongo@gmail.com`;
         </div>
 
         {/* Modal Action Footer */}
-        <div className="bg-slate-50 dark:bg-slate-800/80 px-6 py-4 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <div className="flex items-center gap-2 text-[11px] text-slate-500 dark:text-slate-400">
-            <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+        <div className="bg-[#F0F2F5]  px-6 py-4 border-t border-[#E4E6EB]  flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div className="flex items-center gap-2 text-[11px] text-[#65676B] ">
+            <ShieldCheck className="w-4 h-4 text-[#1877F2] " />
             <span>Opération sécurisée par EDU-CONGO Congo-Brazzaville</span>
           </div>
 
           <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto justify-end">
             <button
               onClick={onClose}
-              className="px-4 py-2.5 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 rounded-xl font-semibold cursor-pointer"
+              className="px-4 py-2.5 bg-[#F0F2F5]  hover:bg-[#F0F2F5] text-[#050505]  rounded-xl font-semibold cursor-pointer"
             >
               Fermer
             </button>
 
             {currentActiveData.status !== 'validee' ? (
-              <div className="flex items-center gap-2 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl p-1 shadow-sm">
+              <div className="flex items-center gap-2 bg-white  border border-[#E4E6EB]  rounded-xl p-1 shadow-sm">
                 <input
                   type="password"
                   placeholder="PIN Admin"
                   value={adminPin}
                   onChange={(e) => setAdminPin(e.target.value)}
-                  className="w-28 bg-transparent text-slate-900 dark:text-white px-2 py-1 text-xs focus:outline-none text-center font-mono tracking-widest"
+                  className="w-28 bg-transparent text-[#050505]  px-2 py-1 text-xs focus:outline-none text-center font-mono tracking-widest"
                   maxLength={4}
                 />
                 <button
                   onClick={handleConfirmActivation}
                   disabled={isProcessing || adminPin !== '8377'}
-                  className="px-4 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg shadow-sm flex items-center gap-2 transition-all cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed text-xs"
+                  className="px-4 py-1.5 bg-[#1877F2] hover:bg-[#1877F2] text-white font-bold rounded-lg shadow-sm flex items-center gap-2 transition-all cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed text-xs"
                 >
                   <CheckCircle2 className="w-4 h-4" />
                   {isProcessing ? 'Validation...' : 'Valider'}
@@ -466,7 +466,7 @@ WhatsApp EDU-CONGO : +242 06 895 83 77 | Email : steph.alongo@gmail.com`;
               <>
                 <button
                   onClick={() => window.print()}
-                  className="px-3.5 py-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-300 dark:border-slate-700 rounded-xl font-semibold flex items-center gap-1.5 cursor-pointer text-xs"
+                  className="px-3.5 py-2.5 bg-[#F0F2F5]  hover:bg-[#F0F2F5] text-[#050505]  border border-[#E4E6EB]  rounded-xl font-semibold flex items-center gap-1.5 cursor-pointer text-xs"
                 >
                   <Printer className="w-3.5 h-3.5" />
                   Imprimer
@@ -487,7 +487,7 @@ WhatsApp EDU-CONGO : +242 06 895 83 77 | Email : steph.alongo@gmail.com`;
                     onLaunchSchoolWorkspace(currentActiveData.schoolName);
                     onClose();
                   }}
-                  className="px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl shadow-md flex items-center gap-1.5 cursor-pointer text-xs transition-all hover:scale-105 active:scale-95"
+                  className="px-4 py-2.5 bg-[#1877F2] hover:bg-[#1877F2] text-white font-bold rounded-xl shadow-md flex items-center gap-1.5 cursor-pointer text-xs transition-all hover:scale-105 active:scale-95"
                 >
                   <ExternalLink className="w-4 h-4" />
                   <span>Ouvrir l'Espace École</span>

@@ -122,11 +122,11 @@ export const QuoteEstimatorModal: React.FC<QuoteEstimatorModalProps> = ({
 
   // Plans config
   const periodConfig: Record<BillingPeriod, { label: string; months: number; durationDays?: number; discount: number; isTrial?: boolean; tag: string; badgeColor: string }> = {
-    essai_14j: { label: 'Essai Gratuit 14 Jours', months: 0.5, durationDays: 14, discount: 100, isTrial: true, tag: '🎁 100% Gratuit • Accès Illimité Sans Limite • Sans Engagement', badgeColor: 'bg-amber-50 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 border border-amber-300 dark:border-amber-700' },
-    mensuel: { label: 'Mensuel (1 mois)', months: 1, discount: 0, tag: 'Standard', badgeColor: 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300' },
-    trimestriel: { label: 'Trimestriel (3 mois)', months: 3, discount: 10, tag: '-10% de remise', badgeColor: 'bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800' },
-    semestriel: { label: 'Semestriel (6 mois)', months: 6, discount: 15, tag: '-15% de remise', badgeColor: 'bg-purple-50 dark:bg-purple-950/60 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800' },
-    annuel: { label: 'Annuel (12 mois - Année Scolaire)', months: 12, discount: 25, tag: '-25% • 3 mois offerts • Recommandé', badgeColor: 'bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800' },
+    essai_14j: { label: 'Essai Gratuit 14 Jours', months: 0.5, durationDays: 14, discount: 100, isTrial: true, tag: '🎁 100% Gratuit • Accès Illimité Sans Limite • Sans Engagement', badgeColor: 'bg-amber-50  text-amber-700  border border-amber-300 ' },
+    mensuel: { label: 'Mensuel (1 mois)', months: 1, discount: 0, tag: 'Standard', badgeColor: 'bg-[#F0F2F5]  text-[#050505] ' },
+    trimestriel: { label: 'Trimestriel (3 mois)', months: 3, discount: 10, tag: '-10% de remise', badgeColor: 'bg-blue-50  text-blue-700  border border-blue-200 ' },
+    semestriel: { label: 'Semestriel (6 mois)', months: 6, discount: 15, tag: '-15% de remise', badgeColor: 'bg-purple-50  text-purple-700  border border-purple-200 ' },
+    annuel: { label: 'Annuel (12 mois - Année Scolaire)', months: 12, discount: 25, tag: '-25% • 3 mois offerts • Recommandé', badgeColor: 'bg-[#E7F3FF]  text-[#1877F2]  border border-[#E4E6EB] ' },
   };
 
   // Base monthly pricing calculation in FCFA
@@ -374,22 +374,22 @@ ${planDetailText}
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
-      <div className="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 w-full max-w-4xl rounded-3xl border border-slate-200 dark:border-slate-800 shadow-2xl overflow-hidden flex flex-col my-4 sm:my-6 animate-in fade-in zoom-in-95 duration-200 transition-colors">
+    <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
+      <div className="bg-white  text-[#050505]  w-full max-w-4xl rounded-lg border border-[#E4E6EB]  shadow-2xl overflow-hidden flex flex-col my-4 sm:my-6 animate-in fade-in zoom-in-95 duration-200 transition-colors">
         
         {/* Header */}
-        <div className="bg-gradient-to-r from-indigo-950 via-slate-900 to-indigo-900 px-6 py-5 flex items-center justify-between text-white border-b border-indigo-800/80">
+        <div className="bg-[#1877F2] px-6 py-5 flex items-center justify-between text-white border-b border-[#E4E6EB]">
           <div className="flex items-center gap-3">
-            <div className="w-11 h-11 rounded-2xl bg-indigo-600 border border-indigo-400 flex items-center justify-center font-black text-white text-lg shadow-md shrink-0">
+            <div className="w-11 h-11 rounded-lg bg-[#1877F2] border border-[#E4E6EB] flex items-center justify-center font-black text-white text-lg shadow-md shrink-0">
               EC
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="text-xs font-black text-indigo-300 uppercase tracking-widest">
+                <span className="text-xs font-black text-[#1877F2] uppercase tracking-widest">
                   EDU-CONGO • Plateforme SaaS
                 </span>
-                <span className="bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
-                  <CheckCircle2 className="w-3 h-3 text-emerald-400" />
+                <span className="bg-[#1877F2] text-[#1877F2] border border-[#E4E6EB] text-[10px] font-bold px-2 py-0.5 rounded-lg flex items-center gap-1">
+                  <CheckCircle2 className="w-3 h-3 text-[#1877F2]" />
                   Inscription & Souscription Officielle
                 </span>
               </div>
@@ -401,7 +401,7 @@ ${planDetailText}
           <button 
             id="btn-close-quote-modal"
             onClick={onClose}
-            className="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+            className="p-2 rounded-xl text-[#65676B] hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -412,34 +412,34 @@ ${planDetailText}
           <form onSubmit={handleProcessSubmit} className="p-6 sm:p-8 flex flex-col gap-6 text-xs max-h-[82vh] overflow-y-auto">
             
             {/* Top Contact Support Info Banner */}
-            <div className="bg-indigo-50/90 dark:bg-indigo-950/40 border border-indigo-200 dark:border-indigo-800/60 rounded-2xl p-3.5 flex flex-wrap items-center justify-between gap-3 text-[11px] text-indigo-950 dark:text-indigo-200 shadow-xs">
+            <div className="bg-[#E7F3FF]/90  border border-[#E4E6EB]  rounded-lg p-3.5 flex flex-wrap items-center justify-between gap-3 text-[11px] text-[#1877F2]  shadow-xs">
               <span className="font-bold flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+                <ShieldCheck className="w-4 h-4 text-[#1877F2] " />
                 Guichet National d'Enregistrement EDU-CONGO (Brazzaville & Pointe-Noire)
               </span>
-              <div className="flex items-center gap-4 text-slate-700 dark:text-slate-300 font-mono text-[11px]">
-                <span className="flex items-center gap-1.5 text-emerald-700 dark:text-emerald-400 font-bold">
+              <div className="flex items-center gap-4 text-[#050505]  font-mono text-[11px]">
+                <span className="flex items-center gap-1.5 text-[#1877F2]  font-bold">
                   <Phone className="w-3.5 h-3.5" /> WhatsApp Support : +242 06 895 83 77
                 </span>
-                <span className="hidden md:flex items-center gap-1.5 text-indigo-700 dark:text-indigo-300 font-semibold">
+                <span className="hidden md:flex items-center gap-1.5 text-[#1877F2]  font-semibold">
                   <Mail className="w-3.5 h-3.5" /> steph.alongo@gmail.com
                 </span>
               </div>
             </div>
 
             {/* Stepper Tabs Navigation Bar */}
-            <div className="bg-slate-100/90 dark:bg-slate-800/70 p-1.5 rounded-2xl border border-slate-200 dark:border-slate-700 grid grid-cols-3 gap-1.5">
+            <div className="bg-[#F0F2F5]/90  p-1.5 rounded-lg border border-[#E4E6EB]  grid grid-cols-3 gap-1.5">
               <button
                 type="button"
                 onClick={() => setActiveTab('identity')}
                 className={`py-2.5 px-3 rounded-xl font-bold flex items-center justify-center gap-2 transition-all cursor-pointer ${
                   activeTab === 'identity'
-                    ? 'bg-white dark:bg-indigo-600 text-indigo-900 dark:text-white shadow-sm border border-slate-200/80 dark:border-indigo-400'
-                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                    ? 'bg-white  text-[#1877F2]  shadow-sm border border-[#E4E6EB] '
+                    : 'text-[#65676B]  hover:text-[#050505]'
                 }`}
               >
-                <span className={`w-5 h-5 rounded-full text-[10px] font-black flex items-center justify-center ${
-                  activeTab === 'identity' ? 'bg-indigo-600 dark:bg-white text-white dark:text-indigo-600' : 'bg-slate-300 dark:bg-slate-700 text-slate-700 dark:text-slate-300'
+                <span className={`w-5 h-5 rounded-lg text-[10px] font-black flex items-center justify-center ${
+                  activeTab === 'identity' ? 'bg-[#1877F2]  text-white ' : 'bg-[#F0F2F5]  text-[#050505] '
                 }`}>
                   1
                 </span>
@@ -454,12 +454,12 @@ ${planDetailText}
                 }}
                 className={`py-2.5 px-3 rounded-xl font-bold flex items-center justify-center gap-2 transition-all cursor-pointer ${
                   activeTab === 'location'
-                    ? 'bg-white dark:bg-indigo-600 text-indigo-900 dark:text-white shadow-sm border border-slate-200/80 dark:border-indigo-400'
-                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                    ? 'bg-white  text-[#1877F2]  shadow-sm border border-[#E4E6EB] '
+                    : 'text-[#65676B]  hover:text-[#050505]'
                 }`}
               >
-                <span className={`w-5 h-5 rounded-full text-[10px] font-black flex items-center justify-center ${
-                  activeTab === 'location' ? 'bg-indigo-600 dark:bg-white text-white dark:text-indigo-600' : 'bg-slate-300 dark:bg-slate-700 text-slate-700 dark:text-slate-300'
+                <span className={`w-5 h-5 rounded-lg text-[10px] font-black flex items-center justify-center ${
+                  activeTab === 'location' ? 'bg-[#1877F2]  text-white ' : 'bg-[#F0F2F5]  text-[#050505] '
                 }`}>
                   2
                 </span>
@@ -474,12 +474,12 @@ ${planDetailText}
                 }}
                 className={`py-2.5 px-3 rounded-xl font-bold flex items-center justify-center gap-2 transition-all cursor-pointer ${
                   activeTab === 'plan'
-                    ? 'bg-white dark:bg-indigo-600 text-indigo-900 dark:text-white shadow-sm border border-slate-200/80 dark:border-indigo-400'
-                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                    ? 'bg-white  text-[#1877F2]  shadow-sm border border-[#E4E6EB] '
+                    : 'text-[#65676B]  hover:text-[#050505]'
                 }`}
               >
-                <span className={`w-5 h-5 rounded-full text-[10px] font-black flex items-center justify-center ${
-                  activeTab === 'plan' ? 'bg-indigo-600 dark:bg-white text-white dark:text-indigo-600' : 'bg-slate-300 dark:bg-slate-700 text-slate-700 dark:text-slate-300'
+                <span className={`w-5 h-5 rounded-lg text-[10px] font-black flex items-center justify-center ${
+                  activeTab === 'plan' ? 'bg-[#1877F2]  text-white ' : 'bg-[#F0F2F5]  text-[#050505] '
                 }`}>
                   3
                 </span>
@@ -490,8 +490,8 @@ ${planDetailText}
 
             {/* Validation Error Banner */}
             {validationError && (
-              <div className="bg-rose-50 dark:bg-rose-950/60 border border-rose-200 dark:border-rose-800 rounded-2xl p-4 flex items-start gap-3 text-rose-900 dark:text-rose-200 animate-in shake">
-                <AlertTriangle className="w-5 h-5 text-rose-600 dark:text-rose-400 shrink-0 mt-0.5" />
+              <div className="bg-rose-50  border border-rose-200  rounded-lg p-4 flex items-start gap-3 text-rose-900  animate-in shake">
+                <AlertTriangle className="w-5 h-5 text-rose-600  shrink-0 mt-0.5" />
                 <div className="flex-1">
                   <span className="font-extrabold text-xs block">Règle de validation ou contrôle anti-doublon :</span>
                   <p className="text-xs mt-0.5">{validationError}</p>
@@ -501,13 +501,13 @@ ${planDetailText}
 
             {/* TAB 1: IDENTIFICATION & SOUS-DOMAINE */}
             {activeTab === 'identity' && (
-              <div className="bg-slate-50/80 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 sm:p-6 flex flex-col gap-5 animate-in fade-in duration-200">
-                <div className="flex items-center justify-between pb-3 border-b border-slate-200/80 dark:border-slate-700/80">
-                  <span className="font-extrabold text-slate-900 dark:text-white text-xs uppercase tracking-wider flex items-center gap-2">
-                    <School className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+              <div className="bg-[#F0F2F5]/80  border border-[#E4E6EB]  rounded-lg p-5 sm:p-6 flex flex-col gap-5 animate-in fade-in duration-200">
+                <div className="flex items-center justify-between pb-3 border-b border-[#E4E6EB] ">
+                  <span className="font-extrabold text-[#050505]  text-xs uppercase tracking-wider flex items-center gap-2">
+                    <School className="w-4 h-4 text-[#1877F2] " />
                     1. Identification Officielle & Attribution
                   </span>
-                  <span className="text-[10px] text-indigo-700 dark:text-indigo-300 bg-indigo-100 dark:bg-indigo-950/60 font-bold px-2.5 py-0.5 rounded-full border border-indigo-200 dark:border-indigo-800">
+                  <span className="text-[10px] text-[#1877F2]  bg-[#E7F3FF]  font-bold px-2.5 py-0.5 rounded-lg border border-[#E4E6EB] ">
                     Étape 1 sur 3
                   </span>
                 </div>
@@ -515,13 +515,13 @@ ${planDetailText}
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
                   {/* Attribution */}
                   <div className="md:col-span-5">
-                    <label className="text-slate-700 dark:text-slate-300 font-bold mb-1.5 block">
+                    <label className="text-[#050505]  font-bold mb-1.5 block">
                       Attribution officielle de l'école :
                     </label>
                     <select
                       value={attribution}
                       onChange={(e) => setAttribution(e.target.value)}
-                      className="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:ring-2 focus:ring-indigo-500 font-semibold"
+                      className="w-full bg-white  border border-[#E4E6EB]  text-[#050505]  rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:ring-2 focus:ring-indigo-500 font-semibold"
                     >
                       {SCHOOL_ATTRIBUTIONS.map((attr) => (
                         <option key={attr} value={attr}>{attr}</option>
@@ -531,7 +531,7 @@ ${planDetailText}
 
                   {/* Nom de l'établissement */}
                   <div className="md:col-span-7">
-                    <label className="text-slate-700 dark:text-slate-300 font-bold mb-1.5 block">
+                    <label className="text-[#050505]  font-bold mb-1.5 block">
                       Nom de l'établissement :
                     </label>
                     <input
@@ -540,23 +540,23 @@ ${planDetailText}
                       value={schoolName}
                       onChange={(e) => handleSchoolNameChange(e.target.value)}
                       placeholder="Ex: Savorgnan, Chaminade, Saint-Exupéry..."
-                      className="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:ring-2 focus:ring-indigo-500 font-semibold"
+                      className="w-full bg-white  border border-[#E4E6EB]  text-[#050505]  rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:ring-2 focus:ring-indigo-500 font-semibold"
                     />
                   </div>
 
                   {/* Sous-domaine éditable */}
                   <div className="md:col-span-12">
-                    <label className="text-slate-700 dark:text-slate-300 font-bold mb-1.5 flex items-center justify-between">
+                    <label className="text-[#050505]  font-bold mb-1.5 flex items-center justify-between">
                       <span className="flex items-center gap-1.5">
-                        <Globe className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
+                        <Globe className="w-3.5 h-3.5 text-[#1877F2] " />
                         Sous-domaine web dédié de votre établissement :
                       </span>
-                      <span className="text-[10px] text-slate-500 font-normal">
+                      <span className="text-[10px] text-[#65676B] font-normal">
                         (Format: lettres minuscules, chiffres, tirets)
                       </span>
                     </label>
                     <div className="flex items-center shadow-xs">
-                      <span className="bg-slate-100 dark:bg-slate-800 border border-r-0 border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-400 px-3 py-2.5 rounded-l-xl font-mono text-xs">
+                      <span className="bg-[#F0F2F5]  border border-r-0 border-[#E4E6EB]  text-[#65676B]  px-3 py-2.5 rounded-l-xl font-mono text-xs">
                         https://
                       </span>
                       <input
@@ -568,27 +568,27 @@ ${planDetailText}
                           setSubdomain(e.target.value.toLowerCase().replace(/[^a-z0-9-]/g, ''));
                         }}
                         placeholder="mon-ecole"
-                        className="flex-1 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 font-black px-3 py-2.5 text-xs focus:outline-none focus:ring-2 focus:ring-indigo-500 font-mono"
+                        className="flex-1 bg-white  border border-[#E4E6EB]  text-[#1877F2]  font-black px-3 py-2.5 text-xs focus:outline-none focus:ring-2 focus:ring-indigo-500 font-mono"
                       />
-                      <span className="bg-indigo-50 dark:bg-indigo-950/80 border border-l-0 border-indigo-200 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300 font-bold px-3 py-2.5 rounded-r-xl font-mono text-xs">
+                      <span className="bg-[#E7F3FF]  border border-l-0 border-[#E4E6EB]  text-[#1877F2]  font-bold px-3 py-2.5 rounded-r-xl font-mono text-xs">
                         .educongo.ai.studio
                       </span>
                     </div>
-                    <div className="flex items-center justify-between text-[11px] text-slate-600 dark:text-slate-400 mt-1.5">
-                      <span>URL d'accès public : <strong className="text-indigo-600 dark:text-indigo-400 font-mono">{fullSubdomainUrl}</strong></span>
-                      <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-bold">Certificat SSL & HTTPS inclus</span>
+                    <div className="flex items-center justify-between text-[11px] text-[#65676B]  mt-1.5">
+                      <span>URL d'accès public : <strong className="text-[#1877F2]  font-mono">{fullSubdomainUrl}</strong></span>
+                      <span className="text-[10px] text-[#1877F2]  font-bold">Certificat SSL & HTTPS inclus</span>
                     </div>
                   </div>
 
                   {/* Type d'établissement */}
                   <div className="md:col-span-12">
-                    <label className="text-slate-700 dark:text-slate-300 font-bold mb-1.5 block">
+                    <label className="text-[#050505]  font-bold mb-1.5 block">
                       Cycle d'enseignement & Type d'établissement :
                     </label>
                     <select
                       value={schoolType}
                       onChange={(e) => setSchoolType(e.target.value as any)}
-                      className="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:ring-2 focus:ring-indigo-500 font-semibold"
+                      className="w-full bg-white  border border-[#E4E6EB]  text-[#050505]  rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:ring-2 focus:ring-indigo-500 font-semibold"
                     >
                       {SCHOOL_TYPES_LIST.map((t) => (
                         <option key={t.id} value={t.id}>{t.label}</option>
@@ -603,7 +603,7 @@ ${planDetailText}
                     onClick={() => {
                       if (validateStep('identity')) setActiveTab('location');
                     }}
-                    className="px-6 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-extrabold flex items-center gap-2 shadow-md cursor-pointer transition-all active:scale-95"
+                    className="px-6 py-2.5 rounded-xl bg-[#1877F2] hover:bg-[#1877F2] text-white font-extrabold flex items-center gap-2 shadow-md cursor-pointer transition-all active:scale-95"
                   >
                     <span>Continuer vers Localisation</span>
                     <MapPin className="w-4 h-4" />
@@ -616,13 +616,13 @@ ${planDetailText}
             {activeTab === 'location' && (
               <div className="flex flex-col gap-5 animate-in fade-in duration-200">
                 {/* Geographie Congo */}
-                <div className="bg-slate-50/80 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 sm:p-6 flex flex-col gap-4">
-                  <div className="flex items-center justify-between pb-3 border-b border-slate-200/80 dark:border-slate-700/80">
-                    <span className="font-extrabold text-slate-900 dark:text-white text-xs uppercase tracking-wider flex items-center gap-2">
-                      <MapPin className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                <div className="bg-[#F0F2F5]/80  border border-[#E4E6EB]  rounded-lg p-5 sm:p-6 flex flex-col gap-4">
+                  <div className="flex items-center justify-between pb-3 border-b border-[#E4E6EB] ">
+                    <span className="font-extrabold text-[#050505]  text-xs uppercase tracking-wider flex items-center gap-2">
+                      <MapPin className="w-4 h-4 text-[#1877F2] " />
                       2. Localisation Géographique (République du Congo)
                     </span>
-                    <span className="text-[10px] text-emerald-700 dark:text-emerald-300 bg-emerald-100 dark:bg-emerald-950/60 font-bold px-2.5 py-0.5 rounded-full border border-emerald-200 dark:border-emerald-800">
+                    <span className="text-[10px] text-[#1877F2]  bg-[#E7F3FF]  font-bold px-2.5 py-0.5 rounded-lg border border-[#E4E6EB] ">
                       12 Départements Couverts
                     </span>
                   </div>
@@ -630,13 +630,13 @@ ${planDetailText}
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5">
                     {/* Département */}
                     <div>
-                      <label className="text-slate-700 dark:text-slate-300 font-bold mb-1.5 block">
+                      <label className="text-[#050505]  font-bold mb-1.5 block">
                         Département du Congo :
                       </label>
                       <select
                         value={selectedDeptId}
                         onChange={(e) => handleDepartmentChange(e.target.value)}
-                        className="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500 font-semibold"
+                        className="w-full bg-white  border border-[#E4E6EB]  text-[#050505]  rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500 font-semibold"
                       >
                         {CONGO_DEPARTMENTS.map((dept) => (
                           <option key={dept.id} value={dept.id}>
@@ -648,7 +648,7 @@ ${planDetailText}
 
                     {/* Ville */}
                     <div>
-                      <label className="text-slate-700 dark:text-slate-300 font-bold mb-1.5 block">
+                      <label className="text-[#050505]  font-bold mb-1.5 block">
                         Ville / Chef-lieu :
                       </label>
                       <input
@@ -657,19 +657,19 @@ ${planDetailText}
                         value={city}
                         onChange={(e) => setCity(e.target.value)}
                         placeholder="Ex: Brazzaville, Pointe-Noire, Dolisie..."
-                        className="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500 font-semibold"
+                        className="w-full bg-white  border border-[#E4E6EB]  text-[#050505]  rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500 font-semibold"
                       />
                     </div>
 
                     {/* Commune */}
                     <div>
-                      <label className="text-slate-700 dark:text-slate-300 font-bold mb-1.5 block">
+                      <label className="text-[#050505]  font-bold mb-1.5 block">
                         Commune / Arrondissement :
                       </label>
                       <select
                         value={selectedCommune}
                         onChange={(e) => setSelectedCommune(e.target.value)}
-                        className="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500 font-semibold"
+                        className="w-full bg-white  border border-[#E4E6EB]  text-[#050505]  rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500 font-semibold"
                       >
                         {currentDept.communesAndDistricts.map((comm) => (
                           <option key={comm} value={comm}>{comm}</option>
@@ -680,13 +680,13 @@ ${planDetailText}
                 </div>
 
                 {/* Administrateur Info */}
-                <div className="bg-slate-50/80 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 sm:p-6 flex flex-col gap-4">
-                  <div className="flex items-center justify-between pb-3 border-b border-slate-200/80 dark:border-slate-700/80">
-                    <span className="font-extrabold text-slate-900 dark:text-white text-xs uppercase tracking-wider flex items-center gap-2">
-                      <UserCheck className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+                <div className="bg-[#F0F2F5]/80  border border-[#E4E6EB]  rounded-lg p-5 sm:p-6 flex flex-col gap-4">
+                  <div className="flex items-center justify-between pb-3 border-b border-[#E4E6EB] ">
+                    <span className="font-extrabold text-[#050505]  text-xs uppercase tracking-wider flex items-center gap-2">
+                      <UserCheck className="w-4 h-4 text-purple-600 " />
                       3. Coordonnées de l'Administrateur Référent
                     </span>
-                    <span className="text-[10px] text-purple-700 dark:text-purple-300 bg-purple-100 dark:bg-purple-950/60 font-bold px-2.5 py-0.5 rounded-full border border-purple-200 dark:border-purple-800">
+                    <span className="text-[10px] text-purple-700  bg-purple-100  font-bold px-2.5 py-0.5 rounded-lg border border-purple-200 ">
                       Anti-Doublon Garanti
                     </span>
                   </div>
@@ -694,7 +694,7 @@ ${planDetailText}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {/* Nom complet */}
                     <div>
-                      <label className="text-slate-700 dark:text-slate-300 font-bold mb-1.5 block">
+                      <label className="text-[#050505]  font-bold mb-1.5 block">
                         Nom & Prénom complet du responsable :
                       </label>
                       <input
@@ -703,19 +703,19 @@ ${planDetailText}
                         value={adminFullName}
                         onChange={(e) => setAdminFullName(e.target.value)}
                         placeholder="Ex: Prof. Stéphane Alongo"
-                        className="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:ring-2 focus:ring-purple-500 font-semibold"
+                        className="w-full bg-white  border border-[#E4E6EB]  text-[#050505]  rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:ring-2 focus:ring-purple-500 font-semibold"
                       />
                     </div>
 
                     {/* Fonction */}
                     <div>
-                      <label className="text-slate-700 dark:text-slate-300 font-bold mb-1.5 block">
+                      <label className="text-[#050505]  font-bold mb-1.5 block">
                         Fonction / Titre administratif :
                       </label>
                       <select
                         value={adminFunction}
                         onChange={(e) => setAdminFunction(e.target.value)}
-                        className="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:ring-2 focus:ring-purple-500 font-semibold"
+                        className="w-full bg-white  border border-[#E4E6EB]  text-[#050505]  rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:ring-2 focus:ring-purple-500 font-semibold"
                       >
                         {ADMIN_FUNCTIONS.map((fn) => (
                           <option key={fn} value={fn}>{fn}</option>
@@ -725,7 +725,7 @@ ${planDetailText}
 
                     {/* Téléphone WhatsApp */}
                     <div>
-                      <label className="text-slate-700 dark:text-slate-300 font-bold mb-1.5 block">
+                      <label className="text-[#050505]  font-bold mb-1.5 block">
                         Téléphone WhatsApp Référent (+242) :
                       </label>
                       <div className="relative">
@@ -735,18 +735,18 @@ ${planDetailText}
                           value={adminPhone}
                           onChange={(e) => setAdminPhone(e.target.value)}
                           placeholder="+242 06 895 83 77"
-                          className="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:ring-2 focus:ring-purple-500 font-mono font-bold"
+                          className="w-full bg-white  border border-[#E4E6EB]  text-[#050505]  rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:ring-2 focus:ring-purple-500 font-mono font-bold"
                         />
-                        <Phone className="w-4 h-4 text-emerald-600 absolute right-3 top-3 pointer-events-none" />
+                        <Phone className="w-4 h-4 text-[#1877F2] absolute right-3 top-3 pointer-events-none" />
                       </div>
-                      <span className="text-[10px] text-slate-500 dark:text-slate-400 mt-1 block">
+                      <span className="text-[10px] text-[#65676B]  mt-1 block">
                         Les identifiants et mot de passe provisoires y seront envoyés dès validation.
                       </span>
                     </div>
 
                     {/* Email */}
                     <div>
-                      <label className="text-slate-700 dark:text-slate-300 font-bold mb-1.5 block">
+                      <label className="text-[#050505]  font-bold mb-1.5 block">
                         Adresse E-mail officielle :
                       </label>
                       <div className="relative">
@@ -756,11 +756,11 @@ ${planDetailText}
                           value={adminEmail}
                           onChange={(e) => setAdminEmail(e.target.value)}
                           placeholder="direction@votre-ecole.cg"
-                          className="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:ring-2 focus:ring-purple-500 font-semibold"
+                          className="w-full bg-white  border border-[#E4E6EB]  text-[#050505]  rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:ring-2 focus:ring-purple-500 font-semibold"
                         />
-                        <Mail className="w-4 h-4 text-indigo-600 absolute right-3 top-3 pointer-events-none" />
+                        <Mail className="w-4 h-4 text-[#1877F2] absolute right-3 top-3 pointer-events-none" />
                       </div>
-                      <span className="text-[10px] text-slate-500 dark:text-slate-400 mt-1 block">
+                      <span className="text-[10px] text-[#65676B]  mt-1 block">
                         Doit être unique dans la base de données EDU-CONGO.
                       </span>
                     </div>
@@ -771,7 +771,7 @@ ${planDetailText}
                   <button
                     type="button"
                     onClick={() => setActiveTab('identity')}
-                    className="px-5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 font-bold cursor-pointer"
+                    className="px-5 py-2.5 rounded-xl border border-[#E4E6EB]  text-[#050505]  hover:bg-[#F0F2F5] font-bold cursor-pointer"
                   >
                     Retour à l'étape 1
                   </button>
@@ -780,7 +780,7 @@ ${planDetailText}
                     onClick={() => {
                       if (validateStep('location')) setActiveTab('plan');
                     }}
-                    className="px-6 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-extrabold flex items-center gap-2 shadow-md cursor-pointer transition-all active:scale-95"
+                    className="px-6 py-2.5 rounded-xl bg-[#1877F2] hover:bg-[#1877F2] text-white font-extrabold flex items-center gap-2 shadow-md cursor-pointer transition-all active:scale-95"
                   >
                     <span>Continuer vers l'Offre & Plan</span>
                     <CheckCircle2 className="w-4 h-4" />
@@ -794,13 +794,13 @@ ${planDetailText}
               <div className="flex flex-col gap-5 animate-in fade-in duration-200">
                 
                 {/* Plan Selection & Effectifs */}
-                <div className="bg-slate-50/80 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 sm:p-6 flex flex-col gap-4">
-                  <div className="flex items-center justify-between pb-3 border-b border-slate-200/80 dark:border-slate-700/80">
-                    <span className="font-extrabold text-slate-900 dark:text-white text-xs uppercase tracking-wider flex items-center gap-2">
-                      <Calendar className="w-4 h-4 text-amber-600 dark:text-amber-400" />
+                <div className="bg-[#F0F2F5]/80  border border-[#E4E6EB]  rounded-lg p-5 sm:p-6 flex flex-col gap-4">
+                  <div className="flex items-center justify-between pb-3 border-b border-[#E4E6EB] ">
+                    <span className="font-extrabold text-[#050505]  text-xs uppercase tracking-wider flex items-center gap-2">
+                      <Calendar className="w-4 h-4 text-amber-600 " />
                       4. Formule d'Abonnement & Effectif Estimé
                     </span>
-                    <span className="text-[11px] font-bold text-amber-800 dark:text-amber-300 bg-amber-100 dark:bg-amber-950/60 px-2.5 py-0.5 rounded-full border border-amber-200 dark:border-amber-800">
+                    <span className="text-[11px] font-bold text-amber-800  bg-amber-100  px-2.5 py-0.5 rounded-lg border border-amber-200 ">
                       Tarification République du Congo
                     </span>
                   </div>
@@ -808,10 +808,10 @@ ${planDetailText}
                   {/* Slider effectif */}
                   <div>
                     <div className="flex justify-between items-center mb-1">
-                      <label className="text-slate-700 dark:text-slate-300 font-bold">
+                      <label className="text-[#050505]  font-bold">
                         Effectif global estimé d'élèves / étudiants :
                       </label>
-                      <span className="font-extrabold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/60 px-3 py-0.5 rounded-lg border border-indigo-200 dark:border-indigo-800 text-xs">
+                      <span className="font-extrabold text-[#1877F2]  bg-[#E7F3FF]  px-3 py-0.5 rounded-lg border border-[#E4E6EB]  text-xs">
                         {studentCount} élèves
                       </span>
                     </div>
@@ -837,25 +837,25 @@ ${planDetailText}
                           key={periodKey}
                           type="button"
                           onClick={() => setBillingPeriod(periodKey)}
-                          className={`p-3.5 rounded-2xl border text-left transition-all relative flex flex-col justify-between cursor-pointer ${
+                          className={`p-3.5 rounded-lg border text-left transition-all relative flex flex-col justify-between cursor-pointer ${
                             isSelected
-                              ? 'border-indigo-600 bg-indigo-50/90 dark:bg-indigo-950/70 shadow-md ring-2 ring-indigo-500/30'
-                              : 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 hover:border-slate-300 dark:hover:border-slate-600'
+                              ? 'border-[#E4E6EB] bg-[#E7F3FF]/90  shadow-md ring-2 ring-indigo-500/30'
+                              : 'border-[#E4E6EB]  bg-white  hover:border-[#E4E6EB][#E4E6EB]'
                           }`}
                         >
                           <div>
                             <div className="flex justify-between items-start mb-1.5">
-                              <span className="font-extrabold text-slate-900 dark:text-white text-xs">{p.label}</span>
+                              <span className="font-extrabold text-[#050505]  text-xs">{p.label}</span>
                               {p.discount > 0 && (
-                                <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-md bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 border border-emerald-300 dark:border-emerald-800">
+                                <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-md bg-[#E7F3FF]  text-[#1877F2]  border border-[#E4E6EB] ">
                                   -{p.discount}%
                                 </span>
                               )}
                             </div>
-                            <span className="text-[10px] text-slate-500 dark:text-slate-400 block mb-2">{p.tag}</span>
+                            <span className="text-[10px] text-[#65676B]  block mb-2">{p.tag}</span>
                           </div>
-                          <div className="flex items-center gap-1.5 text-indigo-700 dark:text-indigo-400 font-extrabold text-xs">
-                            <CheckCircle2 className={`w-4 h-4 ${isSelected ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-300 dark:text-slate-600'}`} />
+                          <div className="flex items-center gap-1.5 text-[#1877F2]  font-extrabold text-xs">
+                            <CheckCircle2 className={`w-4 h-4 ${isSelected ? 'text-[#1877F2] ' : 'text-[#65676B] '}`} />
                             <span>{isSelected ? 'Sélectionné' : 'Choisir ce plan'}</span>
                           </div>
                         </button>
@@ -865,15 +865,15 @@ ${planDetailText}
                 </div>
 
                 {/* Passerelles & Formations (Formations & Support gratuits cochés par défaut) */}
-                <div className="bg-slate-50/80 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 sm:p-6 flex flex-col gap-4">
-                  <span className="font-extrabold text-slate-900 dark:text-white text-xs uppercase tracking-wider flex items-center gap-2">
-                    <Zap className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                <div className="bg-[#F0F2F5]/80  border border-[#E4E6EB]  rounded-lg p-5 sm:p-6 flex flex-col gap-4">
+                  <span className="font-extrabold text-[#050505]  text-xs uppercase tracking-wider flex items-center gap-2">
+                    <Zap className="w-4 h-4 text-[#1877F2] " />
                     5. Passerelles & Formations (Formation & Support Gratuit Inclus)
                   </span>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {/* Formation Gratuite cochée par défaut */}
-                    <label className="flex items-start gap-3 p-3.5 bg-emerald-50/80 dark:bg-emerald-950/40 border border-emerald-300 dark:border-emerald-800 rounded-2xl cursor-pointer">
+                    <label className="flex items-start gap-3 p-3.5 bg-[#E7F3FF]/80  border border-[#E4E6EB]  rounded-lg cursor-pointer">
                       <input
                         type="checkbox"
                         checked={includeFreeTraining}
@@ -882,17 +882,17 @@ ${planDetailText}
                       />
                       <div>
                         <div className="flex items-center gap-2">
-                          <span className="font-bold text-emerald-950 dark:text-emerald-200 text-xs">Formation continue sur site & en ligne</span>
-                          <span className="text-[9px] font-extrabold px-1.5 py-0.2 rounded-md bg-emerald-600 text-white">GRATUIT</span>
+                          <span className="font-bold text-[#1877F2]  text-xs">Formation continue sur site & en ligne</span>
+                          <span className="text-[9px] font-extrabold px-1.5 py-0.2 rounded-md bg-[#1877F2] text-white">GRATUIT</span>
                         </div>
-                        <span className="text-[10px] text-emerald-800 dark:text-emerald-300 block mt-0.5">
+                        <span className="text-[10px] text-[#1877F2]  block mt-0.5">
                           Prise en main complète pour proviseurs, censeurs, secrétaires et enseignants.
                         </span>
                       </div>
                     </label>
 
                     {/* Support Dédié Gratuit coché par défaut */}
-                    <label className="flex items-start gap-3 p-3.5 bg-emerald-50/80 dark:bg-emerald-950/40 border border-emerald-300 dark:border-emerald-800 rounded-2xl cursor-pointer">
+                    <label className="flex items-start gap-3 p-3.5 bg-[#E7F3FF]/80  border border-[#E4E6EB]  rounded-lg cursor-pointer">
                       <input
                         type="checkbox"
                         checked={includeFreeDedicatedSupport}
@@ -901,17 +901,17 @@ ${planDetailText}
                       />
                       <div>
                         <div className="flex items-center gap-2">
-                          <span className="font-bold text-emerald-950 dark:text-emerald-200 text-xs">Support technique & Hotline 24/7</span>
-                          <span className="text-[9px] font-extrabold px-1.5 py-0.2 rounded-md bg-emerald-600 text-white">GRATUIT</span>
+                          <span className="font-bold text-[#1877F2]  text-xs">Support technique & Hotline 24/7</span>
+                          <span className="text-[9px] font-extrabold px-1.5 py-0.2 rounded-md bg-[#1877F2] text-white">GRATUIT</span>
                         </div>
-                        <span className="text-[10px] text-emerald-800 dark:text-emerald-300 block mt-0.5">
+                        <span className="text-[10px] text-[#1877F2]  block mt-0.5">
                           Assistance prioritaire WhatsApp & téléphone dédiée pour votre établissement.
                         </span>
                       </div>
                     </label>
 
                     {/* Passerelle MTN MoMo */}
-                    <label className="flex items-start gap-3 p-3.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl cursor-pointer">
+                    <label className="flex items-start gap-3 p-3.5 bg-white  border border-[#E4E6EB]  rounded-lg cursor-pointer">
                       <input
                         type="checkbox"
                         checked={includeMtnMomo}
@@ -919,15 +919,15 @@ ${planDetailText}
                         className="mt-0.5 w-4 h-4 accent-amber-500 rounded"
                       />
                       <div>
-                        <span className="font-bold text-slate-900 dark:text-white text-xs block">Passerelle MTN Mobile Money Congo (+242)</span>
-                        <span className="text-[10px] text-slate-500 dark:text-slate-400 block mt-0.5">
+                        <span className="font-bold text-[#050505]  text-xs block">Passerelle MTN Mobile Money Congo (+242)</span>
+                        <span className="text-[10px] text-[#65676B]  block mt-0.5">
                           Encaissement direct des frais scolaires avec validation automatique.
                         </span>
                       </div>
                     </label>
 
                     {/* Passerelle Airtel Money */}
-                    <label className="flex items-start gap-3 p-3.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl cursor-pointer">
+                    <label className="flex items-start gap-3 p-3.5 bg-white  border border-[#E4E6EB]  rounded-lg cursor-pointer">
                       <input
                         type="checkbox"
                         checked={includeAirtelMoney}
@@ -935,15 +935,15 @@ ${planDetailText}
                         className="mt-0.5 w-4 h-4 accent-red-600 rounded"
                       />
                       <div>
-                        <span className="font-bold text-slate-900 dark:text-white text-xs block">Passerelle Airtel Money Congo (+242)</span>
-                        <span className="text-[10px] text-slate-500 dark:text-slate-400 block mt-0.5">
+                        <span className="font-bold text-[#050505]  text-xs block">Passerelle Airtel Money Congo (+242)</span>
+                        <span className="text-[10px] text-[#65676B]  block mt-0.5">
                           Réconciliation instantanée et notification automatique des tuteurs.
                         </span>
                       </div>
                     </label>
 
                     {/* Passerelle SMS & WhatsApp */}
-                    <label className="flex items-start gap-3 p-3.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl cursor-pointer sm:col-span-2">
+                    <label className="flex items-start gap-3 p-3.5 bg-white  border border-[#E4E6EB]  rounded-lg cursor-pointer sm:col-span-2">
                       <input
                         type="checkbox"
                         checked={includeSmsWhatsappAlerts}
@@ -952,10 +952,10 @@ ${planDetailText}
                       />
                       <div>
                         <div className="flex items-center gap-2">
-                          <span className="font-bold text-slate-900 dark:text-white text-xs">Module d'Alertes SMS & WhatsApp Direct (+242)</span>
-                          <span className="text-[9px] font-bold px-1.5 py-0.2 rounded-md bg-indigo-100 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300">5 000 FCFA / mois</span>
+                          <span className="font-bold text-[#050505]  text-xs">Module d'Alertes SMS & WhatsApp Direct (+242)</span>
+                          <span className="text-[9px] font-bold px-1.5 py-0.2 rounded-md bg-[#E7F3FF]  text-[#1877F2] ">5 000 FCFA / mois</span>
                         </div>
-                        <span className="text-[10px] text-slate-500 dark:text-slate-400 block mt-0.5">
+                        <span className="text-[10px] text-[#65676B]  block mt-0.5">
                           Envoi automatique des bulletins de notes, alertes absences et relances de paiement aux parents.
                         </span>
                       </div>
@@ -964,15 +964,15 @@ ${planDetailText}
                 </div>
 
                 {/* RECAPITULATIF FINANCIER */}
-                <div className="bg-gradient-to-br from-indigo-950 via-slate-900 to-indigo-900 text-white rounded-3xl p-5 sm:p-6 border border-indigo-700 shadow-xl flex flex-col sm:flex-row items-center justify-between gap-6">
+                <div className="bg-[#1877F2] text-white rounded-lg p-5 sm:p-6 border border-[#E4E6EB] shadow-xl flex flex-col sm:flex-row items-center justify-between gap-6">
                   <div className="flex-1">
-                    <span className="text-[11px] font-bold text-indigo-300 uppercase tracking-widest block mb-1">
+                    <span className="text-[11px] font-bold text-[#1877F2] uppercase tracking-widest block mb-1">
                       Récapitulatif de l'Abonnement
                     </span>
                     <h4 className="text-lg font-black text-white">
                       {fullSchoolDisplayName}
                     </h4>
-                    <p className="text-xs text-indigo-200 mt-1">
+                    <p className="text-xs text-[#1877F2] mt-1">
                       Formule <strong>{currentPlan.label}</strong> • {studentCount} élèves • Département de <strong>{currentDept.name}</strong>
                     </p>
                     <div className="flex flex-wrap items-center gap-2 mt-2">
@@ -980,19 +980,19 @@ ${planDetailText}
                         Sous-domaine : {subdomain}.educongo.ai.studio
                       </span>
                       {currentPlan.discount > 0 && (
-                        <span className="text-[11px] bg-emerald-500 text-white font-bold px-2 py-0.5 rounded-lg">
+                        <span className="text-[11px] bg-[#1877F2] text-white font-bold px-2 py-0.5 rounded-lg">
                           Économie de {discountAmount.toLocaleString()} FCFA
                         </span>
                       )}
                     </div>
                   </div>
 
-                  <div className="text-right shrink-0 bg-white/10 p-4 rounded-2xl border border-white/15">
-                    <span className="text-[10px] text-indigo-300 block uppercase font-bold">Total Facturé</span>
-                    <div className="text-2xl sm:text-3xl font-black text-emerald-400 tracking-tight">
+                  <div className="text-right shrink-0 bg-white/10 p-4 rounded-lg border border-white/15">
+                    <span className="text-[10px] text-[#1877F2] block uppercase font-bold">Total Facturé</span>
+                    <div className="text-2xl sm:text-3xl font-black text-[#1877F2] tracking-tight">
                       {finalPayableTotal.toLocaleString()} <span className="text-sm text-white">FCFA</span>
                     </div>
-                    <span className="text-[11px] text-indigo-200 block mt-0.5">
+                    <span className="text-[11px] text-[#1877F2] block mt-0.5">
                       soit <strong>{effectiveMonthlyRate.toLocaleString()} FCFA</strong> / mois
                     </span>
                   </div>
@@ -1003,14 +1003,14 @@ ${planDetailText}
                   <button
                     type="button"
                     onClick={() => setActiveTab('location')}
-                    className="w-full sm:w-auto px-5 py-3 rounded-xl border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 font-bold transition-colors cursor-pointer"
+                    className="w-full sm:w-auto px-5 py-3 rounded-xl border border-[#E4E6EB]  text-[#050505]  hover:bg-[#F0F2F5] font-bold transition-colors cursor-pointer"
                   >
                     Retour à l'étape 2
                   </button>
                   <button
                     id="btn-submit-registration-request"
                     type="submit"
-                    className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-black shadow-lg shadow-emerald-600/30 flex items-center justify-center gap-2 text-xs transition-all cursor-pointer active:scale-95"
+                    className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-[#1877F2] hover:from-emerald-500 hover:to-teal-500 text-white font-black shadow-lg shadow-emerald-600/30 flex items-center justify-center gap-2 text-xs transition-all cursor-pointer active:scale-95"
                   >
                     <Send className="w-4 h-4" />
                     <span>Envoyer la Demande sur WhatsApp EDU-CONGO (+242)</span>
@@ -1023,14 +1023,14 @@ ${planDetailText}
         ) : (
           /* CONFIRMATION STEP (Demande transmise à EDU-CONGO) */
           <div className="p-6 sm:p-8 flex flex-col gap-6 text-xs max-h-[82vh] overflow-y-auto">
-            <div className="bg-emerald-50 dark:bg-emerald-950/40 border-2 border-emerald-300 dark:border-emerald-800 rounded-3xl p-6 text-center flex flex-col items-center gap-3">
-              <div className="w-16 h-16 rounded-3xl bg-emerald-600 text-white flex items-center justify-center shadow-lg shadow-emerald-600/30">
+            <div className="bg-[#E7F3FF]  border-2 border-[#E4E6EB]  rounded-lg p-6 text-center flex flex-col items-center gap-3">
+              <div className="w-16 h-16 rounded-lg bg-[#1877F2] text-white flex items-center justify-center shadow-lg shadow-emerald-600/30">
                 <CheckCircle2 className="w-8 h-8" />
               </div>
-              <h3 className="text-xl font-extrabold text-emerald-950 dark:text-emerald-100">
+              <h3 className="text-xl font-extrabold text-[#1877F2] ">
                 Demande d'Inscription Générée avec Succès !
               </h3>
-              <p className="text-xs text-emerald-800 dark:text-emerald-200 max-w-xl">
+              <p className="text-xs text-[#1877F2]  max-w-xl">
                 La demande d'abonnement pour <strong>{generatedRequest?.schoolName}</strong> a été enregistrée. Transmettez-la sur le compte WhatsApp officiel de <strong>EDU-CONGO (+242 06 895 83 77)</strong> pour validation immédiate.
               </p>
 
@@ -1040,7 +1040,7 @@ ${planDetailText}
                   href={generatedWhatsAppUrl || `https://api.whatsapp.com/send?phone=242068958377&text=${encodeURIComponent(generatedWhatsAppMessage)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto px-6 py-3.5 bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold rounded-2xl shadow-lg shadow-[#25D366]/30 flex items-center justify-center gap-2 text-xs transition-all hover:scale-105 active:scale-95"
+                  className="w-full sm:w-auto px-6 py-3.5 bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold rounded-lg shadow-lg shadow-[#25D366]/30 flex items-center justify-center gap-2 text-xs transition-all hover:scale-105 active:scale-95"
                 >
                   <MessageCircle className="w-5 h-5 fill-current" />
                   <span>Ouvrir WhatsApp (+242 06 895 83 77)</span>
@@ -1049,62 +1049,62 @@ ${planDetailText}
                 <button
                   type="button"
                   onClick={handleCopyMessage}
-                  className="w-full sm:w-auto px-5 py-3.5 bg-white dark:bg-slate-800 border border-emerald-300 dark:border-emerald-700 hover:bg-emerald-50 dark:hover:bg-slate-700 text-emerald-900 dark:text-emerald-200 font-bold rounded-2xl flex items-center justify-center gap-2 text-xs transition-colors cursor-pointer"
+                  className="w-full sm:w-auto px-5 py-3.5 bg-white  border border-[#E4E6EB]  hover:bg-[#E7F3FF] text-[#1877F2]  font-bold rounded-lg flex items-center justify-center gap-2 text-xs transition-colors cursor-pointer"
                 >
-                  {copiedMessage ? <Check className="w-4 h-4 text-emerald-600" /> : <Copy className="w-4 h-4 text-emerald-600" />}
+                  {copiedMessage ? <Check className="w-4 h-4 text-[#1877F2]" /> : <Copy className="w-4 h-4 text-[#1877F2]" />}
                   <span>{copiedMessage ? 'Message WhatsApp Copié !' : 'Copier le Message WhatsApp'}</span>
                 </button>
               </div>
             </div>
 
             {/* Recapitulative Details */}
-            <div className="bg-slate-50 dark:bg-slate-800/60 rounded-2xl border border-slate-200 dark:border-slate-800 p-5 flex flex-col gap-3">
-              <span className="font-bold text-slate-900 dark:text-white uppercase tracking-wider text-xs flex items-center gap-2">
-                <FileCheck className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+            <div className="bg-[#F0F2F5]  rounded-lg border border-[#E4E6EB]  p-5 flex flex-col gap-3">
+              <span className="font-bold text-[#050505]  uppercase tracking-wider text-xs flex items-center gap-2">
+                <FileCheck className="w-4 h-4 text-[#1877F2] " />
                 Détails de l'Inscription en Attente de Validation
               </span>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 text-xs">
-                <div className="bg-white dark:bg-slate-900 p-3 rounded-xl border border-slate-200 dark:border-slate-700">
-                  <span className="text-[10px] text-slate-500 dark:text-slate-400 block">Réf Demande :</span>
-                  <strong className="font-mono text-indigo-600 dark:text-indigo-400">{generatedRequest?.id}</strong>
+                <div className="bg-white  p-3 rounded-xl border border-[#E4E6EB] ">
+                  <span className="text-[10px] text-[#65676B]  block">Réf Demande :</span>
+                  <strong className="font-mono text-[#1877F2] ">{generatedRequest?.id}</strong>
                 </div>
-                <div className="bg-white dark:bg-slate-900 p-3 rounded-xl border border-slate-200 dark:border-slate-700">
-                  <span className="text-[10px] text-slate-500 dark:text-slate-400 block">Sous-domaine :</span>
-                  <strong className="font-mono text-emerald-600 dark:text-emerald-400">{generatedRequest?.subdomainUrl}</strong>
+                <div className="bg-white  p-3 rounded-xl border border-[#E4E6EB] ">
+                  <span className="text-[10px] text-[#65676B]  block">Sous-domaine :</span>
+                  <strong className="font-mono text-[#1877F2] ">{generatedRequest?.subdomainUrl}</strong>
                 </div>
-                <div className="bg-white dark:bg-slate-900 p-3 rounded-xl border border-slate-200 dark:border-slate-700">
-                  <span className="text-[10px] text-slate-500 dark:text-slate-400 block">Localisation :</span>
+                <div className="bg-white  p-3 rounded-xl border border-[#E4E6EB] ">
+                  <span className="text-[10px] text-[#65676B]  block">Localisation :</span>
                   <strong>{generatedRequest?.city} ({generatedRequest?.department})</strong>
                 </div>
-                <div className="bg-white dark:bg-slate-900 p-3 rounded-xl border border-slate-200 dark:border-slate-700">
-                  <span className="text-[10px] text-slate-500 dark:text-slate-400 block">Administrateur :</span>
+                <div className="bg-white  p-3 rounded-xl border border-[#E4E6EB] ">
+                  <span className="text-[10px] text-[#65676B]  block">Administrateur :</span>
                   <strong>{generatedRequest?.contactName} ({generatedRequest?.contactFunction})</strong>
                 </div>
-                <div className="bg-white dark:bg-slate-900 p-3 rounded-xl border border-slate-200 dark:border-slate-700">
-                  <span className="text-[10px] text-slate-500 dark:text-slate-400 block">WhatsApp Admin :</span>
+                <div className="bg-white  p-3 rounded-xl border border-[#E4E6EB] ">
+                  <span className="text-[10px] text-[#65676B]  block">WhatsApp Admin :</span>
                   <strong className="font-mono">{generatedRequest?.contactPhone}</strong>
                 </div>
-                <div className="bg-white dark:bg-slate-900 p-3 rounded-xl border border-slate-200 dark:border-slate-700">
-                  <span className="text-[10px] text-slate-500 dark:text-slate-400 block">Montant Facturé :</span>
-                  <strong className="text-emerald-600 font-extrabold">{generatedRequest?.totalAmountFCFA?.toLocaleString()} FCFA</strong>
+                <div className="bg-white  p-3 rounded-xl border border-[#E4E6EB] ">
+                  <span className="text-[10px] text-[#65676B]  block">Montant Facturé :</span>
+                  <strong className="text-[#1877F2] font-extrabold">{generatedRequest?.totalAmountFCFA?.toLocaleString()} FCFA</strong>
                 </div>
               </div>
             </div>
 
             {/* Validation Link Box */}
-            <div className="bg-indigo-50/80 dark:bg-indigo-950/40 border border-indigo-200 dark:border-indigo-800 rounded-2xl p-4 flex flex-col gap-2">
+            <div className="bg-[#E7F3FF]/80  border border-[#E4E6EB]  rounded-lg p-4 flex flex-col gap-2">
               <div className="flex items-center justify-between">
-                <span className="font-bold text-indigo-950 dark:text-indigo-200 flex items-center gap-1.5">
-                  <Globe className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+                <span className="font-bold text-[#1877F2]  flex items-center gap-1.5">
+                  <Globe className="w-4 h-4 text-[#1877F2] " />
                   Lien de Confirmation Officiel EDU-CONGO :
                 </span>
                 <button
                   type="button"
                   onClick={handleCopyLink}
-                  className="text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline flex items-center gap-1 cursor-pointer"
+                  className="text-xs font-bold text-[#1877F2]  hover:underline flex items-center gap-1 cursor-pointer"
                 >
-                  {copiedLink ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
+                  {copiedLink ? <Check className="w-3.5 h-3.5 text-[#1877F2]" /> : <Copy className="w-3.5 h-3.5" />}
                   {copiedLink ? 'Lien Copié !' : 'Copier le lien'}
                 </button>
               </div>
@@ -1112,9 +1112,9 @@ ${planDetailText}
                 type="text"
                 readOnly
                 value={generatedRequest?.confirmationLink || ''}
-                className="w-full bg-white dark:bg-slate-900 border border-indigo-200 dark:border-indigo-800 rounded-xl px-3 py-2 text-[11px] font-mono text-slate-700 dark:text-slate-300"
+                className="w-full bg-white  border border-[#E4E6EB]  rounded-xl px-3 py-2 text-[11px] font-mono text-[#050505] "
               />
-              <p className="text-[11px] text-slate-600 dark:text-slate-400">
+              <p className="text-[11px] text-[#65676B] ">
                 Ce lien permet à l'équipe EDU-CONGO de valider instantanément l'établissement et d'expédier les accès directement sur le WhatsApp du responsable.
               </p>
             </div>
@@ -1133,7 +1133,7 @@ ${planDetailText}
               <button
                 type="button"
                 onClick={onClose}
-                className="px-6 py-2.5 rounded-xl bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 font-extrabold text-xs hover:bg-slate-800 transition-colors cursor-pointer"
+                className="px-6 py-2.5 rounded-xl bg-white  text-white  font-extrabold text-xs hover:bg-white transition-colors cursor-pointer"
               >
                 Fermer
               </button>

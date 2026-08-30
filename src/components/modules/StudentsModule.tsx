@@ -180,16 +180,16 @@ export const StudentsModule: React.FC<StudentsModuleProps> = ({
   return (
     <div className="space-y-6">
       {/* Top Header */}
-      <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-6 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+      <div className="bg-white  rounded-lg p-4 sm:p-6 border border-[#E4E6EB]  shadow-sm flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
         <div className="flex flex-col sm:flex-row items-center gap-3">
-          <div className="w-11 h-11 rounded-2xl bg-indigo-50 dark:bg-indigo-950/80 text-indigo-600 dark:text-indigo-400 flex items-center justify-center font-bold shrink-0">
+          <div className="w-11 h-11 rounded-lg bg-[#E7F3FF]  text-[#1877F2]  flex items-center justify-center font-bold shrink-0">
             <Users className="w-5 h-5" />
           </div>
           <div>
-            <h2 className="text-base sm:text-lg font-black text-slate-900 dark:text-white">
+            <h2 className="text-base sm:text-lg font-black text-[#050505] ">
               Gestion des Élèves & Inscriptions Scolaires
             </h2>
-            <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+            <p className="text-xs text-[#65676B]  mt-0.5">
               Enregistrez les élèves, délivrez les cartes scolaires plastifiées, certificats officiels et bulletins.
             </p>
           </div>
@@ -198,7 +198,7 @@ export const StudentsModule: React.FC<StudentsModuleProps> = ({
         {canEdit && (
           <button
             onClick={handleOpenAdd}
-            className="w-full md:w-auto px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow-sm transition-all cursor-pointer shrink-0"
+            className="w-full md:w-auto px-4 py-2.5 bg-[#1877F2] hover:bg-[#1877F2] text-white rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow-sm transition-all cursor-pointer shrink-0"
           >
             <UserPlus className="w-4 h-4" />
             Inscrire un Nouvel Élève
@@ -207,15 +207,15 @@ export const StudentsModule: React.FC<StudentsModuleProps> = ({
       </div>
 
       {/* Filter and Search Bar */}
-      <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div className="bg-white  rounded-lg p-4 border border-[#E4E6EB]  shadow-sm flex flex-col sm:flex-row items-center justify-between gap-3">
         <div className="relative w-full sm:w-80">
-          <Search className="w-4 h-4 text-slate-400 absolute left-3 top-2.5" />
+          <Search className="w-4 h-4 text-[#65676B] absolute left-3 top-2.5" />
           <input
             type="text"
             placeholder="Rechercher par nom, prénom, matricule..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl pl-9 pr-3 py-2 text-xs font-semibold text-slate-900 dark:text-white focus:ring-2 focus:ring-indigo-500"
+            className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl pl-9 pr-3 py-2 text-xs font-semibold text-[#050505]  focus:ring-2 focus:ring-indigo-500"
           />
         </div>
 
@@ -224,7 +224,7 @@ export const StudentsModule: React.FC<StudentsModuleProps> = ({
           <select
             value={selectedCycle}
             onChange={(e) => setSelectedCycle(e.target.value)}
-            className="bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3 py-2 text-xs font-semibold text-slate-900 dark:text-white"
+            className="bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3 py-2 text-xs font-semibold text-[#050505] "
           >
             <option value="all">Tous les Cycles</option>
             <option value="maternelle">Maternel</option>
@@ -238,7 +238,7 @@ export const StudentsModule: React.FC<StudentsModuleProps> = ({
           <select
             value={selectedClass}
             onChange={(e) => setSelectedClass(e.target.value)}
-            className="bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3 py-2 text-xs font-semibold text-slate-900 dark:text-white"
+            className="bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3 py-2 text-xs font-semibold text-[#050505] "
           >
             <option value="all">Toutes les Classes</option>
             {classesConfig.map((cls) => (
@@ -246,7 +246,7 @@ export const StudentsModule: React.FC<StudentsModuleProps> = ({
             ))}
           </select>
 
-          <span className="text-xs font-bold text-slate-500 dark:text-slate-400 px-2">
+          <span className="text-xs font-bold text-[#65676B]  px-2">
             {filteredStudents.length} Élève(s)
           </span>
         </div>
@@ -254,16 +254,16 @@ export const StudentsModule: React.FC<StudentsModuleProps> = ({
 
       {/* Students Table / Grid */}
       {filteredStudents.length === 0 ? (
-        <div className="bg-white dark:bg-slate-900 rounded-2xl p-12 border-2 border-dashed border-slate-200 dark:border-slate-800 text-center">
-          <Users className="w-12 h-12 text-slate-400 mx-auto mb-3" />
-          <h3 className="font-bold text-sm text-slate-900 dark:text-white">Aucun élève inscrit</h3>
-          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 max-w-sm mx-auto">
+        <div className="bg-white  rounded-lg p-12 border-2 border-dashed border-[#E4E6EB]  text-center">
+          <Users className="w-12 h-12 text-[#65676B] mx-auto mb-3" />
+          <h3 className="font-bold text-sm text-[#050505] ">Aucun élève inscrit</h3>
+          <p className="text-xs text-[#65676B]  mt-1 max-w-sm mx-auto">
             Utilisez le bouton "Inscrire un Nouvel Élève" pour enregistrer les premiers effectifs de l'établissement.
           </p>
           {canEdit && (
             <button
               onClick={handleOpenAdd}
-              className="mt-4 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold inline-flex items-center gap-1.5 cursor-pointer shadow-sm"
+              className="mt-4 px-4 py-2 bg-[#1877F2] hover:bg-[#1877F2] text-white rounded-xl text-xs font-bold inline-flex items-center gap-1.5 cursor-pointer shadow-sm"
             >
               <UserPlus className="w-4 h-4" />
               Inscrire le 1er élève
@@ -271,11 +271,11 @@ export const StudentsModule: React.FC<StudentsModuleProps> = ({
           )}
         </div>
       ) : (
-        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+        <div className="bg-white  rounded-lg border border-[#E4E6EB]  shadow-sm overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs border-collapse">
               <thead>
-                <tr className="bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-200 font-bold border-b border-slate-200 dark:border-slate-800">
+                <tr className="bg-[#F0F2F5]  text-[#050505]  font-bold border-b border-[#E4E6EB] ">
                   <th className="p-3.5">Élève</th>
                   <th className="p-3.5">Matricule</th>
                   <th className="p-3.5">Classe & Cycle</th>
@@ -285,18 +285,18 @@ export const StudentsModule: React.FC<StudentsModuleProps> = ({
                   <th className="p-3.5 text-center">Actions</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-200 dark:divide-slate-800">
+              <tbody className="divide-y divide-slate-200 ">
                 {filteredStudents.map((student) => {
                   const paymentRatio = student.fraisTotal > 0 ? (student.fraisPayes / student.fraisTotal) * 100 : 100;
                   const isPaidFull = student.fraisPayes >= student.fraisTotal;
 
                   return (
-                    <tr key={student.id} className="hover:bg-slate-50 dark:hover:bg-slate-800/50">
+                    <tr key={student.id} className="hover:bg-[#F0F2F5]">
                       
                       {/* Élève */}
                       <td className="p-3.5">
                         <div className="flex items-center gap-3">
-                          <div className="w-9 h-9 rounded-full bg-indigo-100 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400 font-black flex items-center justify-center text-xs overflow-hidden border border-indigo-200 dark:border-indigo-800">
+                          <div className="w-9 h-9 rounded-lg bg-[#E7F3FF]  text-[#1877F2]  font-black flex items-center justify-center text-xs overflow-hidden border border-[#E4E6EB] ">
                             {student.photoUrl ? (
                               <img src={student.photoUrl} alt={student.nom} className="w-full h-full object-cover" />
                             ) : (
@@ -304,10 +304,10 @@ export const StudentsModule: React.FC<StudentsModuleProps> = ({
                             )}
                           </div>
                           <div>
-                            <p className="font-extrabold text-slate-900 dark:text-white uppercase leading-tight">
-                              {student.nom} <span className="capitalize text-slate-700 dark:text-slate-300 font-bold">{student.prenom}</span>
+                            <p className="font-extrabold text-[#050505]  uppercase leading-tight">
+                              {student.nom} <span className="capitalize text-[#050505]  font-bold">{student.prenom}</span>
                             </p>
-                            <span className="text-[10px] text-slate-500 dark:text-slate-400">
+                            <span className="text-[10px] text-[#65676B] ">
                               {student.genre === 'M' ? 'Masculin' : 'Féminin'} • Né(e) le {student.dateNaissance}
                             </span>
                           </div>
@@ -316,7 +316,7 @@ export const StudentsModule: React.FC<StudentsModuleProps> = ({
 
                       {/* Matricule */}
                       <td className="p-3.5">
-                        <span className="font-mono font-bold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/60 px-2 py-1 rounded-md border border-indigo-200 dark:border-indigo-800">
+                        <span className="font-mono font-bold text-[#1877F2]  bg-[#E7F3FF]  px-2 py-1 rounded-md border border-[#E4E6EB] ">
                           {student.matricule}
                         </span>
                       </td>
@@ -324,26 +324,26 @@ export const StudentsModule: React.FC<StudentsModuleProps> = ({
                       {/* Classe & Cycle */}
                       <td className="p-3.5">
                         <div>
-                          <span className="font-bold text-slate-900 dark:text-white block">{student.classe}</span>
-                          <span className="text-[10px] text-slate-500 uppercase font-semibold">{student.cycle || 'Général'}</span>
+                          <span className="font-bold text-[#050505]  block">{student.classe}</span>
+                          <span className="text-[10px] text-[#65676B] uppercase font-semibold">{student.cycle || 'Général'}</span>
                         </div>
                       </td>
 
                       {/* Parent / Tuteur */}
                       <td className="p-3.5">
                         <div>
-                          <span className="font-semibold text-slate-800 dark:text-slate-200 block">{student.nomParent}</span>
-                          <span className="text-[10px] font-mono text-slate-500">{student.telephoneParent}</span>
+                          <span className="font-semibold text-[#050505]  block">{student.nomParent}</span>
+                          <span className="text-[10px] font-mono text-[#65676B]">{student.telephoneParent}</span>
                         </div>
                       </td>
 
                       {/* Frais Scolaires */}
                       <td className="p-3.5 text-right">
                         <div>
-                          <span className="font-mono font-bold text-slate-900 dark:text-white block">
+                          <span className="font-mono font-bold text-[#050505]  block">
                             {student.fraisPayes.toLocaleString()} / {student.fraisTotal.toLocaleString()} FCFA
                           </span>
-                          <span className={`text-[10px] font-bold ${isPaidFull ? 'text-emerald-600' : 'text-amber-600'}`}>
+                          <span className={`text-[10px] font-bold ${isPaidFull ? 'text-[#1877F2]' : 'text-amber-600'}`}>
                             {paymentRatio.toFixed(0)}% réglé
                           </span>
                         </div>
@@ -355,7 +355,7 @@ export const StudentsModule: React.FC<StudentsModuleProps> = ({
                           {/* Carte Scolaire */}
                           <button
                             onClick={() => setSelectedStudentForCard(student)}
-                            className="p-1.5 rounded-lg bg-indigo-50 dark:bg-indigo-950/70 border border-indigo-200 dark:border-indigo-800 text-indigo-600 dark:text-indigo-300 hover:bg-indigo-100 dark:hover:bg-indigo-900 transition-all cursor-pointer flex items-center gap-1 text-[10px] font-bold"
+                            className="p-1.5 rounded-lg bg-[#E7F3FF]  border border-[#E4E6EB]  text-[#1877F2]  hover:bg-[#E7F3FF][#1877F2] transition-all cursor-pointer flex items-center gap-1 text-[10px] font-bold"
                             title="Générer Carte Scolaire"
                           >
                             <CreditCard className="w-3.5 h-3.5" />
@@ -365,7 +365,7 @@ export const StudentsModule: React.FC<StudentsModuleProps> = ({
                           {/* Certificat de Scolarité */}
                           <button
                             onClick={() => setSelectedStudentForCert(student)}
-                            className="p-1.5 rounded-lg bg-emerald-50 dark:bg-emerald-950/70 border border-emerald-200 dark:border-emerald-800 text-emerald-600 dark:text-emerald-300 hover:bg-emerald-100 dark:hover:bg-emerald-900 transition-all cursor-pointer flex items-center gap-1 text-[10px] font-bold"
+                            className="p-1.5 rounded-lg bg-[#E7F3FF]  border border-[#E4E6EB]  text-[#1877F2]  hover:bg-[#E7F3FF][#1877F2] transition-all cursor-pointer flex items-center gap-1 text-[10px] font-bold"
                             title="Certificat de Scolarité"
                           >
                             <FileCheck className="w-3.5 h-3.5" />
@@ -375,7 +375,7 @@ export const StudentsModule: React.FC<StudentsModuleProps> = ({
                           {/* Bulletin */}
                           <button
                             onClick={() => setSelectedStudentForReport(student)}
-                            className="p-1.5 rounded-lg bg-purple-50 dark:bg-purple-950/70 border border-purple-200 dark:border-purple-800 text-purple-600 dark:text-purple-300 hover:bg-purple-100 dark:hover:bg-purple-900 transition-all cursor-pointer flex items-center gap-1 text-[10px] font-bold"
+                            className="p-1.5 rounded-lg bg-purple-50  border border-purple-200  text-purple-600  hover:bg-purple-100 transition-all cursor-pointer flex items-center gap-1 text-[10px] font-bold"
                             title="Bulletin de Notes"
                           >
                             <GraduationCap className="w-3.5 h-3.5" />
@@ -390,7 +390,7 @@ export const StudentsModule: React.FC<StudentsModuleProps> = ({
                           {canEdit && (
                             <button
                               onClick={() => handleOpenEdit(student)}
-                              className="p-1.5 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition-colors cursor-pointer"
+                              className="p-1.5 rounded-lg hover:bg-[#F0F2F5] text-[#65676B]  transition-colors cursor-pointer"
                               title="Modifier"
                             >
                               <Edit3 className="w-3.5 h-3.5" />
@@ -399,7 +399,7 @@ export const StudentsModule: React.FC<StudentsModuleProps> = ({
                           {canDelete && (
                             <button
                               onClick={() => onDeleteStudent(student.id)}
-                              className="p-1.5 rounded-lg hover:bg-rose-100 dark:hover:bg-rose-950 text-rose-600 transition-colors cursor-pointer"
+                              className="p-1.5 rounded-lg hover:bg-rose-100 text-rose-600 transition-colors cursor-pointer"
                               title="Supprimer"
                             >
                               <Trash2 className="w-3.5 h-3.5" />
@@ -420,15 +420,15 @@ export const StudentsModule: React.FC<StudentsModuleProps> = ({
       {/* ADD / EDIT STUDENT MODAL */}
       {showAddModal && (
         <div className="fixed inset-0 z-50 bg-black/75 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto">
-          <div className="bg-white dark:bg-slate-900 text-slate-900 dark:text-white w-full max-w-2xl rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 p-6 space-y-4 my-6">
-            <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
+          <div className="bg-white  text-[#050505]  w-full max-w-2xl rounded-lg shadow-2xl border border-[#E4E6EB]  p-6 space-y-4 my-6">
+            <div className="flex items-center justify-between border-b border-[#E4E6EB]  pb-3">
               <h3 className="font-bold text-base flex items-center gap-2">
-                <UserPlus className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+                <UserPlus className="w-5 h-5 text-[#1877F2] " />
                 {editingStudent ? 'Modifier le Dossier Élève' : 'Inscription d\'un Nouvel Élève'}
               </h3>
               <button
                 onClick={() => setShowAddModal(false)}
-                className="p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 cursor-pointer"
+                className="p-1 rounded-lg hover:bg-[#F0F2F5] text-[#65676B] cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -438,7 +438,7 @@ export const StudentsModule: React.FC<StudentsModuleProps> = ({
               
               {/* Identity Section */}
               <div>
-                <span className="font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 block mb-2">
+                <span className="font-bold uppercase tracking-wider text-[#1877F2]  block mb-2">
                   1. Identité de l'Élève
                 </span>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -450,7 +450,7 @@ export const StudentsModule: React.FC<StudentsModuleProps> = ({
                       placeholder="Ex: MBOUNGOU"
                       value={form.nom}
                       onChange={(e) => setForm({ ...form, nom: e.target.value })}
-                      className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3 py-2 font-semibold"
+                      className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3 py-2 font-semibold"
                     />
                   </div>
                   <div>
@@ -461,7 +461,7 @@ export const StudentsModule: React.FC<StudentsModuleProps> = ({
                       placeholder="Ex: Grace Archange"
                       value={form.prenom}
                       onChange={(e) => setForm({ ...form, prenom: e.target.value })}
-                      className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3 py-2 font-semibold"
+                      className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3 py-2 font-semibold"
                     />
                   </div>
                   <div>
@@ -469,7 +469,7 @@ export const StudentsModule: React.FC<StudentsModuleProps> = ({
                     <select
                       value={form.genre}
                       onChange={(e) => setForm({ ...form, genre: e.target.value as 'M' | 'F' })}
-                      className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3 py-2 font-semibold"
+                      className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3 py-2 font-semibold"
                     >
                       <option value="M">Masculin (M)</option>
                       <option value="F">Féminin (F)</option>
@@ -484,7 +484,7 @@ export const StudentsModule: React.FC<StudentsModuleProps> = ({
                       type="date"
                       value={form.dateNaissance}
                       onChange={(e) => setForm({ ...form, dateNaissance: e.target.value })}
-                      className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3 py-2 font-semibold"
+                      className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3 py-2 font-semibold"
                     />
                   </div>
                   <div>
@@ -494,7 +494,7 @@ export const StudentsModule: React.FC<StudentsModuleProps> = ({
                       placeholder="Ex: Brazzaville (Talangaï)"
                       value={form.lieuNaissance}
                       onChange={(e) => setForm({ ...form, lieuNaissance: e.target.value })}
-                      className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3 py-2 font-semibold"
+                      className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3 py-2 font-semibold"
                     />
                   </div>
                   <div>
@@ -503,15 +503,15 @@ export const StudentsModule: React.FC<StudentsModuleProps> = ({
                       type="text"
                       value={form.matricule}
                       onChange={(e) => setForm({ ...form, matricule: e.target.value })}
-                      className="w-full bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3 py-2 font-mono font-bold"
+                      className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3 py-2 font-mono font-bold"
                     />
                   </div>
                 </div>
               </div>
 
               {/* Cycle & Class Section */}
-              <div className="pt-2 border-t border-slate-200 dark:border-slate-800">
-                <span className="font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 block mb-2">
+              <div className="pt-2 border-t border-[#E4E6EB] ">
+                <span className="font-bold uppercase tracking-wider text-[#1877F2]  block mb-2">
                   2. Orientation Pédagogique & Classe
                 </span>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -524,7 +524,7 @@ export const StudentsModule: React.FC<StudentsModuleProps> = ({
                         const firstCls = classesConfig.find(c => c.cycle === newCycle)?.name || classesConfig[0]?.name || '';
                         setForm({ ...form, cycle: newCycle, classe: firstCls });
                       }}
-                      className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3 py-2 font-semibold"
+                      className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3 py-2 font-semibold"
                     >
                       <option value="maternelle">Maternel</option>
                       <option value="primaire">Primaire</option>
@@ -538,7 +538,7 @@ export const StudentsModule: React.FC<StudentsModuleProps> = ({
                     <select
                       value={form.classe}
                       onChange={(e) => setForm({ ...form, classe: e.target.value })}
-                      className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3 py-2 font-semibold"
+                      className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3 py-2 font-semibold"
                     >
                       {classesConfig
                         .filter(c => !form.cycle || c.cycle === form.cycle)
@@ -554,8 +554,8 @@ export const StudentsModule: React.FC<StudentsModuleProps> = ({
               </div>
 
               {/* Parents Section */}
-              <div className="pt-2 border-t border-slate-200 dark:border-slate-800">
-                <span className="font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 block mb-2">
+              <div className="pt-2 border-t border-[#E4E6EB] ">
+                <span className="font-bold uppercase tracking-wider text-[#1877F2]  block mb-2">
                   3. Parents & Contact d'Urgence
                 </span>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -567,7 +567,7 @@ export const StudentsModule: React.FC<StudentsModuleProps> = ({
                       placeholder="Ex: M. MBOUNGOU Guy"
                       value={form.nomParent}
                       onChange={(e) => setForm({ ...form, nomParent: e.target.value })}
-                      className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3 py-2 font-semibold"
+                      className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3 py-2 font-semibold"
                     />
                   </div>
                   <div>
@@ -578,7 +578,7 @@ export const StudentsModule: React.FC<StudentsModuleProps> = ({
                       placeholder="+242 06 895 83 77"
                       value={form.telephoneParent}
                       onChange={(e) => setForm({ ...form, telephoneParent: e.target.value })}
-                      className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3 py-2 font-semibold"
+                      className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3 py-2 font-semibold"
                     />
                   </div>
                   <div>
@@ -588,15 +588,15 @@ export const StudentsModule: React.FC<StudentsModuleProps> = ({
                       placeholder="parent@gmail.com"
                       value={form.emailParent}
                       onChange={(e) => setForm({ ...form, emailParent: e.target.value })}
-                      className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3 py-2 font-semibold"
+                      className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3 py-2 font-semibold"
                     />
                   </div>
                 </div>
               </div>
 
               {/* Financials & Photo */}
-              <div className="pt-2 border-t border-slate-200 dark:border-slate-800">
-                <span className="font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 block mb-2">
+              <div className="pt-2 border-t border-[#E4E6EB] ">
+                <span className="font-bold uppercase tracking-wider text-[#1877F2]  block mb-2">
                   4. Écolage & Frais de Scolarité
                 </span>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -608,7 +608,7 @@ export const StudentsModule: React.FC<StudentsModuleProps> = ({
                       step="5000"
                       value={form.fraisTotal}
                       onChange={(e) => setForm({ ...form, fraisTotal: Number(e.target.value) })}
-                      className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3 py-2 font-mono font-bold"
+                      className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3 py-2 font-mono font-bold"
                     />
                   </div>
                   <div>
@@ -619,13 +619,13 @@ export const StudentsModule: React.FC<StudentsModuleProps> = ({
                       step="5000"
                       value={form.fraisPayes}
                       onChange={(e) => setForm({ ...form, fraisPayes: Number(e.target.value) })}
-                      className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3 py-2 font-mono font-bold"
+                      className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3 py-2 font-mono font-bold"
                     />
                   </div>
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3">
+              <div className="pt-4 border-t border-[#E4E6EB]  flex flex-col sm:flex-row items-center justify-between gap-3">
                 <AutoSaveIndicator
                   lastSavedTime={autoSave.lastSavedTime}
                   isSaving={autoSave.isSaving}
@@ -639,13 +639,13 @@ export const StudentsModule: React.FC<StudentsModuleProps> = ({
                   <button
                     type="button"
                     onClick={() => setShowAddModal(false)}
-                    className="px-4 py-2 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
+                    className="px-4 py-2 rounded-xl text-xs font-semibold text-[#050505]  hover:bg-[#F0F2F5] cursor-pointer"
                   >
                     Annuler
                   </button>
                   <button
                     type="submit"
-                    className="px-5 py-2 rounded-xl text-xs font-bold bg-indigo-600 hover:bg-indigo-700 text-white shadow-sm cursor-pointer hover:scale-105 active:scale-95 transition-all"
+                    className="px-5 py-2 rounded-xl text-xs font-bold bg-[#1877F2] hover:bg-[#1877F2] text-white shadow-sm cursor-pointer hover:scale-105 active:scale-95 transition-all"
                   >
                     {editingStudent ? 'Enregistrer les Modifications' : 'Valider l\'Inscription'}
                   </button>

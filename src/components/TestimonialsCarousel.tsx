@@ -131,34 +131,34 @@ export const TestimonialsCarousel: React.FC = () => {
   return (
     <section className="w-full flex flex-col gap-6" aria-label="Témoignages clients">
       <div className="text-center max-w-2xl mx-auto space-y-2">
-        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300 font-bold text-xs">
-          <Sparkles className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-[#E7F3FF]  border border-[#E4E6EB]  text-[#1877F2]  font-bold text-xs">
+          <Sparkles className="w-3.5 h-3.5 text-[#1877F2] " />
           Preuve Sociale & Retours d'Expérience
         </span>
-        <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight text-balance">
+        <h2 className="text-2xl sm:text-3xl font-black text-[#050505]  tracking-tight text-balance">
           ILS FONT CONFIANCE À EDU-CONGO
         </h2>
-        <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed text-balance">
+        <p className="text-xs sm:text-sm text-[#65676B]  leading-relaxed text-balance">
           Découvrez les témoignages des directeurs d'établissements, proviseurs, comptables et parents d'élèves à Brazzaville, Pointe-Noire, Dolisie et Oyo.
         </p>
       </div>
 
       {/* Main Carousel Card */}
       <div 
-        className="relative rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 p-6 sm:p-10 shadow-lg overflow-hidden transition-all"
+        className="relative rounded-lg bg-white  border border-[#E4E6EB]  p-6 sm:p-10 shadow-lg overflow-hidden transition-all"
         onMouseEnter={() => setIsAutoPlaying(false)}
         onMouseLeave={() => setIsAutoPlaying(true)}
       >
         {/* Background Decorative Pattern */}
-        <div className="absolute top-0 right-0 p-8 opacity-5 pointer-events-none text-slate-900 dark:text-white">
+        <div className="absolute top-0 right-0 p-8 opacity-5 pointer-events-none text-[#050505] ">
           <Quote className="w-48 h-48 -rotate-12" />
         </div>
 
         <div className="relative z-10 flex flex-col lg:flex-row items-center lg:items-start gap-8">
           
           {/* Avatar & School Profile Info */}
-          <div className="flex flex-col items-center text-center lg:items-start lg:text-left shrink-0 max-w-xs w-full gap-3 border-b lg:border-b-0 lg:border-r border-slate-100 dark:border-slate-800 pb-6 lg:pb-0 lg:pr-8">
-            <div className={`w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br ${current.avatarColor} text-white flex items-center justify-center font-black text-xl sm:text-2xl shadow-lg shadow-indigo-600/20`}>
+          <div className="flex flex-col items-center text-center lg:items-start lg:text-left shrink-0 max-w-xs w-full gap-3 border-b lg:border-b-0 lg:border-r border-[#E4E6EB]  pb-6 lg:pb-0 lg:pr-8">
+            <div className={`w-16 h-16 sm:w-20 sm:h-20 rounded-lg bg-[#1877F2] ${current.avatarColor} text-white flex items-center justify-center font-black text-xl sm:text-2xl shadow-lg shadow-sm`}>
               {current.avatarText}
             </div>
 
@@ -168,30 +168,30 @@ export const TestimonialsCarousel: React.FC = () => {
                   <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
                 ))}
               </div>
-              <h3 className="font-extrabold text-base sm:text-lg text-slate-900 dark:text-white leading-snug">
+              <h3 className="font-extrabold text-base sm:text-lg text-[#050505]  leading-snug">
                 {current.name}
               </h3>
-              <p className="text-xs font-semibold text-indigo-600 dark:text-indigo-400">
+              <p className="text-xs font-semibold text-[#1877F2] ">
                 {current.role}
               </p>
             </div>
 
-            <div className="space-y-1.5 text-xs text-slate-500 dark:text-slate-400 w-full pt-1">
-              <div className="flex items-center justify-center lg:justify-start gap-1.5 font-medium text-slate-800 dark:text-slate-200">
-                <Building2 className="w-3.5 h-3.5 text-indigo-500 shrink-0" />
+            <div className="space-y-1.5 text-xs text-[#65676B]  w-full pt-1">
+              <div className="flex items-center justify-center lg:justify-start gap-1.5 font-medium text-[#050505] ">
+                <Building2 className="w-3.5 h-3.5 text-[#1877F2] shrink-0" />
                 <span className="truncate">{current.school}</span>
               </div>
               <div className="flex items-center justify-center lg:justify-start gap-1.5">
-                <MapPin className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
+                <MapPin className="w-3.5 h-3.5 text-[#1877F2] shrink-0" />
                 <span>{current.department}</span>
               </div>
-              <span className="inline-block bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-2.5 py-0.5 rounded-full text-[10px] font-medium border border-slate-200 dark:border-slate-700">
+              <span className="inline-block bg-[#F0F2F5]  text-[#050505]  px-2.5 py-0.5 rounded-lg text-[10px] font-medium border border-[#E4E6EB] ">
                 {current.cycle}
               </span>
             </div>
 
-            <div className="mt-2 w-full p-2.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200/80 dark:border-emerald-800/80 text-emerald-800 dark:text-emerald-300 text-center font-bold text-xs flex items-center justify-center gap-1.5">
-              <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+            <div className="mt-2 w-full p-2.5 rounded-xl bg-[#E7F3FF]  border border-[#E4E6EB]  text-[#1877F2]  text-center font-bold text-xs flex items-center justify-center gap-1.5">
+              <CheckCircle2 className="w-4 h-4 text-[#1877F2]  shrink-0" />
               <span>{current.impactMetric}</span>
             </div>
           </div>
@@ -199,28 +199,28 @@ export const TestimonialsCarousel: React.FC = () => {
           {/* Testimonial Content */}
           <div className="flex-1 flex flex-col justify-between gap-6 w-full text-center lg:text-left">
             <div className="space-y-4">
-              <div className="inline-flex items-center gap-2 text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">
-                <ShieldCheck className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+              <div className="inline-flex items-center gap-2 text-xs font-bold text-[#1877F2]  uppercase tracking-wider">
+                <ShieldCheck className="w-4 h-4 text-[#1877F2] " />
                 Témoignage Vérifié • {current.date}
               </div>
 
-              <p className="text-sm sm:text-base lg:text-lg text-slate-700 dark:text-slate-200 leading-relaxed italic text-justify sm:text-left">
+              <p className="text-sm sm:text-base lg:text-lg text-[#050505]  leading-relaxed italic text-justify sm:text-left">
                 « {current.quote} »
               </p>
             </div>
 
             {/* Carousel Controls */}
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-slate-100 dark:border-slate-800">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-[#E4E6EB] ">
               {/* Pagination Dots */}
               <div className="flex items-center gap-2">
                 {TESTIMONIALS.map((t, idx) => (
                   <button
                     key={t.id}
                     onClick={() => setCurrentIndex(idx)}
-                    className={`h-2.5 rounded-full transition-all cursor-pointer ${
+                    className={`h-2.5 rounded-lg transition-all cursor-pointer ${
                       currentIndex === idx
-                        ? 'w-8 bg-indigo-600 dark:bg-indigo-400'
-                        : 'w-2.5 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600'
+                        ? 'w-8 bg-[#1877F2] '
+                        : 'w-2.5 bg-[#F0F2F5]  hover:bg-[#F0F2F5]'
                     }`}
                     aria-label={`Aller au témoignage ${idx + 1}`}
                   />
@@ -231,17 +231,17 @@ export const TestimonialsCarousel: React.FC = () => {
               <div className="flex items-center gap-2">
                 <button
                   onClick={prevSlide}
-                  className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-indigo-50 dark:hover:bg-indigo-950/60 text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 border border-slate-200 dark:border-slate-700 transition-all cursor-pointer shadow-2xs hover:scale-105 active:scale-95"
+                  className="p-2.5 rounded-xl bg-[#F0F2F5]  hover:bg-[#E7F3FF]/60 text-[#050505]  hover:text-[#1877F2] border border-[#E4E6EB]  transition-all cursor-pointer shadow-2xs hover:scale-105 active:scale-95"
                   aria-label="Témoignage précédent"
                 >
                   <ChevronLeft className="w-5 h-5" />
                 </button>
-                <span className="text-xs font-bold text-slate-500 dark:text-slate-400 font-mono px-1">
+                <span className="text-xs font-bold text-[#65676B]  font-mono px-1">
                   {currentIndex + 1} / {TESTIMONIALS.length}
                 </span>
                 <button
                   onClick={nextSlide}
-                  className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-indigo-50 dark:hover:bg-indigo-950/60 text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 border border-slate-200 dark:border-slate-700 transition-all cursor-pointer shadow-2xs hover:scale-105 active:scale-95"
+                  className="p-2.5 rounded-xl bg-[#F0F2F5]  hover:bg-[#E7F3FF]/60 text-[#050505]  hover:text-[#1877F2] border border-[#E4E6EB]  transition-all cursor-pointer shadow-2xs hover:scale-105 active:scale-95"
                   aria-label="Témoignage suivant"
                 >
                   <ChevronRight className="w-5 h-5" />

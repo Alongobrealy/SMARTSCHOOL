@@ -966,7 +966,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F1F5F9] dark:bg-[#0B1120] text-[#1E293B] dark:text-[#F1F5F9] font-sans antialiased selection:bg-indigo-600 selection:text-white transition-colors duration-200">
+    <div className="min-h-screen bg-[#F0F2F5] text-[#1E293B] font-sans antialiased selection:bg-[#1877F2] selection:text-white transition-colors duration-200">
       {viewMode === 'flyer' ? (
         <CommercialFlyer
           onLaunchDemo={handleLaunchDemo}

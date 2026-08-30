@@ -250,23 +250,23 @@ export const SchoolSettingsModule: React.FC<SchoolSettingsModuleProps> = ({
   return (
     <div className="space-y-6">
       {/* Top Banner */}
-      <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-6 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+      <div className="bg-white  rounded-lg p-4 sm:p-6 border border-[#E4E6EB]  shadow-sm flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
         <div className="flex flex-col sm:flex-row items-center gap-3">
-          <div className="w-11 h-11 rounded-2xl bg-indigo-50 dark:bg-indigo-950/80 text-indigo-600 dark:text-indigo-400 flex items-center justify-center font-bold shrink-0">
+          <div className="w-11 h-11 rounded-lg bg-[#E7F3FF]  text-[#1877F2]  flex items-center justify-center font-bold shrink-0">
             <Building className="w-5 h-5" />
           </div>
           <div>
-            <h2 className="text-base sm:text-lg font-black text-slate-900 dark:text-white">
+            <h2 className="text-base sm:text-lg font-black text-[#050505] ">
               Configuration de l'Établissement & Pédagogie
             </h2>
-            <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+            <p className="text-xs text-[#65676B]  mt-0.5">
               Paramétrez l'identité officielle, activez les cycles d'enseignement, structurez les classes et gérez les permissions.
             </p>
           </div>
         </div>
 
         {savedSuccess && (
-          <div className="bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-300 dark:border-emerald-800 px-4 py-2 rounded-xl flex items-center justify-center gap-2 text-xs font-bold text-emerald-700 dark:text-emerald-300 w-full md:w-auto">
+          <div className="bg-[#E7F3FF]  border border-[#E4E6EB]  px-4 py-2 rounded-xl flex items-center justify-center gap-2 text-xs font-bold text-[#1877F2]  w-full md:w-auto">
             <CheckCircle2 className="w-4 h-4 shrink-0" />
             <span>Paramètres enregistrés avec succès !</span>
           </div>
@@ -274,13 +274,13 @@ export const SchoolSettingsModule: React.FC<SchoolSettingsModuleProps> = ({
       </div>
 
       {/* Tabs */}
-      <div className="flex overflow-x-auto no-scrollbar border-b border-slate-200 dark:border-slate-800 gap-2 pb-0.5">
+      <div className="flex overflow-x-auto no-scrollbar border-b border-[#E4E6EB]  gap-2 pb-0.5">
         <button
           onClick={() => setActiveTab('general')}
           className={`pb-3 px-4 text-xs font-bold flex items-center gap-2 border-b-2 transition-all cursor-pointer whitespace-nowrap ${
             activeTab === 'general'
-              ? 'border-indigo-600 text-indigo-600 dark:text-indigo-400'
-              : 'border-transparent text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'
+              ? 'border-[#E4E6EB] text-[#1877F2] '
+              : 'border-transparent text-[#65676B] hover:text-[#050505][#65676B]'
           }`}
         >
           <Building className="w-4 h-4" />
@@ -291,8 +291,8 @@ export const SchoolSettingsModule: React.FC<SchoolSettingsModuleProps> = ({
           onClick={() => setActiveTab('cycles')}
           className={`pb-3 px-4 text-xs font-bold flex items-center gap-2 border-b-2 transition-all cursor-pointer whitespace-nowrap ${
             activeTab === 'cycles'
-              ? 'border-indigo-600 text-indigo-600 dark:text-indigo-400'
-              : 'border-transparent text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'
+              ? 'border-[#E4E6EB] text-[#1877F2] '
+              : 'border-transparent text-[#65676B] hover:text-[#050505][#65676B]'
           }`}
         >
           <Layers className="w-4 h-4" />
@@ -303,8 +303,8 @@ export const SchoolSettingsModule: React.FC<SchoolSettingsModuleProps> = ({
           onClick={() => setActiveTab('classes')}
           className={`pb-3 px-4 text-xs font-bold flex items-center gap-2 border-b-2 transition-all cursor-pointer whitespace-nowrap ${
             activeTab === 'classes'
-              ? 'border-indigo-600 text-indigo-600 dark:text-indigo-400'
-              : 'border-transparent text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'
+              ? 'border-[#E4E6EB] text-[#1877F2] '
+              : 'border-transparent text-[#65676B] hover:text-[#050505][#65676B]'
           }`}
         >
           <GraduationCap className="w-4 h-4" />
@@ -316,8 +316,8 @@ export const SchoolSettingsModule: React.FC<SchoolSettingsModuleProps> = ({
             onClick={() => setActiveTab('subjects')}
             className={`pb-3 border-b-2 font-bold text-sm flex items-center gap-2 transition-colors ${
               activeTab === 'subjects'
-                ? 'border-indigo-600 text-indigo-600 dark:text-indigo-400'
-                : 'border-transparent text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'
+                ? 'border-[#E4E6EB] text-[#1877F2] '
+                : 'border-transparent text-[#65676B] hover:text-[#050505][#65676B]'
             }`}
           >
             <BookOpen className="w-4 h-4" />
@@ -328,8 +328,8 @@ export const SchoolSettingsModule: React.FC<SchoolSettingsModuleProps> = ({
           onClick={() => setActiveTab('permissions')}
           className={`pb-3 px-4 text-xs font-bold flex items-center gap-2 border-b-2 transition-all cursor-pointer whitespace-nowrap ${
             activeTab === 'permissions'
-              ? 'border-indigo-600 text-indigo-600 dark:text-indigo-400'
-              : 'border-transparent text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'
+              ? 'border-[#E4E6EB] text-[#1877F2] '
+              : 'border-transparent text-[#65676B] hover:text-[#050505][#65676B]'
           }`}
         >
           <ShieldCheck className="w-4 h-4" />
@@ -339,11 +339,11 @@ export const SchoolSettingsModule: React.FC<SchoolSettingsModuleProps> = ({
 
       {/* TAB 1: IDENTITÉ & COORDONNÉES */}
       {activeTab === 'general' && (
-        <form onSubmit={handleSaveGeneral} className="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+        <form onSubmit={handleSaveGeneral} className="bg-white  rounded-lg p-6 border border-[#E4E6EB]  shadow-sm space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             
             <div>
-              <label className="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider block mb-1.5">
+              <label className="text-xs font-bold text-[#050505]  uppercase tracking-wider block mb-1.5">
                 Nom de l'Établissement *
               </label>
               <input
@@ -351,19 +351,19 @@ export const SchoolSettingsModule: React.FC<SchoolSettingsModuleProps> = ({
                 required
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3.5 py-2.5 text-xs font-semibold text-slate-900 dark:text-white focus:ring-2 focus:ring-indigo-500"
+                className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3.5 py-2.5 text-xs font-semibold text-[#050505]  focus:ring-2 focus:ring-indigo-500"
                 placeholder="Ex: Complexe Scolaire La Renaissance"
               />
             </div>
 
             <div>
-              <label className="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider block mb-1.5">
+              <label className="text-xs font-bold text-[#050505]  uppercase tracking-wider block mb-1.5">
                 Statut / Type d'Établissement
               </label>
               <select
                 value={formData.attribution}
                 onChange={(e) => setFormData({ ...formData, attribution: e.target.value })}
-                className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3.5 py-2.5 text-xs font-semibold text-slate-900 dark:text-white focus:ring-2 focus:ring-indigo-500"
+                className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3.5 py-2.5 text-xs font-semibold text-[#050505]  focus:ring-2 focus:ring-indigo-500"
               >
                 {SCHOOL_ATTRIBUTIONS.map((attr) => (
                   <option key={attr} value={attr}>{attr}</option>
@@ -372,33 +372,33 @@ export const SchoolSettingsModule: React.FC<SchoolSettingsModuleProps> = ({
             </div>
 
             <div>
-              <label className="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider block mb-1.5">
+              <label className="text-xs font-bold text-[#050505]  uppercase tracking-wider block mb-1.5">
                 Agrément Ministériel (MEPPSA)
               </label>
               <input
                 type="text"
                 value={formData.agrementNumber}
                 onChange={(e) => setFormData({ ...formData, agrementNumber: e.target.value })}
-                className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3.5 py-2.5 text-xs font-semibold text-slate-900 dark:text-white focus:ring-2 focus:ring-indigo-500"
+                className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3.5 py-2.5 text-xs font-semibold text-[#050505]  focus:ring-2 focus:ring-indigo-500"
                 placeholder="Ex: Arrêté N° 0482/MEPPSA-DGE"
               />
             </div>
 
             <div>
-              <label className="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider block mb-1.5">
+              <label className="text-xs font-bold text-[#050505]  uppercase tracking-wider block mb-1.5">
                 Devise de l'École
               </label>
               <input
                 type="text"
                 value={formData.devise}
                 onChange={(e) => setFormData({ ...formData, devise: e.target.value })}
-                className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3.5 py-2.5 text-xs font-semibold text-slate-900 dark:text-white focus:ring-2 focus:ring-indigo-500"
+                className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3.5 py-2.5 text-xs font-semibold text-[#050505]  focus:ring-2 focus:ring-indigo-500"
                 placeholder="Ex: Discipline - Travail - Succès"
               />
             </div>
 
             <div>
-              <label className="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider block mb-1.5">
+              <label className="text-xs font-bold text-[#050505]  uppercase tracking-wider block mb-1.5">
                 Nom du Chef d'Établissement / Proviseur *
               </label>
               <input
@@ -406,32 +406,32 @@ export const SchoolSettingsModule: React.FC<SchoolSettingsModuleProps> = ({
                 required
                 value={formData.directorName}
                 onChange={(e) => setFormData({ ...formData, directorName: e.target.value })}
-                className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3.5 py-2.5 text-xs font-semibold text-slate-900 dark:text-white focus:ring-2 focus:ring-indigo-500"
+                className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3.5 py-2.5 text-xs font-semibold text-[#050505]  focus:ring-2 focus:ring-indigo-500"
                 placeholder="Ex: M. Stéphane Alongo"
               />
             </div>
 
             <div>
-              <label className="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider block mb-1.5">
+              <label className="text-xs font-bold text-[#050505]  uppercase tracking-wider block mb-1.5">
                 Titre Officiel du Chef d'Établissement
               </label>
               <input
                 type="text"
                 value={formData.directorSignatureTitle}
                 onChange={(e) => setFormData({ ...formData, directorSignatureTitle: e.target.value })}
-                className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3.5 py-2.5 text-xs font-semibold text-slate-900 dark:text-white focus:ring-2 focus:ring-indigo-500"
+                className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3.5 py-2.5 text-xs font-semibold text-[#050505]  focus:ring-2 focus:ring-indigo-500"
                 placeholder="Ex: Le Chef d'Établissement / Le Proviseur"
               />
             </div>
 
             <div>
-              <label className="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider block mb-1.5">
+              <label className="text-xs font-bold text-[#050505]  uppercase tracking-wider block mb-1.5">
                 Département (Congo)
               </label>
               <select
                 value={formData.department}
                 onChange={(e) => setFormData({ ...formData, department: e.target.value })}
-                className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3.5 py-2.5 text-xs font-semibold text-slate-900 dark:text-white focus:ring-2 focus:ring-indigo-500"
+                className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3.5 py-2.5 text-xs font-semibold text-[#050505]  focus:ring-2 focus:ring-indigo-500"
               >
                 {CONGO_DEPARTMENTS.map((d) => (
                   <option key={d.name} value={d.name}>{d.name}</option>
@@ -440,73 +440,73 @@ export const SchoolSettingsModule: React.FC<SchoolSettingsModuleProps> = ({
             </div>
 
             <div>
-              <label className="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider block mb-1.5">
+              <label className="text-xs font-bold text-[#050505]  uppercase tracking-wider block mb-1.5">
                 Ville / Commune
               </label>
               <input
                 type="text"
                 value={formData.city}
                 onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3.5 py-2.5 text-xs font-semibold text-slate-900 dark:text-white focus:ring-2 focus:ring-indigo-500"
+                className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3.5 py-2.5 text-xs font-semibold text-[#050505]  focus:ring-2 focus:ring-indigo-500"
                 placeholder="Ex: Brazzaville"
               />
             </div>
 
             <div>
-              <label className="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider block mb-1.5">
+              <label className="text-xs font-bold text-[#050505]  uppercase tracking-wider block mb-1.5">
                 Année Scolaire Active
               </label>
               <input
                 type="text"
                 value={formData.anneeScolaire}
                 onChange={(e) => setFormData({ ...formData, anneeScolaire: e.target.value })}
-                className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3.5 py-2.5 text-xs font-semibold text-slate-900 dark:text-white focus:ring-2 focus:ring-indigo-500"
+                className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3.5 py-2.5 text-xs font-semibold text-[#050505]  focus:ring-2 focus:ring-indigo-500"
                 placeholder="2026 - 2027"
               />
             </div>
 
             <div>
-              <label className="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider block mb-1.5">
+              <label className="text-xs font-bold text-[#050505]  uppercase tracking-wider block mb-1.5">
                 Téléphone Officiel (+242)
               </label>
               <input
                 type="text"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3.5 py-2.5 text-xs font-semibold text-slate-900 dark:text-white focus:ring-2 focus:ring-indigo-500"
+                className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3.5 py-2.5 text-xs font-semibold text-[#050505]  focus:ring-2 focus:ring-indigo-500"
                 placeholder="+242 06 895 83 77"
               />
             </div>
 
             <div>
-              <label className="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider block mb-1.5">
+              <label className="text-xs font-bold text-[#050505]  uppercase tracking-wider block mb-1.5">
                 Email Officiel
               </label>
               <input
                 type="email"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3.5 py-2.5 text-xs font-semibold text-slate-900 dark:text-white focus:ring-2 focus:ring-indigo-500"
+                className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3.5 py-2.5 text-xs font-semibold text-[#050505]  focus:ring-2 focus:ring-indigo-500"
                 placeholder="contact@etablissement.cg"
               />
             </div>
 
             <div>
-              <label className="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider block mb-1.5">
+              <label className="text-xs font-bold text-[#050505]  uppercase tracking-wider block mb-1.5">
                 Adresse & Boîte Postale
               </label>
               <input
                 type="text"
                 value={formData.address}
                 onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-                className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3.5 py-2.5 text-xs font-semibold text-slate-900 dark:text-white focus:ring-2 focus:ring-indigo-500"
+                className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3.5 py-2.5 text-xs font-semibold text-[#050505]  focus:ring-2 focus:ring-indigo-500"
                 placeholder="Avenue de la Paix, B.P. 1428"
               />
             </div>
 
           </div>
 
-          <div className="pt-4 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div className="pt-4 border-t border-[#E4E6EB]  flex flex-col sm:flex-row items-center justify-between gap-3">
             <AutoSaveIndicator
               lastSavedTime={autoSave.lastSavedTime}
               isSaving={autoSave.isSaving}
@@ -518,7 +518,7 @@ export const SchoolSettingsModule: React.FC<SchoolSettingsModuleProps> = ({
 
             <button
               type="submit"
-              className="px-6 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold shadow-md flex items-center gap-2 transition-all cursor-pointer hover:scale-105 active:scale-95 shrink-0"
+              className="px-6 py-2.5 rounded-xl bg-[#1877F2] hover:bg-[#1877F2] text-white text-xs font-bold shadow-md flex items-center gap-2 transition-all cursor-pointer hover:scale-105 active:scale-95 shrink-0"
             >
               <Save className="w-4 h-4" />
               Enregistrer les Paramètres d'Établissement
@@ -529,12 +529,12 @@ export const SchoolSettingsModule: React.FC<SchoolSettingsModuleProps> = ({
 
       {/* TAB 2: CYCLES D'ENSEIGNEMENT */}
       {activeTab === 'cycles' && (
-        <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+        <div className="bg-white  rounded-lg p-6 border border-[#E4E6EB]  shadow-sm space-y-6">
           <div>
-            <h3 className="text-sm font-bold text-slate-900 dark:text-white">
+            <h3 className="text-sm font-bold text-[#050505] ">
               Cycles d'Enseignement Disponibles dans votre Établissement
             </h3>
-            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+            <p className="text-xs text-[#65676B]  mt-1">
               Activez ou désactivez les cycles pédagogiques dispensés par votre structure scolaire ou centre de formation.
             </p>
           </div>
@@ -544,8 +544,8 @@ export const SchoolSettingsModule: React.FC<SchoolSettingsModuleProps> = ({
             {/* Cycle Maternel */}
             <div className={`p-4 rounded-xl border-2 transition-all flex flex-col justify-between ${
               formData.activeCycles.maternelle 
-                ? 'border-indigo-500 bg-indigo-50/40 dark:bg-indigo-950/30' 
-                : 'border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/40 opacity-75'
+                ? 'border-[#E4E6EB] bg-[#E7F3FF]/40 ' 
+                : 'border-[#E4E6EB]  bg-[#F0F2F5]/50  opacity-75'
             }`}>
               <div>
                 <div className="flex items-center justify-between mb-2">
@@ -553,29 +553,29 @@ export const SchoolSettingsModule: React.FC<SchoolSettingsModuleProps> = ({
                   <button
                     type="button"
                     onClick={() => handleToggleCycle('maternelle')}
-                    className={`px-3 py-1 rounded-full text-[11px] font-bold cursor-pointer transition-all ${
+                    className={`px-3 py-1 rounded-lg text-[11px] font-bold cursor-pointer transition-all ${
                       formData.activeCycles.maternelle
-                        ? 'bg-emerald-600 text-white'
-                        : 'bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300'
+                        ? 'bg-[#1877F2] text-white'
+                        : 'bg-[#F0F2F5]  text-[#65676B] '
                     }`}
                   >
                     {formData.activeCycles.maternelle ? 'Activé' : 'Désactivé'}
                   </button>
                 </div>
-                <h4 className="font-bold text-sm text-slate-900 dark:text-white">Cycle Maternel & Préscolaire</h4>
-                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                <h4 className="font-bold text-sm text-[#050505] ">Cycle Maternel & Préscolaire</h4>
+                <p className="text-xs text-[#65676B]  mt-1">
                   Crèche, Petite Section, Moyenne Section, Grande Section.
                 </p>
               </div>
 
               {formData.activeCycles.maternelle && (
-                <div className="mt-4 pt-3 border-t border-indigo-200 dark:border-indigo-800/60 flex items-center justify-between">
-                  <span className="text-[10px] font-semibold text-indigo-700 dark:text-indigo-300">
+                <div className="mt-4 pt-3 border-t border-[#E4E6EB]  flex items-center justify-between">
+                  <span className="text-[10px] font-semibold text-[#1877F2] ">
                     {classesConfig.filter((c) => c.cycle === 'maternelle').length} Classes configurées
                   </span>
                   <button
                     onClick={() => handleGenerateCyclePresets('maternelle')}
-                    className="text-[10px] font-bold text-indigo-600 hover:underline cursor-pointer"
+                    className="text-[10px] font-bold text-[#1877F2] hover:underline cursor-pointer"
                   >
                     + Générer les niveaux (PS, MS, GS)
                   </button>
@@ -586,8 +586,8 @@ export const SchoolSettingsModule: React.FC<SchoolSettingsModuleProps> = ({
             {/* Cycle Primaire */}
             <div className={`p-4 rounded-xl border-2 transition-all flex flex-col justify-between ${
               formData.activeCycles.primaire 
-                ? 'border-indigo-500 bg-indigo-50/40 dark:bg-indigo-950/30' 
-                : 'border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/40 opacity-75'
+                ? 'border-[#E4E6EB] bg-[#E7F3FF]/40 ' 
+                : 'border-[#E4E6EB]  bg-[#F0F2F5]/50  opacity-75'
             }`}>
               <div>
                 <div className="flex items-center justify-between mb-2">
@@ -595,29 +595,29 @@ export const SchoolSettingsModule: React.FC<SchoolSettingsModuleProps> = ({
                   <button
                     type="button"
                     onClick={() => handleToggleCycle('primaire')}
-                    className={`px-3 py-1 rounded-full text-[11px] font-bold cursor-pointer transition-all ${
+                    className={`px-3 py-1 rounded-lg text-[11px] font-bold cursor-pointer transition-all ${
                       formData.activeCycles.primaire
-                        ? 'bg-emerald-600 text-white'
-                        : 'bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300'
+                        ? 'bg-[#1877F2] text-white'
+                        : 'bg-[#F0F2F5]  text-[#65676B] '
                     }`}
                   >
                     {formData.activeCycles.primaire ? 'Activé' : 'Désactivé'}
                   </button>
                 </div>
-                <h4 className="font-bold text-sm text-slate-900 dark:text-white">Cycle Primaire (Fondamental)</h4>
-                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                <h4 className="font-bold text-sm text-[#050505] ">Cycle Primaire (Fondamental)</h4>
+                <p className="text-xs text-[#65676B]  mt-1">
                   CP1, CP2, CE1, CE2, CM1, CM2 (Préparation au CEPE & Concours d'entrée en 6ème).
                 </p>
               </div>
 
               {formData.activeCycles.primaire && (
-                <div className="mt-4 pt-3 border-t border-indigo-200 dark:border-indigo-800/60 flex items-center justify-between">
-                  <span className="text-[10px] font-semibold text-indigo-700 dark:text-indigo-300">
+                <div className="mt-4 pt-3 border-t border-[#E4E6EB]  flex items-center justify-between">
+                  <span className="text-[10px] font-semibold text-[#1877F2] ">
                     {classesConfig.filter((c) => c.cycle === 'primaire').length} Classes configurées
                   </span>
                   <button
                     onClick={() => handleGenerateCyclePresets('primaire')}
-                    className="text-[10px] font-bold text-indigo-600 hover:underline cursor-pointer"
+                    className="text-[10px] font-bold text-[#1877F2] hover:underline cursor-pointer"
                   >
                     + Générer CP1 - CM2
                   </button>
@@ -628,8 +628,8 @@ export const SchoolSettingsModule: React.FC<SchoolSettingsModuleProps> = ({
             {/* Cycle Collège */}
             <div className={`p-4 rounded-xl border-2 transition-all flex flex-col justify-between ${
               formData.activeCycles.college 
-                ? 'border-indigo-500 bg-indigo-50/40 dark:bg-indigo-950/30' 
-                : 'border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/40 opacity-75'
+                ? 'border-[#E4E6EB] bg-[#E7F3FF]/40 ' 
+                : 'border-[#E4E6EB]  bg-[#F0F2F5]/50  opacity-75'
             }`}>
               <div>
                 <div className="flex items-center justify-between mb-2">
@@ -637,29 +637,29 @@ export const SchoolSettingsModule: React.FC<SchoolSettingsModuleProps> = ({
                   <button
                     type="button"
                     onClick={() => handleToggleCycle('college')}
-                    className={`px-3 py-1 rounded-full text-[11px] font-bold cursor-pointer transition-all ${
+                    className={`px-3 py-1 rounded-lg text-[11px] font-bold cursor-pointer transition-all ${
                       formData.activeCycles.college
-                        ? 'bg-emerald-600 text-white'
-                        : 'bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300'
+                        ? 'bg-[#1877F2] text-white'
+                        : 'bg-[#F0F2F5]  text-[#65676B] '
                     }`}
                   >
                     {formData.activeCycles.college ? 'Activé' : 'Désactivé'}
                   </button>
                 </div>
-                <h4 className="font-bold text-sm text-slate-900 dark:text-white">Cycle Secondaire 1er Degré (Collège)</h4>
-                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                <h4 className="font-bold text-sm text-[#050505] ">Cycle Secondaire 1er Degré (Collège)</h4>
+                <p className="text-xs text-[#65676B]  mt-1">
                   6ème, 5ème, 4ème, 3ème (Préparation à l'examen d'État du BEPC).
                 </p>
               </div>
 
               {formData.activeCycles.college && (
-                <div className="mt-4 pt-3 border-t border-indigo-200 dark:border-indigo-800/60 flex items-center justify-between">
-                  <span className="text-[10px] font-semibold text-indigo-700 dark:text-indigo-300">
+                <div className="mt-4 pt-3 border-t border-[#E4E6EB]  flex items-center justify-between">
+                  <span className="text-[10px] font-semibold text-[#1877F2] ">
                     {classesConfig.filter((c) => c.cycle === 'college').length} Classes configurées
                   </span>
                   <button
                     onClick={() => handleGenerateCyclePresets('college')}
-                    className="text-[10px] font-bold text-indigo-600 hover:underline cursor-pointer"
+                    className="text-[10px] font-bold text-[#1877F2] hover:underline cursor-pointer"
                   >
                     + Générer 6ème - 3ème
                   </button>
@@ -670,8 +670,8 @@ export const SchoolSettingsModule: React.FC<SchoolSettingsModuleProps> = ({
             {/* Cycle Lycée */}
             <div className={`p-4 rounded-xl border-2 transition-all flex flex-col justify-between ${
               formData.activeCycles.lycee 
-                ? 'border-indigo-500 bg-indigo-50/40 dark:bg-indigo-950/30' 
-                : 'border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/40 opacity-75'
+                ? 'border-[#E4E6EB] bg-[#E7F3FF]/40 ' 
+                : 'border-[#E4E6EB]  bg-[#F0F2F5]/50  opacity-75'
             }`}>
               <div>
                 <div className="flex items-center justify-between mb-2">
@@ -679,29 +679,29 @@ export const SchoolSettingsModule: React.FC<SchoolSettingsModuleProps> = ({
                   <button
                     type="button"
                     onClick={() => handleToggleCycle('lycee')}
-                    className={`px-3 py-1 rounded-full text-[11px] font-bold cursor-pointer transition-all ${
+                    className={`px-3 py-1 rounded-lg text-[11px] font-bold cursor-pointer transition-all ${
                       formData.activeCycles.lycee
-                        ? 'bg-emerald-600 text-white'
-                        : 'bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300'
+                        ? 'bg-[#1877F2] text-white'
+                        : 'bg-[#F0F2F5]  text-[#65676B] '
                     }`}
                   >
                     {formData.activeCycles.lycee ? 'Activé' : 'Désactivé'}
                   </button>
                 </div>
-                <h4 className="font-bold text-sm text-slate-900 dark:text-white">Cycle Secondaire 2nd Degré (Lycée)</h4>
-                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                <h4 className="font-bold text-sm text-[#050505] ">Cycle Secondaire 2nd Degré (Lycée)</h4>
+                <p className="text-xs text-[#65676B]  mt-1">
                   2ndes, 1ères et Terminales Générales (Séries A, C, D, TI, G, F - Baccalauréat National).
                 </p>
               </div>
 
               {formData.activeCycles.lycee && (
-                <div className="mt-4 pt-3 border-t border-indigo-200 dark:border-indigo-800/60 flex items-center justify-between">
-                  <span className="text-[10px] font-semibold text-indigo-700 dark:text-indigo-300">
+                <div className="mt-4 pt-3 border-t border-[#E4E6EB]  flex items-center justify-between">
+                  <span className="text-[10px] font-semibold text-[#1877F2] ">
                     {classesConfig.filter((c) => c.cycle === 'lycee').length} Classes configurées
                   </span>
                   <button
                     onClick={() => handleGenerateCyclePresets('lycee')}
-                    className="text-[10px] font-bold text-indigo-600 hover:underline cursor-pointer"
+                    className="text-[10px] font-bold text-[#1877F2] hover:underline cursor-pointer"
                   >
                     + Générer Séries 2nde - Tle
                   </button>
@@ -712,8 +712,8 @@ export const SchoolSettingsModule: React.FC<SchoolSettingsModuleProps> = ({
             {/* Centre de Formation Professionnelle */}
             <div className={`p-4 rounded-xl border-2 transition-all flex flex-col justify-between ${
               formData.activeCycles.formation_pro 
-                ? 'border-indigo-500 bg-indigo-50/40 dark:bg-indigo-950/30' 
-                : 'border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/40 opacity-75'
+                ? 'border-[#E4E6EB] bg-[#E7F3FF]/40 ' 
+                : 'border-[#E4E6EB]  bg-[#F0F2F5]/50  opacity-75'
             }`}>
               <div>
                 <div className="flex items-center justify-between mb-2">
@@ -721,29 +721,29 @@ export const SchoolSettingsModule: React.FC<SchoolSettingsModuleProps> = ({
                   <button
                     type="button"
                     onClick={() => handleToggleCycle('formation_pro')}
-                    className={`px-3 py-1 rounded-full text-[11px] font-bold cursor-pointer transition-all ${
+                    className={`px-3 py-1 rounded-lg text-[11px] font-bold cursor-pointer transition-all ${
                       formData.activeCycles.formation_pro
-                        ? 'bg-emerald-600 text-white'
-                        : 'bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300'
+                        ? 'bg-[#1877F2] text-white'
+                        : 'bg-[#F0F2F5]  text-[#65676B] '
                     }`}
                   >
                     {formData.activeCycles.formation_pro ? 'Activé' : 'Désactivé'}
                   </button>
                 </div>
-                <h4 className="font-bold text-sm text-slate-900 dark:text-white">Centre de Formation Professionnelle & Métiers</h4>
-                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                <h4 className="font-bold text-sm text-[#050505] ">Centre de Formation Professionnelle & Métiers</h4>
+                <p className="text-xs text-[#65676B]  mt-1">
                   Filières qualifiantes : Électricité, Mécanique, Couture, Hôtellerie, Secrétariat, Maçonnerie, etc.
                 </p>
               </div>
 
               {formData.activeCycles.formation_pro && (
-                <div className="mt-4 pt-3 border-t border-indigo-200 dark:border-indigo-800/60 flex items-center justify-between">
-                  <span className="text-[10px] font-semibold text-indigo-700 dark:text-indigo-300">
+                <div className="mt-4 pt-3 border-t border-[#E4E6EB]  flex items-center justify-between">
+                  <span className="text-[10px] font-semibold text-[#1877F2] ">
                     {classesConfig.filter((c) => c.cycle === 'formation_pro').length} Classes configurées
                   </span>
                   <button
                     onClick={() => handleGenerateCyclePresets('formation_pro')}
-                    className="text-[10px] font-bold text-indigo-600 hover:underline cursor-pointer"
+                    className="text-[10px] font-bold text-[#1877F2] hover:underline cursor-pointer"
                   >
                     + Générer Filières Métiers
                   </button>
@@ -757,20 +757,20 @@ export const SchoolSettingsModule: React.FC<SchoolSettingsModuleProps> = ({
 
       {/* TAB 3: NIVEAUX & CLASSES */}
       {activeTab === 'classes' && (
-        <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+        <div className="bg-white  rounded-lg p-6 border border-[#E4E6EB]  shadow-sm space-y-6">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
-              <h3 className="text-sm font-bold text-slate-900 dark:text-white">
+              <h3 className="text-sm font-bold text-[#050505] ">
                 Gestion des Niveaux, Séries & Classes
               </h3>
-              <p className="text-xs text-slate-500 dark:text-slate-400">
+              <p className="text-xs text-[#65676B] ">
                 Créez, modifiez ou supprimez les divisions de classes, définissez les capacités et la tarification des frais de scolarité.
               </p>
             </div>
 
             <button
               onClick={() => handleOpenAddClass('primaire')}
-              className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-sm transition-all cursor-pointer"
+              className="px-4 py-2 bg-[#1877F2] hover:bg-[#1877F2] text-white rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-sm transition-all cursor-pointer"
             >
               <Plus className="w-4 h-4" />
               Ajouter une Nouvelle Classe
@@ -778,38 +778,38 @@ export const SchoolSettingsModule: React.FC<SchoolSettingsModuleProps> = ({
           </div>
 
           {classesConfig.length === 0 ? (
-            <div className="text-center py-12 border-2 border-dashed border-slate-200 dark:border-slate-800 rounded-2xl p-6">
-              <GraduationCap className="w-12 h-12 text-slate-400 mx-auto mb-3" />
-              <h4 className="font-bold text-sm text-slate-900 dark:text-white">Aucune classe configurée</h4>
-              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 max-w-md mx-auto">
+            <div className="text-center py-12 border-2 border-dashed border-[#E4E6EB]  rounded-lg p-6">
+              <GraduationCap className="w-12 h-12 text-[#65676B] mx-auto mb-3" />
+              <h4 className="font-bold text-sm text-[#050505] ">Aucune classe configurée</h4>
+              <p className="text-xs text-[#65676B]  mt-1 max-w-md mx-auto">
                 Commencez par ajouter vos classes manuellement ou utilisez les boutons de génération rapide dans l'onglet "Cycles d'Enseignement".
               </p>
               <div className="flex flex-wrap items-center justify-center gap-2 mt-4">
                 <button
                   onClick={() => handleGenerateCyclePresets('primaire')}
-                  className="px-3 py-1.5 bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200 dark:border-indigo-800 rounded-lg text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 cursor-pointer"
+                  className="px-3 py-1.5 bg-[#E7F3FF]  border border-[#E4E6EB]  rounded-lg text-xs font-bold text-[#1877F2]  hover:bg-[#E7F3FF] cursor-pointer"
                 >
                   + Ajouter Classes Primaires (CP1 - CM2)
                 </button>
                 <button
                   onClick={() => handleGenerateCyclePresets('college')}
-                  className="px-3 py-1.5 bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200 dark:border-indigo-800 rounded-lg text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 cursor-pointer"
+                  className="px-3 py-1.5 bg-[#E7F3FF]  border border-[#E4E6EB]  rounded-lg text-xs font-bold text-[#1877F2]  hover:bg-[#E7F3FF] cursor-pointer"
                 >
                   + Ajouter Classes Collège (6ème - 3ème)
                 </button>
                 <button
                   onClick={() => handleGenerateCyclePresets('lycee')}
-                  className="px-3 py-1.5 bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200 dark:border-indigo-800 rounded-lg text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 cursor-pointer"
+                  className="px-3 py-1.5 bg-[#E7F3FF]  border border-[#E4E6EB]  rounded-lg text-xs font-bold text-[#1877F2]  hover:bg-[#E7F3FF] cursor-pointer"
                 >
                   + Ajouter Classes Lycée (2nde - Tle)
                 </button>
               </div>
             </div>
           ) : (
-            <div className="overflow-x-auto border border-slate-200 dark:border-slate-800 rounded-xl">
+            <div className="overflow-x-auto border border-[#E4E6EB]  rounded-xl">
               <table className="w-full text-left text-xs border-collapse">
                 <thead>
-                  <tr className="bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-200 font-bold border-b border-slate-200 dark:border-slate-800">
+                  <tr className="bg-[#F0F2F5]  text-[#050505]  font-bold border-b border-[#E4E6EB] ">
                     <th className="p-3">Code</th>
                     <th className="p-3">Intitulé de la Classe</th>
                     <th className="p-3">Cycle</th>
@@ -820,48 +820,48 @@ export const SchoolSettingsModule: React.FC<SchoolSettingsModuleProps> = ({
                     <th className="p-3 text-center">Actions</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-200 dark:divide-slate-800">
+                <tbody className="divide-y divide-slate-200 ">
                   {classesConfig.map((cls) => {
                     const getCycleBadge = () => {
                       switch (cls.cycle) {
-                        case 'maternelle': return 'bg-pink-100 text-pink-800 dark:bg-pink-950/60 dark:text-pink-300';
-                        case 'primaire': return 'bg-blue-100 text-blue-800 dark:bg-blue-950/60 dark:text-blue-300';
-                        case 'college': return 'bg-purple-100 text-purple-800 dark:bg-purple-950/60 dark:text-purple-300';
-                        case 'lycee': return 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300';
-                        case 'formation_pro': return 'bg-amber-100 text-amber-800 dark:bg-amber-950/60 dark:text-amber-300';
-                        default: return 'bg-slate-100 text-slate-800';
+                        case 'maternelle': return 'bg-pink-100 text-pink-800  ';
+                        case 'primaire': return 'bg-blue-100 text-blue-800  ';
+                        case 'college': return 'bg-purple-100 text-purple-800  ';
+                        case 'lycee': return 'bg-[#E7F3FF] text-[#1877F2]  ';
+                        case 'formation_pro': return 'bg-amber-100 text-amber-800  ';
+                        default: return 'bg-[#F0F2F5] text-[#050505]';
                       }
                     };
 
                     return (
-                      <tr key={cls.id} className="hover:bg-slate-50 dark:hover:bg-slate-800/50">
-                        <td className="p-3 font-mono font-bold text-indigo-600 dark:text-indigo-400">{cls.code}</td>
-                        <td className="p-3 font-bold text-slate-900 dark:text-white">{cls.name}</td>
+                      <tr key={cls.id} className="hover:bg-[#F0F2F5]">
+                        <td className="p-3 font-mono font-bold text-[#1877F2] ">{cls.code}</td>
+                        <td className="p-3 font-bold text-[#050505] ">{cls.name}</td>
                         <td className="p-3">
-                          <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold uppercase ${getCycleBadge()}`}>
+                          <span className={`px-2 py-0.5 rounded-lg text-[10px] font-bold uppercase ${getCycleBadge()}`}>
                             {cls.cycle}
                           </span>
                         </td>
                         <td className="p-3 font-semibold">{cls.section || 'A'}</td>
                         <td className="p-3 text-center font-mono">{cls.capaciteMax} élèves</td>
-                        <td className="p-3 text-right font-mono font-bold text-slate-900 dark:text-white">
+                        <td className="p-3 text-right font-mono font-bold text-[#050505] ">
                           {cls.fraisScolariteFCFA.toLocaleString()} FCFA
                         </td>
-                        <td className="p-3 text-right font-mono text-slate-600 dark:text-slate-400">
+                        <td className="p-3 text-right font-mono text-[#65676B] ">
                           {cls.fraisInscriptionFCFA.toLocaleString()} FCFA
                         </td>
                         <td className="p-3 text-center">
                           <div className="flex items-center justify-center gap-1.5">
                             <button
                               onClick={() => handleOpenEditClass(cls)}
-                              className="p-1.5 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition-colors cursor-pointer"
+                              className="p-1.5 rounded-lg hover:bg-[#F0F2F5] text-[#65676B]  transition-colors cursor-pointer"
                               title="Modifier la classe"
                             >
                               <Edit3 className="w-3.5 h-3.5" />
                             </button>
                             <button
                               onClick={() => onDeleteClass(cls.id)}
-                              className="p-1.5 rounded-lg hover:bg-rose-100 dark:hover:bg-rose-950 text-rose-600 transition-colors cursor-pointer"
+                              className="p-1.5 rounded-lg hover:bg-rose-100 text-rose-600 transition-colors cursor-pointer"
                               title="Supprimer la classe"
                             >
                               <Trash2 className="w-3.5 h-3.5" />
@@ -882,19 +882,19 @@ export const SchoolSettingsModule: React.FC<SchoolSettingsModuleProps> = ({
       
       {/* TAB MATIÈRES & COURS */}
       {activeTab === 'subjects' && (
-        <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 dark:border-slate-800 pb-4">
+        <div className="bg-white  rounded-lg p-6 border border-[#E4E6EB]  shadow-sm space-y-6">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#E4E6EB]  pb-4">
             <div>
               <div className="flex items-center gap-2">
-                <BookOpen className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
-                <h3 className="text-base font-bold text-slate-900 dark:text-white">
+                <BookOpen className="w-5 h-5 text-[#1877F2] " />
+                <h3 className="text-base font-bold text-[#050505] ">
                   Matières & Disciplines d'Études
                 </h3>
-                <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800">
+                <span className="px-2.5 py-0.5 rounded-lg text-[11px] font-bold bg-[#E7F3FF]  text-[#1877F2]  border border-[#E4E6EB] ">
                   {(schoolConfig.subjects || []).length} matière(s)
                 </span>
               </div>
-              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+              <p className="text-xs text-[#65676B]  mt-1">
                 Gérez le programme officiel des matières enseignées dans l'établissement pour les cours, notes, bulletins et emplois du temps.
               </p>
             </div>
@@ -909,11 +909,11 @@ export const SchoolSettingsModule: React.FC<SchoolSettingsModuleProps> = ({
                     if (subjectError) setSubjectError(null);
                   }}
                   placeholder="Ex: Mathématiques, Sciences Physiques..." 
-                  className="bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl px-3.5 py-2 text-xs text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 min-w-[240px]"
+                  className="bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3.5 py-2 text-xs text-[#050505]  focus:outline-none focus:ring-2 focus:ring-indigo-500 min-w-[240px]"
                 />
                 <button
                   type="submit"
-                  className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 active:scale-95 text-white font-bold rounded-xl flex items-center justify-center gap-2 text-xs shadow-md shadow-indigo-600/20 transition-all cursor-pointer"
+                  className="px-4 py-2 bg-[#1877F2] hover:bg-[#1877F2] active:scale-95 text-white font-bold rounded-xl flex items-center justify-center gap-2 text-xs shadow-md shadow-sm transition-all cursor-pointer"
                 >
                   <Plus className="w-4 h-4" />
                   <span>Ajouter la matière</span>
@@ -924,22 +924,22 @@ export const SchoolSettingsModule: React.FC<SchoolSettingsModuleProps> = ({
 
           {/* Feedback messages */}
           {subjectError && (
-            <div className="bg-rose-50 dark:bg-rose-950/50 border border-rose-200 dark:border-rose-800/60 rounded-xl p-3 text-rose-900 dark:text-rose-200 text-xs flex items-center gap-2">
-              <AlertCircle className="w-4 h-4 text-rose-600 dark:text-rose-400 shrink-0" />
+            <div className="bg-rose-50  border border-rose-200  rounded-xl p-3 text-rose-900  text-xs flex items-center gap-2">
+              <AlertCircle className="w-4 h-4 text-rose-600  shrink-0" />
               <span>{subjectError}</span>
             </div>
           )}
           {subjectSuccess && (
-            <div className="bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800/60 rounded-xl p-3 text-emerald-900 dark:text-emerald-200 text-xs flex items-center gap-2">
-              <Check className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+            <div className="bg-[#E7F3FF]  border border-[#E4E6EB]  rounded-xl p-3 text-[#1877F2]  text-xs flex items-center gap-2">
+              <Check className="w-4 h-4 text-[#1877F2]  shrink-0" />
               <span>{subjectSuccess}</span>
             </div>
           )}
 
           {/* Quick presets for common Congolese curriculum */}
           {isAdmin && (
-            <div className="bg-slate-50 dark:bg-slate-800/40 p-4 rounded-xl border border-slate-200 dark:border-slate-700/60">
-              <span className="text-[11px] font-bold text-slate-700 dark:text-slate-300 block mb-2">
+            <div className="bg-[#F0F2F5]  p-4 rounded-xl border border-[#E4E6EB] ">
+              <span className="text-[11px] font-bold text-[#050505]  block mb-2">
                 Suggestions de matières courantes au Congo (+ Ajouter en 1 clic) :
               </span>
               <div className="flex flex-wrap gap-1.5">
@@ -969,8 +969,8 @@ export const SchoolSettingsModule: React.FC<SchoolSettingsModuleProps> = ({
                       onClick={() => handleAddStandardPreset(preset)}
                       className={`text-[11px] px-2.5 py-1 rounded-lg font-medium transition-all ${
                         alreadyExists 
-                          ? 'bg-slate-200/70 dark:bg-slate-800 text-slate-400 dark:text-slate-500 cursor-default'
-                          : 'bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:border-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 hover:shadow-xs cursor-pointer'
+                          ? 'bg-[#F0F2F5]  text-[#65676B]  cursor-default'
+                          : 'bg-white  border border-[#E4E6EB]  text-[#050505]  hover:border-[#E4E6EB] hover:text-[#1877F2] hover:shadow-xs cursor-pointer'
                       }`}
                     >
                       {alreadyExists ? `✓ ${preset}` : `+ ${preset}`}
@@ -988,43 +988,43 @@ export const SchoolSettingsModule: React.FC<SchoolSettingsModuleProps> = ({
               value={subjectSearch}
               onChange={(e) => setSubjectSearch(e.target.value)}
               placeholder="Filtrer les matières..."
-              className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-1.5 text-xs text-slate-900 dark:text-white w-full max-w-xs focus:outline-none focus:ring-1 focus:ring-indigo-500"
+              className="bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3 py-1.5 text-xs text-[#050505]  w-full max-w-xs focus:outline-none focus:ring-1 focus:ring-indigo-500"
             />
           </div>
           
           {/* Subjects Table */}
-          <div className="bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden shadow-xs">
+          <div className="bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl overflow-hidden shadow-xs">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 text-xs font-bold text-slate-900 dark:text-white">
+                <tr className="bg-white  border-b border-[#E4E6EB]  text-xs font-bold text-[#050505] ">
                   <th className="p-3.5">#</th>
                   <th className="p-3.5">Intitulé de la matière</th>
                   <th className="p-3.5 hidden sm:table-cell">Discipline</th>
                   <th className="p-3.5 text-right">Actions</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-200 dark:divide-slate-700 text-xs">
+              <tbody className="divide-y divide-slate-200  text-xs">
                 {(schoolConfig.subjects || [])
                   .filter(s => s.toLowerCase().includes(subjectSearch.toLowerCase()))
                   .map((subject, idx) => (
-                    <tr key={idx} className="hover:bg-slate-100/50 dark:hover:bg-slate-800/50 transition-colors">
-                      <td className="p-3.5 text-slate-400 font-mono w-12">
+                    <tr key={idx} className="hover:bg-[#F0F2F5]/50 transition-colors">
+                      <td className="p-3.5 text-[#65676B] font-mono w-12">
                         {idx + 1}
                       </td>
-                      <td className="p-3.5 text-slate-900 dark:text-slate-100 font-semibold">
+                      <td className="p-3.5 text-[#050505]  font-semibold">
                         {subject}
                       </td>
-                      <td className="p-3.5 text-slate-500 dark:text-slate-400 hidden sm:table-cell">
+                      <td className="p-3.5 text-[#65676B]  hidden sm:table-cell">
                         {subject.toLowerCase().includes('math') || subject.toLowerCase().includes('physique') || subject.toLowerCase().includes('svt') || subject.toLowerCase().includes('info') ? (
-                          <span className="px-2 py-0.5 rounded-md bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 font-medium text-[10px]">
+                          <span className="px-2 py-0.5 rounded-md bg-blue-50  text-blue-700  font-medium text-[10px]">
                             Scientifique / Tech
                           </span>
                         ) : subject.toLowerCase().includes('français') || subject.toLowerCase().includes('anglais') || subject.toLowerCase().includes('espagnol') || subject.toLowerCase().includes('philo') || subject.toLowerCase().includes('histoire') ? (
-                          <span className="px-2 py-0.5 rounded-md bg-amber-50 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 font-medium text-[10px]">
+                          <span className="px-2 py-0.5 rounded-md bg-amber-50  text-amber-700  font-medium text-[10px]">
                             Littéraire / Humaines
                           </span>
                         ) : (
-                          <span className="px-2 py-0.5 rounded-md bg-purple-50 dark:bg-purple-950/60 text-purple-700 dark:text-purple-300 font-medium text-[10px]">
+                          <span className="px-2 py-0.5 rounded-md bg-purple-50  text-purple-700  font-medium text-[10px]">
                             Générale / Transversale
                           </span>
                         )}
@@ -1034,7 +1034,7 @@ export const SchoolSettingsModule: React.FC<SchoolSettingsModuleProps> = ({
                           <button
                             type="button"
                             onClick={() => handleDeleteSubject(subject)}
-                            className="p-1.5 text-slate-400 hover:bg-rose-100 dark:hover:bg-rose-900/30 hover:text-rose-600 dark:hover:text-rose-400 rounded-lg transition-colors cursor-pointer"
+                            className="p-1.5 text-[#65676B] hover:bg-rose-100/30 hover:text-rose-600 rounded-lg transition-colors cursor-pointer"
                             title="Supprimer la matière"
                           >
                             <Trash2 className="w-4 h-4" />
@@ -1045,14 +1045,14 @@ export const SchoolSettingsModule: React.FC<SchoolSettingsModuleProps> = ({
                   ))}
                 {!(schoolConfig.subjects || []).length && (
                   <tr>
-                    <td colSpan={4} className="p-8 text-center text-slate-500 text-xs">
+                    <td colSpan={4} className="p-8 text-center text-[#65676B] text-xs">
                       Aucune matière configurée pour l'instant. Utilisez le formulaire ci-dessus pour en ajouter.
                     </td>
                   </tr>
                 )}
                 {(schoolConfig.subjects || []).length > 0 && !(schoolConfig.subjects || []).filter(s => s.toLowerCase().includes(subjectSearch.toLowerCase())).length && (
                   <tr>
-                    <td colSpan={4} className="p-6 text-center text-slate-500 text-xs">
+                    <td colSpan={4} className="p-6 text-center text-[#65676B] text-xs">
                       Aucune matière ne correspond à votre recherche "{subjectSearch}".
                     </td>
                   </tr>
@@ -1064,12 +1064,12 @@ export const SchoolSettingsModule: React.FC<SchoolSettingsModuleProps> = ({
       )}
 
       {activeTab === 'permissions' && (
-        <div className="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+        <div className="bg-white  rounded-lg p-6 border border-[#E4E6EB]  shadow-sm space-y-6">
           <div>
-            <h3 className="text-sm font-bold text-slate-900 dark:text-white">
+            <h3 className="text-sm font-bold text-[#050505] ">
               Attribution des Rôles & Matrice des Permissions
             </h3>
-            <p className="text-xs text-slate-500 dark:text-slate-400">
+            <p className="text-xs text-[#65676B] ">
               Contrôlez les droits d'accès pour chaque profil. Notez que les rôles <strong>Élève</strong> et <strong>Parent</strong> sont strictement limités à la lecture seule (impression de documents originaux désactivée).
             </p>
           </div>
@@ -1083,50 +1083,50 @@ export const SchoolSettingsModule: React.FC<SchoolSettingsModuleProps> = ({
                   key={rp.role}
                   className={`p-4 rounded-xl border flex flex-col justify-between ${
                     isReadOnlyProfile 
-                      ? 'border-amber-200 dark:border-amber-900/60 bg-amber-50/40 dark:bg-amber-950/20'
-                      : 'border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/40'
+                      ? 'border-amber-200  bg-amber-50/40 '
+                      : 'border-[#E4E6EB]  bg-[#F0F2F5]/50 '
                   }`}
                 >
                   <div>
                     <div className="flex items-center justify-between mb-2">
-                      <span className="font-extrabold text-sm text-slate-900 dark:text-white">{rp.label}</span>
-                      <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold uppercase ${
+                      <span className="font-extrabold text-sm text-[#050505] ">{rp.label}</span>
+                      <span className={`px-2 py-0.5 rounded-lg text-[10px] font-bold uppercase ${
                         isReadOnlyProfile 
-                          ? 'bg-amber-100 dark:bg-amber-900 text-amber-800 dark:text-amber-300' 
-                          : 'bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-300'
+                          ? 'bg-amber-100  text-amber-800 ' 
+                          : 'bg-[#E7F3FF]  text-[#1877F2] '
                       }`}>
                         {rp.role}
                       </span>
                     </div>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 mb-3">
+                    <p className="text-xs text-[#65676B]  mb-3">
                       {rp.description}
                     </p>
 
-                    <div className="space-y-1.5 text-xs pt-2 border-t border-slate-200 dark:border-slate-700">
+                    <div className="space-y-1.5 text-xs pt-2 border-t border-[#E4E6EB] ">
                       <div className="flex items-center justify-between">
-                        <span className="text-slate-600 dark:text-slate-300">Gestion Élèves & Inscriptions :</span>
-                        {rp.canManageStudents ? <Check className="w-4 h-4 text-emerald-600" /> : <X className="w-4 h-4 text-slate-400" />}
+                        <span className="text-[#65676B] ">Gestion Élèves & Inscriptions :</span>
+                        {rp.canManageStudents ? <Check className="w-4 h-4 text-[#1877F2]" /> : <X className="w-4 h-4 text-[#65676B]" />}
                       </div>
                       <div className="flex items-center justify-between">
-                        <span className="text-slate-600 dark:text-slate-300">Gestion Personnel & Enseignants :</span>
-                        {rp.canManageStaff ? <Check className="w-4 h-4 text-emerald-600" /> : <X className="w-4 h-4 text-slate-400" />}
+                        <span className="text-[#65676B] ">Gestion Personnel & Enseignants :</span>
+                        {rp.canManageStaff ? <Check className="w-4 h-4 text-[#1877F2]" /> : <X className="w-4 h-4 text-[#65676B]" />}
                       </div>
                       <div className="flex items-center justify-between">
-                        <span className="text-slate-600 dark:text-slate-300">Saisie des Notes & Évaluations :</span>
-                        {rp.canInputGrades ? <Check className="w-4 h-4 text-emerald-600" /> : <X className="w-4 h-4 text-slate-400" />}
+                        <span className="text-[#65676B] ">Saisie des Notes & Évaluations :</span>
+                        {rp.canInputGrades ? <Check className="w-4 h-4 text-[#1877F2]" /> : <X className="w-4 h-4 text-[#65676B]" />}
                       </div>
                       <div className="flex items-center justify-between">
-                        <span className="text-slate-600 dark:text-slate-300">Comptabilité & Encaissements :</span>
-                        {rp.canManageFees ? <Check className="w-4 h-4 text-emerald-600" /> : <X className="w-4 h-4 text-slate-400" />}
+                        <span className="text-[#65676B] ">Comptabilité & Encaissements :</span>
+                        {rp.canManageFees ? <Check className="w-4 h-4 text-[#1877F2]" /> : <X className="w-4 h-4 text-[#65676B]" />}
                       </div>
                       <div className="flex items-center justify-between font-bold">
-                        <span className={rp.canPrintOfficialDocs ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-500'}>
+                        <span className={rp.canPrintOfficialDocs ? 'text-[#1877F2] ' : 'text-[#65676B]'}>
                           Impression Documents Officiels :
                         </span>
                         {rp.canPrintOfficialDocs ? (
-                          <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 dark:bg-emerald-950 px-1.5 py-0.5 rounded border border-emerald-300">Autorisée</span>
+                          <span className="text-[10px] font-bold text-[#1877F2] bg-[#E7F3FF]  px-1.5 py-0.5 rounded border border-[#E4E6EB]">Autorisée</span>
                         ) : (
-                          <span className="text-[10px] font-bold text-rose-600 bg-rose-50 dark:bg-rose-950 px-1.5 py-0.5 rounded border border-rose-300">Désactivée (Lecture seule)</span>
+                          <span className="text-[10px] font-bold text-rose-600 bg-rose-50  px-1.5 py-0.5 rounded border border-rose-300">Désactivée (Lecture seule)</span>
                         )}
                       </div>
                     </div>
@@ -1141,14 +1141,14 @@ export const SchoolSettingsModule: React.FC<SchoolSettingsModuleProps> = ({
       {/* CLASS MODAL */}
       {showClassModal && (
         <div className="fixed inset-0 z-50 bg-black/75 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white dark:bg-slate-900 text-slate-900 dark:text-white w-full max-w-lg rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 p-6 space-y-4">
-            <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
+          <div className="bg-white  text-[#050505]  w-full max-w-lg rounded-lg shadow-2xl border border-[#E4E6EB]  p-6 space-y-4">
+            <div className="flex items-center justify-between border-b border-[#E4E6EB]  pb-3">
               <h3 className="font-bold text-base">
                 {editingClass ? 'Modifier la Classe' : 'Créer une Nouvelle Classe'}
               </h3>
               <button
                 onClick={() => setShowClassModal(false)}
-                className="p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-slate-600 cursor-pointer"
+                className="p-1 rounded-lg hover:bg-[#F0F2F5] text-[#65676B] hover:text-[#65676B] cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -1157,13 +1157,13 @@ export const SchoolSettingsModule: React.FC<SchoolSettingsModuleProps> = ({
             <form onSubmit={handleSaveClass} className="space-y-3">
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="text-[11px] font-bold uppercase text-slate-600 dark:text-slate-400 block mb-1">
+                  <label className="text-[11px] font-bold uppercase text-[#65676B]  block mb-1">
                     Cycle Pédagogique *
                   </label>
                   <select
                     value={classForm.cycle}
                     onChange={(e) => setClassForm({ ...classForm, cycle: e.target.value as SchoolCycle })}
-                    className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3 py-2 text-xs font-semibold"
+                    className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3 py-2 text-xs font-semibold"
                   >
                     <option value="maternelle">Maternel</option>
                     <option value="primaire">Primaire</option>
@@ -1174,7 +1174,7 @@ export const SchoolSettingsModule: React.FC<SchoolSettingsModuleProps> = ({
                 </div>
 
                 <div>
-                  <label className="text-[11px] font-bold uppercase text-slate-600 dark:text-slate-400 block mb-1">
+                  <label className="text-[11px] font-bold uppercase text-[#65676B]  block mb-1">
                     Intitulé / Nom *
                   </label>
                   <input
@@ -1183,14 +1183,14 @@ export const SchoolSettingsModule: React.FC<SchoolSettingsModuleProps> = ({
                     placeholder="Ex: 6ème A ou CP1"
                     value={classForm.name}
                     onChange={(e) => setClassForm({ ...classForm, name: e.target.value })}
-                    className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3 py-2 text-xs font-semibold"
+                    className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3 py-2 text-xs font-semibold"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="text-[11px] font-bold uppercase text-slate-600 dark:text-slate-400 block mb-1">
+                  <label className="text-[11px] font-bold uppercase text-[#65676B]  block mb-1">
                     Niveau / Filière
                   </label>
                   <input
@@ -1198,12 +1198,12 @@ export const SchoolSettingsModule: React.FC<SchoolSettingsModuleProps> = ({
                     placeholder="Ex: 6ème, Terminale D"
                     value={classForm.niveau}
                     onChange={(e) => setClassForm({ ...classForm, niveau: e.target.value })}
-                    className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3 py-2 text-xs font-semibold"
+                    className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3 py-2 text-xs font-semibold"
                   />
                 </div>
 
                 <div>
-                  <label className="text-[11px] font-bold uppercase text-slate-600 dark:text-slate-400 block mb-1">
+                  <label className="text-[11px] font-bold uppercase text-[#65676B]  block mb-1">
                     Section
                   </label>
                   <input
@@ -1211,14 +1211,14 @@ export const SchoolSettingsModule: React.FC<SchoolSettingsModuleProps> = ({
                     placeholder="A, B, C, 1, 2"
                     value={classForm.section}
                     onChange={(e) => setClassForm({ ...classForm, section: e.target.value })}
-                    className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3 py-2 text-xs font-semibold"
+                    className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3 py-2 text-xs font-semibold"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="text-[11px] font-bold uppercase text-slate-600 dark:text-slate-400 block mb-1">
+                  <label className="text-[11px] font-bold uppercase text-[#65676B]  block mb-1">
                     Frais Scolarité (Annuel FCFA)
                   </label>
                   <input
@@ -1227,12 +1227,12 @@ export const SchoolSettingsModule: React.FC<SchoolSettingsModuleProps> = ({
                     step="5000"
                     value={classForm.fraisScolariteFCFA}
                     onChange={(e) => setClassForm({ ...classForm, fraisScolariteFCFA: Number(e.target.value) })}
-                    className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3 py-2 text-xs font-semibold font-mono"
+                    className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3 py-2 text-xs font-semibold font-mono"
                   />
                 </div>
 
                 <div>
-                  <label className="text-[11px] font-bold uppercase text-slate-600 dark:text-slate-400 block mb-1">
+                  <label className="text-[11px] font-bold uppercase text-[#65676B]  block mb-1">
                     Frais Inscription (FCFA)
                   </label>
                   <input
@@ -1241,14 +1241,14 @@ export const SchoolSettingsModule: React.FC<SchoolSettingsModuleProps> = ({
                     step="1000"
                     value={classForm.fraisInscriptionFCFA}
                     onChange={(e) => setClassForm({ ...classForm, fraisInscriptionFCFA: Number(e.target.value) })}
-                    className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3 py-2 text-xs font-semibold font-mono"
+                    className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3 py-2 text-xs font-semibold font-mono"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="text-[11px] font-bold uppercase text-slate-600 dark:text-slate-400 block mb-1">
+                  <label className="text-[11px] font-bold uppercase text-[#65676B]  block mb-1">
                     Capacité Maximale
                   </label>
                   <input
@@ -1256,12 +1256,12 @@ export const SchoolSettingsModule: React.FC<SchoolSettingsModuleProps> = ({
                     min="1"
                     value={classForm.capaciteMax}
                     onChange={(e) => setClassForm({ ...classForm, capaciteMax: Number(e.target.value) })}
-                    className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3 py-2 text-xs font-semibold"
+                    className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3 py-2 text-xs font-semibold"
                   />
                 </div>
 
                 <div>
-                  <label className="text-[11px] font-bold uppercase text-slate-600 dark:text-slate-400 block mb-1">
+                  <label className="text-[11px] font-bold uppercase text-[#65676B]  block mb-1">
                     Salle de Cours
                   </label>
                   <input
@@ -1269,22 +1269,22 @@ export const SchoolSettingsModule: React.FC<SchoolSettingsModuleProps> = ({
                     placeholder="Ex: Bâtiment A - Salle 04"
                     value={classForm.salle}
                     onChange={(e) => setClassForm({ ...classForm, salle: e.target.value })}
-                    className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-3 py-2 text-xs font-semibold"
+                    className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3 py-2 text-xs font-semibold"
                   />
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-slate-200 dark:border-slate-800 flex justify-end gap-2">
+              <div className="pt-4 border-t border-[#E4E6EB]  flex justify-end gap-2">
                 <button
                   type="button"
                   onClick={() => setShowClassModal(false)}
-                  className="px-4 py-2 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
+                  className="px-4 py-2 rounded-xl text-xs font-semibold text-[#050505]  hover:bg-[#F0F2F5] cursor-pointer"
                 >
                   Annuler
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-2 rounded-xl text-xs font-bold bg-indigo-600 hover:bg-indigo-700 text-white shadow-sm cursor-pointer"
+                  className="px-4 py-2 rounded-xl text-xs font-bold bg-[#1877F2] hover:bg-[#1877F2] text-white shadow-sm cursor-pointer"
                 >
                   {editingClass ? 'Mettre à jour' : 'Créer la Classe'}
                 </button>

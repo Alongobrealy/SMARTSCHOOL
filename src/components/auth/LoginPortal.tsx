@@ -426,38 +426,38 @@ export const LoginPortal: React.FC<LoginPortalProps> = ({
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col justify-between relative overflow-hidden font-sans select-none transition-colors duration-300">
+    <div className="min-h-screen bg-[#F0F2F5]  text-[#050505]  flex flex-col justify-between relative overflow-hidden font-sans select-none transition-colors duration-300">
       
       {/* Background Ambience Grid & Glows */}
-      <div className="absolute inset-0 pointer-events-none opacity-30 dark:opacity-20 bg-[radial-gradient(#6366f1_1.2px,transparent_1.2px)] [background-size:28px_28px]"></div>
-      <div className="absolute -top-40 -left-40 w-[30rem] h-[30rem] rounded-full bg-indigo-500/15 dark:bg-indigo-600/25 blur-3xl pointer-events-none"></div>
-      <div className="absolute -bottom-40 -right-40 w-[30rem] h-[30rem] rounded-full bg-emerald-500/15 dark:bg-emerald-600/20 blur-3xl pointer-events-none"></div>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40rem] h-[40rem] rounded-full bg-sky-500/5 dark:bg-sky-500/10 blur-[120px] pointer-events-none"></div>
+      <div className="absolute inset-0 pointer-events-none opacity-30  bg-[radial-gradient(#6366f1_1.2px,transparent_1.2px)] [background-size:28px_28px]"></div>
+      <div className="absolute -top-40 -left-40 w-[30rem] h-[30rem] rounded-lg bg-[#1877F2]  blur-3xl pointer-events-none"></div>
+      <div className="absolute -bottom-40 -right-40 w-[30rem] h-[30rem] rounded-lg bg-[#1877F2]  blur-3xl pointer-events-none"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40rem] h-[40rem] rounded-lg bg-sky-500/5  blur-[120px] pointer-events-none"></div>
 
       {/* Top Navbar */}
-      <header className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 py-3.5 sm:py-4 flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-3 border-b border-slate-200/90 dark:border-slate-800/90 backdrop-blur-xl bg-white/90 dark:bg-slate-950/85 transition-colors text-center sm:text-left">
+      <header className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 py-3.5 sm:py-4 flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-3 border-b border-[#E4E6EB]  backdrop-blur-xl bg-white/90  transition-colors text-center sm:text-left">
         {/* Left: Brand Logo & Title - Clickable to return to Vitrine */}
         <button
           id="btn-login-brand-vitrine"
           type="button"
           onClick={handleBackToVitrine}
-          className="flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-2.5 sm:gap-3.5 text-center sm:text-left group cursor-pointer transition-all hover:opacity-90 active:scale-98 focus:outline-none rounded-2xl p-1 -m-1"
+          className="flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-2.5 sm:gap-3.5 text-center sm:text-left group cursor-pointer transition-all hover:opacity-90 active:scale-98 focus:outline-none rounded-lg p-1 -m-1"
           title="Accéder au portail vitrine officiel EDU-CONGO"
         >
-          <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-br from-indigo-600 via-indigo-700 to-indigo-800 border border-indigo-400/40 flex items-center justify-center font-display font-black text-white text-base sm:text-lg shadow-lg shadow-indigo-600/25 group-hover:scale-105 transition-all shrink-0">
+          <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-lg bg-[#1877F2] border border-[#E4E6EB] flex items-center justify-center font-display font-black text-white text-base sm:text-lg shadow-lg shadow-sm group-hover:scale-105 transition-all shrink-0">
             EC
           </div>
           <div className="flex flex-col items-center sm:items-start">
             <div className="flex items-center justify-center gap-2">
-              <span className="font-display font-black text-base sm:text-lg tracking-tight text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+              <span className="font-display font-black text-base sm:text-lg tracking-tight text-[#050505]  group-hover:text-[#1877F2] transition-colors">
                 EDU-CONGO
               </span>
-              <span className="bg-emerald-500/15 dark:bg-emerald-500/25 text-emerald-800 dark:text-emerald-300 border border-emerald-500/30 text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span className="bg-[#1877F2]  text-[#1877F2]  border border-[#E4E6EB] text-[10px] font-bold px-2 py-0.5 rounded-lg flex items-center gap-1">
+                <span className="w-1.5 h-1.5 rounded-lg bg-[#1877F2] animate-pulse"></span>
                 Portail Sécurisé
               </span>
             </div>
-            <p className="text-[11px] sm:text-xs text-slate-600 dark:text-slate-400 font-medium tracking-tight mt-0.5 text-center sm:text-left">
+            <p className="text-[11px] sm:text-xs text-[#65676B]  font-medium tracking-tight mt-0.5 text-center sm:text-left">
               Système de Gestion Scolaire • République du Congo (+242)
             </p>
           </div>
@@ -471,10 +471,10 @@ export const LoginPortal: React.FC<LoginPortalProps> = ({
             id="btn-login-vitrine-link"
             type="button"
             onClick={handleBackToVitrine}
-            className="px-3.5 sm:px-4 py-2 rounded-xl bg-indigo-50 dark:bg-slate-900 hover:bg-indigo-100 dark:hover:bg-indigo-950/60 text-indigo-950 dark:text-slate-200 hover:text-indigo-700 dark:hover:text-indigo-300 text-xs font-bold border border-indigo-200 dark:border-slate-800 flex items-center gap-2 transition-all shadow-xs hover:shadow-md cursor-pointer active:scale-95"
+            className="px-3.5 sm:px-4 py-2 rounded-xl bg-[#E7F3FF]  hover:bg-[#E7F3FF]/60 text-[#1877F2]  hover:text-[#1877F2] text-xs font-bold border border-[#E4E6EB]  flex items-center gap-2 transition-all shadow-xs hover:shadow-md cursor-pointer active:scale-95"
             title="Revenir sur la page de présentation vitrine"
           >
-            <Globe className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+            <Globe className="w-4 h-4 text-[#1877F2] " />
             <span className="hidden sm:inline font-bold">Vitrine EDU-CONGO</span>
             <span className="sm:hidden font-bold">Vitrine</span>
           </button>
@@ -486,27 +486,27 @@ export const LoginPortal: React.FC<LoginPortalProps> = ({
         
         {/* Hero Presentation Header */}
         <div className="text-center max-w-2xl mb-5 sm:mb-6">
-          <div className="inline-flex items-center justify-center gap-2 px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-950/50 border border-indigo-200/90 dark:border-indigo-800/80 text-indigo-900 dark:text-indigo-300 text-xs font-bold mb-2 shadow-2xs">
-            <ShieldCheck className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+          <div className="inline-flex items-center justify-center gap-2 px-3 py-1 rounded-lg bg-[#E7F3FF]  border border-[#E4E6EB]  text-[#1877F2]  text-xs font-bold mb-2 shadow-2xs">
+            <ShieldCheck className="w-4 h-4 text-[#1877F2] " />
             Portail Officiel et Sécurisé Multi-Rôles
           </div>
-          <h2 className="font-display font-extrabold text-xl sm:text-3xl text-slate-900 dark:text-white tracking-tight">
+          <h2 className="font-display font-extrabold text-xl sm:text-3xl text-[#050505]  tracking-tight">
             Accédez à votre espace pédagogique & administratif
           </h2>
-          <p className="text-slate-600 dark:text-slate-300 text-xs sm:text-sm mt-2 leading-relaxed text-balance max-w-xl mx-auto font-normal">
+          <p className="text-[#65676B]  text-xs sm:text-sm mt-2 leading-relaxed text-balance max-w-xl mx-auto font-normal">
             Sélectionnez votre profil d'accès pour vous connecter à l'aide de votre identifiant ou code PIN sécurisé.
           </p>
         </div>
 
         {/* Role Selector Grid */}
-        <div className="w-full max-w-4xl bg-white dark:bg-slate-900/95 border border-slate-200 dark:border-slate-800/90 rounded-3xl p-3.5 sm:p-5 mb-5 sm:mb-6 shadow-xl backdrop-blur-xl transition-all">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-2 px-2 pb-2.5 mb-2.5 border-b border-slate-100 dark:border-slate-800/70 text-center sm:text-left">
-            <span className="font-display font-bold text-xs text-slate-800 dark:text-slate-200 uppercase tracking-wider flex items-center justify-center sm:justify-start gap-2">
-              <Layers className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+        <div className="w-full max-w-4xl bg-white  border border-[#E4E6EB]  rounded-lg p-3.5 sm:p-5 mb-5 sm:mb-6 shadow-xl backdrop-blur-xl transition-all">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-2 px-2 pb-2.5 mb-2.5 border-b border-[#E4E6EB]  text-center sm:text-left">
+            <span className="font-display font-bold text-xs text-[#050505]  uppercase tracking-wider flex items-center justify-center sm:justify-start gap-2">
+              <Layers className="w-4 h-4 text-[#1877F2] " />
               1. Choisissez votre profil d'utilisateur :
             </span>
-            <span className="text-[11px] text-emerald-800 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/50 font-bold px-2.5 py-0.5 rounded-full border border-emerald-200/70 dark:border-emerald-800/60 flex items-center justify-center gap-1.5">
-              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+            <span className="text-[11px] text-[#1877F2]  bg-[#E7F3FF]  font-bold px-2.5 py-0.5 rounded-lg border border-[#E4E6EB]  flex items-center justify-center gap-1.5">
+              <CheckCircle2 className="w-3.5 h-3.5 text-[#1877F2] " />
               Contrôle Anti-Doublon Actif
             </span>
           </div>
@@ -522,14 +522,14 @@ export const LoginPortal: React.FC<LoginPortalProps> = ({
                   id={`role-btn-${item.role}`}
                   type="button"
                   onClick={() => handleSelectRole(item.role)}
-                  className={`p-3 rounded-2xl flex flex-col items-center justify-center gap-2 text-center transition-all cursor-pointer relative overflow-hidden ${
+                  className={`p-3 rounded-lg flex flex-col items-center justify-center gap-2 text-center transition-all cursor-pointer relative overflow-hidden ${
                     isSelected
-                      ? `bg-gradient-to-br ${item.color} text-white shadow-lg shadow-indigo-600/25 scale-[1.03] ring-2 ring-indigo-500/30 dark:ring-indigo-400/40 font-bold`
-                      : 'bg-slate-50 dark:bg-slate-800/60 text-slate-800 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-950 dark:hover:text-white border border-slate-200/90 dark:border-slate-800'
+                      ? `bg-[#1877F2] ${item.color} text-white shadow-lg shadow-sm scale-[1.03] ring-2 ring-indigo-500/30  font-bold`
+                      : 'bg-[#F0F2F5]  text-[#050505]  hover:bg-[#F0F2F5] hover:text-slate-950 border border-[#E4E6EB] '
                   }`}
                 >
                   <div className={`w-9 h-9 rounded-xl flex items-center justify-center transition-transform ${
-                    isSelected ? 'bg-white/20 text-white scale-110 shadow-xs' : 'bg-slate-200/80 dark:bg-slate-700/60 text-slate-700 dark:text-slate-300'
+                    isSelected ? 'bg-white/20 text-white scale-110 shadow-xs' : 'bg-[#F0F2F5]  text-[#050505] '
                   }`}>
                     <IconComp className="w-5 h-5" />
                   </div>
@@ -540,7 +540,7 @@ export const LoginPortal: React.FC<LoginPortalProps> = ({
                     <span className={`text-[10px] font-mono px-2 py-0.5 rounded-md mt-0.5 text-center ${
                       isSelected 
                         ? 'bg-white/25 text-white font-bold' 
-                        : 'bg-slate-200/70 dark:bg-slate-700/60 text-slate-700 dark:text-slate-400'
+                        : 'bg-[#F0F2F5]  text-[#050505] '
                     }`}>
                       {item.authType === 'pin6' ? 'PIN 6 ch.' : item.authType === 'pin4' ? 'PIN 4 ch.' : 'Mot de passe'}
                     </span>
@@ -552,21 +552,21 @@ export const LoginPortal: React.FC<LoginPortalProps> = ({
         </div>
 
         {/* Login Box */}
-        <div className="w-full max-w-xl bg-white dark:bg-slate-900/95 border border-slate-200 dark:border-slate-800/90 rounded-3xl p-5 sm:p-8 shadow-2xl backdrop-blur-2xl relative transition-all">
+        <div className="w-full max-w-xl bg-white  border border-[#E4E6EB]  rounded-lg p-5 sm:p-8 shadow-2xl backdrop-blur-2xl relative transition-all">
           
           {/* Header of Active Role - Centré sur mobile */}
-          <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-3 sm:gap-4 pb-5 border-b border-slate-100 dark:border-slate-800">
-            <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br ${currentRoleConfig.color} flex items-center justify-center text-white shadow-md shadow-indigo-600/20 shrink-0`}>
+          <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-3 sm:gap-4 pb-5 border-b border-[#E4E6EB] ">
+            <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-lg bg-[#1877F2] ${currentRoleConfig.color} flex items-center justify-center text-white shadow-md shadow-sm shrink-0`}>
               <currentRoleConfig.icon className="w-6 h-6 sm:w-7 sm:h-7" />
             </div>
             <div className="flex-1 min-w-0">
-              <span className="text-[11px] font-black text-indigo-700 dark:text-indigo-400 uppercase tracking-wider block">
+              <span className="text-[11px] font-black text-[#1877F2]  uppercase tracking-wider block">
                 {currentRoleConfig.label}
               </span>
-              <h3 className="font-display font-bold text-base sm:text-lg text-slate-900 dark:text-white tracking-tight">
+              <h3 className="font-display font-bold text-base sm:text-lg text-[#050505]  tracking-tight">
                 {currentRoleConfig.category}
               </h3>
-              <p className="text-slate-600 dark:text-slate-400 text-xs mt-0.5">
+              <p className="text-[#65676B]  text-xs mt-0.5">
                 {currentRoleConfig.securityNote}
               </p>
             </div>
@@ -574,8 +574,8 @@ export const LoginPortal: React.FC<LoginPortalProps> = ({
 
           {/* Error & Success Banners */}
           {errorMessage && (
-            <div className="mt-4 bg-rose-50 dark:bg-rose-950/60 border border-rose-200 dark:border-rose-800/80 rounded-2xl p-4 flex items-start gap-3 text-rose-900 dark:text-rose-200 text-xs animate-in shake">
-              <AlertTriangle className="w-5 h-5 text-rose-600 dark:text-rose-400 shrink-0 mt-0.5" />
+            <div className="mt-4 bg-rose-50  border border-rose-200  rounded-lg p-4 flex items-start gap-3 text-rose-900  text-xs animate-in shake">
+              <AlertTriangle className="w-5 h-5 text-rose-600  shrink-0 mt-0.5" />
               <div className="flex-1">
                 <span className="font-bold text-xs block mb-0.5">Erreur d'authentification :</span>
                 <p className="leading-relaxed">{errorMessage}</p>
@@ -584,8 +584,8 @@ export const LoginPortal: React.FC<LoginPortalProps> = ({
           )}
 
           {successMessage && (
-            <div className="mt-4 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/80 rounded-2xl p-4 flex items-start gap-3 text-emerald-900 dark:text-emerald-200 text-xs animate-in fade-in">
-              <CheckCircle2 className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+            <div className="mt-4 bg-[#E7F3FF]  border border-[#E4E6EB]  rounded-lg p-4 flex items-start gap-3 text-[#1877F2]  text-xs animate-in fade-in">
+              <CheckCircle2 className="w-5 h-5 text-[#1877F2]  shrink-0 mt-0.5" />
               <div className="flex-1">
                 <span className="font-bold text-xs block mb-0.5">Connexion validée :</span>
                 <p className="leading-relaxed">{successMessage}</p>
@@ -599,19 +599,19 @@ export const LoginPortal: React.FC<LoginPortalProps> = ({
             {/* School Selector (for staff roles) */}
             {selectedRole !== 'superadmin' && (
               <div>
-                <label className="text-slate-800 dark:text-slate-200 font-bold mb-1.5 flex items-center justify-between text-xs sm:text-sm">
+                <label className="text-[#050505]  font-bold mb-1.5 flex items-center justify-between text-xs sm:text-sm">
                   <span className="flex items-center gap-2">
-                    <School className="w-4 h-4 text-indigo-600 dark:text-indigo-400" /> 
+                    <School className="w-4 h-4 text-[#1877F2] " /> 
                     Établissement scolaire de rattachement :
                   </span>
-                  <span className="text-[10px] text-slate-500 font-normal bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-md">
+                  <span className="text-[10px] text-[#65676B] font-normal bg-[#F0F2F5]  px-2 py-0.5 rounded-md">
                     Multi-Tenant Isolé
                   </span>
                 </label>
                 <select
                   value={selectedSchoolId}
                   onChange={(e) => setSelectedSchoolId(e.target.value)}
-                  className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 rounded-xl px-3.5 py-3 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 font-semibold"
+                  className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  text-[#050505]  rounded-xl px-3.5 py-3 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 font-semibold"
                 >
                   {availableSchools.length > 0 ? (
                     availableSchools.map((school) => (
@@ -628,19 +628,19 @@ export const LoginPortal: React.FC<LoginPortalProps> = ({
 
             {/* Identifier Input */}
             <div>
-              <label className="text-slate-800 dark:text-slate-200 font-bold mb-1.5 flex items-center justify-between text-xs sm:text-sm">
+              <label className="text-[#050505]  font-bold mb-1.5 flex items-center justify-between text-xs sm:text-sm">
                 <span className="flex items-center gap-1.5">
-                  <User className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+                  <User className="w-4 h-4 text-[#1877F2] " />
                   {currentRoleConfig.idLabel} :
                 </span>
                 {selectedRole === 'eleve' && (
-                  <span className="text-[11px] text-sky-600 dark:text-sky-400 font-mono font-bold">ex: MAT-2026-001</span>
+                  <span className="text-[11px] text-sky-600  font-mono font-bold">ex: MAT-2026-001</span>
                 )}
                 {selectedRole === 'parent' && (
-                  <span className="text-[11px] text-emerald-600 dark:text-emerald-400 font-mono font-bold">ex: +242 06 612 3456</span>
+                  <span className="text-[11px] text-[#1877F2]  font-mono font-bold">ex: +242 06 612 3456</span>
                 )}
                 {selectedRole === 'enseignant' && (
-                  <span className="text-[11px] text-indigo-600 dark:text-indigo-400 font-mono font-bold">ex: ENS-014</span>
+                  <span className="text-[11px] text-[#1877F2]  font-mono font-bold">ex: ENS-014</span>
                 )}
               </label>
               <div className="relative">
@@ -650,17 +650,17 @@ export const LoginPortal: React.FC<LoginPortalProps> = ({
                   value={identifier}
                   onChange={(e) => setIdentifier(e.target.value)}
                   placeholder={currentRoleConfig.placeholderId}
-                  className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 rounded-xl px-4 py-3 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 font-mono font-semibold"
+                  className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  text-[#050505]  rounded-xl px-4 py-3 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 font-mono font-semibold"
                 />
-                <UserCheck className="w-4 h-4 text-slate-400 dark:text-slate-500 absolute right-3.5 top-3.5 pointer-events-none" />
+                <UserCheck className="w-4 h-4 text-[#65676B]  absolute right-3.5 top-3.5 pointer-events-none" />
               </div>
             </div>
 
             {/* Secret Input (PIN or Password) */}
             <div>
               <div className="flex items-center justify-between mb-1.5">
-                <label className="text-slate-800 dark:text-slate-200 font-bold flex items-center gap-2 text-xs sm:text-sm">
-                  <KeyRound className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+                <label className="text-[#050505]  font-bold flex items-center gap-2 text-xs sm:text-sm">
+                  <KeyRound className="w-4 h-4 text-[#1877F2] " />
                   {currentRoleConfig.authType === 'pin6' 
                     ? 'Code PIN Secret (6 chiffres) :' 
                     : currentRoleConfig.authType === 'pin4' 
@@ -677,7 +677,7 @@ export const LoginPortal: React.FC<LoginPortalProps> = ({
                       setPinSetupError(null);
                       setShowPinSetupModal(true);
                     }}
-                    className="text-[11px] text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 underline font-bold cursor-pointer flex items-center gap-1"
+                    className="text-[11px] text-[#1877F2]  hover:text-[#1877F2] underline font-bold cursor-pointer flex items-center gap-1"
                   >
                     <Key className="w-3 h-3" />
                     Créer / Modifier mon Code PIN
@@ -700,14 +700,14 @@ export const LoginPortal: React.FC<LoginPortalProps> = ({
                     }
                   }}
                   placeholder={currentRoleConfig.authType === 'pin6' ? '•••••• (6 chiffres)' : currentRoleConfig.authType === 'pin4' ? '•••• (4 chiffres)' : 'Votre mot de passe'}
-                  className={`w-full bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 rounded-xl px-4 py-3 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 ${
+                  className={`w-full bg-[#F0F2F5]  border border-[#E4E6EB]  text-[#050505]  rounded-xl px-4 py-3 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 ${
                     currentRoleConfig.authType.startsWith('pin') ? 'font-mono text-center tracking-[0.35em] text-base sm:text-lg font-bold' : 'font-medium'
                   }`}
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="p-1.5 text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 absolute right-3 top-2.5 cursor-pointer rounded-lg hover:bg-slate-200/50 dark:hover:bg-slate-800 transition-colors"
+                  className="p-1.5 text-[#65676B] hover:text-[#050505][#65676B] absolute right-3 top-2.5 cursor-pointer rounded-lg hover:bg-[#F0F2F5] transition-colors"
                   title={showPassword ? "Masquer le code" : "Afficher le code"}
                 >
                   {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
@@ -716,7 +716,7 @@ export const LoginPortal: React.FC<LoginPortalProps> = ({
 
               {/* Pin format indicator */}
               {currentRoleConfig.authType.startsWith('pin') && (
-                <span className="text-[10px] text-slate-500 dark:text-slate-400 mt-1 block font-mono">
+                <span className="text-[10px] text-[#65676B]  mt-1 block font-mono">
                   Saisie numérique exclusive ({currentRoleConfig.pinLength} chiffres de 0 à 9).
                 </span>
               )}
@@ -725,7 +725,7 @@ export const LoginPortal: React.FC<LoginPortalProps> = ({
                 <button
                   type="button"
                   onClick={() => setShowForgotPasswordModal(true)}
-                  className="text-xs text-indigo-600 dark:text-indigo-400 hover:underline font-semibold bg-transparent border-none cursor-pointer"
+                  className="text-xs text-[#1877F2]  hover:underline font-semibold bg-transparent border-none cursor-pointer"
                 >
                   Mot de passe oublié ?
                 </button>
@@ -735,7 +735,7 @@ export const LoginPortal: React.FC<LoginPortalProps> = ({
             {/* Master Key for Super Admin */}
             {selectedRole === 'superadmin' && (
               <div>
-                <label className="text-slate-800 dark:text-slate-200 font-bold mb-1.5 block text-xs sm:text-sm">
+                <label className="text-[#050505]  font-bold mb-1.5 block text-xs sm:text-sm">
                   Clé Maître Super-Admin :
                 </label>
                 <input
@@ -743,7 +743,7 @@ export const LoginPortal: React.FC<LoginPortalProps> = ({
                   value={developerKey}
                   onChange={(e) => setDeveloperKey(e.target.value)}
                   placeholder="Clé maître requise"
-                  className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 rounded-xl px-4 py-3 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-rose-500 font-mono font-bold"
+                  className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  text-[#050505]  rounded-xl px-4 py-3 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-rose-500 font-mono font-bold"
                 />
               </div>
             )}
@@ -755,8 +755,8 @@ export const LoginPortal: React.FC<LoginPortalProps> = ({
               disabled={isSubmitting || lockoutTimer > 0}
               className={`w-full py-3.5 rounded-xl font-display font-extrabold text-white text-sm shadow-xl flex items-center justify-center gap-2.5 transition-all cursor-pointer ${
                 lockoutTimer > 0
-                  ? 'bg-slate-400 dark:bg-slate-700 opacity-50 cursor-not-allowed'
-                  : `bg-gradient-to-r ${currentRoleConfig.color} hover:opacity-95 active:scale-98 shadow-indigo-600/25`
+                  ? 'bg-[#F0F2F5]  opacity-50 cursor-not-allowed'
+                  : `bg-[#1877F2] ${currentRoleConfig.color} hover:opacity-95 active:scale-98 shadow-sm`
               }`}
             >
               <Lock className="w-4 h-4" />
@@ -772,12 +772,12 @@ export const LoginPortal: React.FC<LoginPortalProps> = ({
           </form>
 
           {/* Security Note Footer */}
-          <div className="mt-5 pt-4 border-t border-slate-100 dark:border-slate-800/80 flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-500 dark:text-slate-400">
+          <div className="mt-5 pt-4 border-t border-[#E4E6EB]  flex flex-wrap items-center justify-between gap-2 text-[11px] text-[#65676B] ">
             <span className="flex items-center gap-1.5 font-medium">
-              <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+              <ShieldCheck className="w-4 h-4 text-[#1877F2] " />
               Chiffrement TLS 256-bit • Base Nationale Congo
             </span>
-            <span className="font-mono font-bold text-slate-600 dark:text-slate-300">
+            <span className="font-mono font-bold text-[#65676B] ">
               EDU-CONGO v4.2
             </span>
           </div>
@@ -788,41 +788,41 @@ export const LoginPortal: React.FC<LoginPortalProps> = ({
       {/* PIN CREATION & SETUP MODAL */}
       {/* FORGOT PASSWORD MODAL */}
       {showForgotPasswordModal && (
-        <div className="fixed inset-0 z-50 bg-slate-950/70 dark:bg-slate-950/85 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 w-full max-w-md rounded-3xl p-6 sm:p-7 shadow-2xl animate-in zoom-in-95 transition-all">
-            <div className="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-800">
+        <div className="fixed inset-0 z-50 bg-black/50  backdrop-blur-xs flex items-center justify-center p-4">
+          <div className="bg-white  border border-[#E4E6EB]  text-[#050505]  w-full max-w-md rounded-lg p-6 sm:p-7 shadow-2xl animate-in zoom-in-95 transition-all">
+            <div className="flex items-center justify-between pb-4 border-b border-[#E4E6EB] ">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center font-bold shadow-md shadow-indigo-600/20">
+                <div className="w-10 h-10 rounded-xl bg-[#1877F2] text-white flex items-center justify-center font-bold shadow-md shadow-sm">
                   <Lock className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-display font-bold text-slate-900 dark:text-white text-base">
+                  <h3 className="font-display font-bold text-[#050505]  text-base">
                     Mot de passe oublié
                   </h3>
-                  <span className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">
+                  <span className="text-[11px] text-[#65676B]  font-medium">
                     Récupération par WhatsApp
                   </span>
                 </div>
               </div>
               <button
                 onClick={() => setShowForgotPasswordModal(false)}
-                className="p-1.5 text-slate-400 hover:text-slate-700 dark:hover:text-white rounded-lg cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                className="p-1.5 text-[#65676B] hover:text-[#050505] rounded-lg cursor-pointer hover:bg-[#F0F2F5] transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
             {forgotError && (
-              <div className="mt-4 bg-rose-50 dark:bg-rose-950/60 border border-rose-200 dark:border-rose-800 rounded-xl p-3 text-rose-900 dark:text-rose-200 text-xs flex items-center gap-2">
+              <div className="mt-4 bg-rose-50  border border-rose-200  rounded-xl p-3 text-rose-900  text-xs flex items-center gap-2">
                 <AlertTriangle className="w-4 h-4 shrink-0" />
                 <span>{forgotError}</span>
               </div>
             )}
             {forgotStep === "phone" && (
               <div className="mt-4">
-                <p className="text-xs text-slate-600 dark:text-slate-400 mb-4">
+                <p className="text-xs text-[#65676B]  mb-4">
                   Veuillez saisir le numéro de téléphone WhatsApp utilisé lors de votre inscription pour recevoir un code de réinitialisation.
                 </p>
-                <label className="text-slate-800 dark:text-slate-200 font-bold mb-1 block text-xs">
+                <label className="text-[#050505]  font-bold mb-1 block text-xs">
                   Numéro WhatsApp (+242) :
                 </label>
                 <input
@@ -830,7 +830,7 @@ export const LoginPortal: React.FC<LoginPortalProps> = ({
                   value={forgotPhone}
                   onChange={(e) => setForgotPhone(e.target.value)}
                   placeholder="06 895 83 77"
-                  className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl px-3.5 py-3 text-sm font-mono focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3.5 py-3 text-sm font-mono focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 />
                 <button
                   onClick={() => {
@@ -841,7 +841,7 @@ export const LoginPortal: React.FC<LoginPortalProps> = ({
                     setForgotError(null);
                     setForgotStep("otp");
                   }}
-                  className="w-full mt-4 py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-xl text-xs shadow-md transition-all cursor-pointer"
+                  className="w-full mt-4 py-3 bg-[#1877F2] hover:bg-[#1877F2] text-white font-bold rounded-xl text-xs shadow-md transition-all cursor-pointer"
                 >
                   Recevoir le code par WhatsApp
                 </button>
@@ -849,10 +849,10 @@ export const LoginPortal: React.FC<LoginPortalProps> = ({
             )}
             {forgotStep === "otp" && (
               <div className="mt-4">
-                <p className="text-xs text-slate-600 dark:text-slate-400 mb-4">
-                  Un code à 4 chiffres a été envoyé au <span className="font-bold text-slate-900 dark:text-white">{forgotPhone}</span>. (Simulation: Saisissez 1234)
+                <p className="text-xs text-[#65676B]  mb-4">
+                  Un code à 4 chiffres a été envoyé au <span className="font-bold text-[#050505] ">{forgotPhone}</span>. (Simulation: Saisissez 1234)
                 </p>
-                <label className="text-slate-800 dark:text-slate-200 font-bold mb-1 block text-xs">
+                <label className="text-[#050505]  font-bold mb-1 block text-xs">
                   Code de vérification :
                 </label>
                 <input
@@ -861,7 +861,7 @@ export const LoginPortal: React.FC<LoginPortalProps> = ({
                   value={forgotOtp}
                   onChange={(e) => setForgotOtp(e.target.value.replace(/[^0-9]/g, ""))}
                   placeholder="••••"
-                  className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl px-3.5 py-3 text-center text-xl tracking-[1em] font-mono font-bold focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3.5 py-3 text-center text-xl tracking-[1em] font-mono font-bold focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 />
                 <button
                   onClick={() => {
@@ -872,7 +872,7 @@ export const LoginPortal: React.FC<LoginPortalProps> = ({
                     setForgotError(null);
                     setForgotStep("new_password");
                   }}
-                  className="w-full mt-4 py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-xl text-xs shadow-md transition-all cursor-pointer"
+                  className="w-full mt-4 py-3 bg-[#1877F2] hover:bg-[#1877F2] text-white font-bold rounded-xl text-xs shadow-md transition-all cursor-pointer"
                 >
                   Vérifier le code
                 </button>
@@ -880,10 +880,10 @@ export const LoginPortal: React.FC<LoginPortalProps> = ({
             )}
             {forgotStep === "new_password" && (
               <div className="mt-4">
-                <p className="text-xs text-slate-600 dark:text-slate-400 mb-4">
+                <p className="text-xs text-[#65676B]  mb-4">
                   Veuillez saisir votre nouveau mot de passe (ou code PIN).
                 </p>
-                <label className="text-slate-800 dark:text-slate-200 font-bold mb-1 block text-xs">
+                <label className="text-[#050505]  font-bold mb-1 block text-xs">
                   Nouveau mot de passe :
                 </label>
                 <input
@@ -891,7 +891,7 @@ export const LoginPortal: React.FC<LoginPortalProps> = ({
                   value={forgotNewPassword}
                   onChange={(e) => setForgotNewPassword(e.target.value)}
                   placeholder="Nouveau mot de passe"
-                  className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl px-3.5 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3.5 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 />
                 <button
                   onClick={() => {
@@ -907,7 +907,7 @@ export const LoginPortal: React.FC<LoginPortalProps> = ({
                     setForgotPhone("");
                     setForgotNewPassword("");
                   }}
-                  className="w-full mt-4 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl text-xs shadow-md transition-all cursor-pointer"
+                  className="w-full mt-4 py-3 bg-[#1877F2] hover:bg-[#1877F2] text-white font-bold rounded-xl text-xs shadow-md transition-all cursor-pointer"
                 >
                   Enregistrer le nouveau mot de passe
                 </button>
@@ -917,64 +917,64 @@ export const LoginPortal: React.FC<LoginPortalProps> = ({
         </div>
       )}
       {showPinSetupModal && (
-        <div className="fixed inset-0 z-50 bg-slate-950/70 dark:bg-slate-950/85 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 w-full max-w-md rounded-3xl p-6 sm:p-7 shadow-2xl animate-in zoom-in-95 transition-all">
-            <div className="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-800">
+        <div className="fixed inset-0 z-50 bg-black/50  backdrop-blur-xs flex items-center justify-center p-4">
+          <div className="bg-white  border border-[#E4E6EB]  text-[#050505]  w-full max-w-md rounded-lg p-6 sm:p-7 shadow-2xl animate-in zoom-in-95 transition-all">
+            <div className="flex items-center justify-between pb-4 border-b border-[#E4E6EB] ">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center font-bold shadow-md shadow-indigo-600/20">
+                <div className="w-10 h-10 rounded-xl bg-[#1877F2] text-white flex items-center justify-center font-bold shadow-md shadow-sm">
                   <KeyRound className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-display font-bold text-slate-900 dark:text-white text-base">
+                  <h3 className="font-display font-bold text-[#050505]  text-base">
                     {selectedRole === 'parent' ? 'Configuration Code PIN Tuteur (4 Chiffres)' : 'Configuration Code PIN (6 Chiffres)'}
                   </h3>
-                  <span className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">
+                  <span className="text-[11px] text-[#65676B]  font-medium">
                     Profil concerné : {currentRoleConfig.label}
                   </span>
                 </div>
               </div>
               <button 
                 onClick={() => setShowPinSetupModal(false)}
-                className="p-1.5 text-slate-400 hover:text-slate-700 dark:hover:text-white rounded-lg cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                className="p-1.5 text-[#65676B] hover:text-[#050505] rounded-lg cursor-pointer hover:bg-[#F0F2F5] transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
             {/* Instruction description */}
-            <p className="text-slate-600 dark:text-slate-400 text-xs mt-3 leading-relaxed text-justified-academic">
+            <p className="text-[#65676B]  text-xs mt-3 leading-relaxed text-justified-academic">
               Définissez un code PIN confidentiel composé de chiffres ({selectedRole === 'parent' ? '4 chiffres' : '6 chiffres'}). Ce code sera mémorisé pour vos prochaines connexions rapides.
             </p>
 
             {pinSetupError && (
-              <div className="mt-3 bg-rose-50 dark:bg-rose-950/60 border border-rose-200 dark:border-rose-800 rounded-xl p-3 text-rose-900 dark:text-rose-200 text-xs flex items-center gap-2">
-                <AlertTriangle className="w-4 h-4 text-rose-600 dark:text-rose-400 shrink-0" />
+              <div className="mt-3 bg-rose-50  border border-rose-200  rounded-xl p-3 text-rose-900  text-xs flex items-center gap-2">
+                <AlertTriangle className="w-4 h-4 text-rose-600  shrink-0" />
                 <span>{pinSetupError}</span>
               </div>
             )}
 
             {pinSetupSuccess && (
-              <div className="mt-3 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 rounded-xl p-3 text-emerald-900 dark:text-emerald-200 text-xs flex items-center gap-2">
-                <Check className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+              <div className="mt-3 bg-[#E7F3FF]  border border-[#E4E6EB]  rounded-xl p-3 text-[#1877F2]  text-xs flex items-center gap-2">
+                <Check className="w-4 h-4 text-[#1877F2]  shrink-0" />
                 <span>Code PIN enregistré avec succès !</span>
               </div>
             )}
 
             <form onSubmit={handleSaveCreatedPin} className="mt-4 flex flex-col gap-3.5 text-xs">
               <div>
-                <label className="text-slate-800 dark:text-slate-200 font-bold mb-1 block">
+                <label className="text-[#050505]  font-bold mb-1 block">
                   Identifiant rattaché :
                 </label>
                 <input
                   type="text"
                   readOnly
                   value={identifier}
-                  className="w-full bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 rounded-xl px-3.5 py-2.5 text-xs font-mono font-bold"
+                  className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  text-[#050505]  rounded-xl px-3.5 py-2.5 text-xs font-mono font-bold"
                 />
               </div>
 
               <div>
-                <label className="text-slate-800 dark:text-slate-200 font-bold mb-1 block">
+                <label className="text-[#050505]  font-bold mb-1 block">
                   Nouveau Code PIN ({selectedRole === 'parent' ? '4' : '6'} chiffres numériques) :
                 </label>
                 <input
@@ -984,12 +984,12 @@ export const LoginPortal: React.FC<LoginPortalProps> = ({
                   value={newPinValue}
                   onChange={(e) => setNewPinValue(e.target.value.replace(/[^0-9]/g, ''))}
                   placeholder={selectedRole === 'parent' ? '••••' : '••••••'}
-                  className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white rounded-xl px-3.5 py-3 text-center font-mono text-xl tracking-[0.4em] font-bold focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  text-[#050505]  rounded-xl px-3.5 py-3 text-center font-mono text-xl tracking-[0.4em] font-bold focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 />
               </div>
 
               <div>
-                <label className="text-slate-800 dark:text-slate-200 font-bold mb-1 block">
+                <label className="text-[#050505]  font-bold mb-1 block">
                   Confirmez votre Code PIN :
                 </label>
                 <input
@@ -999,7 +999,7 @@ export const LoginPortal: React.FC<LoginPortalProps> = ({
                   value={confirmPinValue}
                   onChange={(e) => setConfirmPinValue(e.target.value.replace(/[^0-9]/g, ''))}
                   placeholder={selectedRole === 'parent' ? '••••' : '••••••'}
-                  className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white rounded-xl px-3.5 py-3 text-center font-mono text-xl tracking-[0.4em] font-bold focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  text-[#050505]  rounded-xl px-3.5 py-3 text-center font-mono text-xl tracking-[0.4em] font-bold focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 />
               </div>
 
@@ -1007,13 +1007,13 @@ export const LoginPortal: React.FC<LoginPortalProps> = ({
                 <button
                   type="button"
                   onClick={() => setShowPinSetupModal(false)}
-                  className="px-4 py-2.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:text-white rounded-xl font-bold cursor-pointer transition-colors"
+                  className="px-4 py-2.5 bg-[#F0F2F5]  text-[#050505]  hover:bg-[#F0F2F5] rounded-xl font-bold cursor-pointer transition-colors"
                 >
                   Annuler
                 </button>
                 <button
                   type="submit"
-                  className="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white font-display font-bold rounded-xl shadow-md cursor-pointer transition-all active:scale-95"
+                  className="px-5 py-2.5 bg-[#1877F2] hover:bg-[#1877F2] text-white font-display font-bold rounded-xl shadow-md cursor-pointer transition-all active:scale-95"
                 >
                   Enregistrer mon Code PIN
                 </button>
@@ -1024,7 +1024,7 @@ export const LoginPortal: React.FC<LoginPortalProps> = ({
       )}
 
       {/* Footer */}
-      <footer className="relative z-10 w-full max-w-7xl mx-auto px-4 py-4 text-center text-slate-500 dark:text-slate-400 text-xs border-t border-slate-200/80 dark:border-slate-900">
+      <footer className="relative z-10 w-full max-w-7xl mx-auto px-4 py-4 text-center text-[#65676B]  text-xs border-t border-[#E4E6EB] ">
         <p className="leading-relaxed">
           EDU-CONGO SaaS • Conforme aux directives du Ministère de l'Enseignement Préscolaire, Primaire, Secondaire et de l'Alphabétisation • République du Congo
         </p>
