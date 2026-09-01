@@ -74,52 +74,52 @@ export const SyncQueueModal: React.FC<SyncQueueModalProps> = ({ isOpen, onClose 
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="bg-white  border border-[#E4E6EB]  w-full max-w-2xl rounded-lg shadow-2xl overflow-hidden flex flex-col max-h-[85vh]">
+      <div className="bg-white  border border-slate-200  w-full max-w-2xl rounded-lg shadow-2xl overflow-hidden flex flex-col max-h-[85vh]">
         {/* Header */}
-        <div className="px-6 py-4 border-b border-[#E4E6EB]  flex items-center justify-between bg-[#F0F2F5]/50 ">
+        <div className="px-6 py-4 border-b border-slate-200  flex items-center justify-between bg-slate-50/50 ">
           <div className="flex items-center gap-3">
             <div className={`p-2.5 rounded-xl ${
               isOnline 
-                ? 'bg-[#E7F3FF]  text-[#1877F2]  border border-[#E4E6EB] ' 
+                ? 'bg-blue-50  text-blue-600  border border-slate-200 ' 
                 : 'bg-amber-50  text-amber-600  border border-amber-200 '
             }`}>
               {isOnline ? <Wifi className="w-5 h-5" /> : <WifiOff className="w-5 h-5" />}
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h3 className="text-base font-bold text-[#050505] ">
+                <h3 className="text-base font-bold text-slate-800 ">
                   Centre de Synchronisation Offline-First
                 </h3>
                 <span className={`text-[10px] px-2 py-0.5 rounded-lg font-bold uppercase ${
                   isOnline 
-                    ? 'bg-[#E7F3FF]  text-[#1877F2] ' 
+                    ? 'bg-blue-50  text-blue-600 ' 
                     : 'bg-amber-100  text-amber-700 '
                 }`}>
                   {isOnline ? 'En Ligne' : 'Hors Ligne'}
                 </span>
               </div>
-              <p className="text-xs text-[#65676B] ">
+              <p className="text-xs text-slate-500 ">
                 Moteur IndexedDB & File d'attente intelligente EDU-CONGO
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 text-[#65676B] hover:text-[#65676B][#65676B] hover:bg-[#F0F2F5] rounded-lg transition-colors cursor-pointer"
+            className="p-1.5 text-slate-500 hover:text-slate-500 hover:bg-slate-50 rounded-lg transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Quick summary banner */}
-        <div className="px-6 py-3 bg-[#F0F2F5]/60  border-b border-[#E4E6EB]  flex flex-wrap items-center justify-between gap-3 text-xs">
-          <div className="flex items-center gap-4 text-[#65676B] ">
+        <div className="px-6 py-3 bg-slate-50/60  border-b border-slate-200  flex flex-wrap items-center justify-between gap-3 text-xs">
+          <div className="flex items-center gap-4 text-slate-500 ">
             <span className="flex items-center gap-1.5">
               <Clock className="w-3.5 h-3.5 text-amber-500" />
               <strong>{pendingCount}</strong> action(s) en attente
             </span>
             {lastSyncTime && (
-              <span className="text-[#65676B] hidden sm:inline">
+              <span className="text-slate-500 hidden sm:inline">
                 Dernière sync : {new Date(lastSyncTime).toLocaleTimeString('fr-FR')}
               </span>
             )}
@@ -130,7 +130,7 @@ export const SyncQueueModal: React.FC<SyncQueueModalProps> = ({ isOpen, onClose 
               <button
                 onClick={handleManualSync}
                 disabled={isSyncing || isManualSyncing}
-                className="px-3 py-1.5 bg-[#1877F2] hover:bg-[#1877F2] disabled:opacity-50 text-white rounded-lg font-bold text-xs flex items-center gap-1.5 transition-all shadow-xs cursor-pointer"
+                className="px-3 py-1.5 bg-blue-600 hover:bg-blue-600 disabled:opacity-50 text-white rounded-lg font-bold text-xs flex items-center gap-1.5 transition-all shadow-xs cursor-pointer"
               >
                 <RefreshCw className={`w-3.5 h-3.5 ${isSyncing || isManualSyncing ? 'animate-spin' : ''}`} />
                 <span>{isSyncing || isManualSyncing ? 'Synchronisation...' : 'Synchroniser maintenant'}</span>
@@ -138,7 +138,7 @@ export const SyncQueueModal: React.FC<SyncQueueModalProps> = ({ isOpen, onClose 
             )}
             <button
               onClick={handleClearCompleted}
-              className="px-2.5 py-1.5 border border-[#E4E6EB]  hover:bg-[#F0F2F5] text-[#65676B]  rounded-lg font-medium text-xs flex items-center gap-1 transition-colors cursor-pointer"
+              className="px-2.5 py-1.5 border border-slate-200  hover:bg-slate-50 text-slate-500  rounded-lg font-medium text-xs flex items-center gap-1 transition-colors cursor-pointer"
               title="Purger les actions terminées de la liste"
             >
               <Trash2 className="w-3 h-3" />
@@ -148,13 +148,13 @@ export const SyncQueueModal: React.FC<SyncQueueModalProps> = ({ isOpen, onClose 
         </div>
 
         {/* Navigation Tabs */}
-        <div className="px-6 border-b border-[#E4E6EB]  flex gap-4 text-xs font-semibold">
+        <div className="px-6 border-b border-slate-200  flex gap-4 text-xs font-semibold">
           <button
             onClick={() => setActiveTab('queue')}
             className={`py-2.5 border-b-2 transition-colors flex items-center gap-1.5 ${
               activeTab === 'queue'
-                ? 'border-[#E4E6EB] text-[#1877F2]  font-bold'
-                : 'border-transparent text-[#65676B] hover:text-[#050505][#65676B]'
+                ? 'border-slate-200 text-blue-600  font-bold'
+                : 'border-transparent text-slate-500 hover:text-slate-800'
             }`}
           >
             <Layers className="w-3.5 h-3.5" />
@@ -164,8 +164,8 @@ export const SyncQueueModal: React.FC<SyncQueueModalProps> = ({ isOpen, onClose 
             onClick={() => setActiveTab('storage')}
             className={`py-2.5 border-b-2 transition-colors flex items-center gap-1.5 ${
               activeTab === 'storage'
-                ? 'border-[#E4E6EB] text-[#1877F2]  font-bold'
-                : 'border-transparent text-[#65676B] hover:text-[#050505][#65676B]'
+                ? 'border-slate-200 text-blue-600  font-bold'
+                : 'border-transparent text-slate-500 hover:text-slate-800'
             }`}
           >
             <Database className="w-3.5 h-3.5" />
@@ -175,8 +175,8 @@ export const SyncQueueModal: React.FC<SyncQueueModalProps> = ({ isOpen, onClose 
             onClick={() => setActiveTab('logs')}
             className={`py-2.5 border-b-2 transition-colors flex items-center gap-1.5 ${
               activeTab === 'logs'
-                ? 'border-[#E4E6EB] text-[#1877F2]  font-bold'
-                : 'border-transparent text-[#65676B] hover:text-[#050505][#65676B]'
+                ? 'border-slate-200 text-blue-600  font-bold'
+                : 'border-transparent text-slate-500 hover:text-slate-800'
             }`}
           >
             <HardDrive className="w-3.5 h-3.5" />
@@ -189,10 +189,10 @@ export const SyncQueueModal: React.FC<SyncQueueModalProps> = ({ isOpen, onClose 
           {activeTab === 'queue' && (
             <div className="space-y-3">
               {queueItems.length === 0 ? (
-                <div className="p-8 text-center bg-[#F0F2F5]  rounded-xl border border-[#E4E6EB]  space-y-2">
-                  <CheckCircle2 className="w-8 h-8 text-[#1877F2] mx-auto" />
-                  <p className="text-sm font-bold text-[#050505] ">Toutes les actions sont synchronisées</p>
-                  <p className="text-xs text-[#65676B]  max-w-sm mx-auto">
+                <div className="p-8 text-center bg-slate-50  rounded-xl border border-slate-200  space-y-2">
+                  <CheckCircle2 className="w-8 h-8 text-blue-600 mx-auto" />
+                  <p className="text-sm font-bold text-slate-800 ">Toutes les actions sont synchronisées</p>
+                  <p className="text-xs text-slate-500  max-w-sm mx-auto">
                     Aucune modification en attente. Vos élèves, paiements et notes sont parfaitement à jour localement et distants.
                   </p>
                 </div>
@@ -200,21 +200,21 @@ export const SyncQueueModal: React.FC<SyncQueueModalProps> = ({ isOpen, onClose 
                 queueItems.map((item) => (
                   <div 
                     key={item.id || item.actionId}
-                    className="p-3.5 bg-[#F0F2F5]  rounded-xl border border-[#E4E6EB]  flex items-start justify-between gap-3 text-xs"
+                    className="p-3.5 bg-slate-50  rounded-xl border border-slate-200  flex items-start justify-between gap-3 text-xs"
                   >
                     <div className="space-y-1 flex-1">
                       <div className="flex items-center gap-2">
-                        <span className="font-bold text-[#050505] ">
+                        <span className="font-bold text-slate-800 ">
                           {item.description}
                         </span>
-                        <span className="font-mono text-[10px] text-[#65676B]">
+                        <span className="font-mono text-[10px] text-slate-500">
                           {item.actionType}
                         </span>
                       </div>
-                      <div className="text-[11px] text-[#65676B]  flex items-center gap-3">
+                      <div className="text-[11px] text-slate-500  flex items-center gap-3">
                         <span>{new Date(item.timestamp).toLocaleString('fr-FR')}</span>
                         {item.idempotencyKey && (
-                          <span className="font-mono text-[9px] bg-[#F0F2F5]  px-1 rounded truncate max-w-[120px]">
+                          <span className="font-mono text-[9px] bg-slate-50  px-1 rounded truncate max-w-[120px]">
                             {item.idempotencyKey}
                           </span>
                         )}
@@ -242,7 +242,7 @@ export const SyncQueueModal: React.FC<SyncQueueModalProps> = ({ isOpen, onClose 
                         </span>
                       )}
                       {item.status === 'synced' && (
-                        <span className="px-2 py-1 rounded-md bg-[#E7F3FF]  text-[#1877F2]  font-bold text-[10px] flex items-center gap-1">
+                        <span className="px-2 py-1 rounded-md bg-blue-50  text-blue-600  font-bold text-[10px] flex items-center gap-1">
                           <Check className="w-3 h-3" /> Synchronisé
                         </span>
                       )}
@@ -261,40 +261,40 @@ export const SyncQueueModal: React.FC<SyncQueueModalProps> = ({ isOpen, onClose 
           {activeTab === 'storage' && (
             <div className="space-y-4">
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                <div className="p-3.5 bg-[#F0F2F5]  rounded-xl border border-[#E4E6EB] ">
-                  <span className="text-[11px] text-[#65676B]  block">Élèves enregistrés</span>
-                  <span className="text-lg font-bold text-[#050505] ">{metrics?.studentsCount ?? 0}</span>
+                <div className="p-3.5 bg-slate-50  rounded-xl border border-slate-200 ">
+                  <span className="text-[11px] text-slate-500  block">Élèves enregistrés</span>
+                  <span className="text-lg font-bold text-slate-800 ">{metrics?.studentsCount ?? 0}</span>
                 </div>
-                <div className="p-3.5 bg-[#F0F2F5]  rounded-xl border border-[#E4E6EB] ">
-                  <span className="text-[11px] text-[#65676B]  block">Classes & Niveaux</span>
-                  <span className="text-lg font-bold text-[#050505] ">{metrics?.classesCount ?? 0}</span>
+                <div className="p-3.5 bg-slate-50  rounded-xl border border-slate-200 ">
+                  <span className="text-[11px] text-slate-500  block">Classes & Niveaux</span>
+                  <span className="text-lg font-bold text-slate-800 ">{metrics?.classesCount ?? 0}</span>
                 </div>
-                <div className="p-3.5 bg-[#F0F2F5]  rounded-xl border border-[#E4E6EB] ">
-                  <span className="text-[11px] text-[#65676B]  block">Paiements & Reçus</span>
-                  <span className="text-lg font-bold text-[#050505] ">{metrics?.paymentsCount ?? 0}</span>
+                <div className="p-3.5 bg-slate-50  rounded-xl border border-slate-200 ">
+                  <span className="text-[11px] text-slate-500  block">Paiements & Reçus</span>
+                  <span className="text-lg font-bold text-slate-800 ">{metrics?.paymentsCount ?? 0}</span>
                 </div>
-                <div className="p-3.5 bg-[#F0F2F5]  rounded-xl border border-[#E4E6EB] ">
-                  <span className="text-[11px] text-[#65676B]  block">Notes & Évaluations</span>
-                  <span className="text-lg font-bold text-[#050505] ">{metrics?.gradesCount ?? 0}</span>
+                <div className="p-3.5 bg-slate-50  rounded-xl border border-slate-200 ">
+                  <span className="text-[11px] text-slate-500  block">Notes & Évaluations</span>
+                  <span className="text-lg font-bold text-slate-800 ">{metrics?.gradesCount ?? 0}</span>
                 </div>
-                <div className="p-3.5 bg-[#F0F2F5]  rounded-xl border border-[#E4E6EB] ">
-                  <span className="text-[11px] text-[#65676B]  block">Présences & Appels</span>
-                  <span className="text-lg font-bold text-[#050505] ">{metrics?.attendanceCount ?? 0}</span>
+                <div className="p-3.5 bg-slate-50  rounded-xl border border-slate-200 ">
+                  <span className="text-[11px] text-slate-500  block">Présences & Appels</span>
+                  <span className="text-lg font-bold text-slate-800 ">{metrics?.attendanceCount ?? 0}</span>
                 </div>
-                <div className="p-3.5 bg-[#F0F2F5]  rounded-xl border border-[#E4E6EB] ">
-                  <span className="text-[11px] text-[#65676B]  block">Espace Estimé</span>
-                  <span className="text-lg font-bold text-[#050505] ">
+                <div className="p-3.5 bg-slate-50  rounded-xl border border-slate-200 ">
+                  <span className="text-[11px] text-slate-500  block">Espace Estimé</span>
+                  <span className="text-lg font-bold text-slate-800 ">
                     {metrics?.estimatedBytes ? `${(metrics.estimatedBytes / 1024 / 1024).toFixed(2)} MB` : '1.4 MB'}
                   </span>
                 </div>
               </div>
 
-              <div className="p-4 bg-[#E7F3FF]/60  rounded-xl border border-[#E4E6EB]  text-xs space-y-2">
-                <div className="flex items-center gap-2 text-[#1877F2]  font-bold">
-                  <ShieldCheck className="w-4 h-4 text-[#1877F2] " />
+              <div className="p-4 bg-blue-50/60  rounded-xl border border-slate-200  text-xs space-y-2">
+                <div className="flex items-center gap-2 text-blue-600  font-bold">
+                  <ShieldCheck className="w-4 h-4 text-blue-600 " />
                   <span>Architecture 100% Hors-Ligne Sécurisée (Dexie.js / IndexedDB)</span>
                 </div>
-                <p className="text-[#65676B]  leading-relaxed">
+                <p className="text-slate-500  leading-relaxed">
                   Toutes vos saisies (frais de scolarité, inscriptions, bulletins de notes, journal de caisse) s'exécutent instantanément dans la mémoire locale de votre navigateur ou smartphone. Aucun ralentissement ni blocage d'écran en cas de coupure de réseau MTN/Airtel ou d'électricité.
                 </p>
               </div>
@@ -304,22 +304,22 @@ export const SyncQueueModal: React.FC<SyncQueueModalProps> = ({ isOpen, onClose 
           {activeTab === 'logs' && (
             <div className="space-y-2 font-mono text-xs">
               {recentLogs.length === 0 ? (
-                <p className="text-[#65676B] text-center py-6">Aucun événement réseau récent.</p>
+                <p className="text-slate-500 text-center py-6">Aucun événement réseau récent.</p>
               ) : (
                 recentLogs.map((log) => (
                   <div
                     key={log.id}
                     className={`p-2.5 rounded-lg border text-[11px] flex items-start gap-2 ${
                       log.type === 'success'
-                        ? 'bg-[#E7F3FF]  border-[#E4E6EB]  text-[#1877F2] '
+                        ? 'bg-blue-50  border-slate-200  text-blue-600 '
                         : log.type === 'warning'
                         ? 'bg-amber-50  border-amber-200  text-amber-800 '
                         : log.type === 'error'
                         ? 'bg-rose-50  border-rose-200  text-rose-800 '
-                        : 'bg-[#F0F2F5]  border-[#E4E6EB]  text-[#050505] '
+                        : 'bg-slate-50  border-slate-200  text-slate-800 '
                     }`}
                   >
-                    <span className="text-[#65676B] shrink-0 font-sans">{log.time}</span>
+                    <span className="text-slate-500 shrink-0 font-sans">{log.time}</span>
                     <span className="flex-1 font-sans">{log.text}</span>
                   </div>
                 ))
@@ -329,14 +329,14 @@ export const SyncQueueModal: React.FC<SyncQueueModalProps> = ({ isOpen, onClose 
         </div>
 
         {/* Footer */}
-        <div className="px-6 py-3.5 bg-[#F0F2F5]  border-t border-[#E4E6EB]  flex items-center justify-between text-xs">
-          <div className="flex items-center gap-2 text-[#65676B] ">
-            <Smartphone className="w-4 h-4 text-[#1877F2]" />
+        <div className="px-6 py-3.5 bg-slate-50  border-t border-slate-200  flex items-center justify-between text-xs">
+          <div className="flex items-center gap-2 text-slate-500 ">
+            <Smartphone className="w-4 h-4 text-blue-600" />
             <span>PWA Compatible Mobile, Tablette & Ordinateur</span>
           </div>
           <button
             onClick={onClose}
-            className="px-4 py-1.5 bg-[#F0F2F5]  hover:bg-[#F0F2F5] text-[#050505]  rounded-lg font-bold transition-colors cursor-pointer"
+            className="px-4 py-1.5 bg-slate-50  hover:bg-slate-50 text-slate-800  rounded-lg font-bold transition-colors cursor-pointer"
           >
             Fermer
           </button>

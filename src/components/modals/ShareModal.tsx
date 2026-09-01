@@ -54,20 +54,20 @@ export const ShareModal: React.FC<ShareModalProps> = ({ onClose }) => {
 
   return (
     <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto">
-      <div className="bg-white  text-[#050505]  w-full max-w-xl rounded-lg border border-[#E4E6EB]  shadow-2xl overflow-hidden flex flex-col my-6 animate-in fade-in zoom-in-95 duration-200 transition-colors">
+      <div className="bg-white dark:bg-slate-900  text-slate-800 dark:text-slate-100  w-full max-w-xl rounded-lg border border-slate-200 dark:border-slate-700  shadow-2xl overflow-hidden flex flex-col my-6 animate-in fade-in zoom-in-95 duration-200 transition-colors">
         
         {/* Header */}
-        <div className="bg-[#1877F2] text-white px-6 py-5 flex items-center justify-between border-b border-[#E4E6EB]">
+        <div className="bg-blue-600 text-white px-6 py-5 flex items-center justify-between border-b border-slate-200 dark:border-slate-700">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg bg-[#1877F2] border border-[#E4E6EB] flex items-center justify-center font-bold text-white shadow-md">
+            <div className="w-10 h-10 rounded-lg bg-blue-600 border border-slate-200 dark:border-slate-700 flex items-center justify-center font-bold text-white shadow-md">
               <Globe className="w-5 h-5" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="text-xs font-bold text-[#1877F2] uppercase tracking-widest">
+                <span className="text-xs font-bold text-blue-600 uppercase tracking-widest">
                   EDU-CONGO • Accès Navigateur
                 </span>
-                <span className="text-[10px] bg-[#1877F2] text-white px-2 py-0.5 rounded-lg font-bold">
+                <span className="text-[10px] bg-blue-600 text-white px-2 py-0.5 rounded-lg font-bold">
                   En Ligne
                 </span>
               </div>
@@ -79,7 +79,7 @@ export const ShareModal: React.FC<ShareModalProps> = ({ onClose }) => {
 
           <button
             onClick={onClose}
-            className="p-2 rounded-xl text-[#65676B] hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+            className="p-2 rounded-xl text-slate-500 dark:text-slate-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -89,34 +89,34 @@ export const ShareModal: React.FC<ShareModalProps> = ({ onClose }) => {
         <div className="p-6 flex flex-col gap-5 text-xs max-h-[75vh] overflow-y-auto">
           
           {/* Main Direct Action Card */}
-          <div className="bg-[#1877F2]   border-2 border-[#E4E6EB]  rounded-lg p-5 flex flex-col gap-3">
+          <div className="bg-blue-600   border-2 border-slate-200 dark:border-slate-700  rounded-lg p-5 flex flex-col gap-3">
             <div className="flex items-center justify-between">
-              <span className="font-extrabold text-sm text-[#1877F2]  flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-[#1877F2] " />
+              <span className="font-extrabold text-sm text-blue-600  flex items-center gap-2">
+                <Sparkles className="w-4 h-4 text-blue-600 " />
                 Lien Principal de Test (Session Active)
               </span>
-              <span className="text-[10px] bg-[#1877F2] text-white px-2 py-0.5 rounded-md font-bold uppercase tracking-wider">
+              <span className="text-[10px] bg-blue-600 text-white px-2 py-0.5 rounded-md font-bold uppercase tracking-wider">
                 Recommandé
               </span>
             </div>
             
-            <p className="text-[#65676B]  leading-relaxed text-xs">
+            <p className="text-slate-500 dark:text-slate-400  leading-relaxed text-xs">
               Ce lien ouvre l'application directement dans un nouvel onglet avec l'ensemble des données scolaires (étudiants, présences, notes, paiements FCFA MoMo) actives.
             </p>
 
-            <div className="flex items-center gap-2 bg-white  p-2.5 rounded-xl border border-[#E4E6EB] ">
+            <div className="flex items-center gap-2 bg-white dark:bg-slate-900  p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 ">
               <input
                 type="text"
                 readOnly
                 value={devUrl}
-                className="flex-1 bg-transparent font-mono text-[#050505]  text-[11px] outline-none select-all px-1"
+                className="flex-1 bg-transparent font-mono text-slate-800 dark:text-slate-100  text-[11px] outline-none select-all px-1"
               />
               <button
                 onClick={() => handleCopy(devUrl, false)}
-                className="px-3 py-2 bg-[#F0F2F5]  hover:bg-[#F0F2F5] text-[#050505]  rounded-lg font-bold flex items-center gap-1.5 transition-all cursor-pointer"
+                className="px-3 py-2 bg-slate-50 dark:bg-slate-800/50  hover:bg-slate-50 dark:bg-slate-800/50 text-slate-800 dark:text-slate-100  rounded-lg font-bold flex items-center gap-1.5 transition-all cursor-pointer"
                 title="Copier le lien"
               >
-                {copiedDev ? <Check className="w-3.5 h-3.5 text-[#1877F2]" /> : <Copy className="w-3.5 h-3.5" />}
+                {copiedDev ? <Check className="w-3.5 h-3.5 text-blue-600" /> : <Copy className="w-3.5 h-3.5" />}
                 <span>{copiedDev ? 'Copié !' : 'Copier'}</span>
               </button>
 
@@ -124,7 +124,7 @@ export const ShareModal: React.FC<ShareModalProps> = ({ onClose }) => {
                 href={devUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2 bg-[#1877F2] hover:bg-[#1877F2] text-white rounded-lg font-bold flex items-center gap-1.5 transition-all cursor-pointer shadow-sm hover:scale-105"
+                className="px-4 py-2 bg-blue-600 hover:bg-blue-600 text-white rounded-lg font-bold flex items-center gap-1.5 transition-all cursor-pointer shadow-sm hover:scale-105"
               >
                 <span>Ouvrir</span>
                 <ExternalLink className="w-3.5 h-3.5" />
@@ -133,27 +133,27 @@ export const ShareModal: React.FC<ShareModalProps> = ({ onClose }) => {
           </div>
 
           {/* Secondary Link: Shared/Preview URL */}
-          <div className="flex flex-col gap-2 bg-[#F0F2F5]  p-4 rounded-lg border border-[#E4E6EB] ">
+          <div className="flex flex-col gap-2 bg-slate-50 dark:bg-slate-800/50  p-4 rounded-lg border border-slate-200 dark:border-slate-700 ">
             <div className="flex items-center justify-between">
-              <label className="font-bold text-[#050505]  uppercase tracking-wider text-[11px]">
+              <label className="font-bold text-slate-800 dark:text-slate-100  uppercase tracking-wider text-[11px]">
                 Lien Public Partageable (Preview) :
               </label>
-              <span className="text-[#65676B]  text-[10px]">Version partagée</span>
+              <span className="text-slate-500 dark:text-slate-400  text-[10px]">Version partagée</span>
             </div>
 
-            <div className="flex items-center gap-2 bg-white  p-2 rounded-xl border border-[#E4E6EB] ">
+            <div className="flex items-center gap-2 bg-white dark:bg-slate-900  p-2 rounded-xl border border-slate-200 dark:border-slate-700 ">
               <input
                 type="text"
                 readOnly
                 value={sharedUrl}
-                className="flex-1 bg-transparent font-mono text-[#050505]  text-[11px] outline-none select-all px-1"
+                className="flex-1 bg-transparent font-mono text-slate-800 dark:text-slate-100  text-[11px] outline-none select-all px-1"
               />
               <button
                 onClick={() => handleCopy(sharedUrl, true)}
-                className="px-3 py-1.5 bg-[#F0F2F5]  hover:bg-[#F0F2F5] text-[#050505]  rounded-lg font-semibold flex items-center gap-1.5 transition-all cursor-pointer"
+                className="px-3 py-1.5 bg-slate-50 dark:bg-slate-800/50  hover:bg-slate-50 dark:bg-slate-800/50 text-slate-800 dark:text-slate-100  rounded-lg font-semibold flex items-center gap-1.5 transition-all cursor-pointer"
                 title="Copier le lien"
               >
-                {copiedShare ? <Check className="w-3.5 h-3.5 text-[#1877F2]" /> : <Copy className="w-3.5 h-3.5" />}
+                {copiedShare ? <Check className="w-3.5 h-3.5 text-blue-600" /> : <Copy className="w-3.5 h-3.5" />}
                 <span>{copiedShare ? 'Copié !' : 'Copier'}</span>
               </button>
 
@@ -161,7 +161,7 @@ export const ShareModal: React.FC<ShareModalProps> = ({ onClose }) => {
                 href={sharedUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 bg-[#F0F2F5]  hover:bg-[#F0F2F5] text-[#1877F2]  rounded-lg transition-colors cursor-pointer"
+                className="p-2 bg-slate-50 dark:bg-slate-800/50  hover:bg-slate-50 dark:bg-slate-800/50 text-blue-600  rounded-lg transition-colors cursor-pointer"
                 title="Ouvrir le lien partagé"
               >
                 <ExternalLink className="w-4 h-4" />
@@ -184,13 +184,13 @@ export const ShareModal: React.FC<ShareModalProps> = ({ onClose }) => {
           </div>
 
           {/* Compatibility */}
-          <div className="border-t border-[#E4E6EB]  pt-3 grid grid-cols-2 gap-3 text-[#65676B]  text-[11px]">
+          <div className="border-t border-slate-200 dark:border-slate-700  pt-3 grid grid-cols-2 gap-3 text-slate-500 dark:text-slate-400  text-[11px]">
             <div className="flex items-center gap-2">
-              <Laptop className="w-4 h-4 text-[#1877F2]  shrink-0" />
+              <Laptop className="w-4 h-4 text-blue-600  shrink-0" />
               <span>Optimisé Ordinateur (Plein écran)</span>
             </div>
             <div className="flex items-center gap-2">
-              <Smartphone className="w-4 h-4 text-[#1877F2]  shrink-0" />
+              <Smartphone className="w-4 h-4 text-blue-600  shrink-0" />
               <span>Compatible Mobile & Tablette</span>
             </div>
           </div>
@@ -198,16 +198,16 @@ export const ShareModal: React.FC<ShareModalProps> = ({ onClose }) => {
         </div>
 
         {/* Footer */}
-        <div className="bg-[#F0F2F5]  px-6 py-4 border-t border-[#E4E6EB]  flex items-center justify-between gap-3">
-          <div className="flex items-center gap-1.5 text-[11px] text-[#65676B] ">
-            <ShieldCheck className="w-4 h-4 text-[#1877F2] " />
+        <div className="bg-slate-50 dark:bg-slate-800/50  px-6 py-4 border-t border-slate-200 dark:border-slate-700  flex items-center justify-between gap-3">
+          <div className="flex items-center gap-1.5 text-[11px] text-slate-500 dark:text-slate-400 ">
+            <ShieldCheck className="w-4 h-4 text-blue-600 " />
             <span>Serveur Cloud Run actif • Port 3000</span>
           </div>
 
           <div className="flex items-center gap-2">
             <button
               onClick={onClose}
-              className="px-4 py-2 bg-[#F0F2F5]  hover:bg-[#F0F2F5] text-[#050505]  rounded-xl font-semibold cursor-pointer text-xs"
+              className="px-4 py-2 bg-slate-50 dark:bg-slate-800/50  hover:bg-slate-50 dark:bg-slate-800/50 text-slate-800 dark:text-slate-100  rounded-xl font-semibold cursor-pointer text-xs"
             >
               Fermer
             </button>
@@ -215,7 +215,7 @@ export const ShareModal: React.FC<ShareModalProps> = ({ onClose }) => {
               href={devUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 bg-[#1877F2] hover:bg-[#1877F2] text-white rounded-xl font-bold flex items-center gap-1.5 cursor-pointer text-xs shadow-sm hover:scale-105 transition-all"
+              className="px-4 py-2 bg-blue-600 hover:bg-blue-600 text-white rounded-xl font-bold flex items-center gap-1.5 cursor-pointer text-xs shadow-sm hover:scale-105 transition-all"
             >
               <ExternalLink className="w-3.5 h-3.5" />
               Ouvrir dans le Navigateur

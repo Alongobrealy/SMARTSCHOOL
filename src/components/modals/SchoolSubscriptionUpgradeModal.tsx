@@ -218,12 +218,12 @@ export const SchoolSubscriptionUpgradeModal: React.FC<SchoolSubscriptionUpgradeM
     <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
       <div 
         id="modal-school-subscription-upgrade"
-        className="bg-white  border border-[#E4E6EB]  rounded-lg w-full max-w-4xl shadow-2xl overflow-hidden flex flex-col my-auto animate-in fade-in zoom-in-95 duration-200"
+        className="bg-white dark:bg-slate-900  border border-slate-200 dark:border-slate-700  rounded-lg w-full max-w-4xl shadow-2xl overflow-hidden flex flex-col my-auto animate-in fade-in zoom-in-95 duration-200"
       >
         {/* Modal Header */}
-        <div className="px-6 py-5 bg-[#1877F2] text-white flex items-center justify-between border-b border-[#E4E6EB]">
+        <div className="px-6 py-5 bg-blue-600 text-white flex items-center justify-between border-b border-slate-200 dark:border-slate-700">
           <div className="flex items-center gap-3">
-            <div className="w-11 h-11 rounded-lg bg-[#1877F2] border border-[#E4E6EB] flex items-center justify-center">
+            <div className="w-11 h-11 rounded-lg bg-blue-600 border border-slate-200 dark:border-slate-700 flex items-center justify-center">
               <Sparkles className="w-6 h-6 text-amber-400" />
             </div>
             <div>
@@ -231,7 +231,7 @@ export const SchoolSubscriptionUpgradeModal: React.FC<SchoolSubscriptionUpgradeM
                 <span className="bg-amber-500/20 text-amber-300 border border-amber-500/30 text-[10px] font-bold px-2 py-0.5 rounded-lg">
                   {school.isTrial || school.plan === 'Essai 14 Jours' ? 'ABONNEMENT OFFICIEL' : 'RENOUVELLEMENT / UPGRADE'}
                 </span>
-                <span className="text-[#65676B] text-xs font-mono">{school.name}</span>
+                <span className="text-slate-500 dark:text-slate-400 text-xs font-mono">{school.name}</span>
               </div>
               <h2 className="text-lg sm:text-xl font-black text-white tracking-tight mt-0.5">
                 Activation & Paiement de la Licence Établissement
@@ -241,7 +241,7 @@ export const SchoolSubscriptionUpgradeModal: React.FC<SchoolSubscriptionUpgradeM
           <button
             id="btn-close-upgrade-modal"
             onClick={onClose}
-            className="p-2 rounded-xl text-[#65676B] hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+            className="p-2 rounded-xl text-slate-500 dark:text-slate-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -250,32 +250,32 @@ export const SchoolSubscriptionUpgradeModal: React.FC<SchoolSubscriptionUpgradeM
         {/* Success Screen */}
         {upgradeSuccess && successDetails ? (
           <div className="p-8 sm:p-12 text-center flex flex-col items-center justify-center space-y-4">
-            <div className="w-16 h-16 rounded-lg bg-[#E7F3FF]  border-2 border-[#E4E6EB] flex items-center justify-center text-[#1877F2]  shadow-xl">
+            <div className="w-16 h-16 rounded-lg bg-blue-50  border-2 border-slate-200 dark:border-slate-700 flex items-center justify-center text-blue-600  shadow-xl">
               <CheckCircle2 className="w-9 h-9" />
             </div>
-            <h3 className="text-2xl font-black text-[#050505] ">
+            <h3 className="text-2xl font-black text-slate-800 dark:text-slate-100 ">
               Licence Activée avec Succès !
             </h3>
-            <p className="text-sm text-[#65676B]  max-w-md">
-              La formule <strong className="text-[#1877F2] ">{successDetails.planName} ({successDetails.durationLabel})</strong> a été activée pour <strong>{school.name}</strong> via <em>{successDetails.method}</em>. La suspension éventuelle est levée et toutes les fonctionnalités sont débloquées.
+            <p className="text-sm text-slate-500 dark:text-slate-400  max-w-md">
+              La formule <strong className="text-blue-600 ">{successDetails.planName} ({successDetails.durationLabel})</strong> a été activée pour <strong>{school.name}</strong> via <em>{successDetails.method}</em>. La suspension éventuelle est levée et toutes les fonctionnalités sont débloquées.
             </p>
           </div>
         ) : (
           <div className="p-6 sm:p-7 space-y-6">
             
             {/* Activation Modes Toggle Tabs */}
-            <div className="flex items-center gap-2 p-1.5 bg-[#F0F2F5]  rounded-lg border border-[#E4E6EB] ">
+            <div className="flex items-center gap-2 p-1.5 bg-slate-50 dark:bg-slate-800/50  rounded-lg border border-slate-200 dark:border-slate-700 ">
               <button
                 type="button"
                 id="tab-momo-activation"
                 onClick={() => setActiveTab('momo')}
                 className={`flex-1 py-2.5 px-4 rounded-xl text-xs font-black flex items-center justify-center gap-2 transition-all cursor-pointer ${
                   activeTab === 'momo'
-                    ? 'bg-white  text-[#1877F2]  shadow-sm'
-                    : 'text-[#65676B]  hover:text-[#050505]'
+                    ? 'bg-white dark:bg-slate-900  text-blue-600  shadow-sm'
+                    : 'text-slate-500 dark:text-slate-400  hover:text-slate-800 dark:text-slate-100'
                 }`}
               >
-                <Smartphone className="w-4 h-4 text-[#1877F2]" />
+                <Smartphone className="w-4 h-4 text-blue-600" />
                 <span>Option 1 : Paiement Mobile Money Congo (+242)</span>
               </button>
 
@@ -285,8 +285,8 @@ export const SchoolSubscriptionUpgradeModal: React.FC<SchoolSubscriptionUpgradeM
                 onClick={() => setActiveTab('code')}
                 className={`flex-1 py-2.5 px-4 rounded-xl text-xs font-black flex items-center justify-center gap-2 transition-all cursor-pointer ${
                   activeTab === 'code'
-                    ? 'bg-white  text-[#1877F2]  shadow-sm'
-                    : 'text-[#65676B]  hover:text-[#050505]'
+                    ? 'bg-white dark:bg-slate-900  text-blue-600  shadow-sm'
+                    : 'text-slate-500 dark:text-slate-400  hover:text-slate-800 dark:text-slate-100'
                 }`}
               >
                 <KeyRound className="w-4 h-4 text-amber-500" />
@@ -301,10 +301,10 @@ export const SchoolSubscriptionUpgradeModal: React.FC<SchoolSubscriptionUpgradeM
                 {/* Plan Selector Grid */}
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <label className="block text-xs font-black uppercase tracking-wider text-[#050505] ">
+                    <label className="block text-xs font-black uppercase tracking-wider text-slate-800 dark:text-slate-100 ">
                       1. Sélectionnez votre Formule d'Abonnement
                     </label>
-                    <span className="text-[11px] text-[#1877F2]  font-bold">
+                    <span className="text-[11px] text-blue-600  font-bold">
                       Tarif de base : 25 000 FCFA / mois
                     </span>
                   </div>
@@ -320,8 +320,8 @@ export const SchoolSubscriptionUpgradeModal: React.FC<SchoolSubscriptionUpgradeM
                           onClick={() => setSelectedPlanId(p.id)}
                           className={`p-4 rounded-lg border text-left transition-all relative flex flex-col justify-between cursor-pointer ${
                             isSelected
-                              ? 'border-[#E4E6EB] bg-[#E7F3FF]/90  shadow-lg ring-2 ring-indigo-500/30'
-                              : 'border-[#E4E6EB]  bg-white  hover:border-[#E4E6EB][#E4E6EB]'
+                              ? 'border-slate-200 dark:border-slate-700 bg-blue-50/90  shadow-lg ring-2 ring-indigo-500/30'
+                              : 'border-slate-200 dark:border-slate-700  bg-white dark:bg-slate-900  hover:border-slate-200 dark:border-slate-700slate-200'
                           }`}
                         >
                           {p.isPopular && (
@@ -332,30 +332,30 @@ export const SchoolSubscriptionUpgradeModal: React.FC<SchoolSubscriptionUpgradeM
                           )}
                           <div>
                             <div className="flex justify-between items-start mb-1">
-                              <span className="font-black text-[#050505]  text-sm">{p.name}</span>
+                              <span className="font-black text-slate-800 dark:text-slate-100  text-sm">{p.name}</span>
                               {p.discountPercent > 0 && (
-                                <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-md bg-[#E7F3FF]  text-[#1877F2]  border border-[#E4E6EB] ">
+                                <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-md bg-blue-50  text-blue-600  border border-slate-200 dark:border-slate-700 ">
                                   -{p.discountPercent}%
                                 </span>
                               )}
                             </div>
-                            <span className="text-[11px] text-[#65676B]  block mb-2">{p.durationLabel}</span>
+                            <span className="text-[11px] text-slate-500 dark:text-slate-400  block mb-2">{p.durationLabel}</span>
 
                             <div className="mb-3">
-                              <span className="text-lg font-black text-[#1877F2] ">
+                              <span className="text-lg font-black text-blue-600 ">
                                 {p.totalAmount.toLocaleString()}
                               </span>
-                              <span className="text-[10px] text-[#65676B]  font-bold"> FCFA</span>
+                              <span className="text-[10px] text-slate-500 dark:text-slate-400  font-bold"> FCFA</span>
                               {p.durationMonths > 1 && (
-                                <span className="text-[10px] text-[#65676B] block">
+                                <span className="text-[10px] text-slate-500 dark:text-slate-400 block">
                                   soit ~{p.rateMonthly.toLocaleString()} FCFA/mois
                                 </span>
                               )}
                             </div>
                           </div>
 
-                          <div className="pt-2 border-t border-[#E4E6EB]  flex items-center gap-1 text-xs font-bold text-[#1877F2] ">
-                            <CheckCircle2 className={`w-4 h-4 ${isSelected ? 'text-[#1877F2]' : 'text-[#65676B] '}`} />
+                          <div className="pt-2 border-t border-slate-200 dark:border-slate-700  flex items-center gap-1 text-xs font-bold text-blue-600 ">
+                            <CheckCircle2 className={`w-4 h-4 ${isSelected ? 'text-blue-600' : 'text-slate-500 dark:text-slate-400 '}`} />
                             <span>{isSelected ? 'Sélectionné' : 'Choisir'}</span>
                           </div>
                         </button>
@@ -367,14 +367,14 @@ export const SchoolSubscriptionUpgradeModal: React.FC<SchoolSubscriptionUpgradeM
                 {/* Payment Gateway and Reference */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-2">
                   <div className="space-y-2">
-                    <label className="block text-xs font-black uppercase tracking-wider text-[#050505] ">
+                    <label className="block text-xs font-black uppercase tracking-wider text-slate-800 dark:text-slate-100 ">
                       2. Opérateur de Paiement Congo (+242)
                     </label>
                     <div className="grid grid-cols-3 gap-2">
                       {[
                         { id: 'MTN Mobile Money' as const, label: 'MTN MoMo', color: 'border-yellow-400 bg-yellow-50  text-yellow-800 ' },
                         { id: 'Airtel Money' as const, label: 'Airtel Money', color: 'border-rose-400 bg-rose-50  text-rose-800 ' },
-                        { id: 'Virement Bancaire' as const, label: 'Virement / Chèque', color: 'border-[#E4E6EB] bg-[#E7F3FF]  text-[#1877F2] ' }
+                        { id: 'Virement Bancaire' as const, label: 'Virement / Chèque', color: 'border-slate-200 dark:border-slate-700 bg-blue-50  text-blue-600 ' }
                       ].map((method) => {
                         const isPicked = paymentMethod === method.id;
                         return (
@@ -385,7 +385,7 @@ export const SchoolSubscriptionUpgradeModal: React.FC<SchoolSubscriptionUpgradeM
                             className={`p-3 rounded-lg border text-center text-xs font-extrabold transition-all cursor-pointer ${
                               isPicked
                                 ? `${method.color} ring-2 ring-indigo-500/40 shadow-sm`
-                                : 'border-[#E4E6EB]  bg-white  text-[#65676B]  hover:border-[#E4E6EB]'
+                                : 'border-slate-200 dark:border-slate-700  bg-white dark:bg-slate-900  text-slate-500 dark:text-slate-400  hover:border-slate-200 dark:border-slate-700'
                             }`}
                           >
                             <Smartphone className="w-4 h-4 mx-auto mb-1" />
@@ -397,7 +397,7 @@ export const SchoolSubscriptionUpgradeModal: React.FC<SchoolSubscriptionUpgradeM
                   </div>
 
                   <div className="space-y-2">
-                    <label className="block text-xs font-black uppercase tracking-wider text-[#050505] ">
+                    <label className="block text-xs font-black uppercase tracking-wider text-slate-800 dark:text-slate-100 ">
                       3. Numéro de Contact / Référence MoMo
                     </label>
                     <input
@@ -405,22 +405,22 @@ export const SchoolSubscriptionUpgradeModal: React.FC<SchoolSubscriptionUpgradeM
                       value={payerPhone}
                       onChange={(e) => setPayerPhone(e.target.value)}
                       placeholder="+242 06 000 00 00"
-                      className="w-full px-4 py-2.5 rounded-xl border border-[#E4E6EB]  bg-white  text-[#050505]  text-xs font-mono font-bold focus:ring-2 focus:ring-indigo-500 outline-hidden"
+                      className="w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700  bg-white dark:bg-slate-900  text-slate-800 dark:text-slate-100  text-xs font-mono font-bold focus:ring-2 focus:ring-indigo-500 outline-hidden"
                     />
-                    <div className="flex items-center gap-2 text-[10px] text-[#65676B]">
-                      <Phone className="w-3 h-3 text-[#1877F2]" />
+                    <div className="flex items-center gap-2 text-[10px] text-slate-500 dark:text-slate-400">
+                      <Phone className="w-3 h-3 text-blue-600" />
                       <span>Assistance & Confirmation Directe : +242 06 895 83 77</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Total and Submit button */}
-                <div className="pt-4 border-t border-[#E4E6EB]  flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="pt-4 border-t border-slate-200 dark:border-slate-700  flex flex-col sm:flex-row items-center justify-between gap-4">
                   <div>
-                    <span className="text-xs text-[#65676B]  block font-medium">
+                    <span className="text-xs text-slate-500 dark:text-slate-400  block font-medium">
                       Montant total pour {currentPlan.durationLabel} :
                     </span>
-                    <span className="text-2xl font-black text-[#1877F2] ">
+                    <span className="text-2xl font-black text-blue-600 ">
                       {currentPlan.totalAmount.toLocaleString()} FCFA
                     </span>
                   </div>
@@ -429,7 +429,7 @@ export const SchoolSubscriptionUpgradeModal: React.FC<SchoolSubscriptionUpgradeM
                     <button
                       type="button"
                       onClick={onClose}
-                      className="w-full sm:w-auto px-5 py-3 rounded-xl border border-[#E4E6EB]  text-[#050505]  text-xs font-bold hover:bg-[#F0F2F5] cursor-pointer"
+                      className="w-full sm:w-auto px-5 py-3 rounded-xl border border-slate-200 dark:border-slate-700  text-slate-800 dark:text-slate-100  text-xs font-bold hover:bg-slate-50 dark:bg-slate-800/50 cursor-pointer"
                     >
                       Annuler
                     </button>
@@ -437,7 +437,7 @@ export const SchoolSubscriptionUpgradeModal: React.FC<SchoolSubscriptionUpgradeM
                     <button
                       type="submit"
                       disabled={isProcessing}
-                      className="w-full sm:w-auto px-6 py-3 bg-[#1877F2] hover:from-indigo-500 hover:to-indigo-600 text-white text-xs font-extrabold rounded-xl shadow-lg shadow-sm flex items-center justify-center gap-2 cursor-pointer transition-all hover:scale-102 active:scale-98 disabled:opacity-50"
+                      className="w-full sm:w-auto px-6 py-3 bg-blue-600 hover:from-indigo-500 hover:to-indigo-600 text-white text-xs font-extrabold rounded-xl shadow-lg shadow-sm flex items-center justify-center gap-2 cursor-pointer transition-all hover:scale-102 active:scale-98 disabled:opacity-50"
                     >
                       {isProcessing ? (
                         <>
@@ -475,7 +475,7 @@ export const SchoolSubscriptionUpgradeModal: React.FC<SchoolSubscriptionUpgradeM
                 </div>
 
                 <div className="space-y-3">
-                  <label className="block text-xs font-black uppercase tracking-wider text-[#050505] ">
+                  <label className="block text-xs font-black uppercase tracking-wider text-slate-800 dark:text-slate-100 ">
                     Insérez votre Code d'Activation Officiel
                   </label>
                   
@@ -490,14 +490,14 @@ export const SchoolSubscriptionUpgradeModal: React.FC<SchoolSubscriptionUpgradeM
                         setCodeVerificationResult(null);
                       }}
                       placeholder="Ex: EDU-A12-XXXX-YYYY-ZZZZ"
-                      className="flex-1 px-4 py-3 rounded-xl border border-[#E4E6EB]  bg-[#F0F2F5]  text-[#050505]  font-mono text-sm font-black uppercase tracking-wider focus:ring-2 focus:ring-indigo-500 outline-hidden"
+                      className="flex-1 px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700  bg-slate-50 dark:bg-slate-800/50  text-slate-800 dark:text-slate-100  font-mono text-sm font-black uppercase tracking-wider focus:ring-2 focus:ring-indigo-500 outline-hidden"
                     />
                     
                     <button
                       type="button"
                       id="btn-verify-activation-code"
                       onClick={handleVerifyCode}
-                      className="px-4 py-3 bg-[#F0F2F5] hover:bg-[#F0F2F5] text-[#050505]  rounded-xl text-xs font-bold transition-all cursor-pointer shrink-0"
+                      className="px-4 py-3 bg-slate-50 dark:bg-slate-800/50 hover:bg-slate-50 dark:bg-slate-800/50 text-slate-800 dark:text-slate-100  rounded-xl text-xs font-bold transition-all cursor-pointer shrink-0"
                     >
                       Vérifier le Code
                     </button>
@@ -507,22 +507,22 @@ export const SchoolSubscriptionUpgradeModal: React.FC<SchoolSubscriptionUpgradeM
                   {hasVerifiedCode && codeVerificationResult && (
                     <div className="animate-in fade-in duration-200">
                       {codeVerificationResult.isValid ? (
-                        <div className="p-4 rounded-lg bg-[#E7F3FF]  border border-[#E4E6EB]  text-[#1877F2]  text-xs space-y-2">
-                          <div className="flex items-center gap-2 font-bold text-[#1877F2] ">
-                            <CheckCircle2 className="w-4 h-4 text-[#1877F2]" />
+                        <div className="p-4 rounded-lg bg-blue-50  border border-slate-200 dark:border-slate-700  text-blue-600  text-xs space-y-2">
+                          <div className="flex items-center gap-2 font-bold text-blue-600 ">
+                            <CheckCircle2 className="w-4 h-4 text-blue-600" />
                             <span>Code d'activation valide et authentifié pour {school.name} !</span>
                           </div>
                           <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 pt-1 font-mono text-[11px]">
-                            <div className="bg-[#E7F3FF]/60  p-2 rounded-xl">
-                              <span className="text-[#65676B]  block text-[9px] uppercase">Formule</span>
+                            <div className="bg-blue-50/60  p-2 rounded-xl">
+                              <span className="text-slate-500 dark:text-slate-400  block text-[9px] uppercase">Formule</span>
                               <strong>{codeVerificationResult.planName} ({codeVerificationResult.durationMonths} Mois)</strong>
                             </div>
-                            <div className="bg-[#E7F3FF]/60  p-2 rounded-xl">
-                              <span className="text-[#65676B]  block text-[9px] uppercase">Montant Réglé</span>
+                            <div className="bg-blue-50/60  p-2 rounded-xl">
+                              <span className="text-slate-500 dark:text-slate-400  block text-[9px] uppercase">Montant Réglé</span>
                               <strong>{codeVerificationResult.amountFCFA?.toLocaleString()} FCFA</strong>
                             </div>
-                            <div className="bg-[#E7F3FF]/60  p-2 rounded-xl col-span-2 sm:col-span-1">
-                              <span className="text-[#65676B]  block text-[9px] uppercase">Nouvelle Échéance</span>
+                            <div className="bg-blue-50/60  p-2 rounded-xl col-span-2 sm:col-span-1">
+                              <span className="text-slate-500 dark:text-slate-400  block text-[9px] uppercase">Nouvelle Échéance</span>
                               <strong>{codeVerificationResult.calculatedNewExpirationDate}</strong>
                             </div>
                           </div>
@@ -541,8 +541,8 @@ export const SchoolSubscriptionUpgradeModal: React.FC<SchoolSubscriptionUpgradeM
                 </div>
 
                 {/* Submit button for Code */}
-                <div className="pt-4 border-t border-[#E4E6EB]  flex items-center justify-between gap-4">
-                  <div className="text-xs text-[#65676B] ">
+                <div className="pt-4 border-t border-slate-200 dark:border-slate-700  flex items-center justify-between gap-4">
+                  <div className="text-xs text-slate-500 dark:text-slate-400 ">
                     Besoin d'un code ? Contactez Stéphane Alongo au <strong>+242 06 895 83 77</strong>
                   </div>
 
@@ -550,7 +550,7 @@ export const SchoolSubscriptionUpgradeModal: React.FC<SchoolSubscriptionUpgradeM
                     <button
                       type="button"
                       onClick={onClose}
-                      className="px-5 py-3 rounded-xl border border-[#E4E6EB]  text-[#050505]  text-xs font-bold hover:bg-[#F0F2F5] cursor-pointer"
+                      className="px-5 py-3 rounded-xl border border-slate-200 dark:border-slate-700  text-slate-800 dark:text-slate-100  text-xs font-bold hover:bg-slate-50 dark:bg-slate-800/50 cursor-pointer"
                     >
                       Fermer
                     </button>
@@ -558,7 +558,7 @@ export const SchoolSubscriptionUpgradeModal: React.FC<SchoolSubscriptionUpgradeM
                     <button
                       type="submit"
                       disabled={isProcessing || !inputActivationCode.trim()}
-                      className="px-6 py-3 bg-[#1877F2] hover:from-emerald-500 hover:to-teal-500 text-white text-xs font-black rounded-xl shadow-lg shadow-emerald-600/20 flex items-center justify-center gap-2 cursor-pointer transition-all hover:scale-102 active:scale-98 disabled:opacity-50"
+                      className="px-6 py-3 bg-blue-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs font-black rounded-xl shadow-lg shadow-emerald-600/20 flex items-center justify-center gap-2 cursor-pointer transition-all hover:scale-102 active:scale-98 disabled:opacity-50"
                     >
                       {isProcessing ? (
                         <>

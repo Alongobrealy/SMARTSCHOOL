@@ -122,13 +122,13 @@ export const AttendanceModule: React.FC<AttendanceModuleProps> = ({
     <div className="flex flex-col gap-6">
       
       {/* Header & Description */}
-      <div className="flex flex-col md:flex-row items-center justify-between gap-4 bg-white  p-4 sm:p-6 rounded-lg border border-[#E4E6EB]  shadow-sm transition-colors duration-200 text-center md:text-left">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-4 bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  shadow-sm transition-colors duration-200 text-center md:text-left">
         <div>
-          <div className="flex items-center justify-center md:justify-start gap-2 text-[#1877F2]  font-bold text-xs uppercase tracking-wider">
+          <div className="flex items-center justify-center md:justify-start gap-2 text-blue-600  font-bold text-xs uppercase tracking-wider">
             <UserCheck className="w-4 h-4" /> Module de Présence Numérique
           </div>
-          <h2 className="text-xl sm:text-2xl font-bold text-[#050505]  mt-1">Appel Numérique & Suivi d'Assiduité</h2>
-          <p className="text-xs text-[#65676B]  mt-1">
+          <h2 className="text-xl sm:text-2xl font-bold text-slate-800 dark:text-slate-100  mt-1">Appel Numérique & Suivi d'Assiduité</h2>
+          <p className="text-xs text-slate-500 dark:text-slate-400  mt-1">
             Fini les fiches papier. Effectuez l'appel en 30 secondes et envoyez les rapports automatiques aux parents.
           </p>
         </div>
@@ -136,15 +136,15 @@ export const AttendanceModule: React.FC<AttendanceModuleProps> = ({
         <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5 w-full md:w-auto">
           <button
             onClick={handleMarkAllPresent}
-            className="w-full sm:w-auto px-3.5 py-2.5 bg-[#F0F2F5] hover:bg-[#F0F2F5] text-[#050505]  text-xs font-semibold rounded-xl border border-[#E4E6EB]  flex items-center justify-center gap-1.5 transition-all cursor-pointer shadow-2xs"
+            className="w-full sm:w-auto px-3.5 py-2.5 bg-slate-50 dark:bg-slate-800/50 hover:bg-slate-50 dark:bg-slate-800/50 text-slate-800 dark:text-slate-100  text-xs font-semibold rounded-xl border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  flex items-center justify-center gap-1.5 transition-all cursor-pointer shadow-2xs"
           >
-            <Check className="w-3.5 h-3.5 text-[#1877F2] " />
+            <Check className="w-3.5 h-3.5 text-blue-600 " />
             Tout Marquer Présent
           </button>
 
           <button
             onClick={handleNotifyParents}
-            className="w-full sm:w-auto px-4 py-2.5 bg-[#1877F2] hover:bg-[#1877F2] text-white text-xs font-bold rounded-xl shadow-sm flex items-center justify-center gap-2 transition-all cursor-pointer"
+            className="w-full sm:w-auto px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold shadow-md shadow-blue-600/20 rounded-xl shadow-sm flex items-center justify-center gap-2 transition-all cursor-pointer"
           >
             <Send className="w-3.5 h-3.5" />
             Notifier Parents ({absentCount + lateCount})
@@ -153,13 +153,13 @@ export const AttendanceModule: React.FC<AttendanceModuleProps> = ({
       </div>
 
       {/* Filter Bar & Controls */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 bg-white  p-4 sm:p-5 rounded-lg border border-[#E4E6EB]  shadow-sm text-xs transition-colors duration-200">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 bg-white dark:bg-slate-900 p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  shadow-sm text-xs transition-colors duration-200">
         <div>
-          <label className="text-[#65676B]  font-semibold mb-1 block">Classe / Niveau :</label>
+          <label className="text-slate-500 dark:text-slate-400  font-semibold mb-1 block">Classe / Niveau :</label>
           <select
             value={selectedClass}
             onChange={(e) => setSelectedClass(e.target.value)}
-            className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  text-[#050505]  rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white transition-colors cursor-pointer font-semibold"
+            className="w-full bg-slate-50 dark:bg-slate-800/50  border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  text-slate-800 dark:text-slate-100  rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white dark:bg-slate-900 transition-colors cursor-pointer font-semibold"
           >
             <option value="Terminale S1">Terminale D (Lycée)</option>
             <option value="3ème Scientifique">3ème A (Collège)</option>
@@ -170,11 +170,11 @@ export const AttendanceModule: React.FC<AttendanceModuleProps> = ({
         </div>
 
         <div>
-          <label className="text-[#65676B]  font-semibold mb-1 block">Matière / Cours :</label>
+          <label className="text-slate-500 dark:text-slate-400  font-semibold mb-1 block">Matière / Cours :</label>
           <select
             value={selectedMatiere}
             onChange={(e) => setSelectedMatiere(e.target.value)}
-            className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  text-[#050505]  rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white transition-colors cursor-pointer"
+            className="w-full bg-slate-50 dark:bg-slate-800/50  border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  text-slate-800 dark:text-slate-100  rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white dark:bg-slate-900 transition-colors cursor-pointer"
           >
             <option value="Mathématiques">Mathématiques</option>
             <option value="Physique-Chimie">Physique-Chimie</option>
@@ -184,67 +184,67 @@ export const AttendanceModule: React.FC<AttendanceModuleProps> = ({
         </div>
 
         <div>
-          <label className="text-[#65676B]  font-semibold mb-1 block">Date du cours :</label>
+          <label className="text-slate-500 dark:text-slate-400  font-semibold mb-1 block">Date du cours :</label>
           <input
             type="date"
             value={selectedDate}
             onChange={(e) => setSelectedDate(e.target.value)}
-            className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  text-[#050505]  rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white transition-colors"
+            className="w-full bg-slate-50 dark:bg-slate-800/50  border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  text-slate-800 dark:text-slate-100  rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white dark:bg-slate-900 transition-colors"
           />
         </div>
       </div>
 
       {/* KPI Stats Strip */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-        <div className="bg-white  border border-[#E4E6EB]  p-4 rounded-lg shadow-sm flex items-center gap-3.5 transition-colors duration-200">
-          <div className="w-10 h-10 rounded-xl bg-[#E7F3FF]  text-[#1877F2]  border border-[#E4E6EB]  flex items-center justify-center font-bold">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  p-4 rounded-2xl shadow-sm flex items-center gap-3.5 transition-colors duration-200">
+          <div className="w-10 h-10 rounded-xl bg-blue-50  text-blue-600  border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  flex items-center justify-center font-bold">
             <Users className="w-5 h-5" />
           </div>
           <div>
-            <span className="text-[11px] text-[#65676B]  font-bold uppercase tracking-wider">Effectif</span>
-            <p className="text-xl font-bold text-[#050505] ">{total} Élèves</p>
+            <span className="text-[11px] text-slate-500 dark:text-slate-400  font-bold uppercase tracking-wider">Effectif</span>
+            <p className="text-xl font-bold text-slate-800 dark:text-slate-100 ">{total} Élèves</p>
           </div>
         </div>
 
-        <div className="bg-white  border border-[#E4E6EB]  p-4 rounded-lg shadow-sm flex items-center gap-3.5 transition-colors duration-200">
-          <div className="w-10 h-10 rounded-xl bg-[#E7F3FF]  text-[#1877F2]  border border-[#E4E6EB]  flex items-center justify-center font-bold">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  p-4 rounded-2xl shadow-sm flex items-center gap-3.5 transition-colors duration-200">
+          <div className="w-10 h-10 rounded-xl bg-blue-50  text-blue-600  border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  flex items-center justify-center font-bold">
             <CheckCircle className="w-5 h-5" />
           </div>
           <div>
-            <span className="text-[11px] text-[#65676B]  font-bold uppercase tracking-wider">Présents</span>
-            <p className="text-xl font-bold text-[#1877F2] ">{presentCount} ({rate}%)</p>
+            <span className="text-[11px] text-slate-500 dark:text-slate-400  font-bold uppercase tracking-wider">Présents</span>
+            <p className="text-xl font-bold text-blue-600 ">{presentCount} ({rate}%)</p>
           </div>
         </div>
 
-        <div className="bg-white  border border-[#E4E6EB]  p-4 rounded-lg shadow-sm flex items-center gap-3.5 transition-colors duration-200">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  p-4 rounded-2xl shadow-sm flex items-center gap-3.5 transition-colors duration-200">
           <div className="w-10 h-10 rounded-xl bg-rose-50  text-rose-600  border border-rose-100  flex items-center justify-center font-bold">
             <AlertCircle className="w-5 h-5" />
           </div>
           <div>
-            <span className="text-[11px] text-[#65676B]  font-bold uppercase tracking-wider">Absents</span>
+            <span className="text-[11px] text-slate-500 dark:text-slate-400  font-bold uppercase tracking-wider">Absents</span>
             <p className="text-xl font-bold text-rose-600 ">{absentCount}</p>
           </div>
         </div>
 
-        <div className="bg-white  border border-[#E4E6EB]  p-4 rounded-lg shadow-sm flex items-center gap-3.5 transition-colors duration-200">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  p-4 rounded-2xl shadow-sm flex items-center gap-3.5 transition-colors duration-200">
           <div className="w-10 h-10 rounded-xl bg-amber-50  text-amber-600  border border-amber-100  flex items-center justify-center font-bold">
             <Clock className="w-5 h-5" />
           </div>
           <div>
-            <span className="text-[11px] text-[#65676B]  font-bold uppercase tracking-wider">Retards</span>
+            <span className="text-[11px] text-slate-500 dark:text-slate-400  font-bold uppercase tracking-wider">Retards</span>
             <p className="text-xl font-bold text-amber-600 ">{lateCount}</p>
           </div>
         </div>
       </div>
 
       {/* Student Attendance List */}
-      <div className="bg-white  border border-[#E4E6EB]  rounded-lg shadow-sm overflow-hidden transition-colors duration-200">
-        <div className="px-6 py-4 border-b border-[#E4E6EB]  flex items-center justify-between">
-          <h3 className="font-bold text-[#050505]  text-sm flex items-center gap-2">
+      <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  rounded-2xl shadow-sm overflow-hidden transition-colors duration-200">
+        <div className="px-6 py-4 border-b border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  flex items-center justify-between">
+          <h3 className="font-bold text-slate-800 dark:text-slate-100  text-sm flex items-center gap-2">
             <span>Liste d'Appel : {selectedClass}</span>
-            <span className="text-xs font-normal text-[#65676B] ">({selectedMatiere} - {selectedDate})</span>
+            <span className="text-xs font-normal text-slate-500 dark:text-slate-400 ">({selectedMatiere} - {selectedDate})</span>
           </h3>
-          <span className="text-xs text-[#1877F2]  font-semibold">Cliquez sur un statut pour modifier</span>
+          <span className="text-xs text-blue-600  font-semibold">Cliquez sur un statut pour modifier</span>
         </div>
 
         <div className="divide-y divide-slate-100 ">
@@ -254,24 +254,24 @@ export const AttendanceModule: React.FC<AttendanceModuleProps> = ({
             return (
               <div
                 key={student.id}
-                className="p-4 sm:px-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-[#F0F2F5]/70 transition-colors"
+                className="p-4 sm:px-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-slate-50 dark:bg-slate-800/50/70 transition-colors"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-[#F0F2F5]  border border-[#E4E6EB]  flex items-center justify-center text-[#050505]  font-bold text-xs">
+                  <div className="w-10 h-10 rounded-xl bg-slate-50 dark:bg-slate-800/50  border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  flex items-center justify-center text-slate-800 dark:text-slate-100  font-bold text-xs">
                     {student.prenom[0]}{student.nom[0]}
                   </div>
                   <div>
                     <div className="flex items-center gap-2">
-                      <span className="font-bold text-[#050505]  text-sm">{student.nom} {student.prenom}</span>
-                      <span className="text-[10px] font-mono text-[#65676B]  bg-[#F0F2F5]  px-1.5 py-0.5 rounded border border-[#E4E6EB] ">
+                      <span className="font-bold text-slate-800 dark:text-slate-100  text-sm">{student.nom} {student.prenom}</span>
+                      <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400  bg-slate-50 dark:bg-slate-800/50  px-1.5 py-0.5 rounded border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60 ">
                         {student.matricule}
                       </span>
                     </div>
-                    <div className="flex items-center gap-2 text-xs text-[#65676B]  mt-0.5">
+                    <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400  mt-0.5">
                       <span>Parent: {student.nomParent}</span>
                       <span>•</span>
-                      <span className="flex items-center gap-1 text-[#65676B]  font-medium">
-                        <Phone className="w-3 h-3 text-[#1877F2] " />
+                      <span className="flex items-center gap-1 text-slate-500 dark:text-slate-400  font-medium">
+                        <Phone className="w-3 h-3 text-blue-600 " />
                         {student.telephoneParent}
                       </span>
                     </div>
@@ -284,8 +284,8 @@ export const AttendanceModule: React.FC<AttendanceModuleProps> = ({
                     onClick={() => handleSetStatus(student, 'present')}
                     className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
                       status === 'present'
-                        ? 'bg-[#1877F2] text-white shadow-xs font-bold'
-                        : 'bg-[#F0F2F5]  text-[#65676B]  hover:text-[#050505] hover:bg-[#F0F2F5]'
+                        ? 'bg-blue-600 text-white shadow-xs font-bold'
+                        : 'bg-slate-50 dark:bg-slate-800/50  text-slate-500 dark:text-slate-400  hover:text-slate-800 dark:text-slate-100 hover:bg-slate-50 dark:bg-slate-800/50'
                     }`}
                   >
                     Présent
@@ -296,7 +296,7 @@ export const AttendanceModule: React.FC<AttendanceModuleProps> = ({
                     className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
                       status === 'retard'
                         ? 'bg-amber-600 text-white shadow-xs font-bold'
-                        : 'bg-[#F0F2F5]  text-[#65676B]  hover:text-[#050505] hover:bg-[#F0F2F5]'
+                        : 'bg-slate-50 dark:bg-slate-800/50  text-slate-500 dark:text-slate-400  hover:text-slate-800 dark:text-slate-100 hover:bg-slate-50 dark:bg-slate-800/50'
                     }`}
                   >
                     Retard
@@ -307,7 +307,7 @@ export const AttendanceModule: React.FC<AttendanceModuleProps> = ({
                     className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
                       status === 'absent_non_justifie'
                         ? 'bg-rose-600 text-white shadow-xs font-bold'
-                        : 'bg-[#F0F2F5]  text-[#65676B]  hover:text-[#050505] hover:bg-[#F0F2F5]'
+                        : 'bg-slate-50 dark:bg-slate-800/50  text-slate-500 dark:text-slate-400  hover:text-slate-800 dark:text-slate-100 hover:bg-slate-50 dark:bg-slate-800/50'
                     }`}
                   >
                     Absent
@@ -317,8 +317,8 @@ export const AttendanceModule: React.FC<AttendanceModuleProps> = ({
                     onClick={() => handleSetStatus(student, 'justifie')}
                     className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
                       status === 'justifie'
-                        ? 'bg-[#1877F2] text-white shadow-xs font-bold'
-                        : 'bg-[#F0F2F5]  text-[#65676B]  hover:text-[#050505] hover:bg-[#F0F2F5]'
+                        ? 'bg-blue-600 text-white shadow-xs font-bold'
+                        : 'bg-slate-50 dark:bg-slate-800/50  text-slate-500 dark:text-slate-400  hover:text-slate-800 dark:text-slate-100 hover:bg-slate-50 dark:bg-slate-800/50'
                     }`}
                   >
                     Justifié
@@ -333,19 +333,19 @@ export const AttendanceModule: React.FC<AttendanceModuleProps> = ({
 
       {/* Simulated SMS / WhatsApp Dispatch Notification Modal */}
       {notificationSentModal && (
-        <div className="fixed inset-0 z-50 bg-white backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white  text-[#050505]  w-full max-w-lg rounded-lg border border-[#E4E6EB]  shadow-2xl p-6 flex flex-col gap-4">
-            <div className="flex items-center justify-between border-b border-[#E4E6EB]  pb-3">
+        <div className="fixed inset-0 z-50 bg-white dark:bg-slate-900 backdrop-blur-xs flex items-center justify-center p-4">
+          <div className="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100  w-full max-w-lg rounded-2xl border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  shadow-2xl p-6 flex flex-col gap-4">
+            <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  pb-3">
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-lg bg-[#E7F3FF]  text-[#1877F2]  flex items-center justify-center">
+                <div className="w-8 h-8 rounded-lg bg-blue-50  text-blue-600  flex items-center justify-center">
                   <Send className="w-4 h-4" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-[#050505]  text-sm">Notifications Parents Expédiées</h4>
-                  <p className="text-xs text-[#65676B] ">Passerelle SMS & WhatsApp Connectée</p>
+                  <h4 className="font-bold text-slate-800 dark:text-slate-100  text-sm">Notifications Parents Expédiées</h4>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 ">Passerelle SMS & WhatsApp Connectée</p>
                 </div>
               </div>
-              <span className="text-xs bg-[#E7F3FF]  text-[#1877F2]  px-2.5 py-0.5 rounded-lg font-bold border border-[#E4E6EB] ">
+              <span className="text-xs bg-blue-50  text-blue-600  px-2.5 py-0.5 rounded-lg font-bold border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60 ">
                 {simulatedNotifications.length} Envoyés
               </span>
             </div>
@@ -353,20 +353,20 @@ export const AttendanceModule: React.FC<AttendanceModuleProps> = ({
             <div className="flex flex-col gap-2.5 max-h-64 overflow-y-auto pr-1">
               {simulatedNotifications.length > 0 ? (
                 simulatedNotifications.map((notif, idx) => (
-                  <div key={idx} className="bg-[#F0F2F5]  border border-[#E4E6EB]  p-3 rounded-xl text-xs flex flex-col gap-1.5">
+                  <div key={idx} className="bg-slate-50 dark:bg-slate-800/50  border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  p-3 rounded-xl text-xs flex flex-col gap-1.5">
                     <div className="flex items-center justify-between">
-                      <span className="font-bold text-[#1877F2]  flex items-center gap-1">
+                      <span className="font-bold text-blue-600  flex items-center gap-1">
                         <MessageSquare className="w-3.5 h-3.5" /> {notif.parent} ({notif.telephone})
                       </span>
-                      <span className="text-[10px] text-[#65676B]  font-medium">{notif.time}</span>
+                      <span className="text-[10px] text-slate-500 dark:text-slate-400  font-medium">{notif.time}</span>
                     </div>
-                    <p className="text-[#050505]  text-[11px] bg-white  p-2.5 rounded-lg border border-[#E4E6EB]  font-mono">
+                    <p className="text-slate-800 dark:text-slate-100  text-[11px] bg-white dark:bg-slate-900  p-2.5 rounded-lg border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  font-mono">
                       "{notif.message}"
                     </p>
                   </div>
                 ))
               ) : (
-                <p className="text-xs text-[#65676B]  text-center py-4">
+                <p className="text-xs text-slate-500 dark:text-slate-400  text-center py-4">
                   Aucun retard ou absence détecté pour cette classe. Tous les élèves sont présents ! 🎉
                 </p>
               )}
@@ -375,7 +375,7 @@ export const AttendanceModule: React.FC<AttendanceModuleProps> = ({
             <div className="flex justify-end pt-2">
               <button
                 onClick={() => setNotificationSentModal(false)}
-                className="px-4 py-2 bg-[#1877F2] hover:bg-[#1877F2] text-white font-bold rounded-xl text-xs transition-colors cursor-pointer shadow-sm"
+                className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl text-xs transition-colors cursor-pointer shadow-sm"
               >
                 Fermer & Continuer
               </button>

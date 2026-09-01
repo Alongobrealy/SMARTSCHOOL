@@ -29,8 +29,8 @@ export const AutoSaveIndicator: React.FC<AutoSaveIndicatorProps> = ({
           <span>Sauvegarde auto en cours...</span>
         </div>
       ) : lastSavedTime ? (
-        <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#E7F3FF]  border border-[#E4E6EB]  text-[#1877F2]  font-medium">
-          <Cloud className="w-3.5 h-3.5 text-[#1877F2] " />
+        <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-blue-50  border border-slate-200  text-blue-600  font-medium">
+          <Cloud className="w-3.5 h-3.5 text-blue-600 " />
           <span>Brouillon sécurisé à {lastSavedTime}</span>
         </div>
       ) : hasDraft && savedDraftDate ? (
@@ -39,7 +39,7 @@ export const AutoSaveIndicator: React.FC<AutoSaveIndicatorProps> = ({
           <span>Brouillon antérieur ({savedDraftDate})</span>
         </div>
       ) : (
-        <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-lg text-[#65676B]  text-[11px]">
+        <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-lg text-slate-500  text-[11px]">
           <Cloud className="w-3 h-3" />
           <span>Protection anti-perte active</span>
         </div>
@@ -50,10 +50,10 @@ export const AutoSaveIndicator: React.FC<AutoSaveIndicatorProps> = ({
         <button
           type="button"
           onClick={onRestoreDraft}
-          className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-[#E7F3FF] hover:bg-[#E7F3FF][#1877F2] text-[#1877F2]  border border-[#E4E6EB]  text-xs font-bold transition-all cursor-pointer hover:scale-105"
+          className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-blue-50 hover:bg-blue-50#2563eb text-blue-600  border border-slate-200  text-xs font-bold transition-all cursor-pointer hover:scale-105"
           title="Restaurer les données saisies lors de la dernière session"
         >
-          <RotateCcw className="w-3 h-3 text-[#1877F2] " />
+          <RotateCcw className="w-3 h-3 text-blue-600 " />
           <span>Restaurer brouillon</span>
         </button>
       )}
@@ -63,7 +63,7 @@ export const AutoSaveIndicator: React.FC<AutoSaveIndicatorProps> = ({
         <button
           type="button"
           onClick={onClearDraft}
-          className="inline-flex items-center gap-1 p-1 rounded-lg hover:bg-[#F0F2F5] text-[#65676B] hover:text-rose-600 transition-colors cursor-pointer"
+          className="inline-flex items-center gap-1 p-1 rounded-lg hover:bg-slate-50 text-slate-500 hover:text-rose-600 transition-colors cursor-pointer"
           title="Supprimer le brouillon temporaire"
         >
           <Trash2 className="w-3 h-3" />

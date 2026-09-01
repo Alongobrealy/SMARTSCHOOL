@@ -23,10 +23,10 @@ export const NetworkStatusBanner: React.FC<NetworkStatusBannerProps> = ({
           onClick={() => setShowModal(true)}
           className={`w-full text-xs font-medium cursor-pointer transition-all ${
             !isOnline
-              ? 'bg-[#1877F2] text-white'
+              ? 'bg-blue-600 text-white'
               : isSyncing
-              ? 'bg-[#1877F2] text-white'
-              : 'bg-[#1877F2] text-[#65676B]'
+              ? 'bg-blue-600 text-white'
+              : 'bg-blue-600 text-slate-500'
           } ${className}`}
         >
           <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between gap-3">
@@ -47,7 +47,7 @@ export const NetworkStatusBanner: React.FC<NetworkStatusBannerProps> = ({
                 </>
               ) : (
                 <>
-                  <Layers className="w-4 h-4 shrink-0 text-[#65676B]" />
+                  <Layers className="w-4 h-4 shrink-0 text-slate-500" />
                   <span>
                     {pendingCount} modification(s) enregistrée(s) localement prêtes pour la synchronisation.
                   </span>
@@ -73,10 +73,10 @@ export const NetworkStatusBanner: React.FC<NetworkStatusBannerProps> = ({
             !isOnline
               ? 'bg-amber-50  text-amber-700  border-amber-300  hover:bg-amber-100'
               : isSyncing
-              ? 'bg-[#E7F3FF]  text-[#1877F2]  border-[#E4E6EB]  hover:bg-[#E7F3FF] animate-pulse'
+              ? 'bg-blue-50  text-blue-600  border-slate-200  hover:bg-blue-50 animate-pulse'
               : pendingCount > 0
               ? 'bg-blue-50  text-blue-700  border-blue-300  hover:bg-blue-100'
-              : 'bg-[#E7F3FF]  text-[#1877F2]  border-[#E4E6EB]  hover:bg-[#E7F3FF]'
+              : 'bg-blue-50  text-blue-600  border-slate-200  hover:bg-blue-50'
           }`}
           title="Cliquez pour gérer la synchronisation hors-ligne"
         >
@@ -93,16 +93,16 @@ export const NetworkStatusBanner: React.FC<NetworkStatusBannerProps> = ({
             </>
           ) : isSyncing ? (
             <>
-              <RefreshCw className="w-3.5 h-3.5 animate-spin text-[#1877F2] " />
+              <RefreshCw className="w-3.5 h-3.5 animate-spin text-blue-600 " />
               <span className="hidden sm:inline">Sync...</span>
-              <span className="bg-[#1877F2] text-white text-[10px] px-1.5 py-0.2 rounded-lg font-bold">
+              <span className="bg-blue-600 text-white text-[10px] px-1.5 py-0.2 rounded-lg font-bold">
                 {pendingCount}
               </span>
             </>
           ) : (
             <>
-              <span className="w-2 h-2 rounded-lg bg-[#1877F2]"></span>
-              <Wifi className="w-3.5 h-3.5 text-[#1877F2] " />
+              <span className="w-2 h-2 rounded-lg bg-blue-600"></span>
+              <Wifi className="w-3.5 h-3.5 text-blue-600 " />
               <span className="hidden sm:inline">En Ligne</span>
               {pendingCount > 0 ? (
                 <span className="bg-blue-600 text-white text-[10px] px-1.5 py-0.2 rounded-lg font-bold">

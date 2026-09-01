@@ -1,25 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  Building2, 
-  Users, 
-  GraduationCap, 
-  UserCheck, 
-  Briefcase, 
-  Calculator, 
-  CreditCard, 
-  Calendar, 
-  FileText, 
-  PieChart, 
-  Globe, 
-  Bell, 
-  Search, 
-  ArrowLeft, 
-  ShieldCheck, 
-  TrendingUp, 
-  Menu, 
-  X, 
-  CheckCircle2, 
-  AlertTriangle, 
+  Building2,
+  Users,
+  GraduationCap,
+  UserCheck,
+  Briefcase,
+  Calculator,
+  CreditCard,
+  Calendar,
+  FileText,
+  PieChart,
+  Globe,
+  Bell,
+  Search,
+  ArrowLeft,
+  ShieldCheck,
+  TrendingUp,
+  Menu,
+  X,
+  Upload,
+  RefreshCw,
+  CheckCircle2,
+  AlertTriangle,
   LogOut,
   Award,
   Sparkles,
@@ -37,15 +39,15 @@ import {
 } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, Legend, ResponsiveContainer, AreaChart, Area } from "recharts";
 import { 
-  UserRole, 
-  Student, 
-  Teacher, 
+  UserRole,
+  Student,
+  Teacher,
   StaffMember,
-  AttendanceRecord, 
-  GradeEntry, 
-  FeePayment, 
-  ExpenseItem, 
-  Announcement, 
+  AttendanceRecord,
+  GradeEntry,
+  FeePayment,
+  ExpenseItem,
+  Announcement,
   CourseSchedule,
   TenantSchool,
   SystemLogEntry,
@@ -285,12 +287,12 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({
 
   // Role metadata
   const roleConfig: Record<UserRole, { label: string; icon: any; color: string; badge: string }> = {
-    direction: { label: 'Direction Générale', icon: Briefcase, color: 'text-purple-400 bg-purple-950/60 border-purple-800', badge: 'Superviseur Global' },
-    administration: { label: 'Secrétariat & Scolarité', icon: Building2, color: 'text-blue-400 bg-blue-950/60 border-blue-800', badge: 'Gestion Administrative' },
-    enseignant: { label: 'Espace Professeur', icon: UserCheck, color: 'text-[#1877F2] bg-indigo-950/60 border-[#E4E6EB]', badge: 'Appel, Notes & Cours' },
-    parent: { label: 'Espace Parents d’Élèves', icon: Users, color: 'text-[#1877F2] bg-emerald-950/60 border-[#E4E6EB]', badge: 'Suivi de l’Enfant' },
-    eleve: { label: 'Espace Élève', icon: GraduationCap, color: 'text-sky-400 bg-sky-950/60 border-sky-800', badge: 'Cours, Notes & Devoirs' },
-    comptabilite: { label: 'Service Comptabilité & Caisse', icon: Calculator, color: 'text-amber-400 bg-amber-950/60 border-amber-800', badge: 'Recouvrement & Bilans' },
+    direction: { label: 'Direction Générale et Administration', icon: Briefcase, color: 'text-purple-400 bg-purple-950/60 border-purple-800', badge: 'Superviseur Global' },
+    administration: { label: 'Secrétariat et Scolarité', icon: Building2, color: 'text-blue-400 bg-blue-950/60 border-blue-800', badge: 'Gestion Administrative' },
+    enseignant: { label: 'Corps Enseignant et Personnel', icon: UserCheck, color: 'text-blue-600 bg-indigo-950/60 border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60', badge: 'Appel, Notes & Cours' },
+    parent: { label: 'Espace Parents', icon: Users, color: 'text-blue-600 bg-emerald-950/60 border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60', badge: 'Suivi de l’Enfant' },
+    eleve: { label: 'Espace Elèves', icon: GraduationCap, color: 'text-sky-400 bg-sky-950/60 border-sky-800', badge: 'Cours, Notes & Devoirs' },
+    comptabilite: { label: 'Comptabilité et Caisse', icon: Calculator, color: 'text-amber-400 bg-amber-950/60 border-amber-800', badge: 'Recouvrement & Bilans' },
     superadmin: { label: 'Super Admin Développeur', icon: Terminal, color: 'text-rose-400 bg-rose-950/60 border-rose-800', badge: 'DevOps & Multi-Écoles' },
   };
 
@@ -340,159 +342,134 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({
   const currentStudent = scopedStudents[0] || students[0]; // For parent / eleve view
 
   return (
-    <div className="min-h-screen bg-[#F0F2F5] text-[#1E293B] flex flex-col font-sans transition-colors duration-200">
+    <div className="h-screen w-full bg-transparent text-[#1E293B] dark:text-slate-100 flex font-sans overflow-hidden">
       
-      
-      {/* Mobile Menu Toggle (Floating) */}
-      <button
-        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        className="md:hidden fixed bottom-4 right-4 z-50 p-4 rounded-full bg-[#1877F2] text-white shadow-lg cursor-pointer"
-      >
-        {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-      </button>
 
-      {/* Global Offline Network Status Banner */}
-
-      <NetworkStatusBanner variant="banner" />
-
-      {/* DEVELOPER CONTROL MODE BANNER WITH RETURN BUTTON */}
-      {isDevUnlocked && currentRole !== 'superadmin' && (
-        <div className="bg-[#1877F2] border-b border-amber-500/50 px-4 sm:px-6 py-2.5 shadow-md flex flex-col sm:flex-row items-center justify-between gap-3 text-white">
-          <div className="flex items-center gap-2.5 text-xs">
-            <span className="w-2.5 h-2.5 rounded-lg bg-amber-400 animate-pulse shrink-0" />
-            <span className="font-extrabold text-amber-300 tracking-wide">MODE CONTRÔLE DÉVELOPPEUR :</span>
-            <span className="text-[#65676B]">
-              Prise de contrôle active sur l'établissement <strong>{schoolConfig.name || schoolName}</strong>.
-            </span>
-          </div>
-          
-          <button
-            id="btn-return-dev-console"
-            onClick={() => {
-              onChangeRole('superadmin');
-              setActiveTab('superadmin');
-            }}
-            className="px-3.5 py-1.5 bg-[#1877F2] hover:from-amber-400 hover:to-amber-500 text-slate-950 font-black rounded-xl text-xs flex items-center gap-2 shadow-sm transition-all cursor-pointer hover:scale-105 active:scale-95 shrink-0"
-            title="Quitter la gestion de cette école et retourner à la Console Développeur Globale"
-          >
-            <Terminal className="w-4 h-4 text-slate-950" />
-            <span>← Retourner à la Console Développeur</span>
-          </button>
-        </div>
-      )}
-
-      {/* App Body (Sidebar + Content) */}
-      <div className="max-w-7xl w-full mx-auto p-4 sm:p-6 flex-1 flex flex-col md:flex-row gap-6">
+      {/* Sidebar */}
+      <aside className={`w-64 bg-slate-900/95 backdrop-blur-2xl border-r border-slate-800 flex flex-col h-full shrink-0 z-40 transition-transform duration-300 ${mobileMenuOpen ? "fixed inset-y-0 left-0 shadow-2xl" : "hidden md:flex"}`}>
         
-        {/* Sidebar Nav */}
-        <aside className={`md:w-64 shrink-0 flex flex-col gap-4 bg-white rounded-lg p-4 shadow-sm text-[#050505] border border-[#E4E6EB] ${mobileMenuOpen ? 'block' : 'hidden md:flex'}`}>
-          
-          {/* Logo Header inside sidebar */}
-          <div className="flex items-center gap-3 px-2 py-2 border-b border-[#E4E6EB]">
-            <div className="w-8 h-8 bg-[#1877F2] rounded-lg flex items-center justify-center font-bold text-white text-xs">
-              EC
+        {/* Logo */}
+        <div className="h-16 flex items-center gap-3 px-6 border-b border-[#1E293B]">
+          <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center font-bold text-white text-xs">
+            <GraduationCap className="w-5 h-5 text-white" />
+          </div>
+          <span className="text-white font-bold text-lg tracking-tight">EduERP Pro</span>
+        </div>
+
+        {/* Nav Links */}
+        <nav className="flex-1 p-3 flex flex-col gap-1.5 overflow-y-auto">
+          {filteredNavItems.map((item) => {
+            const Icon = item.icon;
+            const isActive = activeTab === item.id;
+            return (
+              <button
+                key={item.id}
+                id={`nav-item-${item.id}`}
+                onClick={() => {
+                  setActiveTab(item.id);
+                  setMobileMenuOpen(false);
+                }}
+                className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all cursor-pointer ${
+                  isActive
+                    ? 'bg-blue-600 text-white shadow-md'
+                    : 'text-slate-400 hover:text-white hover:bg-slate-800'
+                }`}
+              >
+                <Icon className={`w-5 h-5 ${isActive ? 'text-white' : 'opacity-80'}`} />
+                <span>{item.label}</span>
+              </button>
+            );
+          })}
+        </nav>
+
+        {/* User Profile */}
+        <div className="p-4 border-t border-[#1E293B] bg-slate-900/50">
+          <div className="flex items-center gap-3 bg-slate-800 p-3 rounded-xl border border-slate-700">
+            <div className="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center text-slate-300 overflow-hidden">
+               <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${currentRole}&backgroundColor=c0aede,b6e3f4,d1d4f9`} alt="Avatar" className="w-full h-full object-cover" />
             </div>
-            <div>
-              <span className="text-[#050505] font-bold text-sm tracking-tight block">EDU-CONGO</span>
-              <span className="text-[10px] text-[#1877F2] font-medium block uppercase tracking-wider">Congo-Brazzaville</span>
+            <div className="flex flex-col min-w-0">
+              <span className="text-sm font-semibold text-white truncate">{roleConfig[currentRole].label}</span>
+              <span className="text-[10px] text-slate-400 uppercase tracking-wider truncate">admin@eduerp.com</span>
             </div>
           </div>
+          <div className="flex gap-2 mt-3">
+             <button
+                onClick={onBackToFlyer}
+                className="flex-1 flex items-center justify-center gap-2 px-2 py-2 rounded-lg text-xs font-bold bg-slate-800 hover:bg-slate-700 text-white transition-colors cursor-pointer"
+                title="Retour Vitrine"
+              >
+                <ArrowLeft className="w-4 h-4" />
+              </button>
+              <button
+                onClick={onLogout || onBackToFlyer}
+                className="flex-1 flex items-center justify-center gap-2 px-2 py-2 rounded-lg text-xs font-bold bg-red-500/10 hover:bg-red-500/20 text-red-500 transition-colors cursor-pointer"
+                title="Déconnexion"
+              >
+                <LogOut className="w-4 h-4" />
+              </button>
+          </div>
+        </div>
+      </aside>
 
-          {/* Quick Return to Dev Console in Sidebar */}
-          {isDevUnlocked && currentRole !== 'superadmin' && (
+      {/* Main Content Area */}
+      <main className="flex-1 flex flex-col min-w-0 h-full">
+        
+                {/* Top Header */}
+        <header className="h-16 bg-white/80 dark:bg-slate-900/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-gray-200 dark:border-slate-700/60 dark:border-slate-800 flex items-center justify-between px-4 sm:px-6 shrink-0 z-10 transition-colors">
+            <div className="flex items-center gap-3">
+                <button
+                    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                    className="md:hidden p-2 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-slate-800 rounded-lg transition-colors"
+                >
+                    <Menu className="w-5 h-5" />
+                </button>
+                <div className="flex items-center gap-2">
+                    <label className="w-8 h-8 sm:w-10 sm:h-10 bg-slate-100 dark:bg-slate-800 dark:bg-slate-800 rounded-lg border border-dashed border-slate-300 dark:border-slate-700 flex items-center justify-center cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors" title="Uploader un logo">
+                        <Upload className="w-4 h-4 text-slate-400 dark:text-slate-500 dark:text-slate-400" />
+                        <input type="file" className="hidden" accept="image/*" />
+                    </label>
+                    <h1 className="font-display font-bold text-lg sm:text-xl text-gray-800 dark:text-gray-100 dark:text-gray-100 tracking-tight hidden sm:block">Portail Académique</h1>
+                </div>
+                <span className="hidden lg:inline-block px-3 py-1 bg-green-100 dark:bg-green-500/10 text-green-700 dark:text-green-400 text-[10px] font-bold rounded-full uppercase tracking-wider ml-2">Année 2024-2025</span>
+            </div>
+            <div className="flex items-center gap-2 sm:gap-3">
+                <button onClick={() => window.location.reload()} className="p-2 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-slate-800 rounded-full relative transition-colors cursor-pointer" title="Réactualiser">
+                    <RefreshCw className="w-5 h-5" />
+                </button>
+                <ThemeToggle variant="icon" />
+                <div className="relative hidden md:block ml-1">
+                    <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500" />
+                    <input type="text" placeholder="Rechercher..." className="pl-9 pr-4 py-2 bg-gray-100 dark:bg-slate-800 border-transparent rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 w-40 lg:w-64 transition-all text-gray-700 dark:text-gray-200" />
+                </div>
+            </div>
+        </header>
+
+        {/* Global Offline Network Status Banner */}
+        <NetworkStatusBanner variant="banner" />
+
+        {/* DEVELOPER CONTROL MODE BANNER WITH RETURN BUTTON */}
+        {isDevUnlocked && currentRole !== 'superadmin' && (
+          <div className="bg-amber-500 border-b border-amber-600 px-4 sm:px-6 py-2.5 shadow-md flex items-center justify-between gap-3 text-amber-950">
+            <div className="flex items-center gap-2 font-bold text-sm">
+              <Terminal className="w-4 h-4" />
+              Mode Simulation: {roleConfig[currentRole].label}
+            </div>
             <button
               onClick={() => {
                 onChangeRole('superadmin');
                 setActiveTab('superadmin');
-                setMobileMenuOpen(false);
               }}
-              className="w-full flex items-center justify-center gap-2 px-3 py-2 rounded-xl text-xs font-black bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 transition-all cursor-pointer shadow-xs"
+              className="px-3 py-1 bg-amber-950 text-amber-400 rounded-lg text-xs font-bold hover:bg-black transition-colors cursor-pointer"
             >
-              <Terminal className="w-4 h-4 text-amber-400" />
-              <span>← Console Développeur</span>
-            </button>
-          )}
-
-          {/* Navigation Links */}
-          <nav className="flex-1 flex flex-col gap-1 py-2">
-            <span className="text-[10px] font-bold uppercase tracking-widest text-[#65676B] px-3 py-1">
-              Modules du Logiciel
-            </span>
-
-            {filteredNavItems.map((item) => {
-              const Icon = item.icon;
-              const isActive = activeTab === item.id;
-              return (
-                <button
-                  key={item.id}
-                  id={`nav-item-${item.id}`}
-                  onClick={() => {
-                    setActiveTab(item.id);
-                    setMobileMenuOpen(false);
-                  }}
-                  className={`w-full flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium transition-all cursor-pointer ${
-                    isActive
-                      ? 'bg-[#1877F2] text-white font-semibold shadow-md shadow-sm'
-                      : 'text-[#65676B] hover:text-white hover:bg-[#F0F2F5]'
-                  }`}
-                >
-                  <Icon className={`w-4 h-4 ${isActive ? 'text-white' : 'opacity-80'}`} />
-                  <span>{item.label}</span>
-                </button>
-              );
-            })}
-          </nav>
-
-          {/* Quick Contact Box in Sidebar */}
-          <div className="bg-white border border-[#E4E6EB] rounded-xl p-3 text-[11px] text-[#65676B] flex flex-col gap-1.5">
-            <span className="font-bold text-white text-[10px] uppercase tracking-wider flex items-center gap-1">
-              <Headphones className="w-3.5 h-3.5 text-[#1877F2]" /> Support EDU-CONGO
-            </span>
-            <div className="flex flex-col gap-1 text-[10px]">
-              <span className="text-[#1877F2] font-mono">WhatsApp: +242 06 895 83 77</span>
-              <span className="text-amber-300 font-mono">Appel: +242 06 169 35 98</span>
-              <span className="text-[#65676B] truncate">steph.alongo@gmail.com</span>
-            </div>
-          </div>
-
-
-          <div className="border-t border-[#E4E6EB] pt-3 flex flex-col gap-2">
-            <div className="flex items-center gap-3 bg-[#F0F2F5] p-2.5 rounded-lg border border-[#E4E6EB]">
-              <div className="w-9 h-9 rounded-lg bg-white flex items-center justify-center font-bold text-[#1877F2] border border-[#1877F2] shrink-0">
-                {React.createElement(roleConfig[currentRole].icon, { className: 'w-4 h-4' })}
-              </div>
-              <div className="flex flex-col min-w-0">
-                <span className="text-xs font-semibold text-[#050505] truncate">{roleConfig[currentRole].label}</span>
-                <span className="text-[10px] text-[#65676B] uppercase tracking-wider truncate">{roleConfig[currentRole].badge}</span>
-              </div>
-            </div>
-            
-            <button
-              onClick={onBackToFlyer}
-              className="w-full flex items-center justify-center gap-2 px-3 py-2 rounded-lg text-xs font-bold bg-white hover:bg-[#F0F2F5] text-[#050505] border border-[#E4E6EB] transition-colors shadow-sm"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              <span>Retour Vitrine</span>
-            </button>
-            
-            <button
-              onClick={onLogout || onBackToFlyer}
-              className="w-full flex items-center justify-center gap-2 px-3 py-2 rounded-lg text-xs font-bold bg-[#F0F2F5] hover:bg-[#E4E6EB] text-red-600 border border-red-100 transition-colors shadow-sm"
-            >
-              <LogOut className="w-4 h-4" />
-              <span>Déconnexion</span>
+              Quitter la Simulation
             </button>
           </div>
-        </aside>
+        )}
 
-        {/* Main Content Area */}
-        <main className="flex-1 flex flex-col min-w-0">
-          
-          <div className="p-4 sm:p-6 lg:p-8 pb-0 pt-4 sm:pt-6 lg:pt-8 w-full max-w-7xl mx-auto">
-            <LicenseWarningBanner licenseInfo={licenseInfo} />
-          </div>
+        {/* Scrollable Content */}
+        <div className="flex-1 overflow-y-auto p-6 sm:p-8 lg:p-8">
 
-          <div className="flex-1 p-4 sm:p-6 lg:p-8 w-full max-w-7xl mx-auto">
           <AccessGuard
             activeTenant={activeTenant}
             licenseInfo={licenseInfo}
@@ -501,331 +478,136 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({
           >
             {/* TAB 1: OVERVIEW DASHBOARD */}
             {activeTab === 'dashboard' && (
-              <div className="flex flex-col gap-6">
+              <div className="flex flex-col gap-6 w-full animate-in fade-in zoom-in-95 duration-200">
               
-              {/* Welcome Banner */}
-              <div className="relative rounded-lg bg-[#1877F2] border border-[#E4E6EB] p-6 sm:p-7 shadow-sm text-white overflow-hidden">
-                <div className="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                  <div>
-                    <div className="flex items-center gap-2">
-                      <span className="text-xs font-bold text-[#1877F2] uppercase tracking-widest">
-                        EDU-CONGO • {roleConfig[currentRole].label}
-                      </span>
-                      <span className="bg-[#1877F2] text-[#1877F2] border border-[#E4E6EB] text-[10px] px-2 py-0.5 rounded-lg">
-                        {schoolConfig.name || schoolName}
-                      </span>
+                {/* Header Section */}
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                  <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-100">Tableau de bord ERP</h2>
+                  <div className="flex items-center gap-3">
+                    <button className="px-4 py-2 bg-white dark:bg-slate-900 border border-slate-300 text-slate-700 dark:text-slate-200 font-medium rounded-2xl shadow-sm hover:bg-slate-50 dark:bg-slate-800/50 transition-colors text-sm cursor-pointer">
+                      Télécharger le rapport
+                    </button>
+                    <button 
+                      onClick={() => setActiveTab('eleves')}
+                      className="px-4 py-2 bg-blue-600 text-white font-medium rounded-lg shadow-sm hover:bg-blue-700 transition-colors text-sm cursor-pointer"
+                    >
+                      Nouvelle Admission
+                    </button>
+                  </div>
+                </div>
+
+                {/* Metrics Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                  {/* Card 1 */}
+                  <div className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl rounded-3xl p-6 shadow-xl border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60 flex flex-col hover:-translate-y-1 gap-2 relative overflow-hidden group hover:shadow-md transition-shadow">
+                    <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Total Élèves</span>
+                    <span className="text-3xl font-black text-slate-800 dark:text-slate-100">{scopedStudents.length > 0 ? scopedStudents.length : '2,450'}</span>
+                    <span className="text-xs font-semibold text-emerald-500 mt-1">+12% vs l'an dernier</span>'
+                    <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                      <Users className="w-16 h-16 text-slate-900 dark:text-white" />
                     </div>
-                    <h2 className="text-2xl sm:text-3xl font-bold text-white mt-1">
-                      {currentRole === 'parent' ? `Bienvenue, ${currentStudent?.nomParent || 'Parent d\'élève'}` :
-                       currentRole === 'eleve' ? `Bienvenue, ${currentStudent?.prenom || 'Élève'} ${currentStudent?.nom || ''}` :
-                       'Tableau de Bord de l\'Établissement'}
-                    </h2>
-                    <p className="text-xs sm:text-sm text-[#65676B] mt-1 max-w-xl">
-                      {currentRole === 'parent'
-                        ? `Suivez l'assiduité, les notes et les frais scolaires de votre enfant (${currentStudent?.classe || 'Classe'}). Consultation en lecture seule.`
-                        : currentRole === 'eleve'
-                        ? `Consultez votre emploi du temps, vos évaluations et vos notes en ligne.`
-                        : `Plateforme prête pour la configuration des cycles, des classes, du personnel et l'enregistrement des élèves.`}
-                    </p>
+                  </div>
+                  {/* Card 2 */}
+                  <div className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl rounded-3xl p-6 shadow-xl border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60 flex flex-col hover:-translate-y-1 gap-2 relative overflow-hidden group hover:shadow-md transition-shadow">
+                    <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Total Personnel</span>
+                    <span className="text-3xl font-black text-slate-800 dark:text-slate-100">{scopedTeachers.length > 0 ? scopedTeachers.length : '145'}</span>
+                    <span className="text-xs font-medium text-slate-400 mt-1">2 postes à pourvoir</span>
+                    <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                      <GraduationCap className="w-16 h-16 text-slate-900 dark:text-white" />
+                    </div>
+                  </div>
+                  {/* Card 3 */}
+                  <div className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl rounded-3xl p-6 shadow-xl border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60 flex flex-col hover:-translate-y-1 justify-between hover:shadow-md transition-shadow">
+                    <div className="flex flex-col gap-2">
+                      <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Taux Présence</span>
+                      <span className="text-3xl font-black text-slate-800 dark:text-slate-100">96.5%</span>
+                    </div>
+                    <div className="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-2 mt-4 relative overflow-hidden">
+                      <div className="bg-blue-600 h-2 rounded-full absolute top-0 left-0" style={{ width: '96.5%' }}></div>
+                    </div>
+                  </div>
+                  {/* Card 4 */}
+                  <div className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl rounded-3xl p-6 shadow-xl border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60 flex flex-col hover:-translate-y-1 gap-2 hover:shadow-md transition-shadow">
+                    <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Revenu Mensuel</span>
+                    <span className="text-3xl font-black text-slate-800 dark:text-slate-100">125M <span className="text-lg">FCFA</span></span>
+                    <span className="text-xs font-semibold text-amber-500 mt-1">75% de l'objectif mensuel</span>'
+                  </div>
+                </div>
+
+                {/* Charts Grid */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-2">
+                  {/* Chart 1: Aperçu Financier */}
+                  <div className="bg-white dark:bg-slate-900 rounded-xl p-5 shadow-sm border border-slate-100 dark:border-slate-700/50">
+                    <div className="flex items-center justify-between mb-6">
+                      <h3 className="font-bold text-slate-800 dark:text-slate-100">Aperçu Financier</h3>
+                      <select className="text-xs font-medium bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60 text-slate-600 dark:text-slate-300 rounded-lg px-3 py-1.5 outline-none cursor-pointer hover:bg-slate-100 dark:bg-slate-800 transition-colors">
+                        <option>Cette Année</option>
+                      </select>
+                    </div>
+                    <div className="h-[280px] w-full">
+                      <ResponsiveContainer width="100%" height="100%">
+                        <AreaChart data={[
+                          { name: 'Jan', in: 4000, out: 2400 },
+                          { name: 'Fév', in: 3000, out: 1398 },
+                          { name: 'Mar', in: 2000, out: 9800 },
+                          { name: 'Avr', in: 2780, out: 3908 },
+                          { name: 'Mai', in: 1890, out: 4800 },
+                          { name: 'Juin', in: 2390, out: 3800 },
+                          { name: 'Jui', in: 3490, out: 4300 },
+                        ]} margin={{ top: 10, right: 0, left: -20, bottom: 0 }}>
+                          <defs>
+                            <linearGradient id="colorIn" x1="0" y1="0" x2="0" y2="1">
+                              <stop offset="5%" stopColor="#ef4444" stopOpacity={0.3}/>
+                              <stop offset="95%" stopColor="#ef4444" stopOpacity={0}/>
+                            </linearGradient>
+                            <linearGradient id="colorOut" x1="0" y1="0" x2="0" y2="1">
+                              <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.3}/>
+                              <stop offset="95%" stopColor="#3b82f6" stopOpacity={0}/>
+                            </linearGradient>
+                          </defs>
+                          <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
+                          <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: '#94a3b8', fontWeight: 500 }} dy={10} />
+                          <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: '#94a3b8', fontWeight: 500 }} />
+                          <RechartsTooltip contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }} />
+                          <Area type="monotone" dataKey="out" stroke="#ef4444" strokeWidth={3} fillOpacity={1} fill="url(#colorIn)" />
+                          <Area type="monotone" dataKey="in" stroke="#3b82f6" strokeWidth={3} fillOpacity={1} fill="url(#colorOut)" />
+                        </AreaChart>
+                      </ResponsiveContainer>
+                    </div>
                   </div>
 
-                  <div className="flex items-center gap-2">
-                    <button
-                      onClick={() => setActiveTab(currentRole === 'parent' || currentRole === 'eleve' ? 'notes' : 'config')}
-                      className="px-4 py-2.5 bg-[#1877F2] hover:bg-[#1877F2] text-white font-semibold rounded-xl text-xs transition-colors shadow-sm cursor-pointer"
-                    >
-                      {currentRole === 'parent' || currentRole === 'eleve' ? 'Consulter le Bulletin' : 'Configurer l\'Établissement'}
-                    </button>
+                  {/* Chart 2: Présences Hebdomadaires */}
+                  <div className="bg-white dark:bg-slate-900 rounded-xl p-5 shadow-sm border border-slate-100 dark:border-slate-700/50">
+                    <div className="flex items-center justify-between mb-6">
+                      <h3 className="font-bold text-slate-800 dark:text-slate-100">Présences Hebdomadaires</h3>
+                      <select className="text-xs font-medium bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60 text-slate-600 dark:text-slate-300 rounded-lg px-3 py-1.5 outline-none cursor-pointer hover:bg-slate-100 dark:bg-slate-800 transition-colors">
+                        <option>Toutes les classes</option>
+                      </select>
+                    </div>
+                    <div className="h-[280px] w-full">
+                      <ResponsiveContainer width="100%" height="100%">
+                        <BarChart data={[
+                          { name: 'Lun', present: 95, absent: 5 },
+                          { name: 'Mar', present: 98, absent: 2 },
+                          { name: 'Mer', present: 92, absent: 8 },
+                          { name: 'Jeu', present: 96, absent: 4 },
+                          { name: 'Ven', present: 90, absent: 10 },
+                        ]} margin={{ top: 10, right: 0, left: -20, bottom: 0 }}>
+                          <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
+                          <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: '#94a3b8', fontWeight: 500 }} dy={10} />
+                          <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: '#94a3b8', fontWeight: 500 }} />
+                          <RechartsTooltip cursor={{fill: '#f8fafc'}} contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }} />
+                          <Bar dataKey="present" fill="#10b981" radius={[4, 4, 0, 0]} barSize={40} />
+                          <Bar dataKey="absent" fill="#f59e0b" radius={[4, 4, 0, 0]} barSize={40} />
+                        </BarChart>
+                      </ResponsiveContainer>
+                    </div>
                   </div>
                 </div>
               </div>
+            )}
 
-              {/* 14-Day Free Trial Notice Banner (if active) */}
-              {isTrial && (
-                <div className="p-4 sm:p-5 rounded-lg bg-[#1877F2] border-2 border-amber-400/70  flex flex-col md:flex-row items-start md:items-center justify-between gap-4 shadow-sm animate-in fade-in">
-                  <div className="flex items-start gap-3.5">
-                    <div className="w-11 h-11 rounded-lg bg-amber-500/20 text-amber-700  flex items-center justify-center font-bold text-xl shrink-0 shadow-xs border border-amber-400/40">
-                      🎁
-                    </div>
-                    <div>
-                      <div className="flex items-center gap-2 flex-wrap">
-                        <h4 className="font-extrabold text-[#050505]  text-sm sm:text-base">
-                          Période d'Essai 14 Jours Active ({getTrialDaysRemaining()} jours restants)
-                        </h4>
-                        <span className="bg-[#1877F2] text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-lg shadow-xs">
-                          Accès 100% Illimité Sans Restriction
-                        </span>
-                      </div>
-                      <p className="text-xs text-[#65676B]  mt-1 max-w-3xl leading-relaxed">
-                        Votre établissement bénéficie d'un accès sans aucune limite à tous les modules EDU-CONGO (Bulletins, Notes, Registre, Finances MoMo, Emplois du temps). Vous pouvez choisir et activer votre abonnement officiel à tout moment.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-2 shrink-0 w-full md:w-auto">
-                    <button
-                      onClick={onOpenUpgradeModal}
-                      className="w-full md:w-auto px-5 py-2.5 bg-[#1877F2] hover:from-amber-600 hover:to-indigo-700 text-white font-extrabold rounded-xl text-xs shadow-md transition-all cursor-pointer hover:scale-102 flex items-center justify-center gap-2"
-                    >
-                      <Sparkles className="w-4 h-4" />
-                      <span>Choisir mon Abonnement →</span>
-                    </button>
-                  </div>
-                </div>
-              )}
-
-              {/* Specific Views based on Role */}
-              {currentRole === 'parent' || currentRole === 'eleve' ? (
-                /* Parent & Student Dashboard */
-                <div className="flex flex-col gap-6">
-                  {currentStudent && currentStudent.fraisPayes < currentStudent.fraisTotal && (
-                    <div className="p-4 sm:p-5 rounded-lg bg-amber-50  border border-amber-200  flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-sm">
-                      <div className="flex items-start gap-3">
-                        <div className="w-10 h-10 rounded-xl bg-amber-100  text-amber-700  flex items-center justify-center shrink-0">
-                          <AlertTriangle className="w-5 h-5" />
-                        </div>
-                        <div>
-                          <div className="flex items-center gap-2">
-                            <h4 className="font-bold text-amber-950  text-sm">
-                              Rappel de Règlement des Frais Scolaires
-                            </h4>
-                            <span className="bg-amber-200  text-amber-900  text-[10px] font-bold px-2 py-0.5 rounded-md">
-                              Solde : {(currentStudent.fraisTotal - currentStudent.fraisPayes).toLocaleString()} FCFA
-                            </span>
-                          </div>
-                          <p className="text-xs text-amber-900/80  mt-1 max-w-xl">
-                            Le paiement des écolages s'effectue au guichet de l'école ou par transfert Mobile Money (MTN MoMo / Airtel Money Congo) avec le numéro matricule <strong>{currentStudent.matricule}</strong>.
-                          </p>
-                        </div>
-                      </div>
-                      <button
-                        onClick={() => setActiveTab('frais')}
-                        className="px-4 py-2 bg-amber-600 hover:bg-amber-700 text-white rounded-xl text-xs font-bold transition-all shadow-xs shrink-0 cursor-pointer"
-                      >
-                        Consulter mon compte
-                      </button>
-                    </div>
-                  )}
-
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div className="bg-white  p-5 rounded-lg shadow-sm border border-[#E4E6EB]  flex flex-col justify-between gap-3 transition-colors duration-200">
-                      <span className="text-[#65676B]  text-xs font-bold uppercase tracking-wider">Assiduité & Présences</span>
-                      <div className="text-3xl font-bold text-[#050505] ">100%</div>
-                      <div className="text-[#1877F2]  text-xs font-semibold">Présence régulière signalée</div>
-                      <button
-                        onClick={() => setActiveTab('presence')}
-                        className="text-xs text-[#1877F2]  font-semibold hover:underline text-left mt-2 cursor-pointer"
-                      >
-                        Voir le détail des présences →
-                      </button>
-                    </div>
-
-                    <div className="bg-white  p-5 rounded-lg shadow-sm border border-[#E4E6EB]  flex flex-col justify-between gap-3 transition-colors duration-200">
-                      <span className="text-[#65676B]  text-xs font-bold uppercase tracking-wider">Moyenne & Notes</span>
-                      <div className="text-3xl font-bold text-[#050505] ">-- <span className="text-sm font-normal text-[#65676B] ">/20</span></div>
-                      <div className="text-[#1877F2]  text-xs font-semibold">Consultation en ligne</div>
-                      <button
-                        onClick={() => {
-                          if (currentStudent) setSelectedStudentBulletin(currentStudent);
-                        }}
-                        className="text-xs text-[#1877F2]  font-semibold hover:underline text-left mt-2 cursor-pointer"
-                      >
-                        Ouvrir le bulletin de notes →
-                      </button>
-                    </div>
-
-                    <div className="bg-white  p-5 rounded-lg shadow-sm border border-[#E4E6EB]  flex flex-col justify-between gap-3 transition-colors duration-200">
-                      <span className="text-[#65676B]  text-xs font-bold uppercase tracking-wider">Situation Frais Scolaires</span>
-                      <div className="text-3xl font-bold text-[#050505] ">
-                        {currentStudent ? `${currentStudent.fraisPayes.toLocaleString()} FCFA` : '0 FCFA'}
-                      </div>
-                      <div className="text-[#65676B]  text-xs">
-                        Total attendu : {currentStudent ? currentStudent.fraisTotal.toLocaleString() : 0} FCFA
-                      </div>
-                      <button
-                        onClick={() => setActiveTab('frais')}
-                        className="text-xs text-[#1877F2]  font-semibold hover:underline text-left mt-2 cursor-pointer"
-                      >
-                        Consulter l'historique des reçus →
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              ) : (
-                /* Administration / Direction / Comptabilité Dashboard */
-                <>
-                  {/* PWA Offline Installation Banner */}
-                  <PwaInstallPrompt />
-
-                  {/* KPI Cards Grid */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                    
-                    <div className="bg-white  p-5 rounded-lg border border-[#E4E6EB]  shadow-sm flex items-center justify-between transition-colors duration-200">
-                      <div>
-                        <span className="text-xs font-bold uppercase tracking-wider text-[#65676B] ">Total Élèves</span>
-                        <h3 className="text-2xl font-bold text-[#050505]  mt-1">{scopedStudents.length}</h3>
-                        <span className="text-[11px] text-[#1877F2]  font-medium">Inscrits au registre</span>
-                      </div>
-                      <div className="w-12 h-12 rounded-xl bg-blue-50  text-blue-600  border border-blue-100  flex items-center justify-center">
-                        <GraduationCap className="w-6 h-6" />
-                      </div>
-                    </div>
-
-                    <div className="bg-white  p-5 rounded-lg border border-[#E4E6EB]  shadow-sm flex items-center justify-between transition-colors duration-200">
-                      <div>
-                        <span className="text-xs font-bold uppercase tracking-wider text-[#65676B] ">Enseignants & Personnel</span>
-                        <h3 className="text-2xl font-bold text-[#050505]  mt-1">{scopedTeachers.length + scopedStaff.length}</h3>
-                        <span className="text-[11px] text-[#1877F2]  font-medium">Permanents & Vacataires</span>
-                      </div>
-                      <div className="w-12 h-12 rounded-xl bg-[#E7F3FF]  text-[#1877F2]  border border-[#E4E6EB]  flex items-center justify-center">
-                        <UserCheck className="w-6 h-6" />
-                      </div>
-                    </div>
-
-                    <div className="bg-white  p-5 rounded-lg border border-[#E4E6EB]  shadow-sm flex items-center justify-between transition-colors duration-200">
-                      <div>
-                        <span className="text-xs font-bold uppercase tracking-wider text-[#65676B] ">Recouvrement Caisse</span>
-                        <h3 className="text-2xl font-bold text-[#1877F2]  mt-1">{recoveryRate}%</h3>
-                        <span className="text-[11px] text-[#65676B]  font-medium">{totalFeesCollected.toLocaleString()} FCFA encaissés</span>
-                      </div>
-                      <div className="w-12 h-12 rounded-xl bg-[#E7F3FF]  text-[#1877F2]  border border-[#E4E6EB]  flex items-center justify-center">
-                        <CreditCard className="w-6 h-6" />
-                      </div>
-                    </div>
-
-                    <div className="bg-white  p-5 rounded-lg border border-[#E4E6EB]  shadow-sm flex items-center justify-between transition-colors duration-200">
-                      <div>
-                        <span className="text-xs font-bold uppercase tracking-wider text-[#65676B] ">Classes Actives</span>
-                        <h3 className="text-2xl font-bold text-[#050505]  mt-1">{classesConfig.length}</h3>
-                        <span className="text-[11px] text-purple-600  font-medium">Niveaux configurés</span>
-                      </div>
-                      <div className="w-12 h-12 rounded-xl bg-purple-50  text-purple-600  border border-purple-100  flex items-center justify-center">
-                        <Calendar className="w-6 h-6" />
-                      </div>
-                    </div>
-
-                  </div>
-
-                  {/* OVERDUE FEES RECOVERY ALERTS WIDGET */}
-                  <OverdueFeesAlertWidget
-                    students={scopedStudents}
-                    onOpenPaymentModal={() => setActiveTab('frais')}
-                    onTriggerRelance={(alert, method) => {
-                      onAddLog({
-                        id: `LOG-${Date.now()}`,
-                        timestamp: new Date().toLocaleTimeString('fr-FR'),
-                        level: 'warning',
-                        source: 'MOMO_CONGO',
-                        message: `[RELANCE ${method.toUpperCase()}] Notification envoyée à ${alert.parentName} (${alert.parentPhone}) pour l'élève ${alert.studentName} (${alert.classe}) - Arriéré : ${alert.remainingDebt.toLocaleString()} FCFA.`,
-                        ip: '127.0.0.1 (Brazzaville)',
-                        user: roleConfig[currentRole].label
-                      });
-                    }}
-                  />
-
-                  {/* MONTHLY SCHOOL FEES ANALYTICS CHART (RECHARTS) */}
-                  <FeeRevenueChart payments={scopedPayments} />
-                  
-                  <MonthlyPaymentAnalyticsCharts
-                    payments={scopedPayments}
-                    students={scopedStudents}
-                    expenses={scopedExpenses}
-                  />
-
-                  {/* VISUAL ANALYTICS CHARTS */}
-                  <DashboardAnalyticsCharts 
-                    students={scopedStudents}
-                    grades={scopedGrades}
-                    payments={scopedPayments}
-                  />
-
-                  {/* Quick Modules Shortcuts & Feed */}
-                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                    
-                    {/* Quick Action Buttons */}
-                    <div className="bg-white  p-6 rounded-lg border border-[#E4E6EB]  shadow-sm flex flex-col gap-4 transition-colors duration-200">
-                      <h4 className="font-bold text-[#050505]  text-sm">Opérations Principales</h4>
-                      
-                      <div className="grid grid-cols-2 gap-2.5">
-                        <button
-                          onClick={() => setActiveTab('config')}
-                          className="p-3 bg-[#F0F2F5]  hover:bg-[#E7F3FF]/50 border border-[#E4E6EB]  hover:border-[#E4E6EB][#E4E6EB] rounded-xl text-left transition-all cursor-pointer group"
-                        >
-                          <Sliders className="w-4 h-4 text-[#1877F2]  mb-1" />
-                          <span className="text-xs font-bold text-[#050505]  group-hover:text-[#1877F2] block">Configuration</span>
-                          <span className="text-[10px] text-[#65676B] ">Cycles & Classes</span>
-                        </button>
-
-                        <button
-                          onClick={() => setActiveTab('eleves')}
-                          className="p-3 bg-[#F0F2F5]  hover:bg-blue-50/50 border border-[#E4E6EB]  hover:border-blue-300 rounded-xl text-left transition-all cursor-pointer group"
-                        >
-                          <Users className="w-4 h-4 text-blue-600  mb-1" />
-                          <span className="text-xs font-bold text-[#050505]  group-hover:text-blue-600 block">Élèves</span>
-                          <span className="text-[10px] text-[#65676B] ">Cartes & Inscriptions</span>
-                        </button>
-
-                        <button
-                          onClick={() => setActiveTab('rh')}
-                          className="p-3 bg-[#F0F2F5]  hover:bg-purple-50/50 border border-[#E4E6EB]  hover:border-purple-300 rounded-xl text-left transition-all cursor-pointer group"
-                        >
-                          <Briefcase className="w-4 h-4 text-purple-600  mb-1" />
-                          <span className="text-xs font-bold text-[#050505]  group-hover:text-purple-600 block">Personnel & RH</span>
-                          <span className="text-[10px] text-[#65676B] ">Badges & Salaires</span>
-                        </button>
-
-                        <button
-                          onClick={() => setActiveTab('frais')}
-                          className="p-3 bg-[#F0F2F5]  hover:bg-[#E7F3FF]/50 border border-[#E4E6EB]  hover:border-[#E4E6EB][#E4E6EB] rounded-xl text-left transition-all cursor-pointer group"
-                        >
-                          <CreditCard className="w-4 h-4 text-[#1877F2]  mb-1" />
-                          <span className="text-xs font-bold text-[#050505]  group-hover:text-[#1877F2] block">Encaisser Frais</span>
-                          <span className="text-[10px] text-[#65676B] ">Reçu FCFA / MoMo</span>
-                        </button>
-                      </div>
-                    </div>
-
-                    {/* Latest Payments Feed */}
-                    <div className="lg:col-span-2 bg-white  p-6 rounded-lg border border-[#E4E6EB]  shadow-sm flex flex-col justify-between gap-4 transition-colors duration-200">
-                      <div className="flex items-center justify-between">
-                        <h4 className="font-bold text-[#050505]  text-sm">Derniers Encaissements en Caisse (FCFA)</h4>
-                        <button
-                          onClick={() => setActiveTab('frais')}
-                          className="text-xs text-[#1877F2]  font-semibold hover:underline cursor-pointer"
-                        >
-                          Voir tout l'historique →
-                        </button>
-                      </div>
-
-                      <div className="divide-y divide-slate-100  text-xs">
-                        {scopedPayments.length === 0 ? (
-                          <div className="py-6 text-center text-[#65676B]">
-                            Aucun encaissement enregistré pour le moment.
-                          </div>
-                        ) : (
-                          scopedPayments.slice(0, 4).map((p) => (
-                            <div key={p.id} className="py-2.5 flex items-center justify-between">
-                              <div>
-                                <span className="font-bold text-[#050505]  block">{p.studentName}</span>
-                                <span className="text-[11px] text-[#65676B] ">{p.motif} • {p.modePaiement}</span>
-                              </div>
-                              <div className="text-right">
-                                <span className="font-bold text-[#1877F2] ">+{p.montant.toLocaleString()} FCFA</span>
-                                <span className="text-[10px] text-[#65676B]  block">{p.datePaiement}</span>
-                              </div>
-                            </div>
-                          ))
-                        )}
-                      </div>
-                    </div>
-
-                  </div>
-                </>
-              )}
-
-            </div>
-          )}
-
-          {/* TAB 2: CONFIGURATION ÉTABLISSEMENT, CYCLES, CLASSES & PERMISSIONS */}
+            {/* TAB 2: CONFIGURATION ÉTABLISSEMENT, CYCLES, CLASSES & PERMISSIONS */}
           {activeTab === 'config' && (
             <SchoolSettingsModule
               schoolConfig={schoolConfig}
@@ -960,8 +742,6 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({
 
           </div>
         </main>
-      </div>
-
       {/* Developer Super Admin Authentication Modal */}
       {showDevAuthModal && (
         <DeveloperAuthModal
@@ -984,33 +764,33 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({
       {/* Support & Contact Details Modal */}
       {showSupportModal && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white  text-[#050505]  w-full max-w-md rounded-lg p-6 border border-[#E4E6EB]  shadow-2xl flex flex-col gap-4 animate-in fade-in zoom-in-95 duration-200 transition-colors duration-200">
-            <div className="flex items-center justify-between border-b border-[#E4E6EB]  pb-3">
+          <div className="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100  w-full max-w-md rounded-2xl p-6 border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  shadow-2xl flex flex-col gap-4 animate-in fade-in zoom-in-95 duration-200 transition-colors duration-200">
+            <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  pb-3">
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-lg bg-[#1877F2] flex items-center justify-center font-bold text-white text-xs">
+                <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center font-bold text-white text-xs">
                   EC
                 </div>
-                <h3 className="font-extrabold text-base text-[#050505] ">Support Officiel EDU-CONGO</h3>
+                <h3 className="font-extrabold text-base text-slate-800 dark:text-slate-100 ">Support Officiel EDU-CONGO</h3>
               </div>
               <button
                 onClick={() => setShowSupportModal(false)}
-                className="p-1 rounded-lg text-[#65676B] hover:text-[#050505] hover:bg-[#F0F2F5] cursor-pointer"
+                className="p-1 rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:text-slate-100 hover:bg-slate-50 dark:bg-slate-800/50 cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
-            <div className="text-xs text-[#65676B]  flex flex-col gap-3">
+            <div className="text-xs text-slate-500 dark:text-slate-400  flex flex-col gap-3">
               <p>
-                L'équipe technique et commerciale EDU-CONGO est à votre service en République du Congo pour tout accompagnement, formation ou assistance :
+                L'équipe technique et commerciale EDU-CONGO est à votre service en République du Congo pour tout accompagnement, formation ou assistance :'
               </p>
 
-              <div className="bg-[#F0F2F5]  p-4 rounded-lg border border-[#E4E6EB]  flex flex-col gap-2.5 font-mono">
+              <div className="bg-slate-50 dark:bg-slate-800/50  p-4 rounded-lg border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  flex flex-col gap-2.5 font-mono">
                 <a
                   href="https://wa.me/242068958377"
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center gap-2 text-[#1877F2]  hover:text-[#1877F2] font-bold"
+                  className="flex items-center gap-2 text-blue-600  hover:text-blue-600 font-bold"
                 >
                   <MessageCircle className="w-4 h-4 fill-current" />
                   <span>WhatsApp : +242 06 895 83 77</span>
@@ -1018,7 +798,7 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({
 
                 <a
                   href="tel:+242061693598"
-                  className="flex items-center gap-2 text-[#1877F2]  hover:text-[#1877F2] font-bold"
+                  className="flex items-center gap-2 text-blue-600  hover:text-blue-600 font-bold"
                 >
                   <Phone className="w-4 h-4" />
                   <span>Appel : +242 06 169 35 98</span>
@@ -1026,7 +806,7 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({
 
                 <a
                   href="mailto:steph.alongo@gmail.com"
-                  className="flex items-center gap-2 text-[#050505]  hover:text-[#1877F2] font-semibold"
+                  className="flex items-center gap-2 text-slate-800 dark:text-slate-100  hover:text-blue-600 font-semibold"
                 >
                   <Mail className="w-4 h-4" />
                   <span>steph.alongo@gmail.com</span>
@@ -1037,7 +817,7 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({
             <div className="pt-2 flex justify-end">
               <button
                 onClick={() => setShowSupportModal(false)}
-                className="px-4 py-2 bg-[#1877F2] hover:bg-[#1877F2] text-white font-bold rounded-xl text-xs cursor-pointer"
+                className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl text-xs cursor-pointer"
               >
                 Fermer
               </button>

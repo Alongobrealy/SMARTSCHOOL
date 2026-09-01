@@ -34,7 +34,7 @@ export function calculateLicenseStatus(tenant?: TenantSchool | null): LicenseSta
       warningTitle: '',
       warningMessage: '',
       badgeLabel: 'Actif',
-      badgeColorClass: 'bg-[#E7F3FF] text-[#1877F2]  '
+      badgeColorClass: 'bg-blue-50 text-blue-600  '
     };
   }
 
@@ -90,7 +90,7 @@ export function calculateLicenseStatus(tenant?: TenantSchool | null): LicenseSta
       warningTitle: '',
       warningMessage: '',
       badgeLabel: 'Actif',
-      badgeColorClass: 'bg-[#E7F3FF] text-[#1877F2]  '
+      badgeColorClass: 'bg-blue-50 text-blue-600  '
     };
   }
 
@@ -180,6 +180,6 @@ export function calculateLicenseStatus(tenant?: TenantSchool | null): LicenseSta
     warningTitle: '',
     warningMessage: '',
     badgeLabel: `Actif (${daysRemaining}j)`,
-    badgeColorClass: 'bg-[#E7F3FF] text-[#1877F2]  '
+    badgeColorClass: 'bg-blue-50 text-blue-600  '
   };
 }

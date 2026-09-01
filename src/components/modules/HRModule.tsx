@@ -297,15 +297,15 @@ export const HRModule: React.FC<HRModuleProps> = ({
     <div className="flex flex-col gap-6">
       
       {/* Header */}
-      <div className="flex flex-col md:flex-row items-center justify-between gap-4 bg-white  p-4 sm:p-6 rounded-lg border border-[#E4E6EB]  shadow-sm transition-colors duration-200 text-center md:text-left">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-4 bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  shadow-sm transition-colors duration-200 text-center md:text-left">
         <div>
-          <div className="flex items-center justify-center md:justify-start gap-2 text-[#1877F2]  font-bold text-xs uppercase tracking-wider">
+          <div className="flex items-center justify-center md:justify-start gap-2 text-blue-600  font-bold text-xs uppercase tracking-wider">
             <Briefcase className="w-4 h-4" /> Ressources Humaines & Personnel de l'Établissement
           </div>
-          <h2 className="text-lg sm:text-xl font-extrabold text-[#050505]  mt-1">
+          <h2 className="text-lg sm:text-xl font-extrabold text-slate-800 dark:text-slate-100  mt-1">
             Enseignants, Administration & Badges d'Accès
           </h2>
-          <p className="text-xs text-[#65676B]  mt-0.5">
+          <p className="text-xs text-slate-500 dark:text-slate-400  mt-0.5">
             Gérez le corps professoral, le personnel administratif, générez les badges sécurisés avec QR Code et bulletins de paie.
           </p>
         </div>
@@ -314,14 +314,14 @@ export const HRModule: React.FC<HRModuleProps> = ({
           <div className="flex flex-col sm:flex-row items-center justify-center gap-2 w-full md:w-auto">
             <button
               onClick={handleOpenAddTeacher}
-              className="w-full sm:w-auto px-4 py-2.5 bg-[#1877F2] hover:bg-[#1877F2] text-white text-xs font-bold rounded-xl shadow-sm flex items-center justify-center gap-1.5 transition-all cursor-pointer"
+              className="w-full sm:w-auto px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold shadow-md shadow-blue-600/20 rounded-xl shadow-sm flex items-center justify-center gap-1.5 transition-all cursor-pointer"
             >
               <Plus className="w-4 h-4" />
               + Enseignant
             </button>
             <button
               onClick={handleOpenAddStaff}
-              className="w-full sm:w-auto px-4 py-2.5 bg-[#1877F2] hover:bg-[#1877F2] text-white text-xs font-bold rounded-xl shadow-sm flex items-center justify-center gap-1.5 transition-all cursor-pointer"
+              className="w-full sm:w-auto px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold shadow-md shadow-blue-600/20 rounded-xl shadow-sm flex items-center justify-center gap-1.5 transition-all cursor-pointer"
             >
               <Plus className="w-4 h-4" />
               + Personnel Admin
@@ -332,45 +332,45 @@ export const HRModule: React.FC<HRModuleProps> = ({
 
       {/* KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div className="bg-white  border border-[#E4E6EB]  p-4 rounded-lg shadow-sm flex items-center gap-3.5">
-          <div className="w-11 h-11 rounded-xl bg-[#E7F3FF]  text-[#1877F2]  border border-[#E4E6EB]  flex items-center justify-center font-bold">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  p-4 rounded-2xl shadow-sm flex items-center gap-3.5">
+          <div className="w-12 h-12 rounded-2xl bg-blue-50  text-blue-600  border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  flex items-center justify-center font-bold">
             <Users className="w-6 h-6" />
           </div>
           <div>
-            <span className="text-xs text-[#65676B]  font-medium">Corps Professoral</span>
-            <p className="text-xl font-black text-[#050505] ">{teachers.length} Enseignant(s)</p>
+            <span className="text-xs text-slate-500 dark:text-slate-400  font-medium">Corps Professoral</span>
+            <p className="text-xl font-black text-slate-800 dark:text-slate-100 ">{teachers.length} Enseignant(s)</p>
           </div>
         </div>
 
-        <div className="bg-white  border border-[#E4E6EB]  p-4 rounded-lg shadow-sm flex items-center gap-3.5">
-          <div className="w-11 h-11 rounded-xl bg-[#E7F3FF]  text-[#1877F2]  border border-[#E4E6EB]  flex items-center justify-center font-bold">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  p-4 rounded-2xl shadow-sm flex items-center gap-3.5">
+          <div className="w-12 h-12 rounded-2xl bg-blue-50  text-blue-600  border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  flex items-center justify-center font-bold">
             <UserCheck className="w-6 h-6" />
           </div>
           <div>
-            <span className="text-xs text-[#65676B]  font-medium">Personnel Administratif</span>
-            <p className="text-xl font-black text-[#050505] ">{staff.length} Agent(s)</p>
+            <span className="text-xs text-slate-500 dark:text-slate-400  font-medium">Personnel Administratif</span>
+            <p className="text-xl font-black text-slate-800 dark:text-slate-100 ">{staff.length} Agent(s)</p>
           </div>
         </div>
 
-        <div className="bg-white  border border-[#E4E6EB]  p-4 rounded-lg shadow-sm flex items-center gap-3.5">
-          <div className="w-11 h-11 rounded-xl bg-purple-50  text-purple-600  border border-purple-100  flex items-center justify-center font-bold">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  p-4 rounded-2xl shadow-sm flex items-center gap-3.5">
+          <div className="w-12 h-12 rounded-2xl bg-purple-50  text-purple-600  border border-purple-100  flex items-center justify-center font-bold">
             <DollarSign className="w-6 h-6" />
           </div>
           <div>
-            <span className="text-xs text-[#65676B]  font-medium">Masse Salariale Totale</span>
-            <p className="text-xl font-black text-[#1877F2] ">{grandTotalPayroll.toLocaleString()} FCFA / mois</p>
+            <span className="text-xs text-slate-500 dark:text-slate-400  font-medium">Masse Salariale Totale</span>
+            <p className="text-xl font-black text-blue-600 ">{grandTotalPayroll.toLocaleString()} FCFA / mois</p>
           </div>
         </div>
       </div>
 
       {/* Tabs */}
-      <div className="flex border-b border-[#E4E6EB]  gap-2">
+      <div className="flex border-b border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  gap-2">
         <button
           onClick={() => setActiveTab('teachers')}
           className={`pb-3 px-4 text-xs font-bold flex items-center gap-2 border-b-2 transition-all cursor-pointer ${
             activeTab === 'teachers'
-              ? 'border-[#E4E6EB] text-[#1877F2] '
-              : 'border-transparent text-[#65676B] hover:text-[#050505][#65676B]'
+              ? 'border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60 text-blue-600 '
+              : 'border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:text-slate-100'
           }`}
         >
           <Users className="w-4 h-4" />
@@ -381,8 +381,8 @@ export const HRModule: React.FC<HRModuleProps> = ({
           onClick={() => setActiveTab('staff')}
           className={`pb-3 px-4 text-xs font-bold flex items-center gap-2 border-b-2 transition-all cursor-pointer ${
             activeTab === 'staff'
-              ? 'border-[#E4E6EB] text-[#1877F2] '
-              : 'border-transparent text-[#65676B] hover:text-[#050505][#65676B]'
+              ? 'border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60 text-blue-600 '
+              : 'border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:text-slate-100'
           }`}
         >
           <Building className="w-4 h-4" />
@@ -394,16 +394,16 @@ export const HRModule: React.FC<HRModuleProps> = ({
       {activeTab === 'teachers' && (
         <div>
           {teachers.length === 0 ? (
-            <div className="bg-white  rounded-lg p-12 border-2 border-dashed border-[#E4E6EB]  text-center">
-              <Users className="w-12 h-12 text-[#65676B] mx-auto mb-3" />
-              <h3 className="font-bold text-sm text-[#050505] ">Aucun enseignant enregistré</h3>
-              <p className="text-xs text-[#65676B]  mt-1 max-w-sm mx-auto">
+            <div className="bg-white dark:bg-slate-900 rounded-2xl p-12 border-2 border-dashed border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  text-center">
+              <Users className="w-12 h-12 text-slate-500 dark:text-slate-400 mx-auto mb-3" />
+              <h3 className="font-bold text-sm text-slate-800 dark:text-slate-100 ">Aucun enseignant enregistré</h3>
+              <p className="text-xs text-slate-500 dark:text-slate-400  mt-1 max-w-sm mx-auto">
                 Ajoutez les professeurs de votre établissement pour leur attribuer des cours et générer leurs badges d'accès.
               </p>
               {canEdit && (
                 <button
                   onClick={handleOpenAddTeacher}
-                  className="mt-4 px-4 py-2 bg-[#1877F2] hover:bg-[#1877F2] text-white rounded-xl text-xs font-bold inline-flex items-center gap-1.5 cursor-pointer shadow-sm"
+                  className="mt-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-sm font-semibold shadow-md shadow-blue-600/20 inline-flex items-center gap-1.5 cursor-pointer shadow-sm"
                 >
                   <Plus className="w-4 h-4" />
                   Ajouter le 1er Enseignant
@@ -415,11 +415,11 @@ export const HRModule: React.FC<HRModuleProps> = ({
               {teachers.map((t) => (
                 <div
                   key={t.id}
-                  className="bg-white  border border-[#E4E6EB]  p-5 rounded-lg shadow-sm flex flex-col justify-between gap-4"
+                  className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  p-5 rounded-2xl shadow-sm flex flex-col justify-between gap-4"
                 >
                   <div className="flex items-start justify-between">
                     <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 rounded-lg bg-[#E7F3FF]  border border-[#E4E6EB]  text-[#1877F2]  flex items-center justify-center font-bold text-base">
+                      <div className="w-12 h-12 rounded-lg bg-blue-50  border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  text-blue-600  flex items-center justify-center font-bold text-base">
                         {t.photoUrl ? (
                           <img src={t.photoUrl} alt={t.nom} className="w-full h-full object-cover rounded-lg" />
                         ) : (
@@ -427,44 +427,44 @@ export const HRModule: React.FC<HRModuleProps> = ({
                         )}
                       </div>
                       <div>
-                        <h4 className="font-extrabold text-[#050505]  text-sm uppercase">{t.nom} <span className="capitalize text-[#050505]  font-bold">{t.prenom}</span></h4>
-                        <p className="text-xs text-[#1877F2]  font-semibold">{t.specialite}</p>
-                        <span className="text-[10px] font-mono text-[#65676B] ">{t.matricule}</span>
+                        <h4 className="font-extrabold text-slate-800 dark:text-slate-100  text-sm uppercase">{t.nom} <span className="capitalize text-slate-800 dark:text-slate-100  font-bold">{t.prenom}</span></h4>
+                        <p className="text-xs text-blue-600  font-semibold">{t.specialite}</p>
+                        <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400 ">{t.matricule}</span>
                       </div>
                     </div>
 
                     <span className={`px-2.5 py-1 rounded-lg text-[10px] font-bold ${
                       t.statut === 'Permanent' 
-                        ? 'bg-[#E7F3FF]  text-[#1877F2]  border border-[#E4E6EB] ' 
+                        ? 'bg-blue-50  text-blue-600  border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60 ' 
                         : 'bg-blue-50  text-blue-700  border border-blue-200 '
                     }`}>
                       {t.statut}
                     </span>
                   </div>
 
-                  <div className="bg-[#F0F2F5]  p-3 rounded-xl border border-[#E4E6EB]  flex flex-col gap-1.5 text-xs">
-                    <div className="flex items-center justify-between text-[#65676B] ">
-                      <span className="text-[#65676B] ">Matières :</span>
-                      <span className="font-semibold text-[#050505] ">{t.matieres.join(', ')}</span>
+                  <div className="bg-slate-50 dark:bg-slate-800/50  p-3 rounded-xl border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  flex flex-col gap-1.5 text-xs">
+                    <div className="flex items-center justify-between text-slate-500 dark:text-slate-400 ">
+                      <span className="text-slate-500 dark:text-slate-400 ">Matières :</span>
+                      <span className="font-semibold text-slate-800 dark:text-slate-100 ">{t.matieres.join(', ')}</span>
                     </div>
-                    <div className="flex items-center justify-between text-[#65676B] ">
-                      <span className="text-[#65676B] ">Classes :</span>
-                      <span className="font-semibold text-[#050505] ">{t.classes.join(', ')}</span>
+                    <div className="flex items-center justify-between text-slate-500 dark:text-slate-400 ">
+                      <span className="text-slate-500 dark:text-slate-400 ">Classes :</span>
+                      <span className="font-semibold text-slate-800 dark:text-slate-100 ">{t.classes.join(', ')}</span>
                     </div>
-                    <div className="flex items-center justify-between text-[#65676B] ">
-                      <span className="text-[#65676B] ">Salaire Mensuel :</span>
-                      <span className="font-bold text-[#1877F2] ">{t.salaireMensuel.toLocaleString()} FCFA</span>
+                    <div className="flex items-center justify-between text-slate-500 dark:text-slate-400 ">
+                      <span className="text-slate-500 dark:text-slate-400 ">Salaire Mensuel :</span>
+                      <span className="font-bold text-blue-600 ">{t.salaireMensuel.toLocaleString()} FCFA</span>
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between pt-2 border-t border-[#E4E6EB]  text-xs">
-                    <span className="font-mono text-[11px] text-[#65676B]">{t.telephone}</span>
+                  <div className="flex items-center justify-between pt-2 border-t border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  text-xs">
+                    <span className="font-mono text-[11px] text-slate-500 dark:text-slate-400">{t.telephone}</span>
 
                     <div className="flex items-center gap-1.5">
                       {/* Badge d'accès */}
                       <button
                         onClick={() => setSelectedPersonForBadge({ person: t, type: 'teacher' })}
-                        className="px-2.5 py-1.5 bg-[#E7F3FF]  hover:bg-[#1877F2] text-[#1877F2]  hover:text-white rounded-xl font-bold text-xs border border-[#E4E6EB]  flex items-center gap-1 transition-all cursor-pointer"
+                        className="px-2.5 py-1.5 bg-blue-50  hover:bg-blue-700 text-blue-600  hover:text-white rounded-xl font-bold text-xs border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  flex items-center gap-1 transition-all cursor-pointer"
                         title="Badge d'Accès"
                       >
                         <CreditCard className="w-3.5 h-3.5" />
@@ -474,7 +474,7 @@ export const HRModule: React.FC<HRModuleProps> = ({
                       {/* Fiche de Paie */}
                       <button
                         onClick={() => setSelectedTeacherForSlip(t)}
-                        className="px-2.5 py-1.5 bg-[#E7F3FF]  hover:bg-[#1877F2] text-[#1877F2]  hover:text-white rounded-xl font-bold text-xs border border-[#E4E6EB]  flex items-center gap-1 transition-all cursor-pointer"
+                        className="px-2.5 py-1.5 bg-blue-50  hover:bg-blue-700 text-blue-600  hover:text-white rounded-xl font-bold text-xs border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  flex items-center gap-1 transition-all cursor-pointer"
                         title="Fiche de Paie"
                       >
                         <FileText className="w-3.5 h-3.5" />
@@ -484,7 +484,7 @@ export const HRModule: React.FC<HRModuleProps> = ({
                       {canEdit && (
                         <button
                           onClick={() => handleOpenEditTeacher(t)}
-                          className="p-1.5 rounded-lg hover:bg-[#F0F2F5] text-[#65676B]  cursor-pointer"
+                          className="p-1.5 rounded-lg hover:bg-slate-50 dark:bg-slate-800/50 text-slate-500 dark:text-slate-400  cursor-pointer"
                           title="Modifier"
                         >
                           <Edit3 className="w-3.5 h-3.5" />
@@ -513,16 +513,16 @@ export const HRModule: React.FC<HRModuleProps> = ({
       {activeTab === 'staff' && (
         <div>
           {staff.length === 0 ? (
-            <div className="bg-white  rounded-lg p-12 border-2 border-dashed border-[#E4E6EB]  text-center">
-              <Building className="w-12 h-12 text-[#65676B] mx-auto mb-3" />
-              <h3 className="font-bold text-sm text-[#050505] ">Aucun personnel administratif enregistré</h3>
-              <p className="text-xs text-[#65676B]  mt-1 max-w-sm mx-auto">
+            <div className="bg-white dark:bg-slate-900 rounded-2xl p-12 border-2 border-dashed border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  text-center">
+              <Building className="w-12 h-12 text-slate-500 dark:text-slate-400 mx-auto mb-3" />
+              <h3 className="font-bold text-sm text-slate-800 dark:text-slate-100 ">Aucun personnel administratif enregistré</h3>
+              <p className="text-xs text-slate-500 dark:text-slate-400  mt-1 max-w-sm mx-auto">
                 Enregistrez le Surveillant Général, Secrétaire, Économe, Informaticien ou autres agents pour générer leurs badges officiels.
               </p>
               {canEdit && (
                 <button
                   onClick={handleOpenAddStaff}
-                  className="mt-4 px-4 py-2 bg-[#1877F2] hover:bg-[#1877F2] text-white rounded-xl text-xs font-bold inline-flex items-center gap-1.5 cursor-pointer shadow-sm"
+                  className="mt-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-sm font-semibold shadow-md shadow-blue-600/20 inline-flex items-center gap-1.5 cursor-pointer shadow-sm"
                 >
                   <Plus className="w-4 h-4" />
                   Ajouter un Membre du Personnel
@@ -534,11 +534,11 @@ export const HRModule: React.FC<HRModuleProps> = ({
               {staff.map((s) => (
                 <div
                   key={s.id}
-                  className="bg-white  border border-[#E4E6EB]  p-5 rounded-lg shadow-sm flex flex-col justify-between gap-4"
+                  className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  p-5 rounded-2xl shadow-sm flex flex-col justify-between gap-4"
                 >
                   <div className="flex items-start justify-between">
                     <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 rounded-lg bg-[#E7F3FF]  border border-[#E4E6EB]  text-[#1877F2]  flex items-center justify-center font-bold text-base">
+                      <div className="w-12 h-12 rounded-lg bg-blue-50  border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  text-blue-600  flex items-center justify-center font-bold text-base">
                         {s.photoUrl ? (
                           <img src={s.photoUrl} alt={s.nom} className="w-full h-full object-cover rounded-lg" />
                         ) : (
@@ -546,40 +546,40 @@ export const HRModule: React.FC<HRModuleProps> = ({
                         )}
                       </div>
                       <div>
-                        <h4 className="font-extrabold text-[#050505]  text-sm uppercase">{s.nom} <span className="capitalize text-[#050505]  font-bold">{s.prenom}</span></h4>
-                        <p className="text-xs text-[#1877F2]  font-semibold">{s.roleFonction}</p>
-                        <span className="text-[10px] font-mono text-[#65676B] ">{s.matricule}</span>
+                        <h4 className="font-extrabold text-slate-800 dark:text-slate-100  text-sm uppercase">{s.nom} <span className="capitalize text-slate-800 dark:text-slate-100  font-bold">{s.prenom}</span></h4>
+                        <p className="text-xs text-blue-600  font-semibold">{s.roleFonction}</p>
+                        <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400 ">{s.matricule}</span>
                       </div>
                     </div>
 
-                    <span className="px-2.5 py-1 rounded-lg text-[10px] font-bold bg-[#E7F3FF]  text-[#1877F2]  border border-[#E4E6EB] ">
+                    <span className="px-2.5 py-1 rounded-lg text-[10px] font-bold bg-blue-50  text-blue-600  border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60 ">
                       {s.departement}
                     </span>
                   </div>
 
-                  <div className="bg-[#F0F2F5]  p-3 rounded-xl border border-[#E4E6EB]  flex flex-col gap-1.5 text-xs">
-                    <div className="flex items-center justify-between text-[#65676B] ">
-                      <span className="text-[#65676B] ">Date d'embauche :</span>
-                      <span className="font-semibold text-[#050505] ">{s.datePriseService}</span>
+                  <div className="bg-slate-50 dark:bg-slate-800/50  p-3 rounded-xl border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  flex flex-col gap-1.5 text-xs">
+                    <div className="flex items-center justify-between text-slate-500 dark:text-slate-400 ">
+                      <span className="text-slate-500 dark:text-slate-400 ">Date d'embauche :</span>
+                      <span className="font-semibold text-slate-800 dark:text-slate-100 ">{s.datePriseService}</span>
                     </div>
-                    <div className="flex items-center justify-between text-[#65676B] ">
-                      <span className="text-[#65676B] ">Statut :</span>
-                      <span className="font-semibold text-[#050505] ">{s.statut}</span>
+                    <div className="flex items-center justify-between text-slate-500 dark:text-slate-400 ">
+                      <span className="text-slate-500 dark:text-slate-400 ">Statut :</span>
+                      <span className="font-semibold text-slate-800 dark:text-slate-100 ">{s.statut}</span>
                     </div>
-                    <div className="flex items-center justify-between text-[#65676B] ">
-                      <span className="text-[#65676B] ">Salaire :</span>
-                      <span className="font-bold text-[#1877F2] ">{s.salaireMensuel.toLocaleString()} FCFA</span>
+                    <div className="flex items-center justify-between text-slate-500 dark:text-slate-400 ">
+                      <span className="text-slate-500 dark:text-slate-400 ">Salaire :</span>
+                      <span className="font-bold text-blue-600 ">{s.salaireMensuel.toLocaleString()} FCFA</span>
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between pt-2 border-t border-[#E4E6EB]  text-xs">
-                    <span className="font-mono text-[11px] text-[#65676B]">{s.telephone}</span>
+                  <div className="flex items-center justify-between pt-2 border-t border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  text-xs">
+                    <span className="font-mono text-[11px] text-slate-500 dark:text-slate-400">{s.telephone}</span>
 
                     <div className="flex items-center gap-1.5">
                       {/* Badge d'accès */}
                       <button
                         onClick={() => setSelectedPersonForBadge({ person: s, type: 'staff' })}
-                        className="px-2.5 py-1.5 bg-[#E7F3FF]  hover:bg-[#1877F2] text-[#1877F2]  hover:text-white rounded-xl font-bold text-xs border border-[#E4E6EB]  flex items-center gap-1 transition-all cursor-pointer"
+                        className="px-2.5 py-1.5 bg-blue-50  hover:bg-blue-700 text-blue-600  hover:text-white rounded-xl font-bold text-xs border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  flex items-center gap-1 transition-all cursor-pointer"
                         title="Badge d'Accès Sécurisé"
                       >
                         <CreditCard className="w-3.5 h-3.5" />
@@ -589,7 +589,7 @@ export const HRModule: React.FC<HRModuleProps> = ({
                       {canEdit && (
                         <button
                           onClick={() => handleOpenEditStaff(s)}
-                          className="p-1.5 rounded-lg hover:bg-[#F0F2F5] text-[#65676B]  cursor-pointer"
+                          className="p-1.5 rounded-lg hover:bg-slate-50 dark:bg-slate-800/50 text-slate-500 dark:text-slate-400  cursor-pointer"
                           title="Modifier"
                         >
                           <Edit3 className="w-3.5 h-3.5" />
@@ -627,76 +627,76 @@ export const HRModule: React.FC<HRModuleProps> = ({
 
       {/* PAYSLIP MODAL */}
       {selectedTeacherForSlip && (
-        <div className="fixed inset-0 z-50 bg-white backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white  text-[#050505]  w-full max-w-lg rounded-lg border border-[#E4E6EB]  shadow-2xl p-6 flex flex-col gap-5">
-            <div className="border-b border-[#E4E6EB]  pb-3 flex items-start justify-between">
+        <div className="fixed inset-0 z-50 bg-white dark:bg-slate-900 backdrop-blur-xs flex items-center justify-center p-4">
+          <div className="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100  w-full max-w-lg rounded-2xl border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  shadow-2xl p-6 flex flex-col gap-5">
+            <div className="border-b border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  pb-3 flex items-start justify-between">
               <div>
-                <h3 className="font-black text-[#1877F2]  text-lg">BULLETIN DE PAIE MENSUEL</h3>
-                <p className="text-xs text-[#65676B] ">
+                <h3 className="font-black text-blue-600  text-lg">BULLETIN DE PAIE MENSUEL</h3>
+                <p className="text-xs text-slate-500 dark:text-slate-400 ">
                   {schoolConfig.name || 'Établissement Scolaire'} • {schoolConfig.city || 'Brazzaville'}
                 </p>
               </div>
-              <span className="bg-[#E7F3FF]  text-[#1877F2]  border border-[#E4E6EB]  text-xs font-bold px-2 py-1 rounded-md">
+              <span className="bg-blue-50  text-blue-600  border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  text-xs font-bold px-2 py-1 rounded-md">
                 VIREMENT VALIDÉ
               </span>
             </div>
 
-            <div className="bg-[#F0F2F5]  p-4 rounded-xl border border-[#E4E6EB]  grid grid-cols-2 gap-3 text-xs">
+            <div className="bg-slate-50 dark:bg-slate-800/50  p-4 rounded-xl border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  grid grid-cols-2 gap-3 text-xs">
               <div>
-                <span className="text-[#65676B] ">Nom du Bénéficiaire :</span>
-                <p className="font-bold text-[#050505] ">{selectedTeacherForSlip.prenom} {selectedTeacherForSlip.nom}</p>
+                <span className="text-slate-500 dark:text-slate-400 ">Nom du Bénéficiaire :</span>
+                <p className="font-bold text-slate-800 dark:text-slate-100 ">{selectedTeacherForSlip.prenom} {selectedTeacherForSlip.nom}</p>
               </div>
               <div>
-                <span className="text-[#65676B] ">Matricule :</span>
-                <p className="font-mono font-bold text-[#050505] ">{selectedTeacherForSlip.matricule}</p>
+                <span className="text-slate-500 dark:text-slate-400 ">Matricule :</span>
+                <p className="font-mono font-bold text-slate-800 dark:text-slate-100 ">{selectedTeacherForSlip.matricule}</p>
               </div>
               <div>
-                <span className="text-[#65676B] ">Statut :</span>
-                <p className="font-semibold text-[#050505] ">{selectedTeacherForSlip.statut}</p>
+                <span className="text-slate-500 dark:text-slate-400 ">Statut :</span>
+                <p className="font-semibold text-slate-800 dark:text-slate-100 ">{selectedTeacherForSlip.statut}</p>
               </div>
               <div>
-                <span className="text-[#65676B] ">Heures Prestées :</span>
-                <p className="font-bold text-[#050505] ">{selectedTeacherForSlip.heuresEffectuees} heures</p>
+                <span className="text-slate-500 dark:text-slate-400 ">Heures Prestées :</span>
+                <p className="font-bold text-slate-800 dark:text-slate-100 ">{selectedTeacherForSlip.heuresEffectuees} heures</p>
               </div>
             </div>
 
-            <div className="border border-[#E4E6EB]  rounded-xl overflow-hidden text-xs">
-              <div className="bg-[#F0F2F5]  p-2.5 font-bold flex justify-between text-[#050505] ">
+            <div className="border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  rounded-xl overflow-hidden text-xs">
+              <div className="bg-slate-50 dark:bg-slate-800/50  p-2.5 font-bold flex justify-between text-slate-800 dark:text-slate-100 ">
                 <span>Rubrique de Rémunération</span>
                 <span>Montant Net</span>
               </div>
               <div className="p-3 divide-y divide-slate-100  flex flex-col gap-2">
                 <div className="flex justify-between py-1">
-                  <span className="text-[#65676B] ">Salaire de base</span>
-                  <span className="font-semibold text-[#050505] ">{selectedTeacherForSlip.salaireMensuel.toLocaleString()} FCFA</span>
+                  <span className="text-slate-500 dark:text-slate-400 ">Salaire de base</span>
+                  <span className="font-semibold text-slate-800 dark:text-slate-100 ">{selectedTeacherForSlip.salaireMensuel.toLocaleString()} FCFA</span>
                 </div>
                 <div className="flex justify-between py-1">
-                  <span className="text-[#65676B] ">Prime d'exercice & transport</span>
-                  <span className="font-semibold text-[#1877F2] ">+ 25 000 FCFA</span>
+                  <span className="text-slate-500 dark:text-slate-400 ">Prime d'exercice & transport</span>
+                  <span className="font-semibold text-blue-600 ">+ 25 000 FCFA</span>
                 </div>
-                <div className="flex justify-between py-1 text-[#65676B] ">
+                <div className="flex justify-between py-1 text-slate-500 dark:text-slate-400 ">
                   <span>Cotisation CNSS Congo (4%)</span>
                   <span className="font-semibold text-rose-600 ">- {(selectedTeacherForSlip.salaireMensuel * 0.04).toLocaleString()} FCFA</span>
                 </div>
-                <div className="flex justify-between pt-2 font-bold text-sm text-[#1877F2]  border-t border-[#E4E6EB] ">
+                <div className="flex justify-between pt-2 font-bold text-sm text-blue-600  border-t border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60 ">
                   <span>NET À PAYER AU SALARIÉ</span>
-                  <span className="text-[#1877F2]  font-extrabold">
+                  <span className="text-blue-600  font-extrabold">
                     {(selectedTeacherForSlip.salaireMensuel + 25000 - (selectedTeacherForSlip.salaireMensuel * 0.04)).toLocaleString()} FCFA
                   </span>
                 </div>
               </div>
             </div>
 
-            <div className="flex justify-end gap-2 pt-2 border-t border-[#E4E6EB] ">
+            <div className="flex justify-end gap-2 pt-2 border-t border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60 ">
               <button
                 onClick={() => setSelectedTeacherForSlip(null)}
-                className="px-4 py-2 bg-[#F0F2F5]  hover:bg-[#F0F2F5] text-[#050505]  rounded-xl text-xs font-semibold cursor-pointer"
+                className="px-4 py-2 bg-slate-50 dark:bg-slate-800/50  hover:bg-slate-50 dark:bg-slate-800/50 text-slate-800 dark:text-slate-100  rounded-xl text-xs font-semibold cursor-pointer"
               >
                 Fermer
               </button>
               <button
                 onClick={() => window.print()}
-                className="px-4 py-2 bg-[#1877F2] hover:bg-[#1877F2] text-white rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-sm cursor-pointer"
+                className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-sm font-semibold shadow-md shadow-blue-600/20 flex items-center gap-1.5 shadow-sm cursor-pointer"
               >
                 <Printer className="w-3.5 h-3.5" /> Imprimer Bulletin
               </button>
@@ -708,12 +708,12 @@ export const HRModule: React.FC<HRModuleProps> = ({
       {/* ADD / EDIT TEACHER MODAL */}
       {showTeacherModal && (
         <div className="fixed inset-0 z-50 bg-black/75 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto">
-          <div className="bg-white  text-[#050505]  w-full max-w-lg rounded-lg shadow-2xl border border-[#E4E6EB]  p-6 space-y-4 my-6">
-            <div className="flex items-center justify-between border-b border-[#E4E6EB]  pb-3">
+          <div className="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100  w-full max-w-lg rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  p-6 space-y-4 my-6">
+            <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  pb-3">
               <h3 className="font-bold text-base">
                 {editingTeacher ? 'Modifier l\'Enseignant' : 'Ajouter un Nouvel Enseignant'}
               </h3>
-              <button onClick={() => setShowTeacherModal(false)} className="p-1 rounded-lg hover:bg-[#F0F2F5] text-[#65676B]">
+              <button onClick={() => setShowTeacherModal(false)} className="p-1 rounded-lg hover:bg-slate-50 dark:bg-slate-800/50 text-slate-500 dark:text-slate-400">
                 <X className="w-5 h-5" />
               </button>
             </div>
@@ -728,7 +728,7 @@ export const HRModule: React.FC<HRModuleProps> = ({
                     placeholder="Ex: OKEMBA"
                     value={tNom}
                     onChange={(e) => setTNom(e.target.value)}
-                    className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3 py-2 font-semibold"
+                    className="w-full bg-slate-50 dark:bg-slate-800/50  border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  rounded-xl px-3 py-2 font-semibold"
                   />
                 </div>
                 <div>
@@ -739,7 +739,7 @@ export const HRModule: React.FC<HRModuleProps> = ({
                     placeholder="Ex: Jean-Claude"
                     value={tPrenom}
                     onChange={(e) => setTPrenom(e.target.value)}
-                    className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3 py-2 font-semibold"
+                    className="w-full bg-slate-50 dark:bg-slate-800/50  border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  rounded-xl px-3 py-2 font-semibold"
                   />
                 </div>
               </div>
@@ -753,7 +753,7 @@ export const HRModule: React.FC<HRModuleProps> = ({
                     placeholder="Ex: Mathématiques & Physique"
                     value={tSpecialite}
                     onChange={(e) => setTSpecialite(e.target.value)}
-                    className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3 py-2 font-semibold"
+                    className="w-full bg-slate-50 dark:bg-slate-800/50  border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  rounded-xl px-3 py-2 font-semibold"
                   />
                 </div>
                 <div>
@@ -761,7 +761,7 @@ export const HRModule: React.FC<HRModuleProps> = ({
                   <select
                     value={tStatut}
                     onChange={(e) => setTStatut(e.target.value as any)}
-                    className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3 py-2 font-semibold"
+                    className="w-full bg-slate-50 dark:bg-slate-800/50  border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  rounded-xl px-3 py-2 font-semibold"
                   >
                     <option value="Permanent">Permanent</option>
                     <option value="Vacataire">Vacataire</option>
@@ -779,7 +779,7 @@ export const HRModule: React.FC<HRModuleProps> = ({
                     placeholder="+242 06 895 83 77"
                     value={tPhone}
                     onChange={(e) => setTPhone(e.target.value)}
-                    className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3 py-2 font-semibold font-mono"
+                    className="w-full bg-slate-50 dark:bg-slate-800/50  border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  rounded-xl px-3 py-2 font-semibold font-mono"
                   />
                 </div>
                 <div>
@@ -789,7 +789,7 @@ export const HRModule: React.FC<HRModuleProps> = ({
                     step="5000"
                     value={tSalaire}
                     onChange={(e) => setTSalaire(e.target.value)}
-                    className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3 py-2 font-semibold font-mono"
+                    className="w-full bg-slate-50 dark:bg-slate-800/50  border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  rounded-xl px-3 py-2 font-semibold font-mono"
                   />
                 </div>
               </div>
@@ -801,11 +801,11 @@ export const HRModule: React.FC<HRModuleProps> = ({
                   placeholder="Ex: 6ème A, 5ème B, 3ème C"
                   value={tClasses}
                   onChange={(e) => setTClasses(e.target.value)}
-                  className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3 py-2 font-semibold"
+                  className="w-full bg-slate-50 dark:bg-slate-800/50  border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  rounded-xl px-3 py-2 font-semibold"
                 />
               </div>
 
-              <div className="pt-3 border-t border-[#E4E6EB]  flex flex-col sm:flex-row items-center justify-between gap-3">
+              <div className="pt-3 border-t border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  flex flex-col sm:flex-row items-center justify-between gap-3">
                 <AutoSaveIndicator
                   lastSavedTime={autoSaveTeacher.lastSavedTime}
                   isSaving={autoSaveTeacher.isSaving}
@@ -819,13 +819,13 @@ export const HRModule: React.FC<HRModuleProps> = ({
                   <button
                     type="button"
                     onClick={() => setShowTeacherModal(false)}
-                    className="px-4 py-2 rounded-xl font-semibold text-[#65676B]  hover:bg-[#F0F2F5] cursor-pointer"
+                    className="px-4 py-2 rounded-xl font-semibold text-slate-500 dark:text-slate-400  hover:bg-slate-50 dark:bg-slate-800/50 cursor-pointer"
                   >
                     Annuler
                   </button>
                   <button
                     type="submit"
-                    className="px-4 py-2 rounded-xl font-bold bg-[#1877F2] hover:bg-[#1877F2] text-white shadow-sm cursor-pointer hover:scale-105 active:scale-95 transition-all"
+                    className="px-4 py-2 rounded-xl font-bold bg-blue-600 hover:bg-blue-700 text-white shadow-sm cursor-pointer hover:scale-105 active:scale-95 transition-all"
                   >
                     {editingTeacher ? 'Mettre à jour' : 'Enregistrer'}
                   </button>
@@ -839,12 +839,12 @@ export const HRModule: React.FC<HRModuleProps> = ({
       {/* ADD / EDIT STAFF MODAL */}
       {showStaffModal && (
         <div className="fixed inset-0 z-50 bg-black/75 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto">
-          <div className="bg-white  text-[#050505]  w-full max-w-lg rounded-lg shadow-2xl border border-[#E4E6EB]  p-6 space-y-4 my-6">
-            <div className="flex items-center justify-between border-b border-[#E4E6EB]  pb-3">
+          <div className="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100  w-full max-w-lg rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  p-6 space-y-4 my-6">
+            <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  pb-3">
               <h3 className="font-bold text-base">
                 {editingStaff ? 'Modifier le Personnel' : 'Ajouter un Personnel Administratif'}
               </h3>
-              <button onClick={() => setShowStaffModal(false)} className="p-1 rounded-lg hover:bg-[#F0F2F5] text-[#65676B]">
+              <button onClick={() => setShowStaffModal(false)} className="p-1 rounded-lg hover:bg-slate-50 dark:bg-slate-800/50 text-slate-500 dark:text-slate-400">
                 <X className="w-5 h-5" />
               </button>
             </div>
@@ -859,7 +859,7 @@ export const HRModule: React.FC<HRModuleProps> = ({
                     placeholder="Ex: LOUBAMBA"
                     value={sNom}
                     onChange={(e) => setSNom(e.target.value)}
-                    className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3 py-2 font-semibold"
+                    className="w-full bg-slate-50 dark:bg-slate-800/50  border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  rounded-xl px-3 py-2 font-semibold"
                   />
                 </div>
                 <div>
@@ -870,7 +870,7 @@ export const HRModule: React.FC<HRModuleProps> = ({
                     placeholder="Ex: Estelle"
                     value={sPrenom}
                     onChange={(e) => setSPrenom(e.target.value)}
-                    className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3 py-2 font-semibold"
+                    className="w-full bg-slate-50 dark:bg-slate-800/50  border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  rounded-xl px-3 py-2 font-semibold"
                   />
                 </div>
               </div>
@@ -881,7 +881,7 @@ export const HRModule: React.FC<HRModuleProps> = ({
                   <select
                     value={sRole}
                     onChange={(e) => setSRole(e.target.value as any)}
-                    className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3 py-2 font-semibold"
+                    className="w-full bg-slate-50 dark:bg-slate-800/50  border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  rounded-xl px-3 py-2 font-semibold"
                   >
                     <option value="Directeur Général">Directeur Général</option>
                     <option value="Directeur des Études">Directeur des Études</option>
@@ -901,7 +901,7 @@ export const HRModule: React.FC<HRModuleProps> = ({
                   <select
                     value={sDepartement}
                     onChange={(e) => setSDepartement(e.target.value as any)}
-                    className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3 py-2 font-semibold"
+                    className="w-full bg-slate-50 dark:bg-slate-800/50  border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  rounded-xl px-3 py-2 font-semibold"
                   >
                     <option value="Direction">Direction</option>
                     <option value="Secrétariat & Scolarité">Secrétariat & Scolarité</option>
@@ -922,7 +922,7 @@ export const HRModule: React.FC<HRModuleProps> = ({
                     placeholder="+242 06 895 83 77"
                     value={sPhone}
                     onChange={(e) => setSPhone(e.target.value)}
-                    className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3 py-2 font-semibold font-mono"
+                    className="w-full bg-slate-50 dark:bg-slate-800/50  border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  rounded-xl px-3 py-2 font-semibold font-mono"
                   />
                 </div>
 
@@ -933,12 +933,12 @@ export const HRModule: React.FC<HRModuleProps> = ({
                     step="5000"
                     value={sSalaire}
                     onChange={(e) => setSSalaire(e.target.value)}
-                    className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  rounded-xl px-3 py-2 font-semibold font-mono"
+                    className="w-full bg-slate-50 dark:bg-slate-800/50  border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  rounded-xl px-3 py-2 font-semibold font-mono"
                   />
                 </div>
               </div>
 
-              <div className="pt-3 border-t border-[#E4E6EB]  flex flex-col sm:flex-row items-center justify-between gap-3">
+              <div className="pt-3 border-t border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  flex flex-col sm:flex-row items-center justify-between gap-3">
                 <AutoSaveIndicator
                   lastSavedTime={autoSaveStaff.lastSavedTime}
                   isSaving={autoSaveStaff.isSaving}
@@ -952,13 +952,13 @@ export const HRModule: React.FC<HRModuleProps> = ({
                   <button
                     type="button"
                     onClick={() => setShowStaffModal(false)}
-                    className="px-4 py-2 rounded-xl font-semibold text-[#65676B]  hover:bg-[#F0F2F5] cursor-pointer"
+                    className="px-4 py-2 rounded-xl font-semibold text-slate-500 dark:text-slate-400  hover:bg-slate-50 dark:bg-slate-800/50 cursor-pointer"
                   >
                     Annuler
                   </button>
                   <button
                     type="submit"
-                    className="px-4 py-2 rounded-xl font-bold bg-[#1877F2] hover:bg-[#1877F2] text-white shadow-sm cursor-pointer hover:scale-105 active:scale-95 transition-all"
+                    className="px-4 py-2 rounded-xl font-bold bg-blue-600 hover:bg-blue-700 text-white shadow-sm cursor-pointer hover:scale-105 active:scale-95 transition-all"
                   >
                     {editingStaff ? 'Mettre à jour' : 'Enregistrer'}
                   </button>

@@ -75,20 +75,26 @@ export const DeveloperAuthModal: React.FC<DeveloperAuthModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto animate-in fade-in duration-200">
-      <div className="bg-white text-[#65676B] w-full max-w-md rounded-lg border border-[#E4E6EB] shadow-2xl overflow-hidden flex flex-col my-6">
+    <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xl flex items-center justify-center p-4 overflow-y-auto animate-in fade-in duration-200">
+      
+      {/* Background Ambience Grid & Glows */}
+      <div className="absolute inset-0 pointer-events-none opacity-20 bg-[radial-gradient(#6366f1_1.2px,transparent_1.2px)] [background-size:28px_28px]"></div>
+      <div className="absolute top-0 right-0 w-[30rem] h-[30rem] rounded-full bg-blue-600/20 blur-[100px] pointer-events-none -z-10"></div>
+      <div className="absolute bottom-0 left-0 w-[40rem] h-[40rem] rounded-full bg-indigo-500/20 blur-[120px] pointer-events-none -z-10"></div>
+      <div className="relative bg-white/95 dark:bg-slate-900/95 backdrop-blur-2xl w-full max-w-md rounded-3xl border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60 shadow-2xl overflow-hidden flex flex-col my-6">
+
         
         {/* Top Header */}
-        <div className="bg-[#1877F2] px-6 py-5 flex items-center justify-between border-b border-[#E4E6EB]">
+        <div className="bg-slate-900 px-6 py-5 flex items-center justify-between border-b border-slate-800">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg bg-[#1877F2] border border-[#E4E6EB] flex items-center justify-center font-bold text-[#1877F2] shadow-inner">
-              <Terminal className="w-5 h-5 text-[#1877F2]" />
+            <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-white shadow-lg">
+              <Terminal className="w-5 h-5 text-white" />
             </div>
             <div>
-              <span className="text-[10px] font-mono font-bold text-[#1877F2] uppercase tracking-widest block">
+              <span className="text-[10px] font-mono font-bold text-blue-600 uppercase tracking-widest block">
                 EDU-CONGO • ROOT ACCESS
               </span>
-              <h3 className="text-base font-extrabold text-white">
+              <h3 className="font-display text-lg font-extrabold text-white tracking-tight">
                 Portail Développeur & Super Admin
               </h3>
             </div>
@@ -96,7 +102,7 @@ export const DeveloperAuthModal: React.FC<DeveloperAuthModalProps> = ({
 
           <button
             onClick={onClose}
-            className="p-1.5 rounded-xl text-[#65676B] hover:text-white hover:bg-white transition-colors cursor-pointer"
+            className="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -105,14 +111,14 @@ export const DeveloperAuthModal: React.FC<DeveloperAuthModalProps> = ({
         {/* Modal Body */}
         <div className="p-6 flex flex-col gap-5 text-xs">
           
-          <div className="bg-indigo-950/40 border border-[#E4E6EB] rounded-lg p-4 flex items-start gap-3">
-            <ShieldCheck className="w-5 h-5 text-[#1877F2] shrink-0 mt-0.5" />
+          <div className="bg-blue-50/50 border border-blue-100 rounded-2xl p-4 flex items-start gap-3">
+            <ShieldCheck className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
             <div className="flex-1">
-              <p className="text-[#1877F2] font-semibold leading-relaxed">
+              <p className="text-blue-600 font-semibold leading-relaxed">
                 Accès réservé au Super Administrateur & Développeur du système <strong>EDU-CONGO</strong> (Stéphane Alongo).
               </p>
-              <p className="text-[#65676B] text-[11px] mt-1">
-                Code secret de démonstration : <strong className="text-[#1877F2] font-mono">2420</strong>
+              <p className="text-slate-500 dark:text-slate-400 text-[11px] mt-1">
+                Code secret de démonstration : <strong className="text-blue-600 font-mono">2420</strong>
               </p>
             </div>
           </div>
@@ -120,12 +126,12 @@ export const DeveloperAuthModal: React.FC<DeveloperAuthModalProps> = ({
           {/* Form */}
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
             <div>
-              <label className="text-[11px] font-bold text-[#65676B] uppercase tracking-wider block mb-1.5 flex items-center justify-between">
+              <label className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block mb-1.5 flex items-center justify-between">
                 <span className="flex items-center gap-1.5">
-                  <Key className="w-3.5 h-3.5 text-[#1877F2]" />
+                  <Key className="w-3.5 h-3.5 text-blue-600" />
                   Code PIN / Clé Maître Développeur :
                 </span>
-                <span className="text-[#1877F2] font-mono text-[10px]">Chiffré AES-256</span>
+                <span className="text-blue-600 font-mono text-[10px]">Chiffré AES-256</span>
               </label>
 
               <div className="relative">
@@ -135,7 +141,7 @@ export const DeveloperAuthModal: React.FC<DeveloperAuthModalProps> = ({
                   onChange={(e) => setPasscode(e.target.value)}
                   placeholder="Entrez 2420..."
                   autoFocus
-                  className="w-full bg-white border border-[#E4E6EB] focus:border-[#E4E6EB] focus:ring-2 focus:ring-indigo-500/30 rounded-xl px-4 py-3 text-white text-center font-mono text-lg tracking-widest outline-none transition-all"
+                  className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 focus:border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-indigo-500/30 rounded-xl px-4 py-3 text-white text-center font-mono text-lg tracking-widest outline-none transition-all"
                 />
               </div>
 
@@ -162,7 +168,7 @@ export const DeveloperAuthModal: React.FC<DeveloperAuthModalProps> = ({
                       setPasscode((prev) => prev + val);
                     }
                   }}
-                  className="py-2.5 bg-white hover:bg-[#F0F2F5] active:bg-[#1877F2] text-[#65676B] hover:text-white font-mono font-bold text-sm rounded-xl border border-[#E4E6EB] transition-all cursor-pointer shadow-xs"
+                  className="py-2.5 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:bg-slate-800/50 active:bg-blue-600 text-slate-500 dark:text-slate-400 hover:text-white font-mono font-bold text-sm rounded-xl border border-slate-200 dark:border-slate-700 transition-all cursor-pointer shadow-xs"
                 >
                   {val}
                 </button>
@@ -174,7 +180,7 @@ export const DeveloperAuthModal: React.FC<DeveloperAuthModalProps> = ({
               <button
                 type="submit"
                 disabled={isVerifying}
-                className="w-full py-3 bg-[#1877F2] hover:bg-[#1877F2] active:scale-98 text-white font-bold rounded-xl shadow-lg shadow-sm flex items-center justify-center gap-2 transition-all cursor-pointer disabled:opacity-50 text-sm"
+                className="w-full py-3 bg-blue-600 hover:bg-blue-600 active:scale-98 text-white font-bold rounded-xl shadow-lg shadow-sm flex items-center justify-center gap-2 transition-all cursor-pointer disabled:opacity-50 text-sm"
               >
                 {isVerifying ? (
                   <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-lg animate-spin" />
@@ -189,21 +195,21 @@ export const DeveloperAuthModal: React.FC<DeveloperAuthModalProps> = ({
               <button
                 type="button"
                 onClick={handleQuickBypass}
-                className="w-full py-2 bg-emerald-950/50 hover:bg-[#1877F2] text-[#1877F2] border border-[#E4E6EB] font-semibold rounded-xl flex items-center justify-center gap-1.5 transition-colors cursor-pointer text-xs"
+                className="w-full py-2 bg-emerald-950/50 hover:bg-blue-600 text-blue-600 border border-slate-200 dark:border-slate-700 font-semibold rounded-xl flex items-center justify-center gap-1.5 transition-colors cursor-pointer text-xs"
               >
-                <Sparkles className="w-3.5 h-3.5 text-[#1877F2]" />
+                <Sparkles className="w-3.5 h-3.5 text-blue-600" />
                 <span>Accès Développeur Rapide (Code 2420)</span>
               </button>
             </div>
           </form>
 
           {/* Security Features Info */}
-          <div className="border-t border-[#E4E6EB] pt-3 flex items-center justify-between text-[11px] text-[#65676B] font-mono">
+          <div className="border-t border-slate-200 dark:border-slate-700 pt-3 flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400 font-mono">
             <span className="flex items-center gap-1">
-              <Server className="w-3 h-3 text-[#1877F2]" /> Cloud Run Cluster
+              <Server className="w-3 h-3 text-blue-600" /> Cloud Run Cluster
             </span>
             <span className="flex items-center gap-1">
-              <Fingerprint className="w-3 h-3 text-[#1877F2]" /> Session Active
+              <Fingerprint className="w-3 h-3 text-blue-600" /> Session Active
             </span>
           </div>
 

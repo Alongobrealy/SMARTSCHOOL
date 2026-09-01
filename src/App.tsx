@@ -39,7 +39,6 @@ import {
   INITIAL_API_GATEWAYS,
   INITIAL_FEATURE_FLAGS
 } from './data/initialData';
-import { CommercialFlyer } from './components/CommercialFlyer';
 import { DashboardLayout } from './components/DashboardLayout';
 import { LoginPortal } from './components/auth/LoginPortal';
 import { QuoteEstimatorModal } from './components/modules/QuoteEstimatorModal';
@@ -61,7 +60,7 @@ const SUBSCRIPTIONS_STORAGE_KEY = 'edu_congo_subscriptions_v3';
 
 export default function App() {
   // Session States with Persistence
-  const [viewMode, setViewMode] = useState<'flyer' | 'login' | 'app'>('flyer');
+  const [viewMode, setViewMode] = useState<'login' | 'app'>('login');
   const [currentRole, setCurrentRole] = useState<UserRole>('direction');
   const [initialAppTab, setInitialAppTab] = useState<string>('dashboard');
   const [schoolId, setSchoolId] = useState<string>('');
@@ -966,17 +965,16 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F0F2F5] text-[#1E293B] font-sans antialiased selection:bg-[#1877F2] selection:text-white transition-colors duration-200">
-      {viewMode === 'flyer' ? (
-        <CommercialFlyer
-          onLaunchDemo={handleLaunchDemo}
-          onOpenLogin={handleOpenLogin}
-          onOpenQuote={() => setShowQuoteModal(true)}
-        />
-      ) : viewMode === 'login' ? (
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-[#1E293B] dark:text-slate-100 font-sans antialiased selection:bg-blue-600 selection:text-white transition-colors duration-200 relative z-0">
+      {/* Global Background Ambience Grid & Glows */}
+      <div className="fixed inset-0 pointer-events-none opacity-20 bg-[radial-gradient(#6366f1_1.2px,transparent_1.2px)] [background-size:28px_28px] -z-10"></div>
+      <div className="fixed top-0 left-0 w-[40rem] h-[40rem] rounded-full bg-blue-600/10 blur-[120px] pointer-events-none -z-10"></div>
+      <div className="fixed bottom-0 right-0 w-[40rem] h-[40rem] rounded-full bg-indigo-500/10 blur-[120px] pointer-events-none -z-10"></div>
+
+      {viewMode === 'login' ? (
         <LoginPortal
           onLoginSuccess={handleLoginSuccess}
-          onBackToVitrine={handleBackToFlyer}
+          onBackToVitrine={() => setViewMode('login')}
           availableSchools={tenants}
           initialSchoolId={schoolId}
           onAddSecurityLog={(action, details, status) => {

@@ -35,7 +35,7 @@ export const LicenseWarningBanner: React.FC<LicenseWarningBannerProps> = ({
     return (
       <div 
         id="banner-license-suspended"
-        className="rounded-lg p-4 sm:p-5 bg-[#1877F2] text-white border-2 border-rose-500 shadow-lg animate-in fade-in duration-300"
+        className="rounded-lg p-4 sm:p-5 bg-blue-600 text-white border-2 border-rose-500 shadow-lg animate-in fade-in duration-300"
       >
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div className="flex items-start gap-3.5">
@@ -67,7 +67,7 @@ export const LicenseWarningBanner: React.FC<LicenseWarningBannerProps> = ({
             <button
               id="btn-unlock-license-suspended"
               onClick={onOpenUpgradeModal}
-              className="w-full sm:w-auto px-5 py-3 bg-[#1877F2] hover:from-amber-300 hover:to-amber-500 text-slate-950 font-black rounded-xl text-xs shadow-xl transition-all cursor-pointer hover:scale-105 active:scale-95 flex items-center justify-center gap-2"
+              className="w-full sm:w-auto px-5 py-3 bg-blue-600 hover:from-amber-300 hover:to-amber-500 text-slate-950 font-black rounded-xl text-xs shadow-xl transition-all cursor-pointer hover:scale-105 active:scale-95 flex items-center justify-center gap-2"
             >
               <CreditCard className="w-4 h-4 text-slate-950" />
               <span>Lever la Suspension / Activer</span>
@@ -84,7 +84,7 @@ export const LicenseWarningBanner: React.FC<LicenseWarningBannerProps> = ({
     return (
       <div 
         id="banner-license-grace-period"
-        className="rounded-lg p-4 sm:p-5 bg-[#1877F2] text-white border-2 border-amber-500 shadow-md animate-in fade-in duration-300"
+        className="rounded-lg p-4 sm:p-5 bg-blue-600 text-white border-2 border-amber-500 shadow-md animate-in fade-in duration-300"
       >
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div className="flex items-start gap-3.5">
@@ -114,7 +114,7 @@ export const LicenseWarningBanner: React.FC<LicenseWarningBannerProps> = ({
             <button
               id="btn-renew-grace-period"
               onClick={onOpenUpgradeModal}
-              className="w-full md:w-auto px-5 py-2.5 bg-[#1877F2] hover:from-amber-400 hover:to-amber-500 text-slate-950 font-black rounded-xl text-xs shadow-md transition-all cursor-pointer hover:scale-102 flex items-center justify-center gap-2"
+              className="w-full md:w-auto px-5 py-2.5 bg-blue-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-black rounded-xl text-xs shadow-md transition-all cursor-pointer hover:scale-102 flex items-center justify-center gap-2"
             >
               <Sparkles className="w-4 h-4 text-slate-950" />
               <span>Régulariser Maintenant →</span>
@@ -130,12 +130,12 @@ export const LicenseWarningBanner: React.FC<LicenseWarningBannerProps> = ({
     return (
       <div 
         id="banner-license-expiring-soon"
-        className="rounded-lg p-4 sm:p-5 bg-[#1877F2] border-2 border-[#E4E6EB]  text-white shadow-md animate-in fade-in duration-300"
+        className="rounded-lg p-4 sm:p-5 bg-blue-600 border-2 border-slate-200  text-white shadow-md animate-in fade-in duration-300"
       >
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div className="flex items-start gap-3.5">
-            <div className="w-11 h-11 rounded-lg bg-[#1877F2] text-[#1877F2] border border-[#E4E6EB] flex items-center justify-center font-bold text-xl shrink-0">
-              <ShieldAlert className="w-6 h-6 text-[#1877F2]" />
+            <div className="w-11 h-11 rounded-lg bg-blue-600 text-blue-600 border border-slate-200 flex items-center justify-center font-bold text-xl shrink-0">
+              <ShieldAlert className="w-6 h-6 text-blue-600" />
             </div>
             <div>
               <div className="flex items-center gap-2 flex-wrap">
@@ -143,17 +143,17 @@ export const LicenseWarningBanner: React.FC<LicenseWarningBannerProps> = ({
                   <span>⏳</span>
                   <span>{licenseInfo.warningTitle}</span>
                 </h4>
-                <span className="bg-[#1877F2] text-white text-[10px] font-bold px-2.5 py-0.5 rounded-lg">
+                <span className="bg-blue-600 text-white text-[10px] font-bold px-2.5 py-0.5 rounded-lg">
                   Échéance dans {licenseInfo.daysRemaining} jours
                 </span>
               </div>
-              <p className="text-xs text-[#1877F2] mt-1 max-w-3xl leading-relaxed">
+              <p className="text-xs text-blue-600 mt-1 max-w-3xl leading-relaxed">
                 {licenseInfo.warningMessage}
               </p>
-              <div className="flex items-center gap-3 mt-1.5 text-[11px] text-[#65676B] font-medium">
+              <div className="flex items-center gap-3 mt-1.5 text-[11px] text-slate-500 font-medium">
                 <span>Tarif Mensuel : 25 000 FCFA</span>
                 <span>•</span>
-                <span className="text-[#1877F2] font-bold">Annuel avec -25% (3 mois offerts)</span>
+                <span className="text-blue-600 font-bold">Annuel avec -25% (3 mois offerts)</span>
               </div>
             </div>
           </div>
@@ -162,7 +162,7 @@ export const LicenseWarningBanner: React.FC<LicenseWarningBannerProps> = ({
             <button
               id="btn-renew-expiring-license"
               onClick={onOpenUpgradeModal}
-              className="w-full md:w-auto px-5 py-2.5 bg-[#1877F2] hover:from-indigo-400 hover:to-indigo-500 text-white font-extrabold rounded-xl text-xs shadow-md transition-all cursor-pointer hover:scale-102 flex items-center justify-center gap-2"
+              className="w-full md:w-auto px-5 py-2.5 bg-blue-600 hover:from-indigo-400 hover:to-indigo-500 text-white font-extrabold rounded-xl text-xs shadow-md transition-all cursor-pointer hover:scale-102 flex items-center justify-center gap-2"
             >
               <Sparkles className="w-4 h-4 text-amber-300" />
               <span>Renouveler la Licence →</span>

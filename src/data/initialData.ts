@@ -47,7 +47,7 @@ export const DEFAULT_SCHOOL_CONFIG: SchoolConfig = {
 export const DEFAULT_ROLE_PERMISSIONS: RolePermission[] = [
   {
     role: 'direction',
-    label: 'Direction Générale',
+    label: 'Direction Générale et Administration',
     description: 'Accès total à l\'établissement : configuration, gestion financière, validation des bulletins, audit et signatures.',
     canManageConfig: true,
     canManageStudents: true,
@@ -62,7 +62,7 @@ export const DEFAULT_ROLE_PERMISSIONS: RolePermission[] = [
   },
   {
     role: 'administration',
-    label: 'Secrétariat & Scolarité',
+    label: 'Secrétariat et Scolarité',
     description: 'Inscriptions des élèves, registres, délivrance de cartes scolaires et certificats officiels.',
     canManageConfig: false,
     canManageStudents: true,
@@ -77,7 +77,7 @@ export const DEFAULT_ROLE_PERMISSIONS: RolePermission[] = [
   },
   {
     role: 'comptabilite',
-    label: 'Comptabilité & Caisse',
+    label: 'Comptabilité et Caisse',
     description: 'Encaissement des frais scolaires, gestion des dépenses, salaires, reçus de paiement et bilans.',
     canManageConfig: false,
     canManageStudents: false,

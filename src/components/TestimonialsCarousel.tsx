@@ -131,34 +131,34 @@ export const TestimonialsCarousel: React.FC = () => {
   return (
     <section className="w-full flex flex-col gap-6" aria-label="Témoignages clients">
       <div className="text-center max-w-2xl mx-auto space-y-2">
-        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-[#E7F3FF]  border border-[#E4E6EB]  text-[#1877F2]  font-bold text-xs">
-          <Sparkles className="w-3.5 h-3.5 text-[#1877F2] " />
+        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-blue-50  border border-slate-200  text-blue-600  font-bold text-xs">
+          <Sparkles className="w-3.5 h-3.5 text-blue-600 " />
           Preuve Sociale & Retours d'Expérience
         </span>
-        <h2 className="text-2xl sm:text-3xl font-black text-[#050505]  tracking-tight text-balance">
+        <h2 className="text-2xl sm:text-3xl font-black text-slate-800  tracking-tight text-balance">
           ILS FONT CONFIANCE À EDU-CONGO
         </h2>
-        <p className="text-xs sm:text-sm text-[#65676B]  leading-relaxed text-balance">
+        <p className="text-xs sm:text-sm text-slate-500  leading-relaxed text-balance">
           Découvrez les témoignages des directeurs d'établissements, proviseurs, comptables et parents d'élèves à Brazzaville, Pointe-Noire, Dolisie et Oyo.
         </p>
       </div>
 
       {/* Main Carousel Card */}
       <div 
-        className="relative rounded-lg bg-white  border border-[#E4E6EB]  p-6 sm:p-10 shadow-lg overflow-hidden transition-all"
+        className="relative rounded-lg bg-white  border border-slate-200  p-6 sm:p-10 shadow-lg overflow-hidden transition-all"
         onMouseEnter={() => setIsAutoPlaying(false)}
         onMouseLeave={() => setIsAutoPlaying(true)}
       >
         {/* Background Decorative Pattern */}
-        <div className="absolute top-0 right-0 p-8 opacity-5 pointer-events-none text-[#050505] ">
+        <div className="absolute top-0 right-0 p-8 opacity-5 pointer-events-none text-slate-800 ">
           <Quote className="w-48 h-48 -rotate-12" />
         </div>
 
         <div className="relative z-10 flex flex-col lg:flex-row items-center lg:items-start gap-8">
           
           {/* Avatar & School Profile Info */}
-          <div className="flex flex-col items-center text-center lg:items-start lg:text-left shrink-0 max-w-xs w-full gap-3 border-b lg:border-b-0 lg:border-r border-[#E4E6EB]  pb-6 lg:pb-0 lg:pr-8">
-            <div className={`w-16 h-16 sm:w-20 sm:h-20 rounded-lg bg-[#1877F2] ${current.avatarColor} text-white flex items-center justify-center font-black text-xl sm:text-2xl shadow-lg shadow-sm`}>
+          <div className="flex flex-col items-center text-center lg:items-start lg:text-left shrink-0 max-w-xs w-full gap-3 border-b lg:border-b-0 lg:border-r border-slate-200  pb-6 lg:pb-0 lg:pr-8">
+            <div className={`w-16 h-16 sm:w-20 sm:h-20 rounded-lg bg-blue-600 ${current.avatarColor} text-white flex items-center justify-center font-black text-xl sm:text-2xl shadow-lg shadow-sm`}>
               {current.avatarText}
             </div>
 
@@ -168,30 +168,30 @@ export const TestimonialsCarousel: React.FC = () => {
                   <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
                 ))}
               </div>
-              <h3 className="font-extrabold text-base sm:text-lg text-[#050505]  leading-snug">
+              <h3 className="font-extrabold text-base sm:text-lg text-slate-800  leading-snug">
                 {current.name}
               </h3>
-              <p className="text-xs font-semibold text-[#1877F2] ">
+              <p className="text-xs font-semibold text-blue-600 ">
                 {current.role}
               </p>
             </div>
 
-            <div className="space-y-1.5 text-xs text-[#65676B]  w-full pt-1">
-              <div className="flex items-center justify-center lg:justify-start gap-1.5 font-medium text-[#050505] ">
-                <Building2 className="w-3.5 h-3.5 text-[#1877F2] shrink-0" />
+            <div className="space-y-1.5 text-xs text-slate-500  w-full pt-1">
+              <div className="flex items-center justify-center lg:justify-start gap-1.5 font-medium text-slate-800 ">
+                <Building2 className="w-3.5 h-3.5 text-blue-600 shrink-0" />
                 <span className="truncate">{current.school}</span>
               </div>
               <div className="flex items-center justify-center lg:justify-start gap-1.5">
-                <MapPin className="w-3.5 h-3.5 text-[#1877F2] shrink-0" />
+                <MapPin className="w-3.5 h-3.5 text-blue-600 shrink-0" />
                 <span>{current.department}</span>
               </div>
-              <span className="inline-block bg-[#F0F2F5]  text-[#050505]  px-2.5 py-0.5 rounded-lg text-[10px] font-medium border border-[#E4E6EB] ">
+              <span className="inline-block bg-slate-50  text-slate-800  px-2.5 py-0.5 rounded-lg text-[10px] font-medium border border-slate-200 ">
                 {current.cycle}
               </span>
             </div>
 
-            <div className="mt-2 w-full p-2.5 rounded-xl bg-[#E7F3FF]  border border-[#E4E6EB]  text-[#1877F2]  text-center font-bold text-xs flex items-center justify-center gap-1.5">
-              <CheckCircle2 className="w-4 h-4 text-[#1877F2]  shrink-0" />
+            <div className="mt-2 w-full p-2.5 rounded-xl bg-blue-50  border border-slate-200  text-blue-600  text-center font-bold text-xs flex items-center justify-center gap-1.5">
+              <CheckCircle2 className="w-4 h-4 text-blue-600  shrink-0" />
               <span>{current.impactMetric}</span>
             </div>
           </div>
@@ -199,18 +199,18 @@ export const TestimonialsCarousel: React.FC = () => {
           {/* Testimonial Content */}
           <div className="flex-1 flex flex-col justify-between gap-6 w-full text-center lg:text-left">
             <div className="space-y-4">
-              <div className="inline-flex items-center gap-2 text-xs font-bold text-[#1877F2]  uppercase tracking-wider">
-                <ShieldCheck className="w-4 h-4 text-[#1877F2] " />
+              <div className="inline-flex items-center gap-2 text-xs font-bold text-blue-600  uppercase tracking-wider">
+                <ShieldCheck className="w-4 h-4 text-blue-600 " />
                 Témoignage Vérifié • {current.date}
               </div>
 
-              <p className="text-sm sm:text-base lg:text-lg text-[#050505]  leading-relaxed italic text-justify sm:text-left">
+              <p className="text-sm sm:text-base lg:text-lg text-slate-800  leading-relaxed italic text-justify sm:text-left">
                 « {current.quote} »
               </p>
             </div>
 
             {/* Carousel Controls */}
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-[#E4E6EB] ">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-slate-200 ">
               {/* Pagination Dots */}
               <div className="flex items-center gap-2">
                 {TESTIMONIALS.map((t, idx) => (
@@ -219,8 +219,8 @@ export const TestimonialsCarousel: React.FC = () => {
                     onClick={() => setCurrentIndex(idx)}
                     className={`h-2.5 rounded-lg transition-all cursor-pointer ${
                       currentIndex === idx
-                        ? 'w-8 bg-[#1877F2] '
-                        : 'w-2.5 bg-[#F0F2F5]  hover:bg-[#F0F2F5]'
+                        ? 'w-8 bg-blue-600 '
+                        : 'w-2.5 bg-slate-50  hover:bg-slate-50'
                     }`}
                     aria-label={`Aller au témoignage ${idx + 1}`}
                   />
@@ -231,17 +231,17 @@ export const TestimonialsCarousel: React.FC = () => {
               <div className="flex items-center gap-2">
                 <button
                   onClick={prevSlide}
-                  className="p-2.5 rounded-xl bg-[#F0F2F5]  hover:bg-[#E7F3FF]/60 text-[#050505]  hover:text-[#1877F2] border border-[#E4E6EB]  transition-all cursor-pointer shadow-2xs hover:scale-105 active:scale-95"
+                  className="p-2.5 rounded-xl bg-slate-50  hover:bg-blue-50/60 text-slate-800  hover:text-blue-600 border border-slate-200  transition-all cursor-pointer shadow-2xs hover:scale-105 active:scale-95"
                   aria-label="Témoignage précédent"
                 >
                   <ChevronLeft className="w-5 h-5" />
                 </button>
-                <span className="text-xs font-bold text-[#65676B]  font-mono px-1">
+                <span className="text-xs font-bold text-slate-500  font-mono px-1">
                   {currentIndex + 1} / {TESTIMONIALS.length}
                 </span>
                 <button
                   onClick={nextSlide}
-                  className="p-2.5 rounded-xl bg-[#F0F2F5]  hover:bg-[#E7F3FF]/60 text-[#050505]  hover:text-[#1877F2] border border-[#E4E6EB]  transition-all cursor-pointer shadow-2xs hover:scale-105 active:scale-95"
+                  className="p-2.5 rounded-xl bg-slate-50  hover:bg-blue-50/60 text-slate-800  hover:text-blue-600 border border-slate-200  transition-all cursor-pointer shadow-2xs hover:scale-105 active:scale-95"
                   aria-label="Témoignage suivant"
                 >
                   <ChevronRight className="w-5 h-5" />

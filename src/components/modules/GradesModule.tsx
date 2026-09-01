@@ -94,13 +94,13 @@ export const GradesModule: React.FC<GradesModuleProps> = ({
     <div className="flex flex-col gap-6">
       
       {/* Top Banner */}
-      <div className="flex flex-col md:flex-row items-center justify-between gap-4 bg-white  p-4 sm:p-6 rounded-lg border border-[#E4E6EB]  shadow-sm transition-colors duration-200 text-center md:text-left">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-4 bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  shadow-sm transition-colors duration-200 text-center md:text-left">
         <div>
-          <div className="flex items-center justify-center md:justify-start gap-2 text-[#1877F2]  font-bold text-xs uppercase tracking-wider">
+          <div className="flex items-center justify-center md:justify-start gap-2 text-blue-600  font-bold text-xs uppercase tracking-wider">
             <FileText className="w-4 h-4" /> Module Pédagogique & Évaluations
           </div>
-          <h2 className="text-xl sm:text-2xl font-bold text-[#050505]  mt-1">Saisie des Notes & Bulletins Officiels</h2>
-          <p className="text-xs text-[#65676B]  mt-1">
+          <h2 className="text-xl sm:text-2xl font-bold text-slate-800 dark:text-slate-100  mt-1">Saisie des Notes & Bulletins Officiels</h2>
+          <p className="text-xs text-slate-500 dark:text-slate-400  mt-1">
             Calcul automatique des coefficients, moyennes pondérées, rangs et génération de bulletins instantanés.
           </p>
         </div>
@@ -111,7 +111,7 @@ export const GradesModule: React.FC<GradesModuleProps> = ({
               if (classStudents.length > 0) setSelectedStudentId(classStudents[0].id);
               setShowAddGradeModal(true);
             }}
-            className="w-full sm:w-auto px-4 py-2.5 bg-[#1877F2] hover:bg-[#1877F2] text-white text-xs font-bold rounded-xl shadow-sm flex items-center justify-center gap-2 transition-all cursor-pointer"
+            className="w-full sm:w-auto px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold shadow-md shadow-blue-600/20 rounded-xl shadow-sm flex items-center justify-center gap-2 transition-all cursor-pointer"
           >
             <Plus className="w-4 h-4" />
             Saisir une Note
@@ -120,14 +120,14 @@ export const GradesModule: React.FC<GradesModuleProps> = ({
       </div>
 
       {/* Filter and Tab Selectors */}
-      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 bg-white  p-4 sm:p-5 rounded-lg border border-[#E4E6EB]  shadow-sm text-xs transition-colors duration-200">
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 bg-white dark:bg-slate-900 p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  shadow-sm text-xs transition-colors duration-200">
         <div className="flex items-center justify-center sm:justify-start gap-2">
           <button
             onClick={() => setActiveTab('saisie')}
             className={`px-3.5 sm:px-4 py-2 rounded-xl font-bold transition-all cursor-pointer text-xs ${
               activeTab === 'saisie'
-                ? 'bg-[#1877F2] text-white shadow-xs'
-                : 'bg-[#F0F2F5]  text-[#65676B]  hover:text-[#050505] hover:bg-[#F0F2F5]'
+                ? 'bg-blue-600 text-white shadow-xs'
+                : 'bg-slate-50 dark:bg-slate-800/50  text-slate-500 dark:text-slate-400  hover:text-slate-800 dark:text-slate-100 hover:bg-slate-50 dark:bg-slate-800/50'
             }`}
           >
             Grille des Notes
@@ -136,8 +136,8 @@ export const GradesModule: React.FC<GradesModuleProps> = ({
             onClick={() => setActiveTab('bulletins')}
             className={`px-3.5 sm:px-4 py-2 rounded-xl font-bold transition-all cursor-pointer text-xs ${
               activeTab === 'bulletins'
-                ? 'bg-[#1877F2] text-white shadow-xs'
-                : 'bg-[#F0F2F5]  text-[#65676B]  hover:text-[#050505] hover:bg-[#F0F2F5]'
+                ? 'bg-blue-600 text-white shadow-xs'
+                : 'bg-slate-50 dark:bg-slate-800/50  text-slate-500 dark:text-slate-400  hover:text-slate-800 dark:text-slate-100 hover:bg-slate-50 dark:bg-slate-800/50'
             }`}
           >
             Bulletins & Rangs
@@ -148,7 +148,7 @@ export const GradesModule: React.FC<GradesModuleProps> = ({
           <select
             value={selectedClass}
             onChange={(e) => setSelectedClass(e.target.value)}
-            className="bg-[#F0F2F5]  border border-[#E4E6EB]  text-[#050505]  rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer font-semibold"
+            className="bg-slate-50 dark:bg-slate-800/50  border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  text-slate-800 dark:text-slate-100  rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer font-semibold"
           >
             <option value="Terminale S1">Terminale D (Lycée)</option>
             <option value="3ème Scientifique">3ème A (Collège)</option>
@@ -160,7 +160,7 @@ export const GradesModule: React.FC<GradesModuleProps> = ({
           <select
             value={selectedSemestre}
             onChange={(e) => setSelectedSemestre(e.target.value)}
-            className="bg-[#F0F2F5]  border border-[#E4E6EB]  text-[#050505]  rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer font-semibold"
+            className="bg-slate-50 dark:bg-slate-800/50  border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  text-slate-800 dark:text-slate-100  rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer font-semibold"
           >
             <option value="Trimestre 1">1er Trimestre</option>
             <option value="Trimestre 2">2ème Trimestre</option>
@@ -173,43 +173,43 @@ export const GradesModule: React.FC<GradesModuleProps> = ({
 
       {/* Main Content View */}
       {activeTab === 'saisie' ? (
-        <div className="bg-white  border border-[#E4E6EB]  rounded-lg shadow-sm overflow-hidden transition-colors duration-200">
-          <div className="px-6 py-4 border-b border-[#E4E6EB]  flex items-center justify-between">
-            <h3 className="font-bold text-[#050505]  text-sm">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  rounded-2xl shadow-sm overflow-hidden transition-colors duration-200">
+          <div className="px-6 py-4 border-b border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  flex items-center justify-between">
+            <h3 className="font-bold text-slate-800 dark:text-slate-100  text-sm">
               Relevé des évaluations : {selectedClass} ({selectedSemestre})
             </h3>
-            <span className="text-xs text-[#65676B]  font-medium">
+            <span className="text-xs text-slate-500 dark:text-slate-400  font-medium">
               {grades.length} notes enregistrées au total
             </span>
           </div>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs border-collapse">
-              <thead>
-                <tr className="bg-[#F0F2F5]  text-[#65676B]  font-bold uppercase tracking-wider border-b border-[#E4E6EB]  text-[11px]">
-                  <th className="p-3.5 sm:px-6">Élève / Étudiant</th>
-                  <th className="p-3.5">Matière</th>
-                  <th className="p-3.5 text-center">Devoir /20</th>
-                  <th className="p-3.5 text-center">Examen /20</th>
-                  <th className="p-3.5 text-center">Coef</th>
-                  <th className="p-3.5 text-center">Moyenne</th>
-                  <th className="p-3.5">Appréciation</th>
+            <table className="w-full text-left border-collapse">
+              <thead className="bg-slate-50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60">
+                <tr className="border-b border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60 hover:bg-slate-50 dark:bg-slate-800/50 transition-colors">
+                  <th className="px-4 py-3 text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider whitespace-nowrap">Élève / Étudiant</th>
+                  <th className="px-4 py-3 text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider whitespace-nowrap">Matière</th>
+                  <th className="px-4 py-3 text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider whitespace-nowrap">Devoir /20</th>
+                  <th className="px-4 py-3 text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider whitespace-nowrap">Examen /20</th>
+                  <th className="px-4 py-3 text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider whitespace-nowrap">Coef</th>
+                  <th className="px-4 py-3 text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider whitespace-nowrap">Moyenne</th>
+                  <th className="px-4 py-3 text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider whitespace-nowrap">Appréciation</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100  text-[#050505] ">
+              <tbody className="divide-y divide-slate-100  text-slate-800 dark:text-slate-100 ">
                 {grades
                   .filter(g => g.classe === selectedClass && g.semestre === selectedSemestre)
                   .map((grade) => {
                     const avg = ((grade.noteDevoir * 0.4) + (grade.noteExamen * 0.6)).toFixed(1);
                     return (
-                      <tr key={grade.id} className="hover:bg-[#F0F2F5]/70 transition-colors">
-                        <td className="p-3.5 sm:px-6 font-bold text-[#050505] ">{grade.studentName}</td>
-                        <td className="p-3.5 text-[#1877F2]  font-semibold">{grade.matiere}</td>
-                        <td className="p-3.5 text-center font-mono text-[#050505] ">{grade.noteDevoir.toFixed(1)}</td>
-                        <td className="p-3.5 text-center font-mono text-[#050505] ">{grade.noteExamen.toFixed(1)}</td>
-                        <td className="p-3.5 text-center font-bold text-[#65676B] ">{grade.coefficient}</td>
-                        <td className="p-3.5 text-center font-bold text-[#1877F2]  bg-[#E7F3FF] ">{avg} /20</td>
-                        <td className="p-3.5 text-[#65676B]  italic text-[11px]">{grade.appreciation}</td>
+                      <tr key={grade.id} className="hover:bg-slate-50 dark:bg-slate-800/50/70 transition-colors">
+                        <td className="px-6 py-4 text-sm sm:px-6 font-bold text-slate-800 dark:text-slate-100 ">{grade.studentName}</td>
+                        <td className="px-6 py-4 text-sm text-blue-600  font-semibold">{grade.matiere}</td>
+                        <td className="px-6 py-4 text-sm text-center font-mono text-slate-800 dark:text-slate-100 ">{grade.noteDevoir.toFixed(1)}</td>
+                        <td className="px-6 py-4 text-sm text-center font-mono text-slate-800 dark:text-slate-100 ">{grade.noteExamen.toFixed(1)}</td>
+                        <td className="px-6 py-4 text-sm text-center font-bold text-slate-500 dark:text-slate-400 ">{grade.coefficient}</td>
+                        <td className="px-6 py-4 text-sm text-center font-bold text-blue-600  bg-blue-50 ">{avg} /20</td>
+                        <td className="px-6 py-4 text-sm text-slate-500 dark:text-slate-400  italic text-[11px]">{grade.appreciation}</td>
                       </tr>
                     );
                   })}
@@ -225,36 +225,36 @@ export const GradesModule: React.FC<GradesModuleProps> = ({
             return (
               <div
                 key={item.student.id}
-                className="bg-white  border border-[#E4E6EB]  hover:border-[#E4E6EB][#E4E6EB] shadow-sm p-6 rounded-lg transition-all flex flex-col justify-between gap-4"
+                className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  hover:border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60slate-200 shadow-sm p-6 rounded-2xl transition-all flex flex-col justify-between gap-4"
               >
                 <div className="flex items-start justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-[#E7F3FF]  text-[#1877F2]  border border-[#E4E6EB]  flex items-center justify-center font-bold text-sm">
+                    <div className="w-10 h-10 rounded-xl bg-blue-50  text-blue-600  border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  flex items-center justify-center font-bold text-sm">
                       #{rank}
                     </div>
                     <div>
-                      <h4 className="font-bold text-[#050505]  text-sm">{item.student.nom} {item.student.prenom}</h4>
-                      <p className="text-[11px] text-[#65676B] ">{item.student.matricule}</p>
+                      <h4 className="font-bold text-slate-800 dark:text-slate-100  text-sm">{item.student.nom} {item.student.prenom}</h4>
+                      <p className="text-[11px] text-slate-500 dark:text-slate-400 ">{item.student.matricule}</p>
                     </div>
                   </div>
 
                   <span className={`px-2.5 py-1 rounded-lg text-xs font-bold border ${
-                    item.average >= 16 ? 'bg-[#E7F3FF]  text-[#1877F2]  border-[#E4E6EB] ' :
-                    item.average >= 12 ? 'bg-[#E7F3FF]  text-[#1877F2]  border-[#E4E6EB] ' :
+                    item.average >= 16 ? 'bg-blue-50  text-blue-600  border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60 ' :
+                    item.average >= 12 ? 'bg-blue-50  text-blue-600  border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60 ' :
                     'bg-amber-50  text-amber-700  border-amber-200 '
                   }`}>
                     {item.average.toFixed(2)} /20
                   </span>
                 </div>
 
-                <div className="text-xs text-[#65676B]  flex items-center justify-between bg-[#F0F2F5]  p-3 rounded-xl border border-[#E4E6EB] ">
+                <div className="text-xs text-slate-500 dark:text-slate-400  flex items-center justify-between bg-slate-50 dark:bg-slate-800/50  p-3 rounded-xl border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60 ">
                   <span>Matières : <strong>{item.gradesCount}</strong></span>
-                  <span>Classement : <strong className="text-[#050505] ">{rank}e / {studentsWithStats.length}</strong></span>
+                  <span>Classement : <strong className="text-slate-800 dark:text-slate-100 ">{rank}e / {studentsWithStats.length}</strong></span>
                 </div>
 
                 <button
                   onClick={() => setSelectedStudentForReport(item.student)}
-                  className="w-full bg-[#1877F2] hover:bg-[#1877F2] text-white font-semibold py-2.5 px-3 rounded-xl text-xs flex items-center justify-center gap-2 shadow-xs transition-all cursor-pointer"
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 px-3 rounded-xl text-xs flex items-center justify-center gap-2 shadow-xs transition-all cursor-pointer"
                 >
                   <Printer className="w-3.5 h-3.5" />
                   Générer le Bulletin Officiel
@@ -267,20 +267,20 @@ export const GradesModule: React.FC<GradesModuleProps> = ({
 
       {/* Add Grade Modal */}
       {showAddGradeModal && (
-        <div className="fixed inset-0 z-50 bg-white backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white  text-[#050505]  w-full max-w-md rounded-lg border border-[#E4E6EB]  shadow-2xl p-6 flex flex-col gap-4">
-            <h3 className="font-bold text-base text-[#050505]  border-b border-[#E4E6EB]  pb-3 flex items-center gap-2">
-              <Plus className="w-4 h-4 text-[#1877F2] " />
+        <div className="fixed inset-0 z-50 bg-white dark:bg-slate-900 backdrop-blur-xs flex items-center justify-center p-4">
+          <div className="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100  w-full max-w-md rounded-2xl border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  shadow-2xl p-6 flex flex-col gap-4">
+            <h3 className="font-bold text-base text-slate-800 dark:text-slate-100  border-b border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  pb-3 flex items-center gap-2">
+              <Plus className="w-4 h-4 text-blue-600 " />
               Saisie d'une Nouvelle Note
             </h3>
 
             <form onSubmit={handleSaveGrade} className="flex flex-col gap-3.5 text-xs">
               <div>
-                <label className="text-[#050505]  font-semibold mb-1 block">Sélectionner l'Élève :</label>
+                <label className="text-slate-800 dark:text-slate-100  font-semibold mb-1 block">Sélectionner l'Élève :</label>
                 <select
                   value={selectedStudentId}
                   onChange={(e) => setSelectedStudentId(e.target.value)}
-                  className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  text-[#050505]  rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer"
+                  className="w-full bg-slate-50 dark:bg-slate-800/50  border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  text-slate-800 dark:text-slate-100  rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer"
                   required
                 >
                   {classStudents.map(st => (
@@ -292,19 +292,19 @@ export const GradesModule: React.FC<GradesModuleProps> = ({
               </div>
 
               <div>
-                <label className="text-[#050505]  font-semibold mb-1 block">Matière / Cours :</label>
+                <label className="text-slate-800 dark:text-slate-100  font-semibold mb-1 block">Matière / Cours :</label>
                 <input
                   type="text"
                   value={formMatiere}
                   onChange={(e) => setFormMatiere(e.target.value)}
-                  className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  text-[#050505]  rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full bg-slate-50 dark:bg-slate-800/50  border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  text-slate-800 dark:text-slate-100  rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                   required
                 />
               </div>
 
               <div className="grid grid-cols-3 gap-2.5">
                 <div>
-                  <label className="text-[#050505]  font-semibold mb-1 block">Devoir (/20) :</label>
+                  <label className="text-slate-800 dark:text-slate-100  font-semibold mb-1 block">Devoir (/20) :</label>
                   <input
                     type="number"
                     step="0.5"
@@ -312,12 +312,12 @@ export const GradesModule: React.FC<GradesModuleProps> = ({
                     max="20"
                     value={formDevoir}
                     onChange={(e) => setFormDevoir(e.target.value)}
-                    className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  text-[#050505]  rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="w-full bg-slate-50 dark:bg-slate-800/50  border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  text-slate-800 dark:text-slate-100  rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     required
                   />
                 </div>
                 <div>
-                  <label className="text-[#050505]  font-semibold mb-1 block">Examen (/20) :</label>
+                  <label className="text-slate-800 dark:text-slate-100  font-semibold mb-1 block">Examen (/20) :</label>
                   <input
                     type="number"
                     step="0.5"
@@ -325,45 +325,45 @@ export const GradesModule: React.FC<GradesModuleProps> = ({
                     max="20"
                     value={formExamen}
                     onChange={(e) => setFormExamen(e.target.value)}
-                    className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  text-[#050505]  rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="w-full bg-slate-50 dark:bg-slate-800/50  border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  text-slate-800 dark:text-slate-100  rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     required
                   />
                 </div>
                 <div>
-                  <label className="text-[#050505]  font-semibold mb-1 block">Coef :</label>
+                  <label className="text-slate-800 dark:text-slate-100  font-semibold mb-1 block">Coef :</label>
                   <input
                     type="number"
                     min="1"
                     max="10"
                     value={formCoef}
                     onChange={(e) => setFormCoef(e.target.value)}
-                    className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  text-[#050505]  rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="w-full bg-slate-50 dark:bg-slate-800/50  border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  text-slate-800 dark:text-slate-100  rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     required
                   />
                 </div>
               </div>
 
               <div>
-                <label className="text-[#050505]  font-semibold mb-1 block">Appréciation Pédagogique :</label>
+                <label className="text-slate-800 dark:text-slate-100  font-semibold mb-1 block">Appréciation Pédagogique :</label>
                 <textarea
                   rows={2}
                   value={formAppreciation}
                   onChange={(e) => setFormAppreciation(e.target.value)}
-                  className="w-full bg-[#F0F2F5]  border border-[#E4E6EB]  text-[#050505]  rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full bg-slate-50 dark:bg-slate-800/50  border border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60  text-slate-800 dark:text-slate-100  rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 />
               </div>
 
-              <div className="flex justify-end gap-2 pt-3 border-t border-[#E4E6EB] ">
+              <div className="flex justify-end gap-2 pt-3 border-t border-slate-200 dark:border-slate-700/60 dark:border-slate-700/60 ">
                 <button
                   type="button"
                   onClick={() => setShowAddGradeModal(false)}
-                  className="px-4 py-2 bg-[#F0F2F5]  hover:bg-[#F0F2F5] text-[#050505]  rounded-xl font-semibold cursor-pointer"
+                  className="px-4 py-2 bg-slate-50 dark:bg-slate-800/50  hover:bg-slate-50 dark:bg-slate-800/50 text-slate-800 dark:text-slate-100  rounded-xl font-semibold cursor-pointer"
                 >
                   Annuler
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-2 bg-[#1877F2] hover:bg-[#1877F2] text-white rounded-xl font-bold shadow-sm cursor-pointer"
+                  className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold shadow-sm cursor-pointer"
                 >
                   Enregistrer la Note
                 </button>
